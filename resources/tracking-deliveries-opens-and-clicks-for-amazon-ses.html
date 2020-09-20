@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Tracking deliveries, opens, clicks, failures and complaints for Amazon SES - Mailintel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Tracking deliveries, opens and clicks for Amazon SES" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="This post explains how to track deliveries, opens, clicks, failures and complaints for Amazon SES emails. It details how Mailintel gets email events from Amazon SES and how you can do it yourself." />
+  <meta property="og:image" content="https://mailintel.io/images/resources/161219/header.png" />
+  <meta property="og:url" content="https://mailintel.io/resources/tracking-deliveries-opens-and-clicks-for-amazon-ses" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tachyons.css">
+  <link rel="stylesheet" href="/css/blog.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+<body>
+
+  <div class="header pa4">
+    <header><a href="/resources"><img src="/images/logo.png" style="width:100px"></a></header>
+  </div>
+
+  <div class="center w-50-ns w-90 w-70-m mv5">
+    <article>
+      <div class="ph5 pv4">
+        <div class="small-caps fade">Dec 18, 2019</div>
+        <h1 class="mt2 mb5 lh-title">Tracking deliveries, opens, clicks, failures and complaints for Amazon SES</h1>
+        <p><i>This post explains how to track deliveries, opens, clicks, failures and complaints for Amazon SES emails. It details how <a href="https://mailintel.io/">Mailintel</a> gets email events from Amazon SES and how you can do it yourself.</i></p>
+
+      </div>
+      <img src="/images/resources/161219/header.png" class="db mb2">
+      <div class="article-content">
+        <p>There are various ways to monitor email sending events if you use Amazon Simple Email Service (SES). Email sending events refer to metrics related to emails you send from the service. These are:</p>
+
+        <ul>
+        <li>Sends - Emails that have reached Amazon SES</li>
+        <li>Rejects - Emails Amazon SES did not attempt delivery on. A reason for this could be if it contained a virus for example.</li>
+        <li>Bounces - Emails that were sent but rejected by the receiver’s mail server. This could happen if the email address does not exist for example. </li>
+        <li>Complaints - Emails marked as spam by recipient</li>
+        <li>Deliveries - Emails successfully delivered</li>
+        <li>Opens - Emails that have been opened</li>
+        <li>Clicks - Link within email was clicked</li>
+        <li>Rendering Failures - Template rendering issue with email. This will only happen if you are using <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_Template.html" target="_blank" rel="noopener noreferrer">Amazon SES Templates</a></li>
+        </ul>
+
+        <p>Amazon has a Sending Statistics page and Reputation dashboard page that shows the number of deliveries, rejects, bounce and complaints. But what if we want to see which mails were actually rejected or bounced? Or even see the emails that were opened and links that were clicked? Or perform an action when any of these event occur? Enter <strong>event publishing</strong>.</p>
+
+        <h3>Event publishing</h3>
+
+        <p>Event publishing is simply telling Amazon SES to send email sending events to a particular destination. The way it works is this:</p>
+
+        <ol>
+          <li>We create a <strong>configuration set</strong>. A configuration set lets us select the events we want Amazon SES to send and to what destination (Amazon CloudWatch, Firehose or SNS).</li>
+          <li>When sending our email, we tell Amazon SES to use that configuration set. Amazon SES will then send the events for the email (or emails) to the configuration set destination. For this post, we will be using Amazon SNS (Simple Notification Service) as our destination. With SNS, we can further send the events to a webhook.</li>
+        </ol>
+
+        <h3>Creating a configuration set and SNS destination</h3>
+
+        <p>Let’s start by creating a configuration set.</p>
+
+        <ul>
+        <li>Go to your SES dashboard in your <a href="https://console.aws.amazon.com/ses/home" target="_blank" rel="noopener noreferrer">AWS console</a></li>
+        <li>Click on <strong>Configuration Sets</strong> in the left menu option</li>
+        <li>Click on <strong>Create Configuration Set</strong> button</li>
+        <li>You will need to give it a name. Add a name and create. </li>
+        <li>Once done, click on the configuration set to add a destination. Select <strong>SNS</strong> as your destination.</li>
+        <li>You will be prompted to select the events you want data for. You will also need to add a name. If you are tracking opens or clicks (as we will), you will be prompted to use Amazon SES default domain or Use your own subdomain. For this piece we will stick to using Amazon SES default domain.</li>
+        <li>Under the <strong>Topic</strong> section, select <strong>Create SNS Topic</strong>. We only need to add a topic name and we are good.</li>
+        </ul>
+
+        <div class="pa4">
+          <div class="fl-ns w-50-ns w-100">
+            <img src="/images/resources/161219/create.png" class="db mr3 bordered">
+          </div>
+          <div class="fl-ns w-50-ns w-100">
+            <img src="/images/resources/161219/set-destination.png" class="db ml3 bordered">
+          </div>
+          <div class="cb pt3"></div>
+          <div class="fl-ns w-50-ns w-100">
+            <img src="/images/resources/161219/select-topic.png" class="db mr3 bordered">
+          </div>
+          <div class="fl-ns w-50-ns w-100">
+            <img src="/images/resources/161219/create-topic.png" class="db ml3 bordered">
+          </div>
+          <div class="cb"></div>
+        </div>
+
+        <p>Now that we are done creating our configuration set and a SNS Topic, we need to update our SNS to add a webhook to receive the published events. But first, we need our webhook script.</p>
+
+        <h3>Creating the script and webhook</h3>
+
+        <p>Before we can add a webhook to our SNS, we need to create the script to process the received events first. To do so, we also need to know what the events data look like. We can find <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/event-publishing-retrieving-sns-examples.html" target="_blank" rel="noopener noreferrer">examples of Amazon SES Event Data here</a>. (Also take a look at the content structure here: <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/event-publishing-retrieving-sns-contents.html" target="_blank" rel="noopener noreferrer">Contents of Amazon SES Event Data Published to Amazon SNS</a>). With this, we can build a script that can handle the various event types.</p>
+
+        <p>Let’s create a boilerplate in Node.js. Create and change directory to a new directory. Let's call it <code>ses-events</code>. </p>
+
+<code>
+<pre>
+mkdir ses-events
+cd ses-events/
+</pre>
+</code>
+
+        <p>Initialise the project and install express and body-parser.</p>
+
+<code>
+<pre>
+npm init
+npm i --save express body-parser
+</pre>
+</code>
+
+<p>Create an <code>index.js</code> file with the content below. Modify as you want to.</p>
+
+<code>
+<pre><span style="color: #0000ff">const</span> express = require(<span style="color: #a31515">&#39;express&#39;</span>)
+  <span style="color: #0000ff">const</span> bodyParser = require(<span style="color: #a31515">&#39;body-parser&#39;</span>)
+
+  <span style="color: #0000ff">const</span> app = express()
+  app.listen(process.env.PORT || 3000)
+  app.use(bodyParser.urlencoded({ extended: <span style="color: #0000ff">true</span> }))
+  app.use(bodyParser.json())
+
+  app.post(<span style="color: #a31515">&#39;/&#39;</span>, (req, res) =&gt; {
+    <span style="color: #0000ff">try</span> {
+      <span style="color: #0000ff">const</span> body = JSON.parse(req.body.Message)
+
+      <span style="color: #008000">// If there is no event type, then we&#39;ve got nothing</span>
+      <span style="color: #0000ff">if</span> (!body.eventType) { <span style="color: #0000ff">return</span> res.end() }
+
+      <span style="color: #008000">// What&#39;s the event?</span>
+      <span style="color: #0000ff">const</span> event = body.eventType.toLowerCase()
+      <span style="color: #0000ff">const</span> eventData = body
+      console.log(JSON.stringify(eventData, <span style="color: #0000ff">null</span> 2))
+
+      <span style="color: #0000ff">const</span> domain = event_data.mail.tags[<span style="color: #a31515">&#39;ses:from-domain&#39;</span>][0]
+      <span style="color: #0000ff">const</span> messageId = event_data.mail.messageId
+      <span style="color: #0000ff">const</span> date = <span style="color: #0000ff">new</span> Date(eventData.mail.timestamp)
+      <span style="color: #0000ff">const</span> email = event_data.mail.destination[0]
+      <span style="color: #0000ff">const</span> subject = eventData.mail.commonHeaders.subject
+
+      <span style="color: #008000">// #todo: Verify event is from SES</span>
+
+      <span style="color: #0000ff">if</span> (event == <span style="color: #a31515">&#39;click&#39;</span>) {
+        <span style="color: #0000ff">const</span> ua = eventData.click.userAgent
+        <span style="color: #0000ff">const</span> url = eventData.click.link
+        <span style="color: #008000">// do stuff here</span>
+      } <span style="color: #0000ff">else</span> <span style="color: #0000ff">if</span> (event == <span style="color: #a31515">&#39;open&#39;</span>) {
+        <span style="color: #0000ff">const</span> ua = eventData.open.userAgent
+        <span style="color: #008000">// do stuff here</span>
+      } <span style="color: #0000ff">else</span> <span style="color: #0000ff">if</span> (event == <span style="color: #a31515">&#39;delivery&#39;</span>) {
+        <span style="color: #008000">// do stuff here</span>
+      } <span style="color: #0000ff">else</span> <span style="color: #0000ff">if</span> (event == <span style="color: #a31515">&#39;complaint&#39;</span>) {
+        <span style="color: #0000ff">const</span> ua = eventData.complaint.userAgent
+        <span style="color: #008000">// do stuff here</span>
+      } <span style="color: #0000ff">else</span> <span style="color: #0000ff">if</span> (event == <span style="color: #a31515">&#39;reject&#39;</span>) {
+        <span style="color: #0000ff">const</span> ua = eventData.complaint.userAgent
+        <span style="color: #0000ff">const</span> reason = eventData.reject.reason
+        <span style="color: #008000">// do stuff here</span>
+      } <span style="color: #0000ff">else</span> <span style="color: #0000ff">if</span> (event == <span style="color: #a31515">&#39;bounce&#39;</span>) {
+        <span style="color: #0000ff">const</span> description = eventData.bounce.bouncedRecipients[0].diagnosticCode
+        <span style="color: #008000">// do stuff here</span>
+      } <span style="color: #0000ff">else</span> {
+        <span style="color: #008000">// Not supported</span>
+        <span style="color: #008000">// do stuff here</span>
+      }
+
+      <span style="color: #008000">// anything else can come in here</span>
+
+      <span style="color: #0000ff">return</span> res.end()
+    } <span style="color: #0000ff">catch</span> (err) {
+      <span style="color: #008000">// #todo: Track error here</span>
+      res.end()
+    }
+  })
+  </pre>
+</code>
+
+        <p>For test, you can run this locally and use <a href="https://ngrok.com/" target="_blank" rel="noopener noreferrer">ngrok</a> to create a public URL to it. Or use a service like <a href="https://heroku.com/" target="_blank" rel="noopener noreferrer">Heroku, <a href="https://now.sh/" target="_blank" rel="noopener noreferrer">Now</a> or <a href="https://glitch.me/" target="_blank" rel="noopener noreferrer">Glitch</a> to host it. Once we have a URL for our script, we can update SNS to send the events to the URL.</p>
+
+        <p>Go to SNS and click on the topic created for the configuration set. Click create subscription, choose http (or https if your host provides you that).</p>
+
+        <img src="/images/resources/161219/sns.png" class="bordered">
+
+        <p>There is a tiny part we missed. We need to confirm the endpoint before Amazon SES can send events data to it. Amazon will send a URL to it (<code>SubscribeURL</code> to it via POST) and expects us to visit the sent URL. We can update our webhook script to take care of this automatically.</p>
+
+<code>
+<pre><span style="color: #0000ff">const</span> got = require(<span style="color: #a31515">&#39;got&#39;</span>)
+<span style="color: #0000ff">const</span> express = require(<span style="color: #a31515">&#39;express&#39;</span>)
+<span style="color: #0000ff">const</span> bodyParser = require(<span style="color: #a31515">&#39;body-parser&#39;</span>)
+
+<span style="color: #0000ff">const</span> app = express()
+app.listen(process.env.PORT || 3000)
+app.use(bodyParser.urlencoded({ extended: <span style="color: #0000ff">true</span> }))
+app.use(bodyParser.json())
+
+app.post(<span style="color: #a31515">&#39;/&#39;</span>, (req, res) =&gt; {
+  <span style="color: #0000ff">try</span> {
+
+    <span style="color: #008000">// Include this new block</span>
+    <span style="color: #008000">// to confirm subscription</span>
+    <span style="color: #0000ff">if</span> (req.is(<span style="color: #a31515">&#39;text/*&#39;</span>)) {
+      req.body = JSON.parse(req.body)
+      <span style="color: #0000ff">if</span> (req.body.SubscribeURL) {
+        await got(req.body.SubscribeURL)
+        <span style="color: #0000ff">return</span> res.end()
+      }
+    }
+    <span style="color: #008000">// \endblock</span>
+
+    <span style="color: #0000ff">const</span> body = JSON.parse(req.body.Message)
+
+    <span style="color: #008000">// rest of our script</span>
+</pre>
+</code>
+
+        <p>I am using <a href="https://github.com/sindresorhus/got" target="_blank" rel="noopener noreferrer">got</a> to "visit" the <code>SubscriptionURL</code> so be sure to install it.</p>
+        <code><pre>npm i --save got</pre></code>
+
+        <p>Click the <strong>Create Subscription</strong> button once done and you should be good.</p>
+
+        <h3>Sending with the configuration set</h3>
+
+        <p>The next part of the piece is telling Amazon SES to use our configuration set when sending emails. This is not done automatically. You need to edit your send scripts to add a header to tell Amazon SES to use the configuration set.</p>
+
+        <p>If you are using SMTP, simply add the header:</p>
+
+<code>
+<pre>
+X-SES-CONFIGURATION-SET: config-set-name
+</pre>
+</code>
+
+        <p>In PHPMailer for example, this will look like this: </p>
+
+<code>
+<pre><span style="color: #008000">// ...</span>
+$mail = <span style="color: #0000ff">new</span> PHPMailer();
+<span style="color: #008000">// ...other lines here</span>
+<span style="color: #008000">// custom header for config set</span>
+$mail-&gt;addCustomHeader(<span style="color: #a31515">&#39;X-SES-CONFIGURATION-SET&#39;</span>, <span style="color: #a31515">&#39;config-set-name&#39;</span>);
+<span style="color: #008000">// ...</span>
+</pre>
+</code>
+
+        <p>If you are using the AWS SES Nodejs Library, it will look like this</p>
+
+<code>
+<pre><span style="color: #0000ff">const</span> ses = <span style="color: #0000ff">new</span> AWS.SES({
+  accessKeyId: process.env.ID,
+  secretAccessKey: process.env.KEY,
+  region: process.env.REGION
+});
+ses.sendEmail({
+  Destination: {
+    ToAddresses: [<span style="color: #a31515">&#39;kehers@gmail.com&#39;</span>]
+  },
+  Message: {
+    Body: {
+    Html: {
+      Charset: <span style="color: #a31515">&quot;UTF-8&quot;</span>,
+      Data: <span style="color: #a31515">&#39;&lt;p&gt;Yo. This is a test :)&lt;/p&gt;&#39;</span>
+    },
+    Text: { Data: <span style="color: #a31515">&#39;Yo. This is test :)&#39;</span> }
+    },
+    Subject: { Data: <span style="color: #a31515">&#39;Hey&#39;</span> }
+  },
+  ConfigurationSetName: <span style="color: #a31515">&#39;demo&#39;</span>, <span style="color: #008000">// &lt;-- this</span>
+  Source:  <span style="color: #a31515">&#39;&quot;Mailintel&quot; &lt;hello@mailintel.io&gt;&#39;</span>
+  }, (err, data) =&gt; {
+  console.log(data, err);
+  <span style="color: #008000">// ~</span>
+})
+</pre>
+</code>
+
+        <h3>Making it scalable</h3>
+
+        <p>If you send a lot of mails, it is important your script is hosted on a platform that can handle a lot of multiple connections and surge. You need a service that can automatically scale depending on the number of requests. My recommendation is to use services like Amazon Lambda or Google Cloud functions. The additional beauty of such service is you are not charged for periods your script do not have any requests. What’s more interesting is that you can directly connect Amazon SNS to Amazon Lambda.</p>
+
+        <p>To create a Lambda function, we only need to make slight changes to our script.</p>
+
+<code>
+<pre><span style="color: #0000ff">const</span> got = require(<span style="color: #a31515">&#39;got&#39;</span>)
+exports.handler = (event, context, callback) =&gt; {
+  <span style="color: #0000ff">try</span> {
+    <span style="color: #0000ff">const</span> body = JSON.parse(event.Records[0].Sns.Message);
+
+    <span style="color: #008000">// If there is no event type, then we&#39;ve got nothing</span>
+    <span style="color: #0000ff">if</span> (!body.eventType) { <span style="color: #0000ff">return</span> callback() }
+
+    <span style="color: #008000">// process event here...</span>
+
+    <span style="color: #0000ff">return</span> callback()
+  } <span style="color: #0000ff">catch</span> (err) {
+    <span style="color: #008000">// #todo: Track error here</span>
+    callback(err)
+  }
+}
+</pre>
+</code>
+
+        <p>Few things you will notice</p>
+
+        <ul>
+        <li>I am no longer including <code>express</code> and <code>body-parser</code>. Lambda handles the routing and processing of the request body.</li>
+        <li>My body data is coming from <code>event.Records[0].Sns.Message</code>. This is how SNS sends data to Lambda. Its content will be a string so I need to convert it to an object with JSON.parse</li>
+        <li>I am replacing <code>res.end()</code> with <code>callback()</code>. Since there are no more req and res parameters, callback is how we tell Lambda we are done.</li>
+        </ul>
+
+        <p>You can read more on Amazon Lambda here: <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html" target="_blank" rel="noopener noreferrer">Getting Started with AWS Lambda</a></p>
+
+        <p>Let’s switch from our hosted webhook to Lambda. We will start by creating the function.</p>
+
+        <ul>
+        <li>Go to Amazon Lambda service in your console.</li>
+        <li>Click on <strong>Functions</strong> and the <strong>Create a function</strong> button</li>
+        <li>Give it a name, chose the Node.js runtime and create</li>
+        <li>Next scroll down to the <strong>Function code</strong> section. We are not going to be using the inline editor because we need to install <code>got</code> and there is no way to do it using the inline editor. Instead, we are going to be uploading our local setup. Change the <strong>Code entry type</strong> to <strong>Upload a .zip file</strong>. Note that <code>index.handler</code> in the <strong>Handler</strong> input means "in <strong>index</strong>.js, make a call to exports<strong>.handler</strong>". If you are using a different file name from <code>index.js</code>, then update the Handler section.</li>
+        <li>Change directory to your updated script folder. Remember to have installed <code>got</code> and remove <code>express</code> and <code>body-parser</code>. Select all the content and zip it. You should see an <code>index.js</code> file, a <code>node_modules</code> folder and <code>package.json</code> files.</li>
+        <li>Go back to the function page and click the <strong>Function package</strong> upload button. Select the zipped file and click the <strong>Save</strong> button. (Review the additional options on the uploaded Lambda function page. If you are using environmental variables, there is a place you can add them. You may also want to increase the timeout to something more than 3 seconds depending on the processing you are doing with the events data.)</li>
+        </ul>
+
+        <p>Once uploaded, we can go back to our SNS subscription, change the <strong>Protocol</strong> to AWS Lambda and select our Lambda function from the <strong>Endpoint</strong> options.</p>
+
+        <img src="/images/resources/161219/update-sns.png" class="db ml3 bordered">
+
+        <h3>Conclusion</h3>
+
+        <p>Phew. That seems like a lot. Compared to the interesting things you can do with the events data though, may be not. Mailintel handles all this automatically to present your email analytics and reporting in a simple and detailed way. Do check it out: <a href="https://mailintel.io/">mailintel.io</a></p>
+
+        <h3>FAQs</h3>
+
+        <ul>
+          <li>
+            <p><strong>What’s the difference between Rejects vs Bounces</strong></p>
+            <p>Rejects don’t reach the receiver’s email server. They only get to Amazon SES and get rejected. Bounces get to the receiver’s email server and get rejected. A reason a bounce can happen is if the email is wrong or full. If Amazon SES thinks it’s a temporary issue, if the receiver’s mailbox is full for example, it will attempt retries a couple of times before failing finally. You will get a bounce event at every attempt.</p>
+            </li>
+            <li>
+              <p><strong>How does open tracking work?</strong></p>
+              <p>Amazon SES adds a 1x1 pixel transparent image to the email to achieve this. There has been a lot of conversation around if this is ethical or not. For transactional emails, it’s a different conversation but one for some other time. </p>
+              <p>Few notes:</p>
+              <ul>
+                <li>This only works for HTML emails</li>
+                <li>You can turn it off by not specifying a configuration set or not including opens tracking in the configuration set</li>
+                <li>Opens tracking is not 100% accurate. Some email clients require receivers to explicitly load embedded images. </li>
+              </ul>
+            </li>
+          <li>
+            <p><strong>How does click tracking work?</strong></p>
+            <p>Amazon SES replaces links in the email with another link that tracks click and redirect to the original link. To disable tracking on a link, you can add <code>ses:no-track</code> as an attribute to the A tag like this</p>
+            <p><code>&lt;a ses:no-track href="https://mailintel.io"&gt;Mailintel&lt;/a&gt;</code>.</p>
+            <p>Click tracking also works for HTML emails only</p>
+          </li>
+        </ul>
+      </div>
+      <div class="mh5 colophon"></div>
+      <div class="ph5 pv4 fade">
+        <p>Follow the conversation: <a href="https://twitter.com/mailintel" target="_blank">@mailintel</a> &middot; <a href="/resources/feed.xml">RSS</a></p>
+      </div>
+    </article>
+  </div>
+
+  <footer class="pv5">
+    <div class="center w-50-ns w-90 w-70-m">
+      <p class="lh-copy measure">Mailintel provides detailed analytics, reporting and business intelligence for transactional emails and campaigns sent through Amazon SES and Mailgun.</p>
+      <a href="/signup" class="button button-primary-alt mr2 mv2">Create a free account now</a> <a href="/" class="button button-alt mv2">Learn more</a>
+      <p class="mt5">&copy; <script type="text/javascript">document.write(new Date().getFullYear());</script>, <a href="http://everygood.co/">Every Good Inc</a></p>
+    </div>
+  </footer>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-153338555-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-153338555-1');
+  </script>
+
+</body>
+</html>
