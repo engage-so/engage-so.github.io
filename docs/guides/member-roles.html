@@ -36,7 +36,7 @@
         <li><a href="/docs/guides/automations.html">Automations</a></li>
         <li><a href="/docs/guides/tags.html">Personalisation tags</a></li>
         <li><a href="/docs/guides/templates.html">Templates</a></li>
-        <li><a href="/docs/guides/member-roles.html">Team member roles</a></li>
+        <li><a href="/docs/guides/member-roles.html" class="active">Team member roles</a></li>
       </ul>
       <h3 class="mb1 small-caps">Integration</h3>
       <ul class="nav">
@@ -48,7 +48,7 @@
           </ul> -->
         </li>
         <li>
-          <a href="/docs/sdks" class="active">SDKs</a>
+          <a href="/docs/sdks">SDKs</a>
           <ul class="nav ml3">
             <li><a href="/docs/sdks/javascript.html">JavaScript SDK</a></li>
           </ul>
@@ -58,10 +58,42 @@
     <div class="w-80 pv4 ph5 mainbar">
       <div class="w-70-l w-100">
         <article class="pb5">
-          <h1>SDKs</h1>
-<p>The SDKs provide an easier way to interact with the Engage API.</p>
+          <h1>Team member roles</h1>
+<p>Engage supports adding team members to an account. Each member can be assigned any of the four available roles:</p>
 <ul>
-<li><a href="/docs/sdks/javascript.html">JavaScript SDK</a> - for browser and Node.js</li>
+<li><code>Admin</code></li>
+<li><code>Manager</code></li>
+<li><code>Developer</code></li>
+<li><code>Member</code></li>
+</ul>
+<p>These roles define what what they can do.</p>
+<h2>Admin</h2>
+<ul>
+<li>Cannot delete the account. (Only the account creator can delete an account).</li>
+<li>Can do everything else</li>
+</ul>
+<h2>Manager</h2>
+<ul>
+<li>Cannot grant admin access to another team mate.</li>
+<li>Cannot delete the account</li>
+<li>Can do everything else</li>
+</ul>
+<h2>Developer</h2>
+<p>The developer role grants the following access:</p>
+<ul>
+<li>Has full access to templates</li>
+<li>Has full access to transactional email analytics</li>
+<li>Has full access to users</li>
+<li>Has full access to lists</li>
+<li>Can view broadcasts</li>
+<li>Can view segments</li>
+<li>Cannot invite, edit role or remove team members</li>
+<li>Cannot create, update or send broadcast</li>
+<li>Cannot create, update or delete segments</li>
+</ul>
+<h2>Member</h2>
+<ul>
+<li>Can only view all modules on the dashboard. Cannot perform any create, update or delete action.</li>
 </ul>
 
         </article>

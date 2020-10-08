@@ -1,4 +1,4 @@
 ---
 layout: docs
-page: intro
+page: automations
 ---

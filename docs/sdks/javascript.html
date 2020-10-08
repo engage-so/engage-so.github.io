@@ -3,93 +3,132 @@
 <head>
 
   <meta charset="utf-8">
-  <title></title>
+  <title>Javascript SDK</title>
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Event driven customer segmentation and targeted engagement">
+  <meta name="description" content="The Engage JavaScript SDK lets you automatically identify users and capture events, actions and attributes on your site. It can be used both in Node.js or in the browser.">
   <meta name="slack-app-id" content="A6566DWTS">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&family=Fira+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/tachyons.css">
   <link rel="stylesheet" href="/css/tomorrow-night.css">
   <link rel="stylesheet" href="/css/site.css">
 </head>
 <body>
   <div class="flex f5">
-    <div class="w-20 pv3 ph4 sidebar fixed">
+    <div class="w-20 pa4 sidebar fixed">
+      <div class="mb4">
+        <a href="/docs"><img src="/images/engage-logo.png"></a>
+      </div>
+
+      <!-- <div class="mv4">
+        <input type="search" placeholder="Search..." class="w-100">
+      </div> -->
+
+      <h3 class="mb1 small-caps">Platform guide</h3>
       <ul class="nav">
-        <li><a href="">Segments</a></li>
-        <li><a href="">Lists</a></li>
-        <li><a href="">Personalisation tags</a></li>
-        <li><a href="/docs/bring-your-users.html">Bringing in your users</a></li>
+        <li><a href="/docs/guides/connecting-user-data.html">Connecting user data</a></li>
+        <li><a href="/docs/guides/segments.html">Segments</a></li>
+        <li><a href="/docs/guides/lists.html">Lists</a></li>
+        <li><a href="/docs/guides/automations.html">Automations</a></li>
+        <li><a href="/docs/guides/tags.html">Personalisation tags</a></li>
+        <li><a href="/docs/guides/templates.html">Templates</a></li>
+        <li><a href="/docs/guides/member-roles.html">Team member roles</a></li>
+      </ul>
+      <h3 class="mb1 small-caps">Integration</h3>
+      <ul class="nav">
+        <!-- <li><a href="/docs">Introduction</a></li> -->
         <li>
-          <a href="">API</a>
-          <ul class="nav ml3">
+          <a href="/docs/api">API</a>
+          <!-- <ul class="nav ml3">
             <li><a href="">Introduction</a></li>
-          </ul>
+          </ul> -->
         </li>
         <li>
-          <a href="">SDKs</a>
+          <a href="/docs/sdks">SDKs</a>
           <ul class="nav ml3">
-            <li><a href="/docs/sdks/javascript.html">Javascript SDK</a></li>
+            <li><a href="/docs/sdks/javascript.html" class="active">JavaScript SDK</a></li>
           </ul>
         </li>
-        <li><a href="">Templates</a></li>
       </ul>
     </div>
     <div class="w-80 pv4 ph5 mainbar">
-      <h1>Javascript SDK</h1>
-<p>The Javascript SDK allows you to automatically identify users and capture actions and attributes on your site. It can be used both in Node.js or in the browser.</p>
-<p><em>New to Engage? Create an account</em></p>
-<h3>Installation</h3>
-<p><strong>NPM</strong>
-<code>npm install —save @engage/js</code>
-Or
-<code>yarn add @engage/js</code></p>
-<p><strong>CDN</strong>
-Alternatively, you can simply load it from our CDN
-<code>&lt;script src=“//d2wy8f7a9ursnm.cloudfront.net/next/engage.min.js”&gt;&lt;/script&gt;</code></p>
-<h3>Configuration</h3>
+      <div class="w-70-l w-100">
+        <article class="pb5">
+          <h1>JavaScript SDK</h1>
+<p>The Engage JavaScript SDK lets you automatically identify users and capture events, actions and attributes on your site. It can be used both in Node.js or in the browser.</p>
+<p><em>New to Engage? <a href="https://engage.so/">Create an account</a>.</em></p>
+<h2>Installation</h2>
+<pre class="hljs"><code><span class="hljs-comment">// NPM</span>
+npm install —save @engage_so/js
+<span class="hljs-comment">// Or Yarn</span>
+yarn add @engage_so/js
+</code></pre>
+<p>Alternatively, you can use directly from the CDN</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;//d2969mkc0xw38n.cloudfront.net/next/engage.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>If you are using the CDN version, then use the code below to ensure calls to the SDK before the script is completely loaded are handled.</p>
+<pre class="hljs"><code>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">k</span>) </span>{
+  <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>[<span class="hljs-string">&#x27;Engage&#x27;</span>]) { <span class="hljs-keyword">return</span> }
+  <span class="hljs-built_in">window</span>[k] = <span class="hljs-built_in">window</span>[k] || {};
+  <span class="hljs-built_in">window</span>[k].queue = <span class="hljs-built_in">window</span>[k].queue || [];
+  <span class="hljs-built_in">window</span>[<span class="hljs-string">&#x27;Engage&#x27;</span>] = <span class="hljs-built_in">window</span>[<span class="hljs-string">&#x27;Engage&#x27;</span>] || {};
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">q</span>(<span class="hljs-params">f</span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-built_in">window</span>[k].queue.push([f].concat([].slice.call(<span class="hljs-built_in">arguments</span>)));
+    }
+  }
+  <span class="hljs-keyword">var</span> options = [<span class="hljs-string">&#x27;init&#x27;</span>, <span class="hljs-string">&#x27;identify&#x27;</span>, <span class="hljs-string">&#x27;addAttribute&#x27;</span>, <span class="hljs-string">&#x27;track&#x27;</span>];
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; options.length; i++) {
+    <span class="hljs-built_in">window</span>[<span class="hljs-string">&#x27;Engage&#x27;</span>][options[i]] = q(options[i]);
+  }
+  <span class="hljs-keyword">var</span> el = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&#x27;script&#x27;</span>);
+  el.src = <span class="hljs-string">&#x27;//d2969mkc0xw38n.cloudfront.net/next/engage.min.js&#x27;</span>;
+  el.async = <span class="hljs-literal">true</span>;
+  <span class="hljs-built_in">document</span>.head.appendChild(el);
+})(<span class="hljs-string">&#x27;engage&#x27;</span>);
+</code></pre>
+<h2>Configuration</h2>
 <pre class="hljs"><code><span class="hljs-comment">// commonjs/node-style require</span>
-<span class="hljs-keyword">const</span> Engage = <span class="hljs-built_in">require</span>(‘@engage/js’)
+<span class="hljs-keyword">const</span> Engage = <span class="hljs-built_in">require</span>(‘@engage_so/js’)
 </code></pre>
 <pre class="hljs"><code><span class="hljs-comment">// ES module-style import</span>
-<span class="hljs-keyword">import</span> Engage <span class="hljs-keyword">from</span> ‘@engage/js’
+<span class="hljs-keyword">import</span> Engage <span class="hljs-keyword">from</span> ‘@engage_so/js’
 </code></pre>
-<p>Use default configuration</p>
+<p>Initializing the SDK with your just API key:</p>
 <pre class="hljs"><code>Engage.init(<span class="hljs-string">&#x27;api_key&#x27;</span>)
 </code></pre>
-<p>Additional options</p>
-<pre class="hljs"><code>Engage.init(options)
+<p>Initializing with additional options:</p>
+<pre class="hljs"><code>Engage.init({
+  <span class="hljs-attr">key</span>: <span class="hljs-string">&#x27;api_key&#x27;</span>,
+  <span class="hljs-attr">secret</span>: <span class="hljs-string">&#x27;api_secret&#x27;</span>
+})
 </code></pre>
-<p><strong>options</strong></p>
+<p><strong>options:</strong></p>
 <ul>
-<li>key</li>
-<li>secret: Engage identifies your application with the <code>key</code> parameter. This is enough to identify and track user actions. If however you want to do more, like update or delete user data, you need to add your <code>secret</code>. This should only be used in server side apps as your secret should be treated as a password and kept confidential.</li>
-<li><s>source</s></li>
-<li><s>trackPages</s></li>
-<li><s>debug</s></li>
+<li><code>key</code>: Your account API key. Available in your account dashboard.</li>
+<li><code>secret</code>: Your account secret key. Available in your account dashboard.</li>
 </ul>
-<h3>Identifying users</h3>
-<p>Before you can track user actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. (See bringing in your users for more). You only need to do this once; at user signup for example.</p>
+<p>Engage identifies your application with the <code>key</code> parameter. This is enough to identify and track user events or actions. If however you want to do more, like update or delete user data, you need to add your <code>secret</code>. This should only be used in server side applications as your secret should be treated as a password and kept confidential.</p>
+<h2>Identifying users</h2>
+<p>Before you can track user events, actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. (<a href="/docs/connecting-user-data.html">See connecting user data</a> for more). You only need to do this once; at user signup for example.</p>
 <pre class="hljs"><code>Engage.identify({
  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;u13345&#x27;</span>,
  <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;dan@mail.app&#x27;</span>,
  <span class="hljs-attr">created_at</span>: <span class="hljs-string">&#x27;2020-05-30T09:30:10Z&#x27;</span>
 })
 </code></pre>
-<p><em>id should be a unique identifier for the user. It should be a value that will not change in your application. For example, don’t use a username as id if users can update their usernames</em></p>
+<p><em><code>id</code> should be a unique identifier for the user. It should be a value that will not change in your application. For example, don’t use a username as <code>id</code> if users can update their usernames</em></p>
 <p>The <code>created_at</code> property is optional. If not added, Engage sets it to the current timestamp. Other optional properties you can include are:</p>
 <ul>
-<li>first_name</li>
-<li>last_name</li>
+<li><code>first_name</code></li>
+<li><code>last_name</code></li>
 </ul>
-<p>If you need to update any of the properties (created_at, first_name, last_name), you can call <code>identify</code> with the property set to the new value. This only works when you use the <code>secret</code> parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).</p>
-<p>If you want to update <code>email</code>  this way, the new email should not have been “identified” with a different user id.</p>
-<h3>Tracking user attributes</h3>
+<p>If you need to update any of the properties (<code>created_at</code>, <code>first_name</code>, <code>last_name</code>), you can call <code>identify</code> with the property set to the new value. If you want to update <code>email</code>  this way, the new email should not have been &quot;identified&quot; with a different user id. Email update also only works when you use the <code>secret</code> parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).</p>
+<h2>Tracking user attributes</h2>
 <p>You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings.</p>
 <pre class="hljs"><code>Engage.addAttributes(<span class="hljs-string">&#x27;user_id&#x27;</span>, {
  <span class="hljs-attr">plan</span>: <span class="hljs-string">&#x27;pro&#x27;</span>,
@@ -101,7 +140,7 @@ Alternatively, you can simply load it from our CDN
  <span class="hljs-attr">plan</span>: <span class="hljs-string">&#x27;premium&#x27;</span>
 })
 </code></pre>
-<h3>Tracking user events and actions</h3>
+<h2>Tracking user events and actions</h2>
 <p>Events and user actions can be tracked in a couple of ways. The simplest way to do this is like this:</p>
 <pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;user_id&#x27;</span>, <span class="hljs-string">&#x27;deactivate&#x27;</span>)
 </code></pre>
@@ -112,23 +151,25 @@ Alternatively, you can simply load it from our CDN
 })
 </code></pre>
 <p><code>timestamp</code> is optional. If it is not included, Engage uses the current timestamp. If included, it must be a valid date time string.</p>
-<p>Some actions may have additional properties instead of a single value. Here is how to track those:</p>
+<p>Some events may have additional properties instead of a single value. Here is how to track those:</p>
 <pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;user_id&#x27;</span>, {
  <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;add_to_cart&#x27;</span>,
  <span class="hljs-attr">timestamp</span>: <span class="hljs-string">&#x27;2020-05-30T09:30:10Z&#x27;</span>,
  <span class="hljs-attr">properties</span>: {
    <span class="hljs-attr">product</span>: <span class="hljs-string">&#x27;T123&#x27;</span>,
-	 <span class="hljs-attr">currency</span>: <span class="hljs-string">&#x27;USD&#x27;</span>,
+   <span class="hljs-attr">currency</span>: <span class="hljs-string">&#x27;USD&#x27;</span>,
    <span class="hljs-attr">amount</span>: <span class="hljs-number">12.99</span>
  }
 })
 </code></pre>
-<h3>Difference between attribute and events tracking</h3>
+<h2>Difference between attribute and events tracking</h2>
 <p>Attributes are attached to the user’s metadata. If an attribute changes, the new value overrides the previous value. Events are not tracked that way. If an event’s value changes, the old value is not replaced. The new value is tracked with a different timestamp. This lets you be able to segment users based on old events within a time range.</p>
-<h3>A note on values</h3>
-<p>When tracking attributes and actions, it is important you use the right data type for better segmentation. For example, instead of using a string value of ‘$12.99’ for a price, you can use a number value so that numerical operators like equality, greater than, less than can be used on the value.</p>
+<h2>A note on values</h2>
+<p>When tracking attributes and events, it is important you use the right data type for better segmentation. For example, instead of using a string value of <code>$12.99</code> for a price, you can use a number value so that numerical operators like equality, greater than, less than can be used on the value.</p>
 <p>To track a date attribute, use a valid date format like <code>2020-05-30</code> or <code>2020-05-30T09:30:10Z</code>.</p>
 
+        </article>
+      </div>
     </div>
   </div>
 </body>

@@ -1,56 +1,90 @@
 ---
 layout: docs
+title: Javascript SDK
+description: The Engage JavaScript SDK lets you automatically identify users and capture events, actions and attributes on your site. It can be used both in Node.js or in the browser.
+page: sdk-js
 ---
-# Javascript SDK
+# JavaScript SDK
 
-The Javascript SDK allows you to automatically identify users and capture actions and attributes on your site. It can be used both in Node.js or in the browser.
+The Engage JavaScript SDK lets you automatically identify users and capture events, actions and attributes on your site. It can be used both in Node.js or in the browser.
 
-*New to Engage? Create an account*
+*New to Engage? [Create an account](https://engage.so/).*
 
-### Installation
+## Installation
 
-**NPM**
-`npm install —save @engage/js`
-Or 
-`yarn add @engage/js`
+```js
+// NPM
+npm install —save @engage_so/js
+// Or Yarn
+yarn add @engage_so/js
+```
 
-**CDN**
-Alternatively, you can simply load it from our CDN
-`<script src=“//d2wy8f7a9ursnm.cloudfront.net/next/engage.min.js”></script>`
+Alternatively, you can use directly from the CDN
 
-### Configuration
+```html
+<script src="//d2969mkc0xw38n.cloudfront.net/next/engage.min.js"></script>
+```
+
+If you are using the CDN version, then use the code below to ensure calls to the SDK before the script is completely loaded are handled.
+
+```js
+(function(k) {
+  if (window['Engage']) { return }
+  window[k] = window[k] || {};
+  window[k].queue = window[k].queue || [];
+  window['Engage'] = window['Engage'] || {};
+  function q(f) {
+    return function(){
+      window[k].queue.push([f].concat([].slice.call(arguments)));
+    }
+  }
+  var options = ['init', 'identify', 'addAttribute', 'track'];
+  for (var i = 0; i < options.length; i++) {
+    window['Engage'][options[i]] = q(options[i]);
+  }
+  var el = document.createElement('script');
+  el.src = '//d2969mkc0xw38n.cloudfront.net/next/engage.min.js';
+  el.async = true;
+  document.head.appendChild(el);
+})('engage');
+```
+
+## Configuration
 
 ```js
 // commonjs/node-style require
-const Engage = require(‘@engage/js’)
+const Engage = require(‘@engage_so/js’)
 ```
 
 ```js
 // ES module-style import
-import Engage from ‘@engage/js’
+import Engage from ‘@engage_so/js’
 ```
 
-Use default configuration
+Initializing the SDK with your just API key:
 ```js
 Engage.init('api_key')
 ```
 
-Additional options
+Initializing with additional options:
 ```js
-Engage.init(options)
+Engage.init({
+  key: 'api_key',
+  secret: 'api_secret'
+})
 ```
 
-**options**
-- key
-- secret: Engage identifies your application with the `key` parameter. This is enough to identify and track user actions. If however you want to do more, like update or delete user data, you need to add your `secret`. This should only be used in server side apps as your secret should be treated as a password and kept confidential.
-- ~~source~~
-- ~~trackPages~~
-- ~~debug~~
+**options:**
+
+- `key`: Your account API key. Available in your account dashboard.
+- `secret`: Your account secret key. Available in your account dashboard. 
+
+Engage identifies your application with the `key` parameter. This is enough to identify and track user events or actions. If however you want to do more, like update or delete user data, you need to add your `secret`. This should only be used in server side applications as your secret should be treated as a password and kept confidential.
 
 
-### Identifying users
+## Identifying users
 
-Before you can track user actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. (See bringing in your users for more). You only need to do this once; at user signup for example.
+Before you can track user events, actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. ([See connecting user data](/docs/connecting-user-data.html) for more). You only need to do this once; at user signup for example.
 
 ```js
 Engage.identify({
@@ -60,18 +94,16 @@ Engage.identify({
 })
 ```
 
-*id should be a unique identifier for the user. It should be a value that will not change in your application. For example, don’t use a username as id if users can update their usernames*
+*`id` should be a unique identifier for the user. It should be a value that will not change in your application. For example, don’t use a username as `id` if users can update their usernames*
 
 The `created_at` property is optional. If not added, Engage sets it to the current timestamp. Other optional properties you can include are:
 
-- first_name
-- last_name
+- `first_name`
+- `last_name`
 
-If you need to update any of the properties (created_at, first_name, last_name), you can call `identify` with the property set to the new value. This only works when you use the `secret` parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).
+If you need to update any of the properties (`created_at`, `first_name`, `last_name`), you can call `identify` with the property set to the new value. If you want to update `email`  this way, the new email should not have been "identified" with a different user id. Email update also only works when you use the `secret` parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).
 
-If you want to update `email`  this way, the new email should not have been “identified” with a different user id.
-
-### Tracking user attributes
+## Tracking user attributes
 
 You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings.
 
@@ -90,7 +122,7 @@ Engage.addAttributes('user_id', {
 })
 ```
 
-### Tracking user events and actions
+## Tracking user events and actions
 
 Events and user actions can be tracked in a couple of ways. The simplest way to do this is like this:
 
@@ -108,7 +140,7 @@ Engage.track('user_id', {
 
 `timestamp` is optional. If it is not included, Engage uses the current timestamp. If included, it must be a valid date time string.
 
-Some actions may have additional properties instead of a single value. Here is how to track those:
+Some events may have additional properties instead of a single value. Here is how to track those:
 
 ```js
 Engage.track('user_id', {
@@ -116,19 +148,19 @@ Engage.track('user_id', {
  timestamp: '2020-05-30T09:30:10Z',
  properties: {
    product: 'T123',
-	 currency: 'USD',
+   currency: 'USD',
    amount: 12.99
  }
 })
 ```
 
-### Difference between attribute and events tracking
+## Difference between attribute and events tracking
 
 Attributes are attached to the user’s metadata. If an attribute changes, the new value overrides the previous value. Events are not tracked that way. If an event’s value changes, the old value is not replaced. The new value is tracked with a different timestamp. This lets you be able to segment users based on old events within a time range.
 
-### A note on values
+## A note on values
 
-When tracking attributes and actions, it is important you use the right data type for better segmentation. For example, instead of using a string value of ‘$12.99’ for a price, you can use a number value so that numerical operators like equality, greater than, less than can be used on the value.
+When tracking attributes and events, it is important you use the right data type for better segmentation. For example, instead of using a string value of `$12.99` for a price, you can use a number value so that numerical operators like equality, greater than, less than can be used on the value.
 
 To track a date attribute, use a valid date format like `2020-05-30` or `2020-05-30T09:30:10Z`.
 
