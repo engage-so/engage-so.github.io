@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title></title>
+  <title>Team member roles</title>
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="">
@@ -21,22 +21,25 @@
   <div class="flex f5">
     <div class="w-20 pa4 sidebar fixed">
       <div class="mb4">
-        <a href="/docs"><img src="/images/engage-logo.png"></a>
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
       </div>
 
       <!-- <div class="mv4">
         <input type="search" placeholder="Search..." class="w-100">
       </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
 
       <h3 class="mb1 small-caps">Platform guide</h3>
       <ul class="nav">
-        <li><a href="/docs/guides/connecting-user-data.html">Connecting user data</a></li>
-        <li><a href="/docs/guides/segments.html">Segments</a></li>
-        <li><a href="/docs/guides/lists.html">Lists</a></li>
-        <li><a href="/docs/guides/automations.html">Automations</a></li>
-        <li><a href="/docs/guides/tags.html">Personalisation tags</a></li>
-        <li><a href="/docs/guides/templates.html">Templates</a></li>
-        <li><a href="/docs/guides/member-roles.html" class="active">Team member roles</a></li>
+        <li><a href="/docs/guides/connecting-user-data">Connecting user data</a></li>
+        <li><a href="/docs/guides/segments">Segments</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/tags">Personalization tags</a></li>
+        <li><a href="/docs/guides/templates">Templates</a></li>
+        <li><a href="/docs/guides/member-roles" class="active">Team member roles</a></li>
       </ul>
       <h3 class="mb1 small-caps">Integration</h3>
       <ul class="nav">
@@ -66,7 +69,7 @@
 <li><code>Developer</code></li>
 <li><code>Member</code></li>
 </ul>
-<p>These roles define what what they can do.</p>
+<p>These roles define what what they can do. There is a fifth <code>Owner</code> role that is automatically assigned to the account creator. This role grants all privilege to the account, including deletion. The role can be transfered by its owner to another member. However, only one member of a team can have the role at a given time. On transfer, the role of the member transferring will be changed to <code>admin</code>.</p>
 <h2>Admin</h2>
 <ul>
 <li>Cannot delete the account. (Only the account creator can delete an account).</li>
@@ -79,7 +82,6 @@
 <li>Can do everything else</li>
 </ul>
 <h2>Developer</h2>
-<p>The developer role grants the following access:</p>
 <ul>
 <li>Has full access to templates</li>
 <li>Has full access to transactional email analytics</li>
@@ -93,7 +95,8 @@
 </ul>
 <h2>Member</h2>
 <ul>
-<li>Can only view all modules on the dashboard. Cannot perform any create, update or delete action.</li>
+<li>Cannot perform any create, update or delete actions. Can only view all modules on the dashboard.</li>
+<li>Cannot view transactional email body</li>
 </ul>
 
         </article>

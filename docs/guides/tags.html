@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title></title>
+  <title>Personalization tags</title>
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="">
@@ -21,22 +21,25 @@
   <div class="flex f5">
     <div class="w-20 pa4 sidebar fixed">
       <div class="mb4">
-        <a href="/docs"><img src="/images/engage-logo.png"></a>
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
       </div>
 
       <!-- <div class="mv4">
         <input type="search" placeholder="Search..." class="w-100">
       </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
 
       <h3 class="mb1 small-caps">Platform guide</h3>
       <ul class="nav">
-        <li><a href="/docs/guides/connecting-user-data.html">Connecting user data</a></li>
-        <li><a href="/docs/guides/segments.html">Segments</a></li>
-        <li><a href="/docs/guides/lists.html">Lists</a></li>
-        <li><a href="/docs/guides/automations.html">Automations</a></li>
-        <li><a href="/docs/guides/tags.html" class="active">Personalisation tags</a></li>
-        <li><a href="/docs/guides/templates.html">Templates</a></li>
-        <li><a href="/docs/guides/member-roles.html">Team member roles</a></li>
+        <li><a href="/docs/guides/connecting-user-data">Connecting user data</a></li>
+        <li><a href="/docs/guides/segments">Segments</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/tags" class="active">Personalization tags</a></li>
+        <li><a href="/docs/guides/templates">Templates</a></li>
+        <li><a href="/docs/guides/member-roles">Team member roles</a></li>
       </ul>
       <h3 class="mb1 small-caps">Integration</h3>
       <ul class="nav">
@@ -58,7 +61,22 @@
     <div class="w-80 pv4 ph5 mainbar">
       <div class="w-70-l w-100">
         <article class="pb5">
-          
+          <h1>Personalization tags</h1>
+<p>Personailization tags lets you use texts in the form of <code>{{tag}}</code> to represent user attributes and some platform attributes in your broadcast content. When the broadcast is sent, the system replaces these tags with what they actually represent. If for example you create a broadcast with this content</p>
+<p><em>Hi {{first_name}}, welcome onboard!</em></p>
+<p>and you send it to a list with 2 users with the first names Jane and Doe, the broadcast will be sent as</p>
+<p><em>Hi Jane, welcome onboard!</em> to Jane; and <em>Hi Doe, welcome onboard!</em> to Doe.</p>
+<h3>The tags</h3>
+<ul>
+<li><code>{{email}}</code> - User's email.</li>
+<li><code>{{first_name}}</code> - User's first name, if added.</li>
+<li><code>{{last_name}}</code> - User's last name, if added.</li>
+<li><code>{{meta.attribute}}</code> - Any other user's attribute where <code>attribute</code> is the name of the attribute. e.g <code>{{meta.amount_paid}}</code>.</li>
+<li><code>{{unsubscribe_url}}</code> - Broadcast unsubscribe link. Only available if enabled for the broadcast.</li>
+</ul>
+<h3>Advanced</h3>
+<p>Engage's broadcast system is built on <a href="https://shopify.github.io/liquid/">Shopify's liquid</a>. This means you can do a lot more. You can create conditional blocks, work with loops, and manipulate tags with filters. <a href="https://shopify.github.io/liquid/">Learn more</a>.</p>
+
         </article>
       </div>
     </div>

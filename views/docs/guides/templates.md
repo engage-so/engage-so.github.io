@@ -1,12 +1,13 @@
 ---
 layout: docs
 page: templates
+title: Templates
 ---
 # Templates
 
 Templates allow you create a predefined content you can use for email later. It helps avoid having to always create the email body every time you want to send an email, especially emails that are sent frequently (transactional emails like notifications or password recovery for example). You create the template once, with variables that can be replaced and when you need to send the mail, you make an API call with the template name and parameters to replace the variables in your template.
 
-A template will something like this:
+A template will look something like this:
 
 ```text
 Hi {%raw%}{{name}}{%endraw%},

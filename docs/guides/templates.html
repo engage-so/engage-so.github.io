@@ -3,7 +3,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title></title>
+  <title>Templates</title>
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="">
@@ -21,22 +21,25 @@
   <div class="flex f5">
     <div class="w-20 pa4 sidebar fixed">
       <div class="mb4">
-        <a href="/docs"><img src="/images/engage-logo.png"></a>
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
       </div>
 
       <!-- <div class="mv4">
         <input type="search" placeholder="Search..." class="w-100">
       </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
 
       <h3 class="mb1 small-caps">Platform guide</h3>
       <ul class="nav">
-        <li><a href="/docs/guides/connecting-user-data.html">Connecting user data</a></li>
-        <li><a href="/docs/guides/segments.html">Segments</a></li>
-        <li><a href="/docs/guides/lists.html">Lists</a></li>
-        <li><a href="/docs/guides/automations.html">Automations</a></li>
-        <li><a href="/docs/guides/tags.html">Personalisation tags</a></li>
-        <li><a href="/docs/guides/templates.html" class="active">Templates</a></li>
-        <li><a href="/docs/guides/member-roles.html">Team member roles</a></li>
+        <li><a href="/docs/guides/connecting-user-data">Connecting user data</a></li>
+        <li><a href="/docs/guides/segments">Segments</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/tags">Personalization tags</a></li>
+        <li><a href="/docs/guides/templates" class="active">Templates</a></li>
+        <li><a href="/docs/guides/member-roles">Team member roles</a></li>
       </ul>
       <h3 class="mb1 small-caps">Integration</h3>
       <ul class="nav">
@@ -60,7 +63,7 @@
         <article class="pb5">
           <h1>Templates</h1>
 <p>Templates allow you create a predefined content you can use for email later. It helps avoid having to always create the email body every time you want to send an email, especially emails that are sent frequently (transactional emails like notifications or password recovery for example). You create the template once, with variables that can be replaced and when you need to send the mail, you make an API call with the template name and parameters to replace the variables in your template.</p>
-<p>A template will something like this:</p>
+<p>A template will look something like this:</p>
 <pre class="hljs"><code>Hi {{name}},
 
 Click here to confirm your subscription {{link}}

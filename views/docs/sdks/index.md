@@ -6,4 +6,4 @@ page: sdks
 
 The SDKs provide an easier way to interact with the Engage API.
 
-- [JavaScript SDK](/docs/sdks/javascript.html) - for browser and Node.js
+- [JavaScript SDK](/docs/sdks/javascript) - for browser and Node.js

@@ -1,4 +1,5 @@
 root = true
+soft_wrap = true
 
 [*]
 indent_style = space

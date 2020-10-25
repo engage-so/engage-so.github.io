@@ -21,22 +21,25 @@
   <div class="flex f5">
     <div class="w-20 pa4 sidebar fixed">
       <div class="mb4">
-        <a href="/docs"><img src="/images/engage-logo.png"></a>
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
       </div>
 
       <!-- <div class="mv4">
         <input type="search" placeholder="Search..." class="w-100">
       </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
 
       <h3 class="mb1 small-caps">Platform guide</h3>
       <ul class="nav">
-        <li><a href="/docs/guides/connecting-user-data.html">Connecting user data</a></li>
-        <li><a href="/docs/guides/segments.html">Segments</a></li>
-        <li><a href="/docs/guides/lists.html">Lists</a></li>
-        <li><a href="/docs/guides/automations.html">Automations</a></li>
-        <li><a href="/docs/guides/tags.html">Personalisation tags</a></li>
-        <li><a href="/docs/guides/templates.html">Templates</a></li>
-        <li><a href="/docs/guides/member-roles.html">Team member roles</a></li>
+        <li><a href="/docs/guides/connecting-user-data">Connecting user data</a></li>
+        <li><a href="/docs/guides/segments">Segments</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/tags">Personalization tags</a></li>
+        <li><a href="/docs/guides/templates">Templates</a></li>
+        <li><a href="/docs/guides/member-roles">Team member roles</a></li>
       </ul>
       <h3 class="mb1 small-caps">Integration</h3>
       <ul class="nav">
@@ -114,7 +117,7 @@ yarn add @engage_so/js
 </ul>
 <p>Engage identifies your application with the <code>key</code> parameter. This is enough to identify and track user events or actions. If however you want to do more, like update or delete user data, you need to add your <code>secret</code>. This should only be used in server side applications as your secret should be treated as a password and kept confidential.</p>
 <h2>Identifying users</h2>
-<p>Before you can track user events, actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. (<a href="/docs/connecting-user-data.html">See connecting user data</a> for more). You only need to do this once; at user signup for example.</p>
+<p>Before you can track user events, actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. (<a href="/docs/connecting-user-data">See connecting user data</a> for more). You only need to do this once; at user signup for example.</p>
 <pre class="hljs"><code>Engage.identify({
  <span class="hljs-attr">id</span>: <span class="hljs-string">&#x27;u13345&#x27;</span>,
  <span class="hljs-attr">email</span>: <span class="hljs-string">&#x27;dan@mail.app&#x27;</span>,
