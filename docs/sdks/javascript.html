@@ -129,8 +129,12 @@ yarn add @engage_so/js
 <ul>
 <li><code>first_name</code></li>
 <li><code>last_name</code></li>
+<li><code>number</code></li>
 </ul>
-<p>If you need to update any of the properties (<code>created_at</code>, <code>first_name</code>, <code>last_name</code>), you can call <code>identify</code> with the property set to the new value. If you want to update <code>email</code>  this way, the new email should not have been &quot;identified&quot; with a different user id. Email update also only works when you use the <code>secret</code> parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).</p>
+<p>If you need to update any of the properties (<code>created_at</code>, <code>first_name</code>, <code>last_name</code>, <code>number</code>), you can call <code>identify</code> with the property set to the new value. If you want to update <code>email</code>  this way, the new email should not have been &quot;identified&quot; with a different user id. Email update also only works when you use the <code>secret</code> parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).</p>
+<blockquote>
+<p><code>number</code> must be include international dialing code without the +. Valid examples are 15555551234 and 2348166877840</p>
+</blockquote>
 <h2>Tracking user attributes</h2>
 <p>You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings.</p>
 <pre class="hljs"><code>Engage.addAttributes(<span class="hljs-string">&#x27;user_id&#x27;</span>, {
