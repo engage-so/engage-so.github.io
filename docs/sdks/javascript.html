@@ -46,9 +46,11 @@
         <!-- <li><a href="/docs">Introduction</a></li> -->
         <li>
           <a href="/docs/api">API</a>
-          <!-- <ul class="nav ml3">
-            <li><a href="">Introduction</a></li>
-          </ul> -->
+          <ul class="nav ml3">
+            <li><a href="/docs/api">Introduction</a></li>
+            <li><a href="/docs/api/users">Users</a></li>
+            <!-- <li><a href="/docs/api/lists">Lists</a></li> -->
+          </ul>
         </li>
         <li>
           <a href="/docs/sdks">SDKs</a>
@@ -129,34 +131,38 @@ yarn add @engage_so/js
 <ul>
 <li><code>first_name</code></li>
 <li><code>last_name</code></li>
+<li><code>number</code></li>
 </ul>
-<p>If you need to update any of the properties (<code>created_at</code>, <code>first_name</code>, <code>last_name</code>), you can call <code>identify</code> with the property set to the new value. If you want to update <code>email</code>  this way, the new email should not have been &quot;identified&quot; with a different user id. Email update also only works when you use the <code>secret</code> parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).</p>
+<p>If you need to update any of the properties (<code>created_at</code>, <code>first_name</code>, <code>last_name</code>, <code>number</code>), you can call <code>identify</code> with the property set to the new value. If you want to update <code>email</code>  this way, the new email should not have been &quot;identified&quot; with a different user id. Email update also only works when you use the <code>secret</code> parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).</p>
+<blockquote>
+<p><code>number</code> must include international dialing code without the +. Valid examples are 15555551234 and 2348166877840</p>
+</blockquote>
 <h2>Tracking user attributes</h2>
-<p>You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings.</p>
-<pre class="hljs"><code>Engage.addAttributes(<span class="hljs-string">&#x27;user_id&#x27;</span>, {
+<p>You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings. The first argument of the method is the user's id. In the examples below, we are assuming the user's id is <code>u144</code>.</p>
+<pre class="hljs"><code>Engage.addAttributes(<span class="hljs-string">&#x27;u144&#x27;</span>, {
  <span class="hljs-attr">plan</span>: <span class="hljs-string">&#x27;pro&#x27;</span>,
  <span class="hljs-attr">promotion</span>: <span class="hljs-literal">true</span>
 })
 </code></pre>
 <p>If an attribute changes at a later date, you can use the same method to update the new value.</p>
-<pre class="hljs"><code>Engage.addAttributes(<span class="hljs-string">&#x27;user_id&#x27;</span>, {
+<pre class="hljs"><code>Engage.addAttributes(<span class="hljs-string">&#x27;u144&#x27;</span>, {
  <span class="hljs-attr">plan</span>: <span class="hljs-string">&#x27;premium&#x27;</span>
 })
 </code></pre>
 <h2>Tracking user events and actions</h2>
-<p>Events and user actions can be tracked in a couple of ways. The simplest way to do this is like this:</p>
-<pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;user_id&#x27;</span>, <span class="hljs-string">&#x27;deactivate&#x27;</span>)
+<p>Events and user actions can be tracked in a couple of ways. The simplest way to do this, where <code>u144</code> is ther user's id, is like this:</p>
+<pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;u144&#x27;</span>, <span class="hljs-string">&#x27;deactivate&#x27;</span>)
 </code></pre>
-<pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;user_id&#x27;</span>, {
- <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;new_badge&#x27;</span>,
+<pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;u144&#x27;</span>, {
+ <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;New badge&#x27;</span>,
  <span class="hljs-attr">value</span>: <span class="hljs-string">&#x27;gold&#x27;</span>
  <span class="hljs-attr">timestamp</span>: <span class="hljs-string">&#x27;2020-05-30T09:30:10Z&#x27;</span>
 })
 </code></pre>
 <p><code>timestamp</code> is optional. If it is not included, Engage uses the current timestamp. If included, it must be a valid date time string.</p>
 <p>Some events may have additional properties instead of a single value. Here is how to track those:</p>
-<pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;user_id&#x27;</span>, {
- <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;add_to_cart&#x27;</span>,
+<pre class="hljs"><code>Engage.track(<span class="hljs-string">&#x27;u144&#x27;</span>, {
+ <span class="hljs-attr">event</span>: <span class="hljs-string">&#x27;Add to cart&#x27;</span>,
  <span class="hljs-attr">timestamp</span>: <span class="hljs-string">&#x27;2020-05-30T09:30:10Z&#x27;</span>,
  <span class="hljs-attr">properties</span>: {
    <span class="hljs-attr">product</span>: <span class="hljs-string">&#x27;T123&#x27;</span>,

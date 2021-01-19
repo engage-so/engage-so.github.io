@@ -19,6 +19,7 @@ and you send it to a list with 2 users with the first names Jane and Doe, the br
 - `{{email}}` - User's email.
 - `{{first_name}}` - User's first name, if added.
 - `{{last_name}}` - User's last name, if added.
+- `{{number}}` - User's phone number (international format), if added. 
 - `{{meta.attribute}}` - Any other user's attribute where `attribute` is the name of the attribute. e.g `{{meta.amount_paid}}`.
 - `{{unsubscribe_url}}` - Broadcast unsubscribe link. Only available if enabled for the broadcast.
 {%endraw%}
