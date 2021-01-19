@@ -104,14 +104,14 @@ The `created_at` property is optional. If not added, Engage sets it to the curre
 
 If you need to update any of the properties (`created_at`, `first_name`, `last_name`, `number`), you can call `identify` with the property set to the new value. If you want to update `email`  this way, the new email should not have been "identified" with a different user id. Email update also only works when you use the `secret` parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).
 
-> `number` must be include international dialing code without the +. Valid examples are 15555551234 and 2348166877840
+> `number` must include international dialing code without the +. Valid examples are 15555551234 and 2348166877840
 
 ## Tracking user attributes
 
-You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings.
+You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings. The first argument of the method is the user's id. In the examples below, we are assuming the user's id is `u144`.
 
 ```js
-Engage.addAttributes('user_id', {
+Engage.addAttributes('u144', {
  plan: 'pro',
  promotion: true
 })
@@ -120,22 +120,22 @@ Engage.addAttributes('user_id', {
 If an attribute changes at a later date, you can use the same method to update the new value.
 
 ```js
-Engage.addAttributes('user_id', {
+Engage.addAttributes('u144', {
  plan: 'premium'
 })
 ```
 
 ## Tracking user events and actions
 
-Events and user actions can be tracked in a couple of ways. The simplest way to do this is like this:
+Events and user actions can be tracked in a couple of ways. The simplest way to do this, where `u144` is ther user's id, is like this:
 
 ```js
-Engage.track('user_id', 'deactivate')
+Engage.track('u144', 'deactivate')
 ```
 
 ```js
-Engage.track('user_id', {
- event: 'new_badge',
+Engage.track('u144', {
+ event: 'New badge',
  value: 'gold'
  timestamp: '2020-05-30T09:30:10Z'
 })
@@ -146,8 +146,8 @@ Engage.track('user_id', {
 Some events may have additional properties instead of a single value. Here is how to track those:
 
 ```js
-Engage.track('user_id', {
- event: 'add_to_cart',
+Engage.track('u144', {
+ event: 'Add to cart',
  timestamp: '2020-05-30T09:30:10Z',
  properties: {
    product: 'T123',

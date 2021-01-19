@@ -46,9 +46,11 @@
         <!-- <li><a href="/docs">Introduction</a></li> -->
         <li>
           <a href="/docs/api">API</a>
-          <!-- <ul class="nav ml3">
-            <li><a href="">Introduction</a></li>
-          </ul> -->
+          <ul class="nav ml3">
+            <li><a href="/docs/api">Introduction</a></li>
+            <li><a href="/docs/api/users">Users</a></li>
+            <!-- <li><a href="/docs/api/lists">Lists</a></li> -->
+          </ul>
         </li>
         <li>
           <a href="/docs/sdks">SDKs</a>
@@ -71,6 +73,7 @@
 <li><code>{{email}}</code> - User's email.</li>
 <li><code>{{first_name}}</code> - User's first name, if added.</li>
 <li><code>{{last_name}}</code> - User's last name, if added.</li>
+<li><code>{{number}}</code> - User's phone number (international format), if added.</li>
 <li><code>{{meta.attribute}}</code> - Any other user's attribute where <code>attribute</code> is the name of the attribute. e.g <code>{{meta.amount_paid}}</code>.</li>
 <li><code>{{unsubscribe_url}}</code> - Broadcast unsubscribe link. Only available if enabled for the broadcast.</li>
 </ul>
