@@ -33,7 +33,8 @@
         margin: 0;
         box-sizing: border-box;
       }
-      .__list {
+      .__list,
+      .__articleTag {
         font-family: "Poppins";
       }
       .__button {
@@ -65,10 +66,17 @@
         color: #bdbdbd;
         font-family: "Poppins";
       }
+      .__search {
+        background-color: #2f80ed42;
+        top: 11px;
+        left: 12px;
+        bottom: 11px;
+      }
       .__hint {
         width: 45%;
       }
-      .__tags {
+      .__tags,
+      .__articleTag {
         border-radius: 30px;
       }
       .__note {
@@ -101,6 +109,38 @@
       .__date {
         color: #828282;
         font-family: "Poppins";
+      }
+      .__article {
+        min-height: 262px;
+      }
+
+      .__short {
+        background: #dee5ef57;
+      }
+      .__read {
+        border-radius: 20px;
+      }
+      .__summary {
+        line-height: 22.4px;
+        font-family: "Inter";
+        color: #828282;
+      }
+      .__blog{
+        width: 290rem;
+      }
+      .__each{
+        width: 380px;
+      }
+      .__eachImage{
+        min-height: 166px;
+      }
+     
+      .push {
+        max-width: 100rem;
+        scroll-padding: 0;
+      }
+      .push::-webkit-scrollbar {
+        display: none !important;
       }
     </style>
   </head>
@@ -151,8 +191,11 @@
           <input
             type="text"
             placeholder="Search articles"
-            class="__input text-sm py-4 pl-4 w-full focus:outline-none"
+            class="__input text-sm py-4 pl-16 w-full focus:outline-none"
           />
+          <div class="absolute __search rounded-xl p-2">
+            <img src="/images/search.png" alt="" />
+          </div>
         </div>
         <div class="flex justify-between items-center __hint">
           <div class="mr-5">
@@ -181,12 +224,12 @@
         </div>
         <div class="__note flex flex-col">
           <div class="flex items-center">
-            <div class="__news py-2 px-5 text-sm font-semibold">NEWS</div>
+            <div class="__news py-2 px-5 text-xs font-semibold">NEWS</div>
             <div class="mx-3">
               <img src="/images/Ellipse 9.png" alt="" />
             </div>
             <div>
-              <p class="__time text-sm font-semibold">12 mins read</p>
+              <p class="__time text-xs font-semibold">12 mins read</p>
             </div>
           </div>
           <div class="mt-10">
@@ -201,14 +244,119 @@
               enim ad minim veniam.
             </p>
           </div>
-          <div class="my-8 flex items-center">
+          <div class="mt-8 flex items-center">
             <div class="">
               <img src="/images/image 6.png" class="rounded-full" alt="" />
             </div>
             <div class="ml-3">
-              <p class="text-base font-semibold">Victor</p>
-              <p class="text-sm __date">Posted; 14th July, 2020</p>
+              <p class="text-sm font-semibold __name">Victor</p>
+              <p class="text-xs __date">Posted; 14th July, 2020</p>
             </div>
+          </div>
+        </div>
+      </div>
+      <!-- third -->
+      <div class="flex justify-between items-start mt-20 mx-16">
+        <div
+          class="flex flex-col w-1/3 mx-5"
+          v-for="(detail, a) in firstSet"
+          :key="a"
+        >
+          <div
+            class="__tags py-16"
+            :style="{background:detail.articleBackground}"
+          >
+            <img
+              :src="`/images/${detail.banner}`"
+              class="mx-auto __article"
+              alt=""
+            />
+          </div>
+          <div class="flex items-center mt-8">
+            <div
+              class="__articleTag py-2 px-5 text-xs font-semibold"
+              :style="{background:detail.background, color:detail.color}"
+            >
+              {{detail.description}}
+            </div>
+            <div class="mx-3">
+              <img src="/images/Ellipse 9.png" alt="" />
+            </div>
+            <div>
+              <p class="__time text-xs font-semibold">{{detail.time}}</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-2xl font-semibold __name">{{detail.title}}</h4>
+            <p class="text-base font-semibold __text mt-2">
+              {{detail.summary}}
+            </p>
+          </div>
+          <div class="mt-5 flex items-center">
+            <div class="">
+              <img
+                :src="`/images/${detail.image}`"
+                class="rounded-full"
+                alt=""
+              />
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-semibold __name">{{detail.name}}</p>
+              <p class="text-xs __date">Posted: {{detail.date}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fourth -->
+      <div class="pl-24 py-10 __short mt-20 w-full">
+        <div class="mb-8">
+          <h5 class="font-semibold text-5xl __name">Short reads</h5>
+        </div>
+        
+          <div class="flex items-start push overflow-x-scroll">
+            <div class="flex justify-between items-start __blog " v-for="(read, b) in blog" :key="b">
+              <div
+                class="__read py-8 __each"
+                :style="{background:read.background}"
+              >
+                <img :src="`/images/${read.banner}`" class="mx-auto __eachImage" alt="" />
+              </div>
+              <div class="flex flex-col ml-8 mr-20 w-3/4">
+                <div class="">
+                  <h5 class="text-lg font-semibold __name">{{read.title}}</h5>
+                  <div class="mt-2 text-sm __summary">{{read.summary}}</div>
+                </div>
+                <div class="mt-4 flex items-center">
+                  <div class="">
+                    <img
+                      :src="`/images/${read.image}`"
+                      class="rounded-full"
+                      alt=""
+                    />
+                  </div>
+                  <div class="ml-3">
+                    <p class="text-sm font-semibold __name">{{read.name}}</p>
+                    <p class="text-xs __date">Posted; {{read.date}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between items-center mt-12">
+            <div class="flex items-center">
+              <div>
+                <img src="/images/left.png" alt="">
+              </div>
+              <div class="ml-5">
+                <img src="/images/right.png" alt="">
+              </div>
+            </div>
+            <ul class="flex items-center text-sm font-semibold mr-24">
+              <li class="__name">01</li>
+              <li class="__date ml-3">02</li>
+              <li class="__date ml-3">03</li>
+              <li class="__date ml-3">04</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -241,7 +389,160 @@
                 color: " #32BA85",
               },
             ],
+            articles: [
+              {
+                articleBackground: "#b9ffd6",
+                banner: "diving.png",
+                description: "DEVELOPMENT",
+                background: "rgba(50, 186, 133, 0.15)",
+                color: " #32BA85",
+                time: "20 mins read",
+                title: " Automating transactional emails using Engage",
+                summary:
+                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 7.png",
+                name: "Oyewole “samsoft” Abayomi",
+                date: " 2 days ago",
+              },
+              {
+                articleBackground: "#FFE6CB",
+                banner: "home.png",
+                description: "DESIGN",
+                background: "rgba(242, 153, 74, 0.15)",
+                color: " #F2994A",
+                time: "6 mins read",
+                title: " Engage’s design system in 3 steps",
+                summary:
+                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 8.png",
+                name: "Onoriode",
+                date: "; 4th January,2021",
+              },
+              {
+                articleBackground: "#F4D9FF",
+                banner: "call.png",
+                description: "IN-HOUSE",
+                background: "rgba(155, 81, 224, 0.15)",
+                color: " #9B51E0",
+                time: "6 mins read",
+                title: " Our team culture is so unbeatable",
+                summary:
+                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 9.png",
+                name: "Lizzy Izzy",
+                date: " 2 weeks ago",
+              },
+              {
+                articleBackground: "#b9ffd6",
+                banner: "diving.png",
+                description: "DEVELOPMENT",
+                background: "rgba(50, 186, 133, 0.15)",
+                color: " #32BA85",
+                time: "20 mins read",
+                title: " Automating transactional emails using Engage",
+                summary:
+                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 7.png",
+                name: "Oyewole “samsoft” Abayomi",
+                date: " 2 days ago",
+              },
+              {
+                articleBackground: "#FFE6CB",
+                banner: "home.png",
+                description: "DESIGN",
+                background: "rgba(242, 153, 74, 0.15)",
+                color: " #F2994A",
+                time: "6 mins read",
+                title: " Engage’s design system in 3 steps",
+                summary:
+                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 8.png",
+                name: "Onoriode",
+                date: "; 4th January,2021",
+              },
+              {
+                articleBackground: "#F4D9FF",
+                banner: "call.png",
+                description: "IN-HOUSE",
+                background: "rgba(155, 81, 224, 0.15)",
+                color: " #9B51E0",
+                time: "6 mins read",
+                title: " Our team culture is so unbeatable",
+                summary:
+                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 9.png",
+                name: "Lizzy Izzy",
+                date: " 2 weeks ago",
+              },
+            ],
+            blog: [
+              {
+                background: " #cbe8ff",
+                banner: "todo.png",
+                title: " Managing your time as a freelancer",
+                summary:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 9.png",
+                name: "Lizzy Izzy",
+                date: "4th January,2021",
+              },
+              {
+                background: " #E2DEFF",
+                banner: "Health.png",
+                title: " Productivity tips for remote teams",
+                summary:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 6.png",
+                name: "Victor",
+                date: "Posted; 12th January,2021",
+              },
+              {
+                background: " #FFEDCB",
+                banner: "happy.png",
+                title: " Managing your time as a freelancer",
+                summary:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 9.png",
+                name: "Lizzy Izzy",
+                date: "4th January,2021",
+              },
+              {
+                background: " #cbe8ff",
+                banner: "todo.png",
+                title: " Managing your time as a freelancer",
+                summary:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 9.png",
+                name: "Lizzy Izzy",
+                date: "4th January,2021",
+              },
+              {
+                background: " #E2DEFF",
+                banner: "Health.png",
+                title: " Productivity tips for remote teams",
+                summary:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 6.png",
+                name: "Victor",
+                date: "Posted; 12th January,2021",
+              },
+              {
+                background: " #FFEDCB",
+                banner: "happy.png",
+                title: " Managing your time as a freelancer",
+                summary:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+                image: "image 9.png",
+                name: "Lizzy Izzy",
+                date: "4th January,2021",
+              },
+            ],
           };
+        },
+        computed: {
+          firstSet() {
+            return this.articles.splice(0, 3);
+          },
         },
       });
     </script>
