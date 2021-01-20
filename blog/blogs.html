@@ -171,12 +171,9 @@
   </head>
   <body>
     <section id="app">
-      <!-- {{title }}
-      <p class="text-red-900 text-2xl">food</p> -->
-      <!-- navbar -->
       <nav class="flex justify-between items-center py-16 px-24">
         <header class="">
-          <a href="#">
+          <a href="/blog/index.html">
             <img src="/images/engage.png" alt="" />
           </a>
         </header>
@@ -226,18 +223,18 @@
           <div class="mr-5">
             <p class="text-sm text-black font-semibold __list">Tags:</p>
           </div>
-          <!-- :style="[title.code == choose ? {'background-color': 'title.newBackground'} : {'background-color': 'title.background'}]"
-            v-on:click="change(title.code)" -->
+
           <div
             class="__tags py-2 px-5"
             v-for="(title, i) in tags"
             :key="i"
             v-on:click="change(title.code)"
-            :style="{background:title.background}"
+            :style="[title.code == choose ? {'background-color': title.newBackground} : {'background-color': title.background}]"
           >
             <a
-              :href="title.link"
+              href="#"
               class="text-sm __list font-semibold"
+              :style="[title.code == choose ? {'color': 'white'} : {'color': title.color}]"
               :style="{color:title.color}"
             >
               {{title.description}}
@@ -587,14 +584,13 @@
         el: "#app",
         data() {
           return {
-            choose: "News",
+            choose: "",
             tags: [
               {
                 description: "NEWS",
                 background: "rgba(47, 128, 237, 0.15)",
                 newBackground: "rgba(47, 128, 237)",
                 code: "News",
-                link: "/blog/index.html",
                 color: "#2F80ED",
               },
               {
@@ -602,7 +598,6 @@
                 background: "rgba(242, 153, 74, 0.15)",
                 newBackground: "rgba(242, 153, 74)",
                 code: "Design",
-                link: "/blog/index.html",
                 color: "#F2994A",
               },
               {
@@ -610,7 +605,6 @@
                 background: "rgba(155, 81, 224, 0.15)",
                 newBackground: "rgba(155, 81, 224)",
                 code: "House",
-                link: "/blog/index.html",
                 color: "#9B51E0",
               },
               {
@@ -618,7 +612,6 @@
                 background: "rgba(50, 186, 133, 0.15)",
                 newBackground: "rgba(50, 186, 133)",
                 code: "Development",
-                link: "/blog/index.html",
                 color: " #32BA85",
               },
             ],
