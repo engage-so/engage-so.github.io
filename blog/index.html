@@ -125,22 +125,47 @@
         font-family: "Inter";
         color: #828282;
       }
-      .__blog{
+      .__blog {
         width: 290rem;
       }
-      .__each{
+      .__each {
         width: 380px;
       }
-      .__eachImage{
+      .__eachImage {
         min-height: 166px;
       }
-     
+
       .push {
-        max-width: 100rem;
+        max-width: 300rem;
         scroll-padding: 0;
       }
       .push::-webkit-scrollbar {
         display: none !important;
+      }
+      .__movie {
+        background: #b9ffd6;
+      }
+      .__development {
+        background-color: rgba(50, 186, 133, 0.15);
+        color: #32ba85;
+      }
+      .__mobile {
+        background: #e7e4ff;
+        border-radius: 25px;
+      }
+      .__ad {
+        color: #6c5ce7;
+        font-family: "Poppins";
+      }
+      .__call {
+        background: #f4d9ff;
+      }
+      .__house {
+        background-color: rgba(155, 81, 224, 0.15);
+        color: #9b51e0;
+      }
+      .__footer {
+        background: #dee5ef;
       }
     </style>
   </head>
@@ -312,61 +337,347 @@
         <div class="mb-8">
           <h5 class="font-semibold text-5xl __name">Short reads</h5>
         </div>
-        
-          <div class="flex items-start push overflow-x-scroll">
-            <div class="flex justify-between items-start __blog " v-for="(read, b) in blog" :key="b">
-              <div
-                class="__read py-8 __each"
-                :style="{background:read.background}"
-              >
-                <img :src="`/images/${read.banner}`" class="mx-auto __eachImage" alt="" />
+
+        <div class="flex items-start push overflow-x-scroll">
+          <div
+            class="flex justify-between items-start __blog"
+            v-for="(read, b) in blog"
+            :key="b"
+          >
+            <div
+              class="__read py-8 __each"
+              :style="{background:read.background}"
+            >
+              <img
+                :src="`/images/${read.banner}`"
+                class="mx-auto __eachImage"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col ml-8 mr-20 w-3/4">
+              <div class="">
+                <h5 class="text-lg font-semibold __name">{{read.title}}</h5>
+                <div class="mt-2 text-sm __summary">{{read.summary}}</div>
               </div>
-              <div class="flex flex-col ml-8 mr-20 w-3/4">
+              <div class="mt-4 flex items-center">
                 <div class="">
-                  <h5 class="text-lg font-semibold __name">{{read.title}}</h5>
-                  <div class="mt-2 text-sm __summary">{{read.summary}}</div>
+                  <img
+                    :src="`/images/${read.image}`"
+                    class="rounded-full"
+                    alt=""
+                  />
                 </div>
-                <div class="mt-4 flex items-center">
-                  <div class="">
-                    <img
-                      :src="`/images/${read.image}`"
-                      class="rounded-full"
-                      alt=""
-                    />
-                  </div>
-                  <div class="ml-3">
-                    <p class="text-sm font-semibold __name">{{read.name}}</p>
-                    <p class="text-xs __date">Posted; {{read.date}}</p>
-                  </div>
+                <div class="ml-3">
+                  <p class="text-sm font-semibold __name">{{read.name}}</p>
+                  <p class="text-xs __date">Posted; {{read.date}}</p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="flex justify-between items-center mt-12">
-            <div class="flex items-center">
-              <div>
-                <img src="/images/left.png" alt="">
-              </div>
-              <div class="ml-5">
-                <img src="/images/right.png" alt="">
-              </div>
+        </div>
+        <div class="flex justify-between items-center mt-12">
+          <div class="flex items-center">
+            <div>
+              <img src="/images/left.png" alt="" />
             </div>
-            <ul class="flex items-center text-sm font-semibold mr-24">
-              <li class="__name">01</li>
-              <li class="__date ml-3">02</li>
-              <li class="__date ml-3">03</li>
-              <li class="__date ml-3">04</li>
-            </ul>
+            <div class="ml-5">
+              <img src="/images/right.png" alt="" />
+            </div>
+          </div>
+          <ul class="flex items-center text-sm font-semibold mr-24">
+            <li class="__name">01</li>
+            <li class="__date ml-3">02</li>
+            <li class="__date ml-3">03</li>
+            <li class="__date ml-3">04</li>
+          </ul>
+        </div>
+      </div>
+      <!-- fifth -->
+      <div class="flex justify-between mx-16 mt-20">
+        <div class="flex flex-col w-1/3 mx-5">
+          <div class="__tags py-16 __movie">
+            <img src="/images/movie.png" class="mx-auto __article" alt="" />
+          </div>
+          <div class="flex items-center mt-8">
+            <div
+              class="__articleTag py-2 px-5 text-xs font-semibold __development"
+            >
+              DEVELOPMENT
+            </div>
+            <div class="mx-3">
+              <img src="/images/Ellipse 9.png" alt="" />
+            </div>
+            <div>
+              <p class="__time text-xs font-semibold">20 mins read</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-2xl font-semibold __name">
+              Automating transactional emails using Engage
+            </h4>
+            <p class="text-base font-semibold __text mt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad.
+            </p>
+          </div>
+          <div class="mt-5 flex items-center">
+            <div class="">
+              <img src="/images/image 5.png" class="rounded-full" alt="" />
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-semibold __name">Ope Obembe</p>
+              <p class="text-xs __date">Posted 2 days ago</p>
+            </div>
+          </div>
+        </div>
+        <div class="py-16 __mobile flex flex-col w-1/3 mx-5">
+          <div class="text-center">
+            <p class="font-bold __ad text-2xl">
+              Introducing!<br />Engage Mobile
+            </p>
+          </div>
+          <div class="mt-8">
+            <img src="/images/Group 76.png" class="mx-auto" alt="" />
+          </div>
+        </div>
+        <div class="flex flex-col w-1/3 mx-5">
+          <div class="__tags py-16 __call">
+            <img src="/images/call.png" class="mx-auto __article" alt="" />
+          </div>
+          <div class="flex items-center mt-8">
+            <div class="__articleTag py-2 px-5 text-xs font-semibold __house">
+              IN-HOUSE
+            </div>
+            <div class="mx-3">
+              <img src="/images/Ellipse 9.png" alt="" />
+            </div>
+            <div>
+              <p class="__time text-xs font-semibold">20 mins read</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-2xl font-semibold __name">
+              Our team culture is so unbeatable
+            </h4>
+            <p class="text-base font-semibold __text mt-2">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad.
+            </p>
+          </div>
+          <div class="mt-5 flex items-center">
+            <div class="">
+              <img src="/images/image 9.png" class="rounded-full" alt="" />
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-semibold __name">Lizzy Izzy</p>
+              <p class="text-xs __date">Posted 2 weeks ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- sixth -->
+      <div class="flex justify-between items-start mt-20 mx-16">
+        <div
+          class="flex flex-col w-1/3 mx-5"
+          v-for="(detail, d) in secondSet"
+          :key="d"
+        >
+          <div
+            class="__tags py-16"
+            :style="{background:detail.articleBackground}"
+          >
+            <img
+              :src="`/images/${detail.banner}`"
+              class="mx-auto __article"
+              alt=""
+            />
+          </div>
+          <div class="flex items-center mt-8">
+            <div
+              class="__articleTag py-2 px-5 text-xs font-semibold"
+              :style="{background:detail.background, color:detail.color}"
+            >
+              {{detail.description}}
+            </div>
+            <div class="mx-3">
+              <img src="/images/Ellipse 9.png" alt="" />
+            </div>
+            <div>
+              <p class="__time text-xs font-semibold">{{detail.time}}</p>
+            </div>
+          </div>
+          <div class="mt-4">
+            <h4 class="text-2xl font-semibold __name">{{detail.title}}</h4>
+            <p class="text-base font-semibold __text mt-2">
+              {{detail.summary}}
+            </p>
+          </div>
+          <div class="mt-5 flex items-center">
+            <div class="">
+              <img
+                :src="`/images/${detail.image}`"
+                class="rounded-full"
+                alt=""
+              />
+            </div>
+            <div class="ml-3">
+              <p class="text-sm font-semibold __name">{{detail.name}}</p>
+              <p class="text-xs __date">Posted: {{detail.date}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer -->
+      <div class="__footer mt-24 flex items-start pb-24 pt-12 pl-24">
+        <div class="flex flex-col w-2/5">
+          <div>
+            <img src="/images/image 4.png" alt="" />
+          </div>
+          <div>
+            <p class="text-sm __name font-semibold mt-2">
+              Customer messaging for growth and retention
+            </p>
+          </div>
+          <div class="mt-10 flex justify-between items-center w-1/4">
+            <div>
+              <a href="">
+                <img src="/images/Vector (1).png" alt="" />
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="/images/Vector (2).png" alt="" />
+              </a>
+            </div>
+            <div>
+              <a href="">
+                <img src="/images/Vector (3).png" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="flex w-3/5">
+          <div class="flex flex-col">
+            <div>
+              <a href="#" class="__name font-semibold text-lg"
+                >Platform guide</a
+              >
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">Api docs</a>
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">SDK</a>
+            </div>
+          </div>
+          <div class="flex flex-col ml-24">
+            <div>
+              <a href="#" class="__name font-semibold text-lg">Login</a>
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">Pricing</a>
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">Contact</a>
+            </div>
           </div>
         </div>
       </div>
     </section>
     <script>
+      const articles = [
+        {
+          articleBackground: "#b9ffd6",
+          banner: "diving.png",
+          description: "DEVELOPMENT",
+          background: "rgba(50, 186, 133, 0.15)",
+          color: " #32BA85",
+          time: "20 mins read",
+          title: " Automating transactional emails using Engage",
+          summary:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+          image: "image 7.png",
+          name: "Oyewole “samsoft” Abayomi",
+          date: " 2 days ago",
+        },
+        {
+          articleBackground: "#FFE6CB",
+          banner: "home.png",
+          description: "DESIGN",
+          background: "rgba(242, 153, 74, 0.15)",
+          color: " #F2994A",
+          time: "6 mins read",
+          title: " Engage’s design system in 3 steps",
+          summary:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+          image: "image 8.png",
+          name: "Onoriode",
+          date: "; 4th January,2021",
+        },
+        {
+          articleBackground: "#F4D9FF",
+          banner: "call.png",
+          description: "IN-HOUSE",
+          background: "rgba(155, 81, 224, 0.15)",
+          color: " #9B51E0",
+          time: "6 mins read",
+          title: " Our team culture is so unbeatable",
+          summary:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+          image: "image 9.png",
+          name: "Lizzy Izzy",
+          date: " 2 weeks ago",
+        },
+        {
+          articleBackground: "#b9ffd6",
+          banner: "diving.png",
+          description: "DEVELOPMENThhh",
+          background: "rgba(50, 186, 133, 0.15)",
+          color: " #32BA85",
+          time: "20 mins read",
+          title: " Automating transactional emails using Engage",
+          summary:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+          image: "image 7.png",
+          name: "Oyewole “samsoft” Abayomi",
+          date: " 2 days ago",
+        },
+        {
+          articleBackground: "#FFE6CB",
+          banner: "home.png",
+          description: "DESIGN",
+          background: "rgba(242, 153, 74, 0.15)",
+          color: " #F2994A",
+          time: "6 mins read",
+          title: " Engage’s design system in 3 steps",
+          summary:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+          image: "image 8.png",
+          name: "Onoriode",
+          date: "; 4th January,2021",
+        },
+        {
+          articleBackground: "#F4D9FF",
+          banner: "call.png",
+          description: "IN-HOUSE",
+          background: "rgba(155, 81, 224, 0.15)",
+          color: " #9B51E0",
+          time: "6 mins read",
+          title: " Our team culture is so unbeatable",
+          summary:
+            " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
+          image: "image 9.png",
+          name: "Lizzy Izzy",
+          date: " 2 weeks ago",
+        },
+      ];
+
       new Vue({
         el: "#app",
         data() {
           return {
-            // title: "lizzy is bautiful",
             tags: [
               {
                 description: "NEWS",
@@ -389,92 +700,7 @@
                 color: " #32BA85",
               },
             ],
-            articles: [
-              {
-                articleBackground: "#b9ffd6",
-                banner: "diving.png",
-                description: "DEVELOPMENT",
-                background: "rgba(50, 186, 133, 0.15)",
-                color: " #32BA85",
-                time: "20 mins read",
-                title: " Automating transactional emails using Engage",
-                summary:
-                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
-                image: "image 7.png",
-                name: "Oyewole “samsoft” Abayomi",
-                date: " 2 days ago",
-              },
-              {
-                articleBackground: "#FFE6CB",
-                banner: "home.png",
-                description: "DESIGN",
-                background: "rgba(242, 153, 74, 0.15)",
-                color: " #F2994A",
-                time: "6 mins read",
-                title: " Engage’s design system in 3 steps",
-                summary:
-                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
-                image: "image 8.png",
-                name: "Onoriode",
-                date: "; 4th January,2021",
-              },
-              {
-                articleBackground: "#F4D9FF",
-                banner: "call.png",
-                description: "IN-HOUSE",
-                background: "rgba(155, 81, 224, 0.15)",
-                color: " #9B51E0",
-                time: "6 mins read",
-                title: " Our team culture is so unbeatable",
-                summary:
-                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
-                image: "image 9.png",
-                name: "Lizzy Izzy",
-                date: " 2 weeks ago",
-              },
-              {
-                articleBackground: "#b9ffd6",
-                banner: "diving.png",
-                description: "DEVELOPMENT",
-                background: "rgba(50, 186, 133, 0.15)",
-                color: " #32BA85",
-                time: "20 mins read",
-                title: " Automating transactional emails using Engage",
-                summary:
-                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
-                image: "image 7.png",
-                name: "Oyewole “samsoft” Abayomi",
-                date: " 2 days ago",
-              },
-              {
-                articleBackground: "#FFE6CB",
-                banner: "home.png",
-                description: "DESIGN",
-                background: "rgba(242, 153, 74, 0.15)",
-                color: " #F2994A",
-                time: "6 mins read",
-                title: " Engage’s design system in 3 steps",
-                summary:
-                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
-                image: "image 8.png",
-                name: "Onoriode",
-                date: "; 4th January,2021",
-              },
-              {
-                articleBackground: "#F4D9FF",
-                banner: "call.png",
-                description: "IN-HOUSE",
-                background: "rgba(155, 81, 224, 0.15)",
-                color: " #9B51E0",
-                time: "6 mins read",
-                title: " Our team culture is so unbeatable",
-                summary:
-                  " Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doo v eiusmod tempor incididunt ut labore et ,dolore magna aliqua. Utenim ad minim veniam.",
-                image: "image 9.png",
-                name: "Lizzy Izzy",
-                date: " 2 weeks ago",
-              },
-            ],
+
             blog: [
               {
                 background: " #cbe8ff",
@@ -537,12 +763,9 @@
                 date: "4th January,2021",
               },
             ],
+            firstSet: articles.slice(0, 3),
+            secondSet: articles.slice(3, 6),
           };
-        },
-        computed: {
-          firstSet() {
-            return this.articles.splice(0, 3);
-          },
         },
       });
     </script>
