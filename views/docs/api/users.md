@@ -147,7 +147,8 @@ Another example:
 ```
 
 Example response:
-```
+
+```json
 { "status": "ok" }
 ```
 If there is an error with any of the parameters, it will return a 400 HTTP status code with details in an error object.
