@@ -27,13 +27,74 @@
     <link rel="stylesheet" href="/tailwind.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
 
     <title>Engage Blog</title>
     <style>
+      @media only screen and (min-width: 1050px) and (max-width: 1300px) {
+        .__adjust {
+          width: 60% !important;
+        }
+      }
+      @media only screen and (min-width: 1000px) and (max-width: 1030px) {
+        .__adjust {
+          width: 75% !important;
+        }
+        .__social {
+          width: 30% !important;
+        }
+        .__heading {
+          width: 100%;
+
+          margin-top: 4rem;
+        }
+      }
+      @media only screen and (min-width: 720px) and (max-width: 800px) {
+        .__hint {
+          width: 100% !important;
+        }
+        .__note {
+          width: 100% !important;
+        }
+        .__headline {
+          font-size: 40px !important;
+        }
+        .__heading {
+          line-height: 57px !important;
+        }
+        .__topic {
+          right: 100px !important;
+          bottom: -117px !important;
+        }
+      }
+      @media only screen and (max-width: 700px) {
+        .__hint {
+          width: 100% !important;
+        }
+        .__heading {
+          line-height: 30px !important;
+        }
+        .__note {
+          width: 100% !important;
+        }
+        .__headline {
+          font-size: 24px !important;
+          line-height: 34px !important;
+          text-align: left !important;
+        }
+        .__adjust {
+          width: 100% !important;
+        }
+      }
       * {
         margin: 0;
         box-sizing: border-box;
+      }
+      .__close {
+        right: 30px;
+        top: 30px;
+      }
+      .__opacity {
+        opacity: 0.95;
       }
       .__list {
         font-family: "Poppins";
@@ -49,6 +110,9 @@
       .__back {
         color: #0c56c2;
         font-family: "Poppins";
+      }
+      .__adjust {
+        width: 54%;
       }
       .__hint {
         width: 45%;
@@ -101,26 +165,30 @@
       .__footer {
         background: #dee5ef2e;
       }
-      .transition-fade {
-        transition: 0.4s;
-        opacity: 1;
-      }
-
-      html.is-animating .transition-fade {
-        opacity: 0;
-      }
     </style>
   </head>
   <body>
-    <section id="app">
-      <nav class="flex justify-between items-center py-16 px-24">
+    <section
+      id="app"
+      class="relative"
+      :class="show ? 'overflow-hidden h-screen' : 'null'"
+    >
+      <!-- Desktop Nav -->
+      <nav
+        class="flex justify-between items-center lg:py-16 py-10 lg:px-24 px-8"
+      >
         <header class="">
           <a href="/blog/index.html">
             <img src="/images/engage.png" alt="" />
           </a>
         </header>
+
+        <!-- Icon for displaying Mobile nav -->
+        <div class="lg:hidden inline" @click="displayNav()">
+          <img src="/images/menu.png" class="w-10" alt="" />
+        </div>
         <ul
-          class="flex justify-between items-center font-semibold text-lg text-black"
+          class="lg:flex hidden justify-between items-center font-semibold text-lg text-black"
         >
           <li class="__list">
             <a href="#">Pricing</a>
@@ -132,7 +200,7 @@
             <a href="#">Blog</a>
           </li>
         </ul>
-        <div class="flex justify-between">
+        <div class="lg:flex hidden justify-between">
           <button
             class="__button focus:outline-none text-lg font-semibold mr-5"
           >
@@ -145,24 +213,72 @@
           </button>
         </div>
       </nav>
-      <main id="swup" class="transition-fade">
-        <!-- tags -->
-        <div class="flex items-center px-24">
-          <div class="flex items-center">
-            <a href="/blog/index.html">
-              <img src="/images/back.png" alt="" />
-            </a>
-            <a href="/blog/index.html" class="ml-2">
-              <p class="font-semibold text-xs __back">GO BACK</p>
-            </a>
+
+      <!-- Mobile Nav -->
+      <div
+        class="fixed top-0 right-0 w-screen h-screen lg:hidden flex items-center justify-center bg-gray-600 __opacity z-20"
+        v-if="show"
+      >
+        <nav class="w-full relative">
+          <div>
+            <ul class="text-center text-lg text-black">
+              <li class="__list">
+                <a href="#" @click="hideNav()">Pricing</a>
+              </li>
+              <li class="__list mt-3">
+                <a href="#" @click="hideNav()">About</a>
+              </li>
+              <li class="__list mt-3">
+                <a href="#" @click="hideNav()">Blog</a>
+              </li>
+            </ul>
           </div>
-          <!-- tags -->
-          <div class="flex justify-between items-center w-1/2 ml-20">
-            <div class="mr-6">
-              <p class="text-sm text-black font-semibold __list">
-                Popular Tags:
-              </p>
+          <div class="text-center mt-4">
+            <button
+              class="__button focus:outline-none text-lg font-semibold"
+              @click="hideNav()"
+            >
+              Login
+            </button>
+
+            <div class="text-center mt-4">
+              <button
+                class="__register rounded-2xl py-3 px-6 text-white font-semibold focus:outline-none"
+                @click="hideNav()"
+              >
+                Register - It’s free
+              </button>
             </div>
+          </div>
+        </nav>
+        <div class="absolute __close z-50" @click="hideNav()">
+          <button
+            class="rounded-full border border-white p-2 cursor-pointer focus:outline-none"
+          >
+            <img src="/images/close.png" alt="" />
+          </button>
+        </div>
+      </div>
+      <!-- tags -->
+      <div class="lg:flex block items-center lg:px-24 px-8">
+        <div class="flex items-center">
+          <a href="/blog/index.html">
+            <img src="/images/back.png" alt="" />
+          </a>
+          <a href="/blog/index.html" class="ml-2">
+            <p class="font-semibold text-xs __back">GO BACK</p>
+          </a>
+        </div>
+        <!-- tags -->
+        <div
+          class="lg:flex block justify-between items-center __adjust lg:ml-20 lg:mt-0 mt-8"
+        >
+          <div class="lg:mr-6">
+            <p class="text-base text-black font-semibold __list">
+              Popular Tags:
+            </p>
+          </div>
+          <div class="lg:flex __change grid grid-cols-2 gap-4 lg:mt-0 mt-8">
             <div
               class="__tags py-2 px-5"
               v-for="(title, i) in tags"
@@ -179,244 +295,264 @@
             </div>
           </div>
         </div>
-        <!-- blog topic -->
-        <header class="mt-10 px-24">
-          <h1 class="text-5xl __heading font-semibold w-3/4">
-            How the pandemic brought about a billion dollar company
-          </h1>
-        </header>
-        <!-- Author -->
-        <div class="mt-2 flex items-center px-24">
-          <div class="">
-            <img src="/images/image 6.png" class="rounded-full" alt="" />
-          </div>
+      </div>
+      <!-- blog topic -->
+      <header class="mt-10 lg:px-24 px-8">
+        <h1
+          class="lg:text-5xl md:text-4xl text-lg __heading font-semibold lg:w-3/4 w-full"
+        >
+          How the pandemic brought about a billion dollar company
+        </h1>
+      </header>
+      <!-- Author -->
+      <div class="lg:mt-2 mt-8 flex items-center lg:px-24 pl-8">
+        <div class="">
+          <img src="/images/image 6.png" class="rounded-full" alt="" />
+        </div>
+        <div class="lg:flex block items-center">
           <div class="ml-3">
             <p class="text-sm font-semibold __name">Victor</p>
           </div>
-          <div class="mx-4">
-            <img src="/images/Ellipse 9.png" alt="" />
-          </div>
-          <div>
-            <p class="text-xs __date">Posted; 14th July, 2020</p>
-          </div>
-          <div class="mx-4">
-            <img src="/images/Ellipse 9.png" alt="" />
-          </div>
-          <div>
-            <p class="text-xs __date">12 mins read</p>
-          </div>
-        </div>
-        <!-- Socials -->
-        <div class="mt-12 flex justify-between items-center w-1/4 px-24">
-          <div>
-            <a href="">
-              <img src="/images/Vector (1).png" alt="" />
-            </a>
-          </div>
-          <div>
-            <a href="">
-              <img src="/images/Vector (2).png" alt="" />
-            </a>
-          </div>
-          <div>
-            <a href="">
-              <img src="/images/Vector (3).png" alt="" />
-            </a>
-          </div>
-        </div>
-        <!-- subtopic -->
-        <div class="px-24 mt-12 relative">
-          <div>
-            <img src="/images/Rectangle 20.png" class="w-full" alt="" />
-          </div>
-          <div class="absolute __topic py-8 px-12">
-            <div>
-              <p class="text-xs font-semibold __note">PAGES NOTES</p>
+
+          <div class="flex items-center lg:mt-0 mt-2">
+            <div class="mx-4">
+              <img src="/images/Ellipse 9.png" alt="" />
             </div>
-            <div class="flex flex-col mt-10">
-              <div v-for="(title, a) in topic" :key="a">
-                <div class="flex justify-between items-center">
-                  <div>
-                    <p
-                      class="text-xs text-white font-semibold text-opacity-70 __list"
-                    >
-                      {{title.point}}
-                    </p>
-                  </div>
-                  <div class="ml-20 w-full">
-                    <p class="text-sm text-white font-semibold __list">
-                      {{title.subTopic}}
-                    </p>
-                  </div>
+            <div>
+              <p class="text-xs __date">Posted; 14th July, 2020</p>
+            </div>
+          </div>
+
+          <div class="flex items-center lg:mt-0 mt-2">
+            <div class="mx-4">
+              <img src="/images/Ellipse 9.png" alt="" />
+            </div>
+            <div>
+              <p class="text-xs __date">12 mins read</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Socials -->
+      <div
+        class="mt-12 flex justify-between items-center lg:w-1/4 md:w-1/3 w-1/2 lg:px-24 px-8 __social"
+      >
+        <div>
+          <a href="">
+            <img src="/images/Vector (1).png" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="">
+            <img src="/images/Vector (2).png" alt="" />
+          </a>
+        </div>
+        <div>
+          <a href="">
+            <img src="/images/Vector (3).png" alt="" />
+          </a>
+        </div>
+      </div>
+      <!-- subtopic -->
+      <div class="lg:px-24 px-8 mt-12 relative">
+        <div>
+          <img src="/images/Rectangle 20.png" class="w-full" alt="" />
+        </div>
+        <div class="lg:inline md:inline hidden absolute __topic py-8 px-12">
+          <div>
+            <p class="text-xs font-semibold __note">PAGES NOTES</p>
+          </div>
+          <div class="flex flex-col mt-10">
+            <div v-for="(title, a) in topic" :key="a">
+              <div class="flex justify-between items-center">
+                <div>
+                  <p
+                    class="text-xs text-white font-semibold text-opacity-70 __list"
+                  >
+                    {{title.point}}
+                  </p>
                 </div>
-                <div class="my-6" :class="title.class"></div>
+                <div class="ml-20 w-full">
+                  <p class="text-sm text-white font-semibold __list">
+                    {{title.subTopic}}
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
-          <div class="mt-6">
-            <p class="text-sm __date">Picture by: unsplash.com</p>
-          </div>
-        </div>
-        <!-- content -->
-        <div class="px-24 mt-32">
-          <!-- First Subtopic -->
-          <div class="flex justify-between items-start">
-            <div class="w-1/5">
-              <h2 class="text-4xl font-semibold __sub">What is Engage?</h2>
-            </div>
-            <div class="w-3/4">
-              <h4 class="text-2xl font-semibold __subtopic w-3/4">
-                We’re here to enrich customer messaging for growth and retention
-              </h4>
-              <p class="text-base __content mt-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.<br /><br />
-
-                Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor
-                sit amet.
-              </p>
-              <div class="mt-10">
-                <img src="/images/Rectangle 39.png" alt="" />
-              </div>
-            </div>
-          </div>
-          <!-- second subtopic -->
-          <div class="flex justify-between items-start mt-32">
-            <div class="w-1/5">
-              <h2 class="text-4xl font-semibold __sub">Our Ambitions</h2>
-              <p class="mt-10 text-lg __date font-semibold">
-                <i
-                  >“Ambitions are there to push you forward and not draw you
-                  back”</i
-                >
-              </p>
-            </div>
-            <div class="w-3/4">
-              <h4 class="text-2xl font-semibold __subtopic w-3/4">
-                We’re here to enrich customer messaging for growth and retention
-              </h4>
-              <p class="text-base __content mt-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.<br /><br />
-
-                Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor
-                sit amet. Ut enim ad minim veniam.Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem
-                ipsum dolor sit amet.<br /><br />
-
-                Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor
-                sit amet. Ut enim ad minim veniam.Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem
-                ipsum dolor sit amet.
-              </p>
-            </div>
-          </div>
-          <!-- third topic -->
-          <div class="flex justify-between items-start mt-32">
-            <div class="w-1/5">
-              <h2 class="text-4xl font-semibold __sub">Driving the future!</h2>
-            </div>
-            <div class="w-3/4">
-              <h4 class="text-2xl font-semibold __subtopic w-3/4">
-                We’re here to enrich customer messaging for growth and retention
-              </h4>
-              <p class="text-base __content mt-3">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua.<br /><br />
-
-                Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor
-                sit amet.
-              </p>
-              <div class="mt-10">
-                <img src="/images/Rectangle 40.png" alt="" />
-              </div>
+              <div class="my-6" :class="title.class"></div>
             </div>
           </div>
         </div>
-        <!-- footer -->
-        <div class="__footer mt-24 flex items-start pb-24 pt-12 pl-24">
-          <div class="flex flex-col w-2/5">
+        <div class="mt-6">
+          <p class="text-sm __date">Picture by: unsplash.com</p>
+        </div>
+      </div>
+      <!-- content -->
+      <div class="lg:px-24 px-8 lg:mt-32 mt-8 md:mt-48">
+        <!-- First Subtopic -->
+        <div class="lg:flex md:flex block justify-between items-start">
+          <div class="lg:w-1/5 md:w-1/5 w-full">
+            <h2 class="text-4xl font-semibold __sub">What is Engage?</h2>
+          </div>
+          <div class="lg:w-3/4 md:w-2/3 w-full lg:mt-0 md:mt-0 mt-8">
+            <h4 class="text-2xl font-semibold __subtopic lg:w-3/4 w-full">
+              We’re here to enrich customer messaging for growth and retention
+            </h4>
+            <p class="text-base __content mt-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.<br /><br />
+
+              Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit
+              amet.
+            </p>
+            <div class="mt-10">
+              <img src="/images/Rectangle 39.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <!-- second subtopic -->
+        <div
+          class="lg:flex md:flex block justify-between items-start lg:mt-32 md:mt-20 mt-8"
+        >
+          <div class="lg:w-1/5 md:w-1/5 w-full">
+            <h2 class="text-4xl font-semibold __sub">Our Ambitions</h2>
+            <p class="mt-4 text-lg __date font-semibold">
+              <i
+                >“Ambitions are there to push you forward and not draw you
+                back”</i
+              >
+            </p>
+          </div>
+          <div class="lg:w-3/4 md:w-2/3 w-full lg:mt-0 md:mt-0 mt-8">
+            <h4 class="text-2xl font-semibold __subtopic lg:w-3/4 w-full">
+              We’re here to enrich customer messaging for growth and retention
+            </h4>
+            <p class="text-base __content mt-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.<br /><br />
+
+              Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit
+              amet. Ut enim ad minim veniam.Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum
+              dolor sit amet.<br /><br />
+
+              Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit
+              amet. Ut enim ad minim veniam.Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+              labore et dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum
+              dolor sit amet.
+            </p>
+          </div>
+        </div>
+        <!-- third topic -->
+        <div
+          class="lg:flex md:flex block justify-between items-start lg:mt-32 md:mt-20 mt-8"
+        >
+          <div class="lg:w-1/5 md:w-1/5 w-full">
+            <h2 class="text-4xl font-semibold __sub">Driving the future!</h2>
+          </div>
+          <div class="lg:w-3/4 md:w-2/3 w-full lg:mt-0 md:mt-0 mt-8">
+            <h4 class="text-2xl font-semibold __subtopic lg:w-3/4 w-full">
+              We’re here to enrich customer messaging for growth and retention
+            </h4>
+            <p class="text-base __content mt-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua.<br /><br />
+
+              Ut enim ad minim veniam.Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam.Lorem ipsum dolor sit
+              amet.
+            </p>
+            <div class="mt-10">
+              <img src="/images/Rectangle 40.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- footer -->
+      <div
+        class="__footer mt-24 lg:flex md:flex block items-start pb-24 pt-12 lg:pl-24 pl-8"
+      >
+        <div class="flex flex-col lg:w-2/5 md:w-1/3 w-full">
+          <div>
+            <img src="/images/image 4.png" alt="" />
+          </div>
+          <div>
+            <p class="text-sm __name font-semibold mt-2">
+              Customer messaging for growth and retention
+            </p>
+          </div>
+          <div
+            class="lg:mt-10 md:mt-10 mt-4 flex justify-between items-center lg:w-1/4 lg:w-1/4 w-1/3"
+          >
             <div>
-              <img src="/images/image 4.png" alt="" />
+              <a href="">
+                <img src="/images/Vector (1).png" alt="" />
+              </a>
             </div>
             <div>
-              <p class="text-sm __name font-semibold mt-2">
-                Customer messaging for growth and retention
-              </p>
+              <a href="">
+                <img src="/images/Vector (2).png" alt="" />
+              </a>
             </div>
-            <div class="mt-10 flex justify-between items-center w-1/4">
-              <div>
-                <a href="">
-                  <img src="/images/Vector (1).png" alt="" />
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="/images/Vector (2).png" alt="" />
-                </a>
-              </div>
-              <div>
-                <a href="">
-                  <img src="/images/Vector (3).png" alt="" />
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="flex w-3/5">
-            <div class="flex flex-col">
-              <div>
-                <a href="#" class="__name font-semibold text-lg"
-                  >Platform guide</a
-                >
-              </div>
-              <div class="mt-5">
-                <a href="#" class="__name font-semibold text-lg">Api docs</a>
-              </div>
-              <div class="mt-5">
-                <a href="#" class="__name font-semibold text-lg">SDK</a>
-              </div>
-            </div>
-            <div class="flex flex-col ml-24">
-              <div>
-                <a href="#" class="__name font-semibold text-lg">Login</a>
-              </div>
-              <div class="mt-5">
-                <a href="#" class="__name font-semibold text-lg">Pricing</a>
-              </div>
-              <div class="mt-5">
-                <a href="#" class="__name font-semibold text-lg">Contact</a>
-              </div>
+            <div>
+              <a href="">
+                <img src="/images/Vector (3).png" alt="" />
+              </a>
             </div>
           </div>
         </div>
-      </main>
+        <div class="flex lg:w-3/5 md:w-3/5 w-full lg:mt-0 md:mt-0 mt-16">
+          <div class="flex flex-col">
+            <div>
+              <a href="#" class="__name font-semibold text-lg"
+                >Platform guide</a
+              >
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">Api docs</a>
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">SDK</a>
+            </div>
+          </div>
+          <div class="flex flex-col ml-24">
+            <div>
+              <a href="#" class="__name font-semibold text-lg">Login</a>
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">Pricing</a>
+            </div>
+            <div class="mt-5">
+              <a href="#" class="__name font-semibold text-lg">Contact</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <script>
-      const swup = new Swup();
       new Vue({
         el: "#app",
         data() {
           return {
+            show: false,
             tags: [
               {
                 description: "NEWS",
@@ -470,6 +606,14 @@
               },
             ],
           };
+        },
+        methods: {
+          displayNav() {
+            this.show = true;
+          },
+          hideNav() {
+            this.show = false;
+          },
         },
       });
     </script>
