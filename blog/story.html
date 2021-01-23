@@ -5,13 +5,13 @@
     <meta name="og:title" property="og:title" content="Engage Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Latest News At Engage" />
-    <!-- <meta property="og:url" content="https://mailintel.io/blog/" /> -->
-    <!-- <meta
-          name="og:title"
-          property="og:title"
-          content="The Title of Your Article"
-        />
-        <meta name="twitter:card" content="summary" /> -->
+
+    <meta
+      name="og:title"
+      property="og:title"
+      content="The Title of Your Article"
+    />
+    <meta name="twitter:card" content="summary" />
     <link rel="canonical" href=" https://engage.so/" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -24,150 +24,13 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="stylesheet" href="../css/story.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 
     <title>Engage Blog</title>
-    <style>
-      @media only screen and (min-width: 1050px) and (max-width: 1300px) {
-        .__adjust {
-          width: 60% !important;
-        }
-      }
-      @media only screen and (min-width: 1000px) and (max-width: 1030px) {
-        .__adjust {
-          width: 75% !important;
-        }
-        .__social {
-          width: 30% !important;
-        }
-        .__heading {
-          width: 100%;
-
-          margin-top: 4rem;
-        }
-      }
-      @media only screen and (min-width: 720px) and (max-width: 800px) {
-        .__hint {
-          width: 100% !important;
-        }
-        .__note {
-          width: 100% !important;
-        }
-        .__headline {
-          font-size: 40px !important;
-        }
-        .__heading {
-          line-height: 57px !important;
-        }
-        .__topic {
-          right: 100px !important;
-          bottom: -117px !important;
-        }
-      }
-      @media only screen and (max-width: 700px) {
-        .__hint {
-          width: 100% !important;
-        }
-        .__heading {
-          line-height: 30px !important;
-        }
-        .__note {
-          width: 100% !important;
-        }
-        .__headline {
-          font-size: 24px !important;
-          line-height: 34px !important;
-          text-align: left !important;
-        }
-        .__adjust {
-          width: 100% !important;
-        }
-      }
-      * {
-        margin: 0;
-        box-sizing: border-box;
-      }
-      .__close {
-        right: 30px;
-        top: 30px;
-      }
-      .__opacity {
-        opacity: 0.95;
-      }
-      .__list {
-        font-family: "Poppins";
-      }
-      .__button {
-        color: #0c56c2;
-        font-family: "Poppins";
-      }
-      .__register {
-        background-color: #0c56c2;
-        font-family: "Poppins";
-      }
-      .__back {
-        color: #0c56c2;
-        font-family: "Poppins";
-      }
-      .__adjust {
-        width: 54%;
-      }
-      .__hint {
-        width: 45%;
-      }
-      .__tags {
-        border-radius: 30px;
-      }
-      .__heading {
-        font-family: "Poppins";
-        line-height: 72px;
-        color: #001a41;
-      }
-      .__name {
-        color: #001a41;
-        font-family: "Poppins";
-      }
-      .__date {
-        color: #828282;
-        font-family: "Poppins";
-      }
-      .__topic {
-        right: 156px;
-        bottom: -27px;
-        background: #001a41;
-        border-radius: 20px;
-      }
-      .__note {
-        color: #32ba85;
-        font-family: "Poppins";
-      }
-      .__line {
-        border-top: 1.5px solid white;
-        opacity: 0.2;
-      }
-      .__sub {
-        color: #001a41;
-        font-family: "Poppins";
-        line-height: 57.6px;
-      }
-      .__subtopic {
-        color: #121212;
-        font-family: "Poppins";
-        line-height: 38.4px;
-      }
-      .__content {
-        font-family: "Inter";
-        line-height: 25.6px;
-        color: #333333;
-      }
-      .__footer {
-        background: #dee5ef2e;
-      }
-    </style>
   </head>
-  <body>
+  <body class="max-w-screen-2xl 2xl:mx-auto 2xl:bg-gray-200">
     <section
       id="app"
       class="relative"
@@ -184,9 +47,16 @@
         </header>
 
         <!-- Icon for displaying Mobile nav -->
-        <div class="lg:hidden inline" @click="displayNav()">
-          <img src="/images/menu.png" class="w-10" alt="" />
-        </div>
+
+        <button
+          id="menuBtn"
+          class="hamburger block sm:hidden focus:outline-none"
+          type="button"
+          @click="displayNav()"
+        >
+          <span class="hamburger__top-bun"></span
+          ><span class="hamburger__bottom-bun"></span>
+        </button>
         <ul
           class="lg:flex hidden justify-between items-center font-semibold text-lg text-black"
         >
@@ -216,27 +86,27 @@
 
       <!-- Mobile Nav -->
       <div
-        class="fixed top-0 right-0 w-screen h-screen lg:hidden flex items-center justify-center bg-gray-600 __opacity z-20"
+        class="fixed top-0 right-0 w-screen h-screen lg:hidden flex items-center bg-gray-600 __opacity z-20"
         v-if="show"
       >
-        <nav class="w-full relative">
+        <nav class="w-2/3 relative h-full __side_nav">
           <div>
             <ul class="text-center text-lg text-black">
               <li class="__list">
-                <a href="#" @click="hideNav()">Pricing</a>
+                <a href="#" @click="displayNav()">Pricing</a>
               </li>
               <li class="__list mt-3">
-                <a href="#" @click="hideNav()">About</a>
+                <a href="#" @click="displayNav()">About</a>
               </li>
               <li class="__list mt-3">
-                <a href="#" @click="hideNav()">Blog</a>
+                <a href="#" @click="displayNav()">Blog</a>
               </li>
             </ul>
           </div>
           <div class="text-center mt-4">
             <button
               class="__button focus:outline-none text-lg font-semibold"
-              @click="hideNav()"
+              @click="displayNav()"
             >
               Login
             </button>
@@ -244,20 +114,13 @@
             <div class="text-center mt-4">
               <button
                 class="__register rounded-2xl py-3 px-6 text-white font-semibold focus:outline-none"
-                @click="hideNav()"
+                @click="displayNav()"
               >
                 Register - It’s free
               </button>
             </div>
           </div>
         </nav>
-        <div class="absolute __close z-50" @click="hideNav()">
-          <button
-            class="rounded-full border border-white p-2 cursor-pointer focus:outline-none"
-          >
-            <img src="/images/close.png" alt="" />
-          </button>
-        </div>
       </div>
       <!-- tags -->
       <div class="lg:flex block items-center lg:px-24 px-8">
@@ -609,10 +472,12 @@
         },
         methods: {
           displayNav() {
-            this.show = true;
-          },
-          hideNav() {
-            this.show = false;
+            this.show = !this.show;
+            var btn = document.getElementById("menuBtn");
+            var nav = document.getElementById("menu");
+            btn.classList.toggle("open");
+            nav.classList.toggle("flex");
+            nav.classList.toggle("hidden");
           },
         },
       });

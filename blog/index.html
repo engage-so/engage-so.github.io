@@ -24,207 +24,14 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/tailwind.css" />
 
+    <link rel="stylesheet" href="../css/index.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 
     <title>Engage Blog</title>
-    <style>
-      @media only screen and (min-width: 1000px) and (max-width: 1280px) {
-        .__change {
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 1rem;
-        }
-        .__tags {
-          margin-top: 2rem;
-        }
-      }
-      @media only screen and (min-width: 720px) and (max-width: 800px) {
-        .__hint {
-          width: 100% !important;
-        }
-        .__note {
-          width: 100% !important;
-        }
-        .__headline {
-          font-size: 40px !important;
-        }
-      }
-      @media only screen and (max-width: 700px) {
-        .__hint {
-          width: 100% !important;
-        }
-        .__heading {
-          font-size: 40px !important;
-        }
-        .__note {
-          width: 100% !important;
-        }
-        .__headline {
-          font-size: 24px !important;
-          line-height: 34px !important;
-          text-align: left !important;
-        }
-      }
-      * {
-        margin: 0;
-        box-sizing: border-box;
-      }
-      .__close {
-        right: 30px;
-        top: 30px;
-      }
-      .__opacity {
-        opacity: 0.95;
-      }
-      .__list,
-      .__articleTag {
-        font-family: "Poppins";
-      }
-      .__button {
-        color: #0c56c2;
-        font-family: "Poppins";
-      }
-      .__register {
-        background-color: #0c56c2;
-        font-family: "Poppins";
-      }
-      .__heading {
-        color: #001a41;
-        font-family: "Poppins";
-        font-size: 64px;
-      }
-      .__green {
-        color: #32ba85;
-        font-family: "Poppins";
-      }
-      .__input {
-        color: #bdbdbd;
-        font-family: "Poppins";
-        background: #f2f2f2;
-        border: 2px solid #bdbdbd;
-        border-radius: 18px;
-        opacity: 0.6;
-      }
-      .__input::placeholder {
-        color: #bdbdbd;
-        font-family: "Poppins";
-      }
-      .__search {
-        background-color: #2f80ed42;
-        top: 11px;
-        left: 12px;
-        bottom: 11px;
-      }
-      .__hint {
-        width: 45%;
-      }
-      .__tags,
-      .__articleTag {
-        border-radius: 30px;
-      }
-      .__note {
-        width: 42%;
-      }
-      .__news {
-        border-radius: 30px;
-        background: rgba(47, 128, 237, 0.15);
-        color: #2f80ed;
-        font-family: "Poppins";
-      }
-      .__time {
-        color: #121212;
-        font-family: "Poppins";
-      }
-      .__headline {
-        color: #001a41;
-        font-family: "Poppins";
-        line-height: 54px;
-      }
-      .__text {
-        font-family: "Inter";
-        line-height: 25.6px;
-        color: #828282;
-      }
-      .__name {
-        color: #001a41;
-        font-family: "Poppins";
-      }
-      .__date {
-        color: #828282;
-        font-family: "Poppins";
-      }
-      .__article {
-        min-height: 262px;
-      }
-
-      .__short {
-        background: #dee5ef57;
-      }
-      .__read {
-        border-radius: 20px;
-      }
-      .__summary {
-        line-height: 22.4px;
-        font-family: "Inter";
-        color: #828282;
-      }
-      .__blog {
-        width: 290rem;
-      }
-      .__each {
-        width: 380px;
-      }
-      .__eachImage {
-        min-height: 166px;
-      }
-
-      .push {
-        max-width: 300rem;
-        scroll-padding: 0;
-      }
-      .push::-webkit-scrollbar {
-        display: none !important;
-      }
-      .__movie {
-        background: #b9ffd6;
-      }
-      .__development {
-        background-color: rgba(50, 186, 133, 0.15);
-        color: #32ba85;
-      }
-      .__mobile {
-        background: #e7e4ff;
-        border-radius: 25px;
-      }
-      .__ad {
-        color: #6c5ce7;
-        font-family: "Poppins";
-      }
-      .__call {
-        background: #f4d9ff;
-      }
-      .__house {
-        background-color: rgba(155, 81, 224, 0.15);
-        color: #9b51e0;
-      }
-      .__footer {
-        background: #dee5ef2e;
-      }
-      .embla {
-        overflow: hidden;
-      }
-      .embla__container {
-        display: flex;
-      }
-      .embla__slide {
-        position: relative;
-        min-width: 100%;
-      }
-    </style>
   </head>
-  <body>
+
+  <body class="max-w-screen-2xl 2xl:mx-auto 2xl:bg-gray-200">
     <section
       id="app"
       class="relative"
@@ -241,9 +48,16 @@
         </header>
 
         <!-- Icon for displaying Mobile nav -->
-        <div class="lg:hidden inline" @click="displayNav()">
-          <img src="/images/menu.png" class="w-10" alt="" />
-        </div>
+
+        <button
+          id="menuBtn"
+          class="hamburger block sm:hidden focus:outline-none"
+          type="button"
+          @click="displayNav()"
+        >
+          <span class="hamburger__top-bun"></span
+          ><span class="hamburger__bottom-bun"></span>
+        </button>
         <ul
           class="lg:flex hidden justify-between items-center font-semibold text-lg text-black"
         >
@@ -273,27 +87,27 @@
 
       <!-- Mobile Nav -->
       <div
-        class="fixed top-0 right-0 w-screen h-screen lg:hidden flex items-center justify-center bg-gray-600 __opacity z-20"
+        class="fixed top-0 right-0 w-screen h-screen lg:hidden flex items-center bg-gray-600 __opacity z-20"
         v-if="show"
       >
-        <nav class="w-full relative">
+        <nav class="w-2/3 relative h-full __side_nav">
           <div>
             <ul class="text-center text-lg text-black">
               <li class="__list">
-                <a href="#" @click="hideNav()">Pricing</a>
+                <a href="#" @click="displayNav()">Pricing</a>
               </li>
               <li class="__list mt-3">
-                <a href="#" @click="hideNav()">About</a>
+                <a href="#" @click="displayNav()">About</a>
               </li>
               <li class="__list mt-3">
-                <a href="#" @click="hideNav()">Blog</a>
+                <a href="#" @click="displayNav()">Blog</a>
               </li>
             </ul>
           </div>
           <div class="text-center mt-4">
             <button
               class="__button focus:outline-none text-lg font-semibold"
-              @click="hideNav()"
+              @click="displayNav()"
             >
               Login
             </button>
@@ -301,20 +115,20 @@
             <div class="text-center mt-4">
               <button
                 class="__register rounded-2xl py-3 px-6 text-white font-semibold focus:outline-none"
-                @click="hideNav()"
+                @click="displayNav()"
               >
                 Register - It’s free
               </button>
             </div>
           </div>
         </nav>
-        <div class="absolute __close z-50" @click="hideNav()">
+        <!-- <div class="absolute __close z-50" @click="displayNav()">
           <button
             class="rounded-full border border-white p-2 cursor-pointer focus:outline-none"
           >
             <img src="/images/close.png" alt="" />
           </button>
-        </div>
+        </div> -->
       </div>
 
       <header class="lg:mt-20 mt-8 text-center">
@@ -469,76 +283,81 @@
         </div>
       </div>
       <!-- Slider -->
-      <div class="lg:pl-24 pl-8 py-10 __short mt-20 w-full">
+      <div class="lg:pl-24 md:pl-8 py-10 __short mt-20 w-full">
         <div class="lg:mb-8 mb-12">
-          <h5 class="font-semibold text-5xl __name">Short reads</h5>
+          <h5 class="font-semibold px-8 md:px-0 text-5xl __name">
+            Short reads
+          </h5>
         </div>
-        <!-- <div class="embla flex items-start push overflow-x-scroll" id="embla"> -->
-        <div class="flex items-start push overflow-x-scroll">
-          <!-- <div
-            class="embla__container __blog"
-            v-for="(read, b) in blog"
-            :key="b"
-          > -->
-          <!-- <div class="embla__slide flex justify-between items-start"> -->
 
-          <div
-            class="flex justify-between items-start __blog"
-            v-for="(read, b) in blog"
-            :key="b"
-          >
-            <div
-              class="__read py-8 __each"
-              :style="{background:read.background}"
-            >
-              <img
-                :src="`/images/${read.banner}`"
-                class="mx-auto __eachImage"
-                alt=""
-              />
-            </div>
-            <div class="flex flex-col ml-8 mr-20 w-3/4">
-              <div class="">
-                <h5 class="text-lg font-semibold __name">{{read.title}}</h5>
-                <div class="mt-2 text-sm __summary">{{read.summary}}</div>
-              </div>
-              <div class="mt-4 flex items-center">
-                <div class="">
-                  <img
-                    :src="`/images/${read.image}`"
-                    class="rounded-full"
-                    alt=""
-                  />
-                </div>
-                <div class="ml-3">
-                  <p class="text-sm font-semibold __name">{{read.name}}</p>
-                  <p class="text-xs __date">Posted; {{read.date}}</p>
+        <div class="embla">
+          <div class="embla__viewport">
+            <div class="embla__container">
+              <div v-for="(read, b) in blog" :key="b" class="embla__slide">
+                <div class="md:flex justify-between items-start">
+                  <div
+                    class="__read py-8 __each"
+                    :style="{background:read.background}"
+                  >
+                    <img
+                      :src="`/images/${read.banner}`"
+                      class="mx-auto __eachImage"
+                      alt=""
+                    />
+                  </div>
+                  <div
+                    class="flex flex-col md:ml-8 md:mr-20 m-3 md:w-3/4 w-full"
+                  >
+                    <div class="">
+                      <h5 class="text-lg font-semibold __name">
+                        {{read.title}}
+                      </h5>
+                      <div class="mt-2 text-sm __summary">{{read.summary}}</div>
+                    </div>
+                    <div class="mt-4 flex items-center">
+                      <div class="">
+                        <img
+                          :src="`/images/${read.image}`"
+                          class="rounded-full"
+                          alt=""
+                        />
+                      </div>
+                      <div class="ml-3">
+                        <p class="text-sm font-semibold __name">
+                          {{read.name}}
+                        </p>
+                        <p class="text-xs __date">Posted; {{read.date}}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="flex justify-between items-center mt-12">
-          <div class="flex items-center">
-            <button
-              class="embla__button--prev focus:outline-none"
-              type="button"
-            >
-              <img src="/images/left.png" alt="" />
-            </button>
-            <button
-              class="embla__button--next ml-5 focus:outline-none"
-              type="button"
-            >
-              <img src="/images/right.png" alt="" />
-            </button>
+          <div class="flex justify-between items-center mt-12">
+            <div class="flex items-center">
+              <button
+                class="embla__button--prev focus:outline-none"
+                type="button"
+              >
+                <img src="/images/left.png" alt="" />
+              </button>
+              <button
+                class="embla__button--next ml-5 focus:outline-none"
+                type="button"
+              >
+                <img src="/images/right.png" alt="" />
+              </button>
+            </div>
+            <ul class="flex items-center text-sm font-semibold lg:mr-24 mr-8">
+              <li class="__date ml-3 __name">01</li>
+              <li class="__date ml-3">02</li>
+              <li class="__date ml-3">03</li>
+              <li class="__date ml-3">04</li>
+              <li class="__date ml-3">05</li>
+              <li class="__date ml-3">06</li>
+            </ul>
           </div>
-          <ul class="flex items-center text-sm font-semibold lg:mr-24 mr-8">
-            <li class="__name">01</li>
-            <li class="__date ml-3">02</li>
-            <li class="__date ml-3">03</li>
-            <li class="__date ml-3">04</li>
-          </ul>
         </div>
       </div>
 
@@ -948,56 +767,86 @@
         },
         methods: {
           displayNav() {
-            this.show = true;
-          },
-          hideNav() {
-            this.show = false;
+            this.show = !this.show;
+            var btn = document.getElementById("menuBtn");
+            var nav = document.getElementById("menu");
+            btn.classList.toggle("open");
+            nav.classList.toggle("flex");
+            nav.classList.toggle("hidden");
           },
         },
       });
     </script>
-    <!-- <script src="https://unpkg.com/embla-carousel@latest/embla-carousel.umd.js"></script>
+    <script src="https://unpkg.com/embla-carousel@latest/embla-carousel.umd.js"></script>
     <script>
-      let emblaNode = document.getElementById("embla");
-      const prevBtn = document.querySelector(".embla__button--prev");
-      const nextBtn = document.querySelector(".embla__button--next");
-      let embla = EmblaCarousel(emblaNode);
-      debugger;
-      prevBtn.addEventListener(
-        "click",
-        embla.scrollPrev((e) => {
-          console.log(true);
-        }),
-        true
+      const setupPrevNextBtns = (prevBtn, nextBtn, embla) => {
+        prevBtn.addEventListener(
+          "click",
+          (e) => {
+            embla.scrollPrev(e);
+            const index = embla.selectedScrollSnap();
+            list = document.querySelectorAll(
+              "div.embla > div.flex.justify-between.items-center.mt-12 > ul > li"
+            );
+            list.forEach((element) => {
+              if (element.innerText === "0" + (index + 1)) {
+                element.classList.add("__name");
+              } else {
+                element.classList.remove("__name");
+              }
+            });
+          },
+          false
+        );
+        nextBtn.addEventListener(
+          "click",
+          (e) => {
+            embla.scrollNext(e);
+            const index = embla.selectedScrollSnap();
+            list = document.querySelectorAll(
+              "div.embla > div.flex.justify-between.items-center.mt-12 > ul > li"
+            );
+            list.forEach((element) => {
+              if (element.innerText === "0" + (index + 1)) {
+                element.classList.add("__name");
+              } else {
+                element.classList.remove("__name");
+              }
+            });
+            console.log(embla.selectedScrollSnap());
+          },
+          false
+        );
+      };
+
+      const disablePrevNextBtns = (prevBtn, nextBtn, embla) => {
+        return () => {
+          if (embla.canScrollPrev()) prevBtn.removeAttribute("disabled");
+          else prevBtn.setAttribute("disabled", "disabled");
+
+          if (embla.canScrollNext()) nextBtn.removeAttribute("disabled");
+          else nextBtn.setAttribute("disabled", "disabled");
+        };
+      };
+
+      const wrap = document.querySelector(".embla");
+      const viewPort = wrap.querySelector(".embla__viewport");
+      const prevBtn = wrap.querySelector(".embla__button--prev");
+      const nextBtn = wrap.querySelector(".embla__button--next");
+      const embla = EmblaCarousel(viewPort, {
+        dragFree: true,
+        containScroll: "trimSnaps",
+      });
+      const disablePrevAndNextBtns = disablePrevNextBtns(
+        prevBtn,
+        nextBtn,
+        embla
       );
-      nextBtn.addEventListener("click", embla.scrollNext, true);
 
-      // const setupPrevNextBtns = (prevBtn, nextBtn, embla) => {
-      //   debugger;
-      //   prevBtn.addEventListener("click", embla.scrollPrev, false);
-      //   nextBtn.addEventListener("click", embla.scrollNext, false);
-      // };
+      setupPrevNextBtns(prevBtn, nextBtn, embla);
 
-      // const disablePrevNextBtns = (prevBtn, nextBtn, embla) => {
-      //   return () => {
-      //     if (embla.canScrollPrev()) prevBtn.removeAttribute("disabled");
-      //     else prevBtn.setAttribute("disabled", "disabled");
-
-      //     if (embla.canScrollNext()) nextBtn.removeAttribute("disabled");
-      //     else nextBtn.setAttribute("disabled", "disabled");
-      //   };
-      // };
-
-      // setupPrevNextBtns(prevBtn, nextBtn, embla);
-
-      // const disabledPrevAndNextBtns = disablePrevNextBtns(
-      //   prevBtn,
-      //   nextBtn,
-      //   embla
-      // );
-
-      embla.on("select");
-      embla.on("init");
-    </script> -->
+      embla.on("select", disablePrevAndNextBtns);
+      embla.on("init", disablePrevAndNextBtns);
+    </script>
   </body>
 </html>
