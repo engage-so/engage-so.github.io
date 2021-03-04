@@ -14,16 +14,16 @@ body {
 .logo img.small {
   width: 30px
 }
-h1 {
+h1, h2 {
   font-family: 'Poppins', sans-serif;
   color: #111;
   font-weight: 600
 }
-h1 span.green {
+span.green {
   position: relative;
   display: inline-block;
 }
-h1 span.green::after {
+span.green::after {
   position: absolute;
   height: 400px;
   z-index: -1;
