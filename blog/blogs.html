@@ -5,7 +5,7 @@
     <meta name="og:title" property="og:title" content="Engage Blog" />
     <meta property="og:type" content="website" />
     <meta property="og:description" content="Latest News At Engage" />
-    <meta property="og:url" content="https://mailintel.io/blog/" />
+
     <meta
       name="og:title"
       property="og:title"
@@ -25,12 +25,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../css/index.css" />
+    <link rel="stylesheet" href="../css/blogs.css" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
 
     <title>Engage Blog</title>
   </head>
-
   <body class="max-w-screen-2xl 2xl:mx-auto 2xl:bg-gray-200">
     <section
       id="app"
@@ -48,7 +47,6 @@
         </header>
 
         <!-- Icon for displaying Mobile nav -->
-
         <button
           id="menuBtn"
           class="hamburger block sm:hidden focus:outline-none"
@@ -58,6 +56,7 @@
           <span class="hamburger__top-bun"></span
           ><span class="hamburger__bottom-bun"></span>
         </button>
+
         <ul
           class="lg:flex hidden justify-between items-center font-semibold text-lg text-black"
         >
@@ -122,20 +121,11 @@
             </div>
           </div>
         </nav>
-        <!-- <div class="absolute __close z-50" @click="displayNav()">
-          <button
-            class="rounded-full border border-white p-2 cursor-pointer focus:outline-none"
-          >
-            <img src="/images/close.png" alt="" />
-          </button>
-        </div> -->
       </div>
 
       <header class="lg:mt-20 mt-8 text-center">
         <h1 class="font-semibold __heading">Our blog about</h1>
-        <h3 class="__green lg:text-5xl md:text-5xl text-2xl font-semibold">
-          Engage & the media
-        </h3>
+        <h3 class="__green text-5xl font-semibold">Engage & the media</h3>
       </header>
       <!-- search -->
       <div
@@ -176,54 +166,7 @@
           </div>
         </div>
       </div>
-      <!-- Recent News -->
-      <div
-        class="lg:flex block mt-20 justify-between items-start lg:px-24 px-8"
-      >
-        <div class="lg:w-1/2 w-full">
-          <img src="/images/Rectangle 20.png" alt="" />
-        </div>
-        <div class="__note flex flex-col lg:mt-0 mt-16">
-          <div class="flex items-center lg:justify-start md:justify-center">
-            <div class="__news py-2 px-5 text-xs font-semibold">NEWS</div>
-            <div class="mx-3">
-              <img src="/images/Ellipse 9.png" alt="" />
-            </div>
-            <div>
-              <p class="__time text-xs font-semibold">12 mins read</p>
-            </div>
-          </div>
-          <div class="lg:mt-10 mt-8 cursor-pointer">
-            <h5
-              class="lg:text-4xl text-2xl font-semibold md:text-center lg:text-left __headline"
-            >
-              <a href="/blog/story.html">
-                How the pandemic brought about a billion dollar company</a
-              >
-            </h5>
-            <p
-              class="text-base font-semibold __text mt-3 md:text-center lg:text-left"
-            >
-              <a href="/blog/story.html">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam.
-              </a>
-            </p>
-          </div>
-          <div
-            class="mt-8 flex items-center lg:justify-start md:justify-center"
-          >
-            <div class="">
-              <img src="/images/image 6.png" class="rounded-full" alt="" />
-            </div>
-            <div class="ml-3">
-              <p class="text-sm font-semibold __name">Victor</p>
-              <p class="text-xs __date">Posted; 14th July, 2020</p>
-            </div>
-          </div>
-        </div>
-      </div>
+
       <!-- Blogs -->
       <div
         class="lg:flex block justify-between items-start mt-20 lg:mx-16 mx-8"
@@ -244,7 +187,7 @@
             />
           </div>
           <div
-            class="flex items-center md:justify-center lg:justify-start lg:mt-8 mt-12"
+            class="flex items-center lg:justify-start md:justify-center lg:mt-8 mt-12"
           >
             <div
               class="__articleTag py-2 px-5 text-xs font-semibold"
@@ -282,93 +225,15 @@
           </div>
         </div>
       </div>
-      <!-- Slider -->
-      <div class="lg:pl-24 md:pl-8 py-10 __short mt-20 w-full">
-        <div class="lg:mb-8 mb-12">
-          <h5 class="font-semibold px-8 md:px-0 text-5xl __name">
-            Short reads
-          </h5>
-        </div>
-
-        <div class="embla">
-          <div class="embla__viewport">
-            <div class="embla__container">
-              <div v-for="(read, b) in blog" :key="b" class="embla__slide">
-                <div class="md:flex justify-between items-start">
-                  <div
-                    class="__read py-8 __each"
-                    :style="{background:read.background}"
-                  >
-                    <img
-                      :src="`/images/${read.banner}`"
-                      class="mx-auto __eachImage"
-                      alt=""
-                    />
-                  </div>
-                  <div
-                    class="flex flex-col md:ml-8 md:mr-20 m-3 md:w-3/4 w-full"
-                  >
-                    <div class="">
-                      <h5 class="text-lg font-semibold __name">
-                        {{read.title}}
-                      </h5>
-                      <div class="mt-2 text-sm __summary">{{read.summary}}</div>
-                    </div>
-                    <div class="mt-4 flex items-center">
-                      <div class="">
-                        <img
-                          :src="`/images/${read.image}`"
-                          class="rounded-full"
-                          alt=""
-                        />
-                      </div>
-                      <div class="ml-3">
-                        <p class="text-sm font-semibold __name">
-                          {{read.name}}
-                        </p>
-                        <p class="text-xs __date">Posted; {{read.date}}</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="flex justify-between items-center mt-12">
-            <div class="flex items-center">
-              <button
-                class="embla__button--prev focus:outline-none"
-                type="button"
-              >
-                <img src="/images/left.png" alt="" />
-              </button>
-              <button
-                class="embla__button--next ml-5 focus:outline-none"
-                type="button"
-              >
-                <img src="/images/right.png" alt="" />
-              </button>
-            </div>
-            <ul class="flex items-center text-sm font-semibold lg:mr-24 mr-8">
-              <li class="__date ml-3 __name">01</li>
-              <li class="__date ml-3">02</li>
-              <li class="__date ml-3">03</li>
-              <li class="__date ml-3">04</li>
-              <li class="__date ml-3">05</li>
-              <li class="__date ml-3">06</li>
-            </ul>
-          </div>
-        </div>
-      </div>
 
       <!-- Blogs -->
-      <div class="lg:flex block justify-between lg:mx-16 mx-8 mt-20">
+      <div class="lg:flex block justify-between lg:mx-16 mx-8 lg:mt-20">
         <div class="flex flex-col lg:w-1/3 w-full lg:mx-5">
           <div class="__tags py-16 __movie">
             <img src="/images/movie.png" class="mx-auto __article" alt="" />
           </div>
           <div
-            class="flex lg:justify-start md:justify-center items-center lg:mt-8 mt-12"
+            class="flex lg:justify-start lg:justify-start md:justify-center items-center lg:mt-8 mt-12"
           >
             <div
               class="__articleTag py-2 px-5 text-xs font-semibold __development"
@@ -575,6 +440,7 @@
         </div>
       </div>
     </section>
+
     <script>
       const articles = [
         {
@@ -668,34 +534,35 @@
         data() {
           return {
             show: false,
+            choose: "",
             tags: [
               {
                 description: "NEWS",
                 background: "rgba(47, 128, 237, 0.15)",
-                color: "#2F80ED",
+                newBackground: "rgba(47, 128, 237)",
                 code: "News",
-                link: "/blog/blogs.html",
+                color: "#2F80ED",
               },
               {
                 description: "DESIGN",
                 background: "rgba(242, 153, 74, 0.15)",
-                color: "#F2994A",
+                newBackground: "rgba(242, 153, 74)",
                 code: "Design",
-                link: "/blog/blogs.html",
+                color: "#F2994A",
               },
               {
                 description: "IN-HOUSE",
                 background: "rgba(155, 81, 224, 0.15)",
-                color: "#9B51E0",
+                newBackground: "rgba(155, 81, 224)",
                 code: "House",
-                link: "/blog/blogs.html",
+                color: "#9B51E0",
               },
               {
                 description: "DEVELOPMENT",
                 background: "rgba(50, 186, 133, 0.15)",
-                color: " #32BA85",
+                newBackground: "rgba(50, 186, 133)",
                 code: "Development",
-                link: "/blog/blogs.html",
+                color: " #32BA85",
               },
             ],
 
@@ -766,6 +633,10 @@
           };
         },
         methods: {
+          change(tag) {
+            this.choose = tag;
+            console.log(tag);
+          },
           displayNav() {
             this.show = !this.show;
             var btn = document.getElementById("menuBtn");
@@ -776,77 +647,6 @@
           },
         },
       });
-    </script>
-    <script src="https://unpkg.com/embla-carousel@latest/embla-carousel.umd.js"></script>
-    <script>
-      const setupPrevNextBtns = (prevBtn, nextBtn, embla) => {
-        prevBtn.addEventListener(
-          "click",
-          (e) => {
-            embla.scrollPrev(e);
-            const index = embla.selectedScrollSnap();
-            list = document.querySelectorAll(
-              "div.embla > div.flex.justify-between.items-center.mt-12 > ul > li"
-            );
-            list.forEach((element) => {
-              if (element.innerText === "0" + (index + 1)) {
-                element.classList.add("__name");
-              } else {
-                element.classList.remove("__name");
-              }
-            });
-          },
-          false
-        );
-        nextBtn.addEventListener(
-          "click",
-          (e) => {
-            embla.scrollNext(e);
-            const index = embla.selectedScrollSnap();
-            list = document.querySelectorAll(
-              "div.embla > div.flex.justify-between.items-center.mt-12 > ul > li"
-            );
-            list.forEach((element) => {
-              if (element.innerText === "0" + (index + 1)) {
-                element.classList.add("__name");
-              } else {
-                element.classList.remove("__name");
-              }
-            });
-            console.log(embla.selectedScrollSnap());
-          },
-          false
-        );
-      };
-
-      const disablePrevNextBtns = (prevBtn, nextBtn, embla) => {
-        return () => {
-          if (embla.canScrollPrev()) prevBtn.removeAttribute("disabled");
-          else prevBtn.setAttribute("disabled", "disabled");
-
-          if (embla.canScrollNext()) nextBtn.removeAttribute("disabled");
-          else nextBtn.setAttribute("disabled", "disabled");
-        };
-      };
-
-      const wrap = document.querySelector(".embla");
-      const viewPort = wrap.querySelector(".embla__viewport");
-      const prevBtn = wrap.querySelector(".embla__button--prev");
-      const nextBtn = wrap.querySelector(".embla__button--next");
-      const embla = EmblaCarousel(viewPort, {
-        dragFree: true,
-        containScroll: "trimSnaps",
-      });
-      const disablePrevAndNextBtns = disablePrevNextBtns(
-        prevBtn,
-        nextBtn,
-        embla
-      );
-
-      setupPrevNextBtns(prevBtn, nextBtn, embla);
-
-      embla.on("select", disablePrevAndNextBtns);
-      embla.on("init", disablePrevAndNextBtns);
     </script>
   </body>
 </html>
