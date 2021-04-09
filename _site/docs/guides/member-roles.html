@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Team member roles</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="slack-app-id" content="A6566DWTS">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600,700&family=Fira+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tachyons.css">
+  <link rel="stylesheet" href="/css/monokai.css">
+  <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body>
+  <div class="flex f5">
+    <div class="w-20 pa4 sidebar fixed">
+      <div class="mb4">
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
+      </div>
+
+      <!-- <div class="mv4">
+        <input type="search" placeholder="Search..." class="w-100">
+      </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
+
+      <h3 class="mb1 small-caps faint">Platform guide</h3>
+      <ul class="nav">
+        <li><a href="/docs/guides/connecting-user-data">Connecting customer data</a></li>
+        <li><a href="/docs/guides/segments">Segmenting customers</a></li>
+        <li><a href="/docs/guides/broadcasts">Broadcasts</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/tags">Personalisation tags</a></li>
+        <li><a href="/docs/guides/templates">Templates management</a></li>
+        <li><a href="/docs/guides/member-roles" class="active">Team member roles</a></li>
+      </ul>
+      <h3 class="mb1 small-caps faint">Integrations</h3>
+      <ul class="nav">
+        <!-- <li><a href="/docs/integrations/paystack">Paystack</a></li> -->
+        <li>
+          <a href="/docs/api">API</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/api">Introduction</a></li>
+            <li><a href="/docs/api/users">Users</a></li>
+            <!-- <li><a href="/docs/api/lists">Lists</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="/docs/sdks">SDKs</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/sdks/javascript.html">JavaScript</a></li>
+            <li><a href="/docs/sdks/php.html">PHP</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="w-80 pv4 ph5 mainbar">
+      <div class="w-70-l w-100">
+        <article class="pb5 docs">
+          <h1 id="team-member-roles">Team member roles</h1>
+
+<p>Engage supports adding team members to an account. Each member can be assigned any of the four available roles:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Admin</code></li>
+  <li><code class="highlighter-rouge">Manager</code></li>
+  <li><code class="highlighter-rouge">Developer</code></li>
+  <li><code class="highlighter-rouge">Member</code></li>
+</ul>
+
+<p>These roles define what what they can do. There is a fifth <code class="highlighter-rouge">Owner</code> role that is automatically assigned to the account creator. This role grants all privilege to the account, including deletion. The role can be transfered by its owner to another member. However, only one member of a team can have the role at a given time. On transfer, the role of the member transferring will be changed to <code class="highlighter-rouge">admin</code>.</p>
+
+<h2 id="admin">Admin</h2>
+<ul>
+  <li>Cannot delete the account. (Only the account creator can delete an account).</li>
+  <li>Can do everything else</li>
+</ul>
+
+<h2 id="manager">Manager</h2>
+<ul>
+  <li>Cannot grant admin access to another team mate.</li>
+  <li>Cannot delete the account</li>
+  <li>Can do everything else</li>
+</ul>
+
+<h2 id="developer">Developer</h2>
+<ul>
+  <li>Has full access to templates</li>
+  <li>Has full access to transactional email analytics</li>
+  <li>Has full access to users</li>
+  <li>Has full access to lists</li>
+  <li>Can view broadcasts</li>
+  <li>Can view segments</li>
+  <li>Cannot invite, edit role or remove team members</li>
+  <li>Cannot create, update or send broadcast</li>
+  <li>Cannot create, update or delete segments</li>
+</ul>
+
+<h2 id="member">Member</h2>
+<ul>
+  <li>Cannot perform any create, update or delete actions. Can only view all modules on the dashboard.</li>
+  <li>Cannot view transactional email body</li>
+</ul>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

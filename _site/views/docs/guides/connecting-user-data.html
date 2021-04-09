@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>Connecting user data</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="slack-app-id" content="A6566DWTS">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600,700&family=Fira+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tachyons.css">
+  <link rel="stylesheet" href="/css/monokai.css">
+  <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body>
+  <div class="flex f5">
+    <div class="w-20 pa4 sidebar fixed">
+      <div class="mb4">
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
+      </div>
+
+      <!-- <div class="mv4">
+        <input type="search" placeholder="Search..." class="w-100">
+      </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
+
+      <h3 class="mb1 small-caps faint">Platform guide</h3>
+      <ul class="nav">
+        <li><a href="/docs/guides/connecting-user-data" class="active">Connecting customer data</a></li>
+        <li><a href="/docs/guides/segments">Segmenting customers</a></li>
+        <li><a href="/docs/guides/broadcasts">Broadcasts</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/tags">Personalisation tags</a></li>
+        <li><a href="/docs/guides/templates">Templates management</a></li>
+        <li><a href="/docs/guides/member-roles">Team member roles</a></li>
+      </ul>
+      <h3 class="mb1 small-caps faint">Integrations</h3>
+      <ul class="nav">
+        <!-- <li><a href="/docs/integrations/paystack">Paystack</a></li> -->
+        <li>
+          <a href="/docs/api">API</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/api">Introduction</a></li>
+            <li><a href="/docs/api/users">Users</a></li>
+            <!-- <li><a href="/docs/api/lists">Lists</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="/docs/sdks">SDKs</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/sdks/javascript.html">JavaScript</a></li>
+            <li><a href="/docs/sdks/php.html">PHP</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="w-80 pv4 ph5 mainbar">
+      <div class="w-70-l w-100">
+        <article class="pb5 docs">
+          <h1 id="connecting-user-data">Connecting user data</h1>
+
+<p>There are a couple of ways to connect your user data to Engage.</p>
+
+<h2 id="file-import">File Import</h2>
+<p>The easiest way to bring in your user data is through direct file import from the user page in your accounts dashboard. Download your users data as a CSV file from your datastore, including all necessary attributes that will be useful for segmentation. These could be gender, date of birth, location, product plan, etc. Upload the file and you can immediately start segmenting your users based on the uploaded attributes.</p>
+
+<h2 id="sdks">SDKs</h2>
+<p>Another easy way to bring in user data is to use one of our <a href="/docs/sdks">SDKs</a>. The SDKs allow you add user data, update user attributes and track user events within your application. Even if you have added user data using other methods, the SDK is the best way to continually update user data from a one time integration.</p>
+
+<h2 id="api">API</h2>
+<p>One of the biggest advantage of the <a href="/docs/api">API</a> over the browser SDK is that you can use it to add user data and track past events for inactive users. If you are looking to send your user data to Engage without waiting for an active action from the user to trigger the SDK, the API is the way to go. Once you have used the API to import user data, you can then use the SDK to continually update the user data.</p>
+
+<h2 id="integrations">Integrations</h2>
+<p>Integrations allow you connect services and tools you already use to Engage. This way, user data from the services can be automatically synced with Engage. We are working to allow connecting a lot of services and tools that you already use that are related to user events and attributes. Here are the currently supported ones:</p>
+
+<h3 id="transactional-email-services">Transactional email services</h3>
+<p>You can connect your <a href="https://aws.amazon.com/ses">Amazon SES</a> or <a href="https://mailgun.com/">Mailgun</a> to Engage. This will add all users you send transactional email to and transactional email attributes you can already segment them on. e.g number of opens, clicked links, bounces and email subject. Engage also provides a transactional messaging module that allows you track deliveries, opens, clicks and failures of your transactional emails.</p>
+
+<h3 id="payment-gateways">Payment Gateways</h3>
+<p>If you use <a href="https://stripe.com/">Stripe</a> for billing, you can connect your Stripe account to Engage. This will automatically sync user payment events with Engage so that you can segment users on plans, amount spent, and related payment attributes. Support for other payment gateways coming soon.</p>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

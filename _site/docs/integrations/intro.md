@@ -1,0 +1,4 @@
+
+You can connect your transactional email service provider to Engage. We currently support [Amazon SES](https://aws.amazon.com/ses), [Mailgun]((https://mailgun.com/)) and [Sparkpost](https://sparkpost.com/). (We are working on Sendgrid and other ESPs). This will add users you send transactional emails to your Engage account. Engage will also start receiving mail events from the provider. You can use this mail events to search and segment customers by attributes like number of opens, clicked links, bounces and email subject. On top of this, Engage provides a transactional messaging module that allows you track deliveries, opens, clicks and failures of your transactional emails. We send a weekly report of your transactional email performance.
+
+You can connect your payment gateway to Engage to sync your customer data and subscription details to Engage. If you use [Stripe](https://stripe.com/), 

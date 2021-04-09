@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>PHP SDK</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="The Engage PHP SDK lets you automatically identify users and capture events, actions and attributes on your site.">
+  <meta name="slack-app-id" content="A6566DWTS">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600,700&family=Fira+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tachyons.css">
+  <link rel="stylesheet" href="/css/monokai.css">
+  <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body>
+  <div class="flex f5">
+    <div class="w-20 pa4 sidebar fixed">
+      <div class="mb4">
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
+      </div>
+
+      <!-- <div class="mv4">
+        <input type="search" placeholder="Search..." class="w-100">
+      </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
+
+      <h3 class="mb1 small-caps faint">Platform guide</h3>
+      <ul class="nav">
+        <li><a href="/docs/guides/connecting-user-data">Connecting customer data</a></li>
+        <li><a href="/docs/guides/segments">Segmenting customers</a></li>
+        <li><a href="/docs/guides/broadcasts">Broadcasts</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/tags">Personalisation tags</a></li>
+        <li><a href="/docs/guides/templates">Templates management</a></li>
+        <li><a href="/docs/guides/member-roles">Team member roles</a></li>
+      </ul>
+      <h3 class="mb1 small-caps faint">Integrations</h3>
+      <ul class="nav">
+        <!-- <li><a href="/docs/integrations/paystack">Paystack</a></li> -->
+        <li>
+          <a href="/docs/api">API</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/api">Introduction</a></li>
+            <li><a href="/docs/api/users">Users</a></li>
+            <!-- <li><a href="/docs/api/lists">Lists</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="/docs/sdks">SDKs</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/sdks/javascript.html">JavaScript</a></li>
+            <li><a href="/docs/sdks/php.html" class="active">PHP</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="w-80 pv4 ph5 mainbar">
+      <div class="w-70-l w-100">
+        <article class="pb5 docs">
+          <h1 id="php-sdk">PHP SDK</h1>
+
+<p>The Engage PHP SDK lets you capture user attributes and events on your site. You can later use this on Engage to create user segments for analytics, broadcast messages and automation messages.</p>
+
+<p>We recommend you read the <a href="/docs/guides/connecting-user-data">Connecting customer data</a> section to learn more about how capture customer data and what to capture.</p>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p><a href="https://engage.so/">Create an Engage account</a> to get your API key.</p>
+
+<h2 id="installation">Installation</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer require "engageso/engage-php"
+</code></pre></div></div>
+
+<h2 id="configuration">Configuration</h2>
+
+<p>Initialise the SDK with your public and private key. Your keys are available in the settings page of your Engage dashboard.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$engage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Engage\EngageClient</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'pub_key'</span><span class="p">],</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">'pri_key'</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<h2 id="identifying-users">Identifying users</h2>
+
+<p>You only need a unique identifier that represents the user on your platform to track their events and attributes on Engage. To correlate a proper profile to these tracked attributes and events, you can send the unique identifier and other properties to Engage. You only need to do this once per user, probably at user signup.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$engage</span><span class="o">-&gt;</span><span class="na">users</span><span class="o">-&gt;</span><span class="na">identify</span><span class="p">([</span>
+  <span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="s1">'u13345'</span><span class="p">,</span>
+  <span class="s1">'email'</span> <span class="o">=&gt;</span> <span class="s1">'dan@mail.app'</span><span class="p">,</span>
+  <span class="s1">'created_at'</span> <span class="o">=&gt;</span> <span class="s1">'2020-05-30T09:30:10Z'</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">id</code> represents the unique identifier for the user on your platform. It is the only required parameter. You can send any other attribute you want e.g. <code class="highlighter-rouge">age</code>, <code class="highlighter-rouge">plan</code>. Here are the standard ones we use internally on the user profile:</p>
+<ul>
+  <li><code class="highlighter-rouge">first_name</code></li>
+  <li><code class="highlighter-rouge">last_name</code></li>
+  <li><code class="highlighter-rouge">email</code></li>
+  <li><code class="highlighter-rouge">number</code> (with international dialing code without the +)</li>
+  <li><code class="highlighter-rouge">created_at</code> (represents when the user registered on your platform. If not added, Engage sets it to the current timestamp.)</li>
+</ul>
+
+<h2 id="updateadd-user-attributes">Update/add user attributes</h2>
+
+<p>If you need to add new attributes or update an existing attribute, you can use the <code class="highlighter-rouge">addAttribute</code> method.</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$engage</span><span class="o">-&gt;</span><span class="na">users</span><span class="o">-&gt;</span><span class="na">addAttribute</span><span class="p">(</span><span class="nv">$userId</span><span class="p">,</span> <span class="p">[</span>
+  <span class="s1">'first_name'</span> <span class="o">=&gt;</span> <span class="s1">'Dan'</span><span class="p">,</span>
+  <span class="s1">'plan'</span> <span class="o">=&gt;</span> <span class="s1">'Premium'</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<p>(You can also use <code class="highlighter-rouge">identify</code> to update or add new attributes.)</p>
+
+<h2 id="track-device-token">Track device token</h2>
+
+<p>You can also use the <code class="highlighter-rouge">addAttribute</code> to add a user’s device token to Engage. When you add a device token, you must also specify the device platform. Supported values for <code class="highlighter-rouge">device_platform</code> are <code class="highlighter-rouge">ios</code> and <code class="highlighter-rouge">android</code>.ß</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$engage</span><span class="o">-&gt;</span><span class="na">users</span><span class="o">-&gt;</span><span class="na">addAttribute</span><span class="p">(</span><span class="nv">$userId</span><span class="p">,</span> <span class="p">[</span>
+  <span class="s1">'device_token'</span> <span class="o">=&gt;</span> <span class="s1">'APA91bFoi3lMMre9G3XzR1LrF4ZT82_...'</span><span class="p">,</span>
+  <span class="s1">'device_platform'</span> <span class="o">=&gt;</span> <span class="s1">'android'</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<h2 id="tracking-user-events-and-actions">Tracking user events and actions</h2>
+
+<p>You can track user events and actions in a couple of ways.</p>
+
+<p>Tracking an event with no value:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$engage</span><span class="o">-&gt;</span><span class="na">users</span><span class="o">-&gt;</span><span class="na">track</span><span class="p">(</span><span class="nv">$userId</span><span class="p">,</span> <span class="s1">'Delinquent'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Tracking an event with a value:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$engage</span><span class="o">-&gt;</span><span class="na">users</span><span class="o">-&gt;</span><span class="na">track</span><span class="p">(</span><span class="nv">$userId</span><span class="p">,</span> <span class="p">[</span>
+  <span class="s1">'event'</span> <span class="o">=&gt;</span> <span class="s1">'New badge'</span><span class="p">,</span>
+  <span class="s1">'value'</span> <span class="o">=&gt;</span> <span class="s1">'gold'</span><span class="p">,</span>
+  <span class="s1">'timestamp'</span> <span class="o">=&gt;</span> <span class="s1">'2020-05-30T09:30:10Z'</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">event</code> is the event you want to track. <code class="highlighter-rouge">value</code> is the value of the event. This can be a string, number or boolean. There is an optional <code class="highlighter-rouge">timestamp</code> parameter. If not included, Engage uses the current timestamp. The timestamp value must be a valid datetime string.</p>
+
+<p>If you need to track more properties with the event, you can track it this way:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$engage</span><span class="o">-&gt;</span><span class="na">users</span><span class="o">-&gt;</span><span class="na">track</span><span class="p">(</span><span class="nv">$userId</span><span class="p">,</span> <span class="p">[</span>
+  <span class="s1">'event'</span> <span class="o">=&gt;</span> <span class="s1">'Add to cart'</span><span class="p">,</span>
+  <span class="s1">'properties'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="s1">'product'</span> <span class="o">=&gt;</span> <span class="s1">'T123'</span><span class="p">,</span>
+    <span class="s1">'currency'</span> <span class="o">=&gt;</span> <span class="s1">'USD'</span><span class="p">,</span>
+    <span class="s1">'amount'</span> <span class="o">=&gt;</span> <span class="mf">12.99</span>
+  <span class="p">]</span>
+<span class="p">]);</span>
+</code></pre></div></div>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

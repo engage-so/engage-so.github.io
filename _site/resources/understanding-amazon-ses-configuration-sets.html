@@ -1,0 +1,134 @@
+<p>Configuration Sets are settings for emails you send using Amazon SES. They are broadly used for <a href="/resources/tracking-deliveries-opens-and-clicks-for-amazon-ses">tracking email events</a> and sending emails with dedicated IPs.</p>
+
+<!--more-->
+
+<p><img src="/images/blog/130720/config-sets.png" alt="" /></p>
+
+<h3 id="how-engage-uses-configuration-sets">How Engage uses configuration sets</h3>
+
+<p>Configuration Sets are how Engage is able to track your Amazon SES transactional emails and provide analytic reporting. When you add an SES domain to Engage, the application automatically creates a configuration set for you. To do this, we request your IAM credentials with Full SNS and SES access.</p>
+
+<p>Here is the breakdown of the process in 4 steps.</p>
+
+<ol>
+  <li>Engage creates a SNS Topic. This is named <code class="highlighter-rouge">engage_so</code> for easy identification.</li>
+  <li>A subscription to the topic is created. The subscription points the topic to a webhook that handles messages to the SNS topic.</li>
+  <li>Engage creates the configuration set. This is also named <code class="highlighter-rouge">engage_so</code></li>
+  <li>Engage creates the configuration set event destination. This involves 2 things: selecting the events to track and pointing the configuration set to the SNS topic created earlier. The events tracked are <code class="highlighter-rouge">reject</code>, <code class="highlighter-rouge">bounce</code>, <code class="highlighter-rouge">complaint</code>, <code class="highlighter-rouge">delivery</code>, <code class="highlighter-rouge">open</code> and <code class="highlighter-rouge">click</code>.</li>
+</ol>
+
+<p>If you get an error when adding your domain, it’s most likely an issue with the access keys. Ensure they have full SNS and SES permissions.</p>
+
+<h3 id="what-the-access-keys-are-used-for">What the access keys are used for?</h3>
+
+<p>The SNS and SES permissions are used to created and manage the SNS topic, SNS topic subscription and SES configuration set. Engage lets you send email broadcasts and create email automations. The SES permission is used for this.</p>
+
+<h3 id="confirming-proper-setup">Confirming proper setup</h3>
+
+<p>If for any reason you need to confirm your setup is rightly done, here is how to confirm everything has been properly set up.</p>
+
+<ol>
+  <li>Go to SNS on your Amazon console. Click on <strong>Topics</strong>. You should see <strong>engage_so</strong> in the list of topics.</li>
+  <li>Click on the mailintel topic. It should have an HTTPS subscription pointing to a URL similar to this <code class="highlighter-rouge">https://us-central1-suet-170506.cloudfunctions.net/ses-webhook</code>. The status should be <strong>confirmed</strong>.</li>
+  <li>Go to SES on your Amazon console. Click on <strong>Configuration Sets</strong>. You should see <strong>engage_so</strong> in the list of configuration sets.</li>
+  <li>Click on the engage_so configuration set. It should have the engage_so SNS topic as its destination and should have the event types <em>Bounce, Click, Complaint, Delivery, Open, Reject</em>.</li>
+</ol>
+
+<h3 id="updating-the-configuration-set">Updating the configuration set</h3>
+
+<p><em>Do not do this unless you know what you are doing.</em></p>
+
+<p>Now that we’ve established you understand what you are doing, you may need to update the configuration set for custom purposes; especially because you can only use one configuration set at a time when sending emails.</p>
+
+<p><img src="/images/blog/130720/edit-config-set.png" alt="Update configuration set" /></p>
+
+<ol>
+  <li>You can add additional destination to the configuration set by clicking on the engage_so configuration set and selecting a new option for <strong>Add destination</strong></li>
+  <li>You can add an IP pool by clicking the <strong>Sending IP pool</strong> tab</li>
+  <li>You can update the tracked events, for example to disable open or click tracking. To do this, click on the edit (pencil icon) option on the configuration set page and uncheck the events you want to stop tracking. Engage doesn’t track <code class="highlighter-rouge">Send</code>, <code class="highlighter-rouge">Rendering Failure</code> and <code class="highlighter-rouge">Rendering Success</code> so don’t check those.</li>
+  <li>You can also use a custom subdomain for your open and click tracking. This option is available on the same edit configuration set page above.</li>
+</ol>
+
+<h3 id="telling-amazon-ses-to-use-the-configuration-set">Telling Amazon SES to use the configuration set</h3>
+
+<p>Using the configuration set is not automatic. You need to tell Amazon to use it anytime you send an email. Depending on how you are sending your email and what library you use, you just need to add the SMTP header: <code class="highlighter-rouge">X-SES-CONFIGURATION-SET: mailintel</code>.</p>
+
+<p>If you use PHP Laravel for example, here is a short post on how to do this: <a href="https://eoghanobrien.com/posts/laravel-smtp-ses-configuration-set">eoghanobrien.com/posts/laravel-smtp-ses-configuration-set</a></p>
+
+<p>If you use PHPMailer, it should be something like this</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ...</span>
+<span class="nv">$mail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PHPMailer</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">isSMTP</span><span class="p">();</span>
+    <span class="c1">// ...</span>
+    <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">addCustomHeader</span><span class="p">(</span><span class="s1">'X-SES-CONFIGURATION-SET'</span><span class="p">,</span> <span class="s1">'engage_so'</span><span class="p">);</span>  <span class="c1">// &lt;-- this</span>
+    <span class="c1">// ...</span>
+    <span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">Send</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s2">"Email not sent. </span><span class="si">{</span><span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">ErrorInfo</span><span class="si">}</span><span class="s2">"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If you use SwiftMailer:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ...</span>
+<span class="nv">$mailer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swift_Mailer</span><span class="p">(</span><span class="nv">$transport</span><span class="p">);</span>
+
+<span class="nv">$message</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Swift_Message</span><span class="p">(</span><span class="s1">'Wonderful Subject'</span><span class="p">);</span>
+<span class="nv">$headers</span> <span class="o">=</span> <span class="nv">$message</span><span class="o">-&gt;</span><span class="na">getHeaders</span><span class="p">();</span>
+<span class="nv">$headers</span><span class="o">-&gt;</span><span class="na">addTextHeader</span><span class="p">(</span><span class="s1">'X-SES-CONFIGURATION-SET'</span><span class="p">,</span> <span class="s1">'engage_so'</span><span class="p">);</span>  <span class="c1">// &lt;-- this</span>
+<span class="nv">$message</span><span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">([</span><span class="s1">'john@doe.com'</span> <span class="o">=&gt;</span> <span class="s1">'John Doe'</span><span class="p">])</span>
+  <span class="o">-&gt;</span><span class="na">setTo</span><span class="p">([</span><span class="s1">'receiver@domain.org'</span><span class="p">,</span> <span class="s1">'other@domain.org'</span> <span class="o">=&gt;</span> <span class="s1">'A name'</span><span class="p">])</span>
+  <span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="s1">'Here is the message itself'</span><span class="p">)</span>
+  <span class="p">;</span>
+
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$mailer</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="nv">$message</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>In NodeMailer:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">transporter</span> <span class="o">=</span> <span class="nx">nodemailer</span><span class="p">.</span><span class="nx">createTransport</span><span class="p">(</span><span class="nx">transportObject</span><span class="p">);</span>
+
+<span class="k">await</span> <span class="nx">transporter</span><span class="p">.</span><span class="nx">sendMail</span><span class="p">({</span>
+  <span class="na">from</span><span class="p">:</span> <span class="dl">'</span><span class="s1">"Fred Foo 👻" &lt;foo@example.com&gt;</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">to</span><span class="p">:</span> <span class="dl">"</span><span class="s2">bar@example.com, baz@example.com</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">subject</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello ✔</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">text</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Hello world?</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">html</span><span class="p">:</span> <span class="dl">"</span><span class="s2">&lt;b&gt;Hello world?&lt;/b&gt;</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="dl">'</span><span class="s1">X-SES-CONFIGURATION-SET</span><span class="dl">'</span><span class="p">:</span> <span class="dl">'</span><span class="s1">engage_so</span><span class="dl">'</span>  <span class="c1">// &lt;-- this</span>
+  <span class="p">},</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>AWS NodeJs library</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ses</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">SES</span><span class="p">({</span>
+  <span class="na">accessKeyId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ID</span><span class="p">,</span>
+  <span class="na">secretAccessKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">KEY</span><span class="p">,</span>
+  <span class="na">region</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REGION</span>
+<span class="p">});</span>
+<span class="nx">ses</span><span class="p">.</span><span class="nx">sendEmail</span><span class="p">({</span>
+  <span class="na">Destination</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">ToAddresses</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">yo@hey.com</span><span class="dl">'</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="na">Message</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Html</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">Charset</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UTF-8</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">Data</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;p&gt;Yo. This is a test :)&lt;/p&gt;</span><span class="dl">'</span>
+    <span class="p">},</span>
+    <span class="na">Text</span><span class="p">:</span> <span class="p">{</span> <span class="na">Data</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Yo. This is test :)</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">Subject</span><span class="p">:</span> <span class="p">{</span> <span class="na">Data</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hey</span><span class="dl">'</span> <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">ConfigurationSetName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">engage_so</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// &lt;-- this</span>
+  <span class="na">Source</span><span class="p">:</span>  <span class="dl">'</span><span class="s1">"Heello" &lt;hello@awesome.co&gt;</span><span class="dl">'</span>
+  <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+  <span class="c1">// ~</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>If you are sending your email via the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendRawEmail.html">sendRawEmail</a> or <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendEmail.html">SendEmail</a> API, there is a <code class="highlighter-rouge">ConfigurationSetName</code> parameter you should set to <code class="highlighter-rouge">engage_so</code></p>

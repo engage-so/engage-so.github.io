@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>API</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="">
+  <meta name="slack-app-id" content="A6566DWTS">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600,700&family=Fira+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/tachyons.css">
+  <link rel="stylesheet" href="/css/monokai.css">
+  <link rel="stylesheet" href="/css/docs.css">
+</head>
+<body>
+  <div class="flex f5">
+    <div class="w-20 pa4 sidebar fixed">
+      <div class="mb4">
+        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
+      </div>
+
+      <!-- <div class="mv4">
+        <input type="search" placeholder="Search..." class="w-100">
+      </div> -->
+      <ul class="nav">
+        <li><a href="/docs">Introduction</a></li>
+      </ul>
+
+      <h3 class="mb1 small-caps faint">Platform guide</h3>
+      <ul class="nav">
+        <li><a href="/docs/guides/connecting-user-data">Connecting customer data</a></li>
+        <li><a href="/docs/guides/segments">Segmenting customers</a></li>
+        <li><a href="/docs/guides/broadcasts">Broadcasts</a></li>
+        <li><a href="/docs/guides/automations">Automations</a></li>
+        <li><a href="/docs/guides/lists">Lists</a></li>
+        <li><a href="/docs/guides/tags">Personalisation tags</a></li>
+        <li><a href="/docs/guides/templates">Templates management</a></li>
+        <li><a href="/docs/guides/member-roles">Team member roles</a></li>
+      </ul>
+      <h3 class="mb1 small-caps faint">Integrations</h3>
+      <ul class="nav">
+        <!-- <li><a href="/docs/integrations/paystack">Paystack</a></li> -->
+        <li>
+          <a href="/docs/api">API</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/api" class="active">Introduction</a></li>
+            <li><a href="/docs/api/users">Users</a></li>
+            <!-- <li><a href="/docs/api/lists">Lists</a></li> -->
+          </ul>
+        </li>
+        <li>
+          <a href="/docs/sdks">SDKs</a>
+          <ul class="nav ml3">
+            <li><a href="/docs/sdks/javascript.html">JavaScript</a></li>
+            <li><a href="/docs/sdks/php.html">PHP</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="w-80 pv4 ph5 mainbar">
+      <div class="w-70-l w-100">
+        <article class="pb5 docs">
+          <h1 id="api-introduction">API Introduction</h1>
+
+<p>The Engage API lets you interact with data and resources through REST. The API accepts requests in JSON format, returns responses in JSON and uses standard HTTP for authentication, methods and response codes.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>Authentication is via <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a> using your API key as username and API secret as password. You can view and manage these keys in the <a href="https://app.engage.so/settings/account">settings page</a> of your account dashboard. On some endpoints, you can use just your API key (as username) and leave the secret empty. This makes it possible to call such endpoints from client-side applications. Endpoints that support this are marked with “works with username authentication”</p>
+
+<h3 id="versioning">Versioning</h3>
+
+<p>The current API version is <code class="highlighter-rouge">v1</code></p>
+
+<h3 id="api-root">API Root</h3>
+
+<p><code class="highlighter-rouge">api.engage.so/v1</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<p>Errors are returned with standard HTTP status codes. Error responses will come with additional body in the format:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"More details about error"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="/docs/api/users">Users</a></li>
+</ul>
+
+<p><em>More resources coming soon</em></p>
+
+        </article>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

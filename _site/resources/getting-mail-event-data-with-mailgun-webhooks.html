@@ -1,0 +1,196 @@
+<p><a href="/resources"><img src="/images/logo.png" alt="" /></a></p>
+
+<p><em>This post explains how to use Mailgun webhooks to get mail event data for things like tracking deliveries, opens and clicks. The post originally appeared <a href="https://obem.be/2017/09/08/working-with-mailgun-webhooks.html">here</a>, but has been updated to reflect changes to Mailgun.</em></p>
+
+<!--more-->
+
+<p><img src="/images/resources/100520/header.png" alt="" /></p>
+
+<p>Tracking mail events like opens, clicks, failures and complaints can be done on <a href="http://mailgun.com/">Mailgun</a> using Mailgun webhooks. Although this data is available in the Mailgun account dashboard, there are many reasons using the webhooks may come in handy. Because the webhook is a realtime push to you, you can collect the information to do things like visualisation, reporting or presentation of the mail data in any form or through any channel you want. There is also an API to get the events but using the webhooks has more advantages.</p>
+
+<ol>
+  <li>You don’t have to make repeated API requests. This means lesser resources.</li>
+  <li>Updates are more realtime because it is pushed as soon as available on the server.</li>
+</ol>
+
+<h3 id="setting-it-up">Setting it up</h3>
+
+<p>There are two ways to set up webhooks in Mailgun. It can either be done through the Mailgun dashboard or <a href="http://mailgun-documentation.readthedocs.io/en/latest/api-webhooks.html#webhooks">API</a>. The more straightforward way to do it is through the dashboard. Once logged into your dashboard, a <strong>Webhooks</strong> link is available on the navigation bar.</p>
+
+<p><img src="/images/resources/100520/webhooks.png" alt="" /></p>
+
+<p><img src="/images/resources/100520/new-webhook.png" alt="" /></p>
+
+<p>On the webhooks page, you can click the <strong>Add webhook</strong> button to set the URL the event data for the different events can be sent to.</p>
+
+<h3 id="handling-the-data">Handling the data</h3>
+
+<p>To handle the event data sent to our webhook URL, we must know what the data looks like in the first place. Parameters sent via POST are available in the <a href="https://documentation.mailgun.com/en/latest/user_manual.html#tracking-opens">API documentation</a>. We can go a step further and confirm this by using a test webhook URL that will log the data from Mailgun. We can use <a href="http://bin.mailgun.net/">Mailgun’s Postbin</a> or <a href="https://webhook.site/">Webhook.site</a>. These services will generate a unique endpoint we can use in the Mailgun dashboard to get sample event data. We will be using webhook.site for this post.</p>
+
+<p>Let’s go ahead to create a test endpoint and see what the event data look like compared to what is in the documentation.</p>
+
+<ul>
+  <li>Visit <a href="http://webhook.site">webhook.site</a></li>
+  <li>Copy the generated URL and access the Webhooks section of your Mailgun dashboard.</li>
+  <li>Paste the URL in the <strong>URL to test</strong> input field of the <strong>Test webhook</strong> section and click the <strong>Test Webhook</strong> button. This will send sample event data to the URL.</li>
+  <li>Repeat this for all the events you are interested in. Ignore the ones labeled <strong>Legacy</strong>.</li>
+</ul>
+
+<p><img src="/images/resources/100520/test-url.png" alt="" /></p>
+
+<p>Now that we know what the parameters are for each event types and the content type they may come in, it is easy to write the code that will handle the sent data. Here is a simple code that will output details of <strong>complaints</strong> and <strong>dropped</strong> emails.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">express</span><span class="err">’</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">body</span><span class="o">-</span><span class="nx">parser</span><span class="err">’</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">multer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">multer</span><span class="err">’</span><span class="p">)</span>
+    <span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span> <span class="kc">false</span><span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="err">‘</span><span class="o">/</span><span class="nx">webhook</span><span class="err">’</span><span class="p">,</span> <span class="nx">multer</span><span class="p">().</span><span class="nx">none</span><span class="p">(),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">recipient</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">event</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="err">‘</span><span class="nx">complained</span><span class="err">’</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">email</span><span class="p">}</span><span class="s2"> complained about your mail`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="err">‘</span><span class="nx">dropped</span><span class="err">’</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Mail to </span><span class="p">${</span><span class="nx">email</span><span class="p">}</span><span class="s2"> dropped. </span><span class="p">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="err">‘</span><span class="nx">bounced</span><span class="err">’</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Error </span><span class="p">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span><span class="p">}</span><span class="s2">: Mail to </span><span class="p">${</span><span class="nx">email</span><span class="p">}</span><span class="s2"> bounced. </span><span class="p">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">error</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="making-it-secure">Making it secure</h3>
+
+<p>Nothing stops anyone that knows our webhook URL from crafting a false event data and sending it to the URL. Luckily, Mailgun signs each request sent and posts the following parameters along:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">timestamp</code> (Number of seconds passed since January 1, 1970)</li>
+  <li><code class="highlighter-rouge">token</code> (Randomly generated string with length 50)</li>
+  <li><code class="highlighter-rouge">signature</code> (Hexadecimal string generated by HMAC algorithm)</li>
+</ul>
+
+<p>To verify the token;</p>
+
+<ul>
+  <li>Concatenate the values of <code class="highlighter-rouge">timestamp</code> and <code class="highlighter-rouge">token</code>.</li>
+  <li>Encode the resulting string with HMAC, using your Mailgun API key as the key and Sha256 as the algorithm.</li>
+  <li>The result should be the same as the signature.</li>
+</ul>
+
+<p>Here is what it looks like in Node.js:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">event_data_timestamp</span><span class="o">+</span><span class="nx">event_data_token</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHmac</span><span class="p">(</span><span class="err">‘</span><span class="nx">sha256</span><span class="err">’</span><span class="p">,</span> <span class="nx">apikey</span><span class="p">)</span>
+                  <span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+                  <span class="p">.</span><span class="nx">digest</span><span class="p">(</span><span class="err">‘</span><span class="nx">hex</span><span class="err">’</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">hash</span> <span class="o">!==</span> <span class="nx">event_data_signature</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">‘</span><span class="nx">Invalid</span> <span class="nx">signature</span><span class="err">’</span><span class="p">);</span>
+  <span class="k">return</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If we add that to our original code example, we will have something like this:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">express</span><span class="err">’</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">crypto</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">crypto</span><span class="err">’</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">multer</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">multer</span><span class="err">’</span><span class="p">)</span>
+    <span class="p">,</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="err">‘</span><span class="nx">body</span><span class="o">-</span><span class="nx">parser</span><span class="err">’</span><span class="p">)</span>
+    <span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span> <span class="kc">false</span><span class="p">}));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span><span class="p">);</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="err">‘</span><span class="o">/</span><span class="nx">webhook</span><span class="err">’</span><span class="p">,</span> <span class="nx">multer</span><span class="p">().</span><span class="nx">none</span><span class="p">(),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Validate signature</span>
+  <span class="kd">const</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">timestamp</span><span class="o">+</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">token</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">hash</span> <span class="o">=</span> <span class="nx">crypto</span><span class="p">.</span><span class="nx">createHmac</span><span class="p">(</span><span class="err">‘</span><span class="nx">sha256</span><span class="err">’</span><span class="p">,</span>
+              <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">API_KEY</span><span class="p">)</span>
+                  <span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span>
+                  <span class="p">.</span><span class="nx">digest</span><span class="p">(</span><span class="err">‘</span><span class="nx">hex</span><span class="err">’</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">hash</span> <span class="o">!==</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">signature</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="err">‘</span><span class="nx">Invalid</span> <span class="nx">signature</span><span class="err">’</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="c1">// Log status of event</span>
+  <span class="kd">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">recipient</span><span class="p">;</span>
+  <span class="kd">const</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">event</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="err">‘</span><span class="nx">complained</span><span class="err">’</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">email</span><span class="p">}</span><span class="s2"> complained about your mail`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="err">‘</span><span class="nx">dropped</span><span class="err">’</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Mail to </span><span class="p">${</span><span class="nx">email</span><span class="p">}</span><span class="s2"> dropped. </span><span class="p">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">description</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="err">‘</span><span class="nx">bounced</span><span class="err">’</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`Error </span><span class="p">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">code</span><span class="p">}</span><span class="s2">: Mail to </span><span class="p">${</span><span class="nx">email</span><span class="p">}</span><span class="s2"> bounced. </span><span class="p">${</span><span class="nx">event</span><span class="p">.</span><span class="nx">error</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<p>We can even step this up and:</p>
+
+<ol>
+  <li>For every request, check against a token cache to prevent use of the same token. Every token will be stored there. This will prevent replay attacks.</li>
+  <li>Check if the timestamp is not too far from the current time.</li>
+</ol>
+
+<h3 id="making-it-scalable">Making it scalable</h3>
+
+<p>If you send lots of emails and you are expecting lots of events, putting your webhook script on a server that can’t scale automatically is a bad idea. Even if you are not expecting lots of events, unexpected things can lead to a surge in events. Having a server that can scale automatically is really useful for instances like this.</p>
+
+<p>Enter <a href="https://en.wikipedia.org/wiki/Serverless_computing">Serverless computing</a>. In simple terms, the idea is that you can delegate the execution of your code and everything related to another service. Because multiple instances of your code can be executed in parallel and you can adjust computing resources like RAM and execution time on the fly, it is highly scalable. You are also charged based on consumed resources and execution time so it can be really cheap.</p>
+
+<p>There are a couple of serverless computing providers. One I use and recommend is <a href="https://cloud.google.com/functions/">Google Cloud Functions</a> because of the ease of setting up <strong>HTTP functions</strong>. An HTTP function is a code block wrapped as a function that can be triggered by visiting a URL. This is exactly what we need as our webhook.</p>
+
+<p>To create this function, we need to write a JavaScript function that will be exported as a Node.js module. The function takes HTTP-specific arguments: `request` and `response`.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">exports</span><span class="p">.</span><span class="nx">webhook</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Handle event data here</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="na">status</span><span class="p">:</span><span class="err">”</span><span class="nx">ok</span><span class="err">”</span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Based on the request <code class="highlighter-rouge">content-type</code>, the body of the request is automatically passed and available in the <strong>body</strong> parameter of the request object.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">exports</span><span class="p">.</span><span class="nx">webhook</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">event</span><span class="p">;</span> <span class="c1">// delivered</span>
+  <span class="c1">// Handle event data here</span>
+  <span class="c1">// …</span>
+  <span class="nx">response</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="na">status</span><span class="p">:</span><span class="err">”</span><span class="nx">ok</span><span class="err">”</span><span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Next, we can publish the function to Cloud Functions. An easy way to do this is to do it from the Cloud Functions dashboard.</p>
+
+<ul>
+  <li>Go to your <a href="https://console.cloud.google.com">Google Cloud Console</a> (if you don’t have an account yet, create one).</li>
+  <li>Enable Cloud Functions in the dashboard.</li>
+  <li>Click on <strong>Create Function</strong>.</li>
+  <li>Enter a name for your function (e.g <em>mailgun-webhook</em>).</li>
+  <li>In the trigger section, select <strong>HTTP trigger</strong>. Note the URL, that will be your webhook URL.</li>
+  <li>Copy your event data handling code to the <code class="highlighter-rouge">index.js</code> section of the Cloud function.</li>
+  <li>Copy the content of your <code class="highlighter-rouge">package.json</code> and paste in the <code class="highlighter-rouge">package.json</code> section.</li>
+  <li>Select or create a <strong>Stage bucket</strong>. The stage bucket is simply where the code is staged. You can use anything here.</li>
+  <li>In Function to execute, enter the name of your function (e.g <em>webhook</em>).</li>
+  <li>Save.</li>
+</ul>
+
+<p>You can now use the function’s URL in Mailgun as your webhook URL.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Working with Mailgun’s webhooks is easy. There are many ways the event data can be used to enrich your applications outside Mailgun. If for example you allow your users send emails from your web for any reason and you use Mailgun, you can use this to provide analytics for them. Or maybe you want to send your email analytics to another platform. Or maybe you want to be notified of failures in your Slack account. Or maybe not even that. Maybe you just want more detailed analytics than what is available on the Mailgun dashboard. Whatever the use case is, the event data is available for you.</p>
+
+<p>If you are interested in a more detailed analytics, reporting and business intelligence for your transactional emails through Mailgun, without setting all these yourself, create a <a href="https://app.engage.so/auth/signup">free Engage account</a>.</p>

@@ -94,15 +94,18 @@ Engage.identify({
 })
 ```
 
-*`id` should be a unique identifier for the user. It should be a value that will not change in your application. For example, don’t use a username as `id` if users can update their usernames*
+`id` should be a unique identifier for the user. It should be a value that will not change in your application. For example, don’t use a username as `id` if users can update their usernames*
 
-The `created_at` property is optional. If not added, Engage sets it to the current timestamp. Other optional properties you can include are:
+The `created_at` property is optional. If not added, Engage sets it to the current timestamp. The other properties can be any parameter related to the user, e.g location, gender, plan. Here is a list of the ones we use internally; we call them standard properties:
 
 - `first_name`
 - `last_name`
+- `email`
 - `number`
+- `device_token`
+- `device_platform` (android or ios)
 
-If you need to update any of the properties (`created_at`, `first_name`, `last_name`, `number`), you can call `identify` with the property set to the new value. If you want to update `email`  this way, the new email should not have been "identified" with a different user id. Email update also only works when you use the `secret` parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).
+If you need to update any of the properties, you can call `identify` with the property set to the new value. If you want to update `email` this way, the new email should not have been "identified" with a different user id. Email update also only works when you use the `secret` parameter to initialise the SDK. Update is not allowed for client side integration. (Remember, only use your secret key in server side integrations).
 
 > `number` must include international dialing code without the +. Valid examples are 15555551234 and 2348166877840
 

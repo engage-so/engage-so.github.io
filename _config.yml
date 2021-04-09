@@ -1,0 +1,20 @@
+---
+title: Engage Messaging
+timezone: UTC
+collections:
+  posts:
+    title: Blog posts
+    output: true
+    permalink: /blog/:title.html
+  resources:
+    title: Guides and Resources
+    output: true
+  docs:
+    title: Documentation
+    output: true
+gems:
+- jekyll-paginate
+highlighter: rouge
+excerpt_separator: <!--more-->
+paginate: 10
+markdown: kramdown

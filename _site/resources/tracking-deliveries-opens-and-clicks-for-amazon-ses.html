@@ -1,0 +1,309 @@
+<p>This post explains how to track deliveries, opens, clicks, failures and complaints for Amazon SES emails. It is the same way Engage is able to provide detailed analytics and reporing for transactional emails through Amazon SES.</p>
+
+<!--more-->
+
+<p><img src="/images/resources/161219/header.png" alt="" /></p>
+
+<p>There are various ways to monitor email sending events if you use Amazon Simple Email Service (SES). Email sending events refer to metrics related to emails you send from the service. These are:</p>
+
+<ul>
+  <li>Sends - Emails that have reached Amazon SES</li>
+  <li>Rejects - Emails Amazon SES did not attempt delivery on. A reason for this could be if it contained a virus for example.</li>
+  <li>Bounces - Emails that were sent but rejected by the receiver’s mail server. This could happen if the email address does not exist for example.</li>
+  <li>Complaints - Emails marked as spam by recipient</li>
+  <li>Deliveries - Emails successfully delivered</li>
+  <li>Opens - Emails that have been opened</li>
+  <li>Clicks - Link within email was clicked</li>
+  <li>Rendering Failures - Template rendering issue with email. This will only happen if you are using <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_Template.html">Amazon SES Templates</a></li>
+</ul>
+
+<p>Amazon has a Sending Statistics page and Reputation dashboard page that shows the number of deliveries, rejects, bounce and complaints. But what if we want to see which mails were actually rejected or bounced? Or even see the emails that were opened and links that were clicked? Or perform an action when any of these event occur? Enter <strong>event publishing</strong>.</p>
+
+<h3 id="event-publishing">Event publishing</h3>
+
+<p>Event publishing is simply telling Amazon SES to send email sending events to a particular destination. The way it works is this:</p>
+
+<ol>
+  <li>We create a <strong>configuration set</strong>. A configuration set lets us select the events we want Amazon SES to send and to what destination (Amazon CloudWatch, Firehose or SNS).</li>
+  <li>When sending our email, we tell Amazon SES to use that configuration set. Amazon SES will then send the events for the email (or emails) to the configuration set destination. For this post, we will be using Amazon SNS (Simple Notification Service) as our destination. With SNS, we can further send the events to a webhook.</li>
+</ol>
+
+<h3 id="creating-a-configuration-set-and-sns-destination">Creating a configuration set and SNS destination</h3>
+
+<p>Let’s start by creating a configuration set.</p>
+
+<ul>
+  <li>Go to your SES dashboard in your <a href="https://console.aws.amazon.com/ses/home">AWS console</a></li>
+  <li>Click on <strong>Configuration Sets</strong> in the left menu option</li>
+  <li>Click on <strong>Create Configuration Set</strong> button</li>
+  <li>You will need to give it a name. Add a name and create.</li>
+  <li>Once done, click on the configuration set to add a destination. Select <strong>SNS</strong> as your destination.</li>
+  <li>You will be prompted to select the events you want data for. You will also need to add a name. If you are tracking opens or clicks (as we will), you will be prompted to use Amazon SES default domain or Use your own subdomain. For this piece we will stick to using Amazon SES default domain.</li>
+  <li>Under the <strong>Topic</strong> section, select <strong>Create SNS Topic</strong>. We only need to add a topic name and we are good.</li>
+</ul>
+
+<p><img src="/images/resources/161219/create.png" alt="" /></p>
+
+<p><img src="/images/resources/161219/set-destination.png" alt="" /></p>
+
+<p><img src="/images/resources/161219/select-topic.png" alt="" /></p>
+
+<p><img src="/images/resources/161219/create-topic.png" alt="" /></p>
+
+<p>Now that we are done creating our configuration set and a SNS Topic, we need to update our SNS to add a webhook to receive the published events. But first, we need our webhook script.</p>
+
+<h3 id="creating-the-script-and-webhook">Creating the script and webhook</h3>
+
+<p>Before we can add a webhook to our SNS, we need to create the script to process the received events first. To do so, we also need to know what the events data look like. We can find <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/event-publishing-retrieving-sns-examples.html">examples of Amazon SES Event Data here</a>. (Also take a look at the content structure here: <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/event-publishing-retrieving-sns-contents.html">Contents of Amazon SES Event Data Published to Amazon SNS</a>). With this, we can build a script that can handle the various event types.</p>
+
+<p>Let’s create a boilerplate in Node.js. Create and change directory to a new directory. Let’s call it <code class="highlighter-rouge">ses-events</code>.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>ses-events
+<span class="nb">cd </span>ses-events/
+</code></pre></div></div>
+
+<p>Initialise the project and install express and body-parser.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init
+npm i <span class="nt">--save</span> express body-parser
+</code></pre></div></div>
+
+<p>Create an <code class="highlighter-rouge">index.js</code> file with the content below. Modify as you want to.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">)</span>
+  <span class="kd">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">body-parser</span><span class="dl">'</span><span class="p">)</span>
+
+  <span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span><span class="p">)</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="na">extended</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}))</span>
+  <span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+
+  <span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+      <span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">Message</span><span class="p">)</span>
+
+      <span class="c1">// If there is no event type, then we've got nothing</span>
+      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">body</span><span class="p">.</span><span class="nx">eventType</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span> <span class="p">}</span>
+
+      <span class="c1">// What's the event?</span>
+      <span class="kd">const</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">body</span><span class="p">.</span><span class="nx">eventType</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span>
+      <span class="kd">const</span> <span class="nx">eventData</span> <span class="o">=</span> <span class="nx">body</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">eventData</span><span class="p">,</span> <span class="kc">null</span> <span class="mi">2</span><span class="p">))</span>
+
+      <span class="kd">const</span> <span class="nx">domain</span> <span class="o">=</span> <span class="nx">event_data</span><span class="p">.</span><span class="nx">mail</span><span class="p">.</span><span class="nx">tags</span><span class="p">[</span><span class="dl">'</span><span class="s1">ses:from-domain</span><span class="dl">'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+      <span class="kd">const</span> <span class="nx">messageId</span> <span class="o">=</span> <span class="nx">event_data</span><span class="p">.</span><span class="nx">mail</span><span class="p">.</span><span class="nx">messageId</span>
+      <span class="kd">const</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">eventData</span><span class="p">.</span><span class="nx">mail</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">)</span>
+      <span class="kd">const</span> <span class="nx">email</span> <span class="o">=</span> <span class="nx">event_data</span><span class="p">.</span><span class="nx">mail</span><span class="p">.</span><span class="nx">destination</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="kd">const</span> <span class="nx">subject</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">mail</span><span class="p">.</span><span class="nx">commonHeaders</span><span class="p">.</span><span class="nx">subject</span>
+
+      <span class="c1">// #todo: Verify event is from SES</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">click</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">click</span><span class="p">.</span><span class="nx">userAgent</span>
+        <span class="kd">const</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">click</span><span class="p">.</span><span class="nx">link</span>
+        <span class="c1">// do stuff here</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">open</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">open</span><span class="p">.</span><span class="nx">userAgent</span>
+        <span class="c1">// do stuff here</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">delivery</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// do stuff here</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">complaint</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">complaint</span><span class="p">.</span><span class="nx">userAgent</span>
+        <span class="c1">// do stuff here</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">reject</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">ua</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">complaint</span><span class="p">.</span><span class="nx">userAgent</span>
+        <span class="kd">const</span> <span class="nx">reason</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">reject</span><span class="p">.</span><span class="nx">reason</span>
+        <span class="c1">// do stuff here</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">==</span> <span class="dl">'</span><span class="s1">bounce</span><span class="dl">'</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">const</span> <span class="nx">description</span> <span class="o">=</span> <span class="nx">eventData</span><span class="p">.</span><span class="nx">bounce</span><span class="p">.</span><span class="nx">bouncedRecipients</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">diagnosticCode</span>
+        <span class="c1">// do stuff here</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="c1">// Not supported</span>
+        <span class="c1">// do stuff here</span>
+      <span class="p">}</span>
+
+      <span class="c1">// anything else can come in here</span>
+
+      <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">// #todo: Track error here</span>
+      <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+    <span class="p">}</span>
+  <span class="p">})</span>
+</code></pre></div></div>
+
+<p>For test, you can run this locally and use <a href="https://ngrok.com/">ngrok</a> to create a public URL to it. Or use a service like <a href="https://heroku.com/">Heroku,</a> <a href="https://vercel.com/">Vercel</a> or <a href="https://glitch.me/">Glitch</a> to host it. Once we have a URL for our script, we can update SNS to send the events to the URL.</p>
+
+<p>Go to SNS and click on the topic created for the configuration set. Click create subscription, choose http (or https if your host provides you that).</p>
+
+<p><img src="/images/resources/161219/sns.png" alt="" /></p>
+
+<p>There is a tiny part we missed. We need to confirm the endpoint before Amazon SES can send events data to it. Amazon will send a URL to it (<code class="highlighter-rouge">SubscribeURL</code> to it via POST) and expects us to visit the sent URL. We can update our webhook script to take care of this automatically.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">got</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">got</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">express</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">body-parser</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span><span class="p">)</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span> <span class="na">extended</span><span class="p">:</span> <span class="kc">true</span> <span class="p">}))</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="dl">'</span><span class="s1">/</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+
+    <span class="c1">// Include this new block</span>
+    <span class="c1">// to confirm subscription</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="dl">'</span><span class="s1">text/*</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">req</span><span class="p">.</span><span class="nx">body</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">)</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">SubscribeURL</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">await</span> <span class="nx">got</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">SubscribeURL</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">()</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="c1">// \endblock</span>
+
+    <span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">Message</span><span class="p">)</span>
+
+    <span class="c1">// rest of our script</span>
+</code></pre></div></div>
+
+<p>I am using <a href="https://github.com/sindresorhus/got">got</a> to “visit” the <code class="highlighter-rouge">SubscriptionURL</code> so be sure to install it.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm i <span class="nt">--save</span> got
+</code></pre></div></div>
+
+<p>Click the <strong>Create Subscription</strong> button once done and you should be good.</p>
+
+<h3 id="sending-with-the-configuration-set">Sending with the configuration set</h3>
+
+<p>The next part of the piece is telling Amazon SES to use our configuration set when sending emails. This is not done automatically. You need to edit your send scripts to add a header to tell Amazon SES to use the configuration set.</p>
+
+<p>If you are using SMTP, simply add the header:</p>
+
+<p><code class="highlighter-rouge">X-SES-CONFIGURATION-SET: config-set-name</code></p>
+
+<p>In PHPMailer for example, this will look like this:</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// ...</span>
+<span class="nv">$mail</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PHPMailer</span><span class="p">();</span>
+<span class="c1">// ...other lines here</span>
+<span class="c1">// custom header for config set</span>
+<span class="nv">$mail</span><span class="o">-&gt;</span><span class="na">addCustomHeader</span><span class="p">(</span><span class="s1">'X-SES-CONFIGURATION-SET'</span><span class="p">,</span> <span class="s1">'config-set-name'</span><span class="p">);</span>
+<span class="c1">// ...</span>
+</code></pre></div></div>
+
+<p>If you are using the AWS SES Nodejs Library, it will look like this</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ses</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">AWS</span><span class="p">.</span><span class="nx">SES</span><span class="p">({</span>
+  <span class="na">accessKeyId</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">ID</span><span class="p">,</span>
+  <span class="na">secretAccessKey</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">KEY</span><span class="p">,</span>
+  <span class="na">region</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">REGION</span>
+<span class="p">});</span>
+<span class="nx">ses</span><span class="p">.</span><span class="nx">sendEmail</span><span class="p">({</span>
+  <span class="na">Destination</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">ToAddresses</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">jon@doe.com</span><span class="dl">'</span><span class="p">]</span>
+  <span class="p">},</span>
+  <span class="na">Message</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Body</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">Html</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">Charset</span><span class="p">:</span> <span class="dl">"</span><span class="s2">UTF-8</span><span class="dl">"</span><span class="p">,</span>
+      <span class="na">Data</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;p&gt;Yo. This is a test :)&lt;/p&gt;</span><span class="dl">'</span>
+    <span class="p">},</span>
+    <span class="na">Text</span><span class="p">:</span> <span class="p">{</span> <span class="na">Data</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Yo. This is test :)</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="na">Subject</span><span class="p">:</span> <span class="p">{</span> <span class="na">Data</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Hey</span><span class="dl">'</span> <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">ConfigurationSetName</span><span class="p">:</span> <span class="dl">'</span><span class="s1">demo</span><span class="dl">'</span><span class="p">,</span> <span class="c1">// &lt;-- this</span>
+  <span class="na">Source</span><span class="p">:</span>  <span class="dl">'</span><span class="s1">"Awesome co" &lt;hello@awesome.co&gt;</span><span class="dl">'</span>
+  <span class="p">},</span> <span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">err</span><span class="p">);</span>
+  <span class="c1">// ~</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="making-it-scalable">Making it scalable</h3>
+
+<p>If you send a lot of mails, it is important your script is hosted on a platform that can handle a lot of concerrent requests. You need a service that can automatically scale depending on the number of requests. My recommendation is to use services like Amazon Lambda or Google Cloud functions. The additional beauty of such service is you are not charged for periods your script do not have any requests. What’s more interesting is that you can directly connect Amazon SNS to Amazon Lambda.</p>
+
+<p>To create a Lambda function, we only need to make slight changes to our script.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">got</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">got</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">exports</span><span class="p">.</span><span class="nx">handler</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">context</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">body</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">Records</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">Sns</span><span class="p">.</span><span class="nx">Message</span><span class="p">);</span>
+
+    <span class="c1">// If there is no event type, then we've got nothing</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">body</span><span class="p">.</span><span class="nx">eventType</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">callback</span><span class="p">()</span> <span class="p">}</span>
+
+    <span class="c1">// process event here...</span>
+
+    <span class="k">return</span> <span class="nx">callback</span><span class="p">()</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// #todo: Track error here</span>
+    <span class="nx">callback</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Few things you will notice</p>
+
+<ul>
+  <li>I am no longer including <code class="highlighter-rouge">express</code> and <code class="highlighter-rouge">body-parser</code>. Lambda handles the routing and processing of the request body.</li>
+  <li>My body data is coming from <code class="highlighter-rouge">event.Records[0].Sns.Message</code>. This is how SNS sends data to Lambda. Its content will be a string so I need to convert it to an object with JSON.parse</li>
+  <li>I am replacing <code class="highlighter-rouge">res.end()</code> with <code class="highlighter-rouge">callback()</code>. Since there are no more req and res parameters, callback is how we tell Lambda we are done.</li>
+</ul>
+
+<p>You can read more on Amazon Lambda here: <a href="https://docs.aws.amazon.com/lambda/latest/dg/getting-started.html">Getting Started with AWS Lambda</a></p>
+
+<p>Let’s switch from our hosted webhook to Lambda. We will start by creating the function.</p>
+
+<ul>
+  <li>Go to Amazon Lambda service in your console.</li>
+  <li>Click on <strong>Functions</strong> and the <strong>Create a function</strong> button</li>
+  <li>Give it a name, chose the Node.js runtime and create</li>
+  <li>Next scroll down to the <strong>Function code</strong> section. We are not going to be using the inline editor because we need to install <code class="highlighter-rouge">got</code> and there is no way to do it using the inline editor. Instead, we are going to be uploading our local setup. Change the <strong>Code entry type</strong> to <strong>Upload a .zip file</strong>. Note that <code class="highlighter-rouge">index.handler</code> in the <strong>Handler</strong> input means “in <strong>index</strong>.js, make a call to exports<strong>.handler</strong>”. If you are using a different file name from <code class="highlighter-rouge">index.js</code>, then update the Handler section.</li>
+  <li>Change directory to your updated script folder. Remember to have installed <code class="highlighter-rouge">got</code> and remove <code class="highlighter-rouge">express</code> and <code class="highlighter-rouge">body-parser</code>. Select all the content and zip it. You should see an <code class="highlighter-rouge">index.js</code> file, a <code class="highlighter-rouge">node_modules</code> folder and <code class="highlighter-rouge">package.json</code> files.</li>
+  <li>Go back to the function page and click the <strong>Function package</strong> upload button. Select the zipped file and click the <strong>Save</strong> button. (Review the additional options on the uploaded Lambda function page. If you are using environmental variables, there is a place you can add them. You may also want to increase the timeout to something more than 3 seconds depending on the processing you are doing with the events data.)</li>
+</ul>
+
+<p>Once uploaded, we can go back to our SNS subscription, change the <strong>Protocol</strong> to AWS Lambda and select our Lambda function from the <strong>Endpoint</strong> options.</p>
+
+<p><img src="/images/resources/161219/update-sns.png" alt="" /></p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Phew. That seems like a lot. Compared to the interesting things you can do with the events data though, may be not. Engage handles all this automatically to present your email analytics and reporting in a simple and detailed way. Do check it out: <a href="https://engage.so/">engage.so</a></p>
+
+<h3 id="faqs">FAQs</h3>
+
+<ul>
+  <li>
+    <p><strong>What’s the difference between Rejects vs Bounces</strong></p>
+
+    <p>Rejects don’t reach the receiver’s email server. They only get to Amazon SES and get rejected. Bounces get to the receiver’s email server and get rejected. A reason a bounce can happen is if the email is wrong or full. If Amazon SES thinks it’s a temporary issue, if the receiver’s mailbox is full for example, it will attempt retries a couple of times before failing finally. You will get a bounce event at every attempt.</p>
+  </li>
+  <li>
+    <p><strong>How does open tracking work?</strong></p>
+
+    <p>Amazon SES adds a 1x1 pixel transparent image to the email to achieve this. There has been a lot of conversation around if this is ethical or not. For transactional emails, it’s a different conversation but one for some other time.</p>
+
+    <p>Few notes:</p>
+
+    <ul>
+      <li>This only works for HTML emails</li>
+      <li>You can turn it off by not specifying a configuration set or not including opens tracking in the configuration set</li>
+      <li>Opens tracking is not 100% accurate. Some email clients require receivers to explicitly load embedded images.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>How does click tracking work?</strong></p>
+
+    <p>Amazon SES replaces links in the email with another link that tracks click and redirect to the original link. To disable tracking on a link, you can add <code class="highlighter-rouge">ses:no-track</code> as an attribute to the A tag like this</p>
+
+    <p><code class="highlighter-rouge">&lt;a ses:no-track href="https://engage.so"&gt;Engage&lt;/a&gt;</code>.</p>
+
+    <p>Click tracking also works for HTML emails only</p>
+  </li>
+</ul>
+

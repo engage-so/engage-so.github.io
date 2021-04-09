@@ -30,8 +30,9 @@ page: api-users
 - `last_name` - The user's last name if added
 - `number` - The user's number if added
 - `email` - The user's email
-- `meta` - Additional attributes attached to the user will be available as properties under meta
+- `devices` - An array of object with the properties `token` and `platform` containing the user's last 5 device tokens and platform (`android` or `ios`) if synced
 - `created_at` - Date created if exists
+- `meta` - Additional attributes attached to the user will be available as properties under meta
 
 ## Retrieve a User
 
@@ -57,7 +58,7 @@ Parameters:
 - `first_name` - Optional. The user's first name
 - `last_name` - Optional. The user's last name
 - `number` - Optional. The user's phone number in international format
-- `email` - Required. The user's email
+- `email` - Optional. The user's email
 - `created_at` - Optional. Date the user signed up on your application. Should be a valid date string.
 - `meta` - Optional. An object that can contain additional user attributes. The values can be a string, number or boolean.
 
