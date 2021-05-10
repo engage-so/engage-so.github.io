@@ -30,9 +30,36 @@ Errors are returned with standard HTTP status codes. Error responses will come w
 
 ## Pagination
 
-The API uses cursor-based pagination. This means that for endpoints that require pagination, you can use the `id` available in each item object as a pointer to get datasets before or after the id. To get the dataset before the specified id, make a request with a `before_id` parameter set to the id. To get the dataset after the specified id, use `after_id`. You can only use one of `before_id` and `after_if` in a request.
+The API uses cursor-based pagination. Responses for list requests will come with a `next_cursor` and/or `previous_cursor` parameter. If you need to get the next page of dataset, make a request with the `next_cursor` parameter. To get the previous page of dataset, make a request with the `previous_cursor` dataset.
 
-These endpoints also return a `has_more` value that is either `true` or `false`. `true` means there are more datasets that can be requested. `false` means otherwise. If none of `after_id` or `before_id` parameter is passed, `true` will mean that, there are more datasets after the last item in the returned dataset. Same with if `after_id` is passed. If `before_id` is passed, `true` will mean that there are more datasets **before** the first item in the returned dataset.
+```json
+{
+  "data": [...],
+  "next_cursor": "60583d4a60ad2a26042a9499"
+}
+```
+```text
+api.engage.so/v1/users?next_cursor=60583d4a60ad2a26042a9499
+```
+
+> You can only use one of `next_cursor` and `previous_cursor` in a request.
+
+*An earlier version of the API lets you use the `id` field of the resource object to request the previous or next page of dataset by making a request with the parameters: `after_id` and `before_id` set to the id. This pagination style has now been deprecated and is not recommended.*
+
+```json
+{
+  "data": [{
+    "id": "60583d4a60ad2a26042a9499"
+    ...
+  }],
+  "has_more": true
+}
+```
+```text
+api.engage.so/v1/users?after_id=60583d4a60ad2a26042a9499
+```
+
+
 
 ## Resources
 

@@ -174,7 +174,31 @@ GET /users
 
 Parameters:
 - `limit` - Optional. Number of users to return. Defaults to 10. Maximum of 30.
-- `after_id` - Optional. List users with internal IDs greater than this value.
-- `before_id` - Optional. List users with internal IDs lesser than this value.
+- `next_cursor` - Optional. Pagination cursor for next dataset page.
+- `previous_cursor` - Optional. Pagination cursor for previous dataset page.
 
-Remember, you can only use one of `after_id` and `before_id`. See [pagination](/docs/api/#pagination) for more.
+Example response:
+```json
+{
+  "data": [
+    {
+      "id": "5fc6477241fcec31a9548e98",
+      "uid": "a.jinadu@somecorp.email",
+      "uid_updateable": true,
+      "first_name": "Akinyele",
+      "last_name": "Jinadu",
+      "number": null,
+      "email": "a.jinadu@somecorp.email",
+      "devices": [],
+      "lists": [],
+      "segments": [],
+      "meta": {
+        "plan": "pro",
+        "age": 34
+      },
+      "created_at": "2021-01-12T05:24:39.062+00:00"
+    }
+  ],
+  "next_cursor": "5fc6477241fcec31a9548e98"
+```
+Remember, you can only use one of `next_cursor` and `previous_cursor`. See [pagination](/docs/api/#pagination) for more.
