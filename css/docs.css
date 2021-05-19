@@ -20,6 +20,9 @@ nav a:hover {
 .logo img.small {
   width: 30px
 }
+.poppins {
+  font-family: 'Poppins', sans-serif;
+}
 h1, h2 {
   font-family: 'Poppins', sans-serif;
   color: #111;
@@ -115,7 +118,7 @@ article.docs img {
 }
 
 .trusted-brands img {
-  max-height: 30px;
+  max-height: 40px;
   display: inline-block;
   -webkit-filter: grayscale(1) brightness(1);
   filter: grayscale(1) brightness(1);
@@ -164,6 +167,7 @@ footer a:hover {
 
 .pop-link .absolute {
   display: none;
+  z-index: 2;
   left:-200px;
   width:600px;
 }
@@ -952,6 +956,10 @@ footer a:hover .feather {
   .ph7-xl {
     padding-left: 24rem;
     padding-right: 24rem;
+  }
+  .ph6-xl {
+    padding-left: 8rem;
+    padding-right: 8rem;
   }
 }
 @media screen and (max-width: 30em) {

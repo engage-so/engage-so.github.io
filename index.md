@@ -1,92 +1,165 @@
 ---
 title: 'Customer messaging for growth and retention – Engage'
-description: 'Send your customers messages based on their profile and what they do within your application. Create automations and easily move your customers from acquisition to referral.'
+description: 'Send your customers messages based on their profile and what they do within your application. Create message automations and easily move your customers from acquisition to referral.'
 layout: landing
 ---
 
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap overflow-hidden" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
-    <div class="w-50-l w-100 pr6-l pt5">
-      <h1 class="f2 lh-title">Customer messaging for <span class="green">growth</span> and retention</h1>
-      <h3 class="lh-copy f4 normal faint">Send your customers messages based on their profile and what they do within your application. Create automations and easily move your customers from acquisition to referral.</h3>
-      <div class="mv4">
-        <form method="GET"><input type="email" name="email" placeholder="Enter your business email" class="one-liner-el"><button class="one-liner-el" type="submit">Signup — it's free</button></form>
+  <div class="ph7-xl ph6-l ph5-m ph4 pv4" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
+    <div class="tc w-70-l w-100 pt2 center">
+      <h1 class="f1 lh-title">Customer messaging for <span class="green">growth</span> and retention</h1>
+      <h3 class="lh-copy f4 normal faint">Send your customers messages based on their profile and what they do within your application. Create message automations and easily move your customers from acquisition to referral.</h3>
+      <div class="ma4 ph5-l">
+        <form method="GET" action="https://app.engage.so/auth/signup">
+          <input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding:15px"><button class="one-liner-el" type="submit" style="padding:15px">Signup — it's free</button>
+        </form>
       </div>
     </div>
-    <div class="w-50-l w-100 pb4 db-l dn">
-      <img src="/images/hero.svg" class="hero" style="height:550px">
+    <!-- <div class="pv5">
+      <img src="/images/hero-img@2-1.png" class="db" >
+    </div> -->
+  </div>
+
+  <div class="mv5 ph7-xl ph6-l ph5-m ph4 tc">
+    <div class="f3 lh-title faint poppins">Trusted by </div>
+    <div class="t5 ph6-l ph5-m ph4 flex items-center justify-center pv3 flex-wrap trusted-brands">
+      <a href="http://reliancehmo.com" target="_blank" class="ma4"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
+      <a href="http://boon.credit" target="_blank" class="ma4"><img src="/images/brands/boon.svg" alt="Boon Credit"></a>
+      <a href="http://selar.co/" target="_blank" class="ma4"><img src="/images/brands/selar.png" alt="Selar"></a>
+      <a href="http://youverify.co/" target="_blank" class="ma4"><img src="/images/brands/youverify.png" alt="Youverify"></a>
+      <a href="http://techliv.dk" target="_blank" class="ma4"><img src="/images/brands/techliv.png" alt="Techliv"></a>
+      <a href="http://extragas.co.uk/" target="_blank" class="ma4"><img src="/images/brands/extragas.png" alt="ExtraGas"></a>
+      <a href="http://ridekura.com/" target="_blank" class="ma4"><img src="/images/brands/kura.svg" alt="Kura"></a>
     </div>
   </div>
 
-  <div class="ph7-xl ph6-l ph5-m ph4 mt5">
-    <div class="flex flex-wrap justify-between">
-      <div class="w-25-l w-50-ns w-100 pr4-ns pt4">
-        <img src="/images/connect-icon.svg" alt="" width="48">
-        <h2 class="f3 lh-copy">Connect</h2>
-        <div class="lh-copy faint">Connect live customer data through our integrations, <a href="/docs/sdks">SDKs</a> and <a href="/docs/api">API</a>.</div>
+  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap relative">
+    <div class="w-50-l w-100 pr6-l">
+      <div class="step flex items-center" data-step="1">
+        <div class="">
+          <h2 class="f2 ma0 lh-title">Segment your customers by <span class="green">attributes</span> and <span class="green">actions</span></h2>
+          <div class="lh-copy f4 pv3 normal faint">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</div>
+          <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
+        </div>
       </div>
-      <div class="w-25-l w-50-ns w-100 pr4-ns pt4">
-        <img src="/images/segment-icon.svg" alt="" width="48">
-        <h2 class="f3 lh-copy">Segment</h2>
-        <div class="lh-copy faint">Create user groups based on attributes (e.g. location, plan) and events performed within your application (e.g. upgraded, made an order, liked an item).</div>
+      <div class="step flex items-center" data-step="2">
+        <div class="">
+          <h2 class="f2 ma0 lh-title">Send <span class="green">personalised</span> messages through multiple channels</h2>
+          <div class="lh-copy f4 pv3 normal faint">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</div>
+          <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
+        </div>
       </div>
-      <div class="w-25-l w-50-ns w-100 pr4-ns pt4">
-        <img src="/images/engage-icon.svg" alt="" width="48">
-        <h2 class="f3 lh-copy">Engage</h2>
-        <div class="lh-copy faint">Send message broadcasts through email and other channels like SMS and push notifications.</div>
+      <div class="step flex items-center" data-step="3">
+        <div class="">
+          <h2 class="f2 ma0 lh-title">Automate your <span class="green">onboarding</span> and marketing</h2>
+          <div class="lh-copy f4 pv3 normal faint">Onboard, upsell and retain your customers with automatic messaging workflows.</div>
+          <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
+        </div>
       </div>
-      <div class="w-25-l w-50-ns w-100 pt4">
-        <img src="/images/automate-icon.svg" alt="" width="48">
-        <h2 class="f3 lh-copy">Automate</h2>
-        <div class="lh-copy faint">Create automations to automatically send messages or update profile based on customer actions or particular triggers.</div>
+      <div class="step flex items-center" data-step="3">
+        <div class="">
+          <h2 class="f2 ma0 lh-title">Detailed analytics and reporting for your <span class="green">transactional</span> emails</h2>
+          <div class="lh-copy f4 pv3 normal faint">Connect your transactional email service provider and get detailed analytics and reporting of your transactional emails on a better dashboard.</div>
+          <div class="f4 lh-copy pv3"><a href="/features/transactional-email-analytics">Learn more &rarr;</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="w-50-l w-100 mt0-l feature-hero-wrp" style="position:sticky;border-radius:10px;background-color:#7f72ea">
+      <div class="">
+        <img src="/images/segmentation.png" alt="Messaging beyond emails" id="feature-hero" class="br2 db" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
       </div>
     </div>
   </div>
 
-  <div class="pt5 mt5 ph7-xl ph6-l ph5-m ph4 flex flex-wrap justify-between">
-    <div class="w-50-l w-100 pr5-l mt0-l">
-      <img src="/images/services.svg" alt="Connect your favourite services">
-    </div>
-    <div class="w-50-l w-100 pl5-l mt6-l">
-      <h2 class="f3 lh-copy">Connect your favourite <span class="green">services</span></h2>
-      <div class="f4 lh-copy faint">Connect your favourite services to enrich customer data. We also support top email service providers and other messaging services so you can bring your own messaging infrastructure.</div>
-      <div class="f4 lh-copy pv3"><a href="/features/bring-your-messaging-infra">Learn more &rarr;</a></div>
+  <div class="ph7-xl ph6-l ph5-m ph4 mt6">
+    <div class="flex flex-wrap">
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2">Connect your favourite services</h3>
+        <div class="lh-copy faint">From payment gateways to email service providers and data analytics tools, Engage supports multiple services you can connect to for customer data enrichment.</div>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2 fw6">Subscription lists</h3>
+        <div class="lh-copy faint">Lists are an easy way to create customer groups for engagement. Create lists for your online forms or newsletters.</div>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2 fw6">Broadcasts</h3>
+        <div class="lh-copy faint">Send email campaigns to customer segments and lists through multiple channels. View detailed analytics of customer engagement.</div>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2 fw6">Automations</h3>
+        <div class="lh-copy faint">Message automations are a great way to onboard, retain and upsell your customers. Create dynamic workflows based on customer attributes, actions or non-actions.</div>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2 fw6">Web and mobile push</h3>
+        <div class="lh-copy faint">Engagement with users do not have to be limited to email or SMS alone. Send broadcasts and automated messages through other channels like in-app push on web or mobile.</div>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2 fw6">Bring your messaging infrastructure</h3>
+        <div class="lh-copy faint">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this at Engage.</div>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2 fw6">Transactional email analytics</h3>
+        <div class="lh-copy faint">Brought your transactional email infrastructure? Engage gives you detailed analytics and reporting of your transactional emails. We support top service providers like Amazon SES, Mailgun, Sparkpost and more</div>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <h3 class="lh-copy mb2 fw6">Template management</h3>
+        <div class="lh-copy faint">Manage your transactional email templates directly from the Engage dashboard.</div>
+      </div>
     </div>
   </div>
 
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap justify-between">
-    <div class="w-50-l w-100 pr5-l mt6-l mv5">
-      <h2 class="f3 ma0 lh-title">Engage customers <span class="green">beyond</span> emails</h2>
-      <div class="lh-copy f4 pv3 normal faint">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</div>
-      <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
-    </div>
-    <div class="w-50-l w-100 pl5-l mt0-l">
-      <img src="/images/broadcast.svg" alt="Messaging beyond emails">
-    </div>
-  </div>
-
-  <div class="mt5 ph7-xl ph6-l ph5-m ph4 flex flex-wrap justify-between">
-    <div class="w-50-l w-100 pr5-l mt0-l">
-      <img src="/images/feed.svg" alt="Segment your customers">
-    </div>
-    <div class="w-50-l w-100 pl5-l mt5-l mv4">
-      <h2 class="f3 lh-copy">Detailed reporting and analytics for your <span class="green">transactional</span> messages</h2>
-      <div class="f4 lh-copy pv3 faint">Connect your email service provider and see, in real-time, who opened and clicked on each transactional email sent from your app. Filter and get detailed reports on why each email bounced or failed to deliver – and which users it failed for. We currently support Amazon SES, Mailgun and Sparkpost.</div>
-      <div class="f4 lh-copy pv3"><a href="/features/transactional-email-analytics">Learn more &rarr;</a></div>
-    </div>
-  </div>
-
-  <div class="mv5 ph7-xl ph6-l ph5-m ph4">
+  <div class="mv5 ph7-xl ph6-l ph5-m ph4 mv4">
     <div class="w-80 center tc">
       <h2 class="f2 lh-copy">Ready to improve your customer messaging?</h2>
       <a href="https://app.engage.so/auth/signup" class="button db w-100 w-auto-ns mr5" style="padding-bottom:20px;padding-top:20px">Signup for free</a>
-      <div class="t5 mt5 ph7-xl ph6-l ph5-m ph4 flex items-center pv3 flex-nowrap-l flex-wrap trusted-brands">
-        <a href="http://reliancehmo.com" target="_blank" class="pa2 mr4"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
-        <a href="http://boon.credit" target="_blank" class="pa2 mr4"><img src="/images/brands/boon.svg" alt="Boon Credit"></a>
-        <a href="http://techliv.dk" target="_blank" class="pa2 mr4"><img src="/images/brands/techliv.png" alt="Techliv"></a>
-        <a href="http://selar.co/" target="_blank" class="pa2 mr4"><img src="/images/brands/selar.png" alt="Selar"></a>
-        <a href="http://extragas.co.uk/" target="_blank" class="pa2 mr4"><img src="/images/brands/extragas.png" alt="Selar"></a>
-      </div>
     </div>
   </div>
 
-
+  <script src="/js/stickyfill.min.js"></script>
+  <script src="/js/scrollama.min.js"></script>
+  <script type="text/javascript">      // using d3 for convenience
+  const figure = document.querySelector(".feature-hero-wrp");
+  const img = document.getElementById('feature-hero');
+  const steps = document.querySelectorAll(".step");
+  const src = ['segmentation', 'broadcast', 'automations', 'transactional']
+  const alt = ['Segment your customers by attributes and actions', 'Send personalised messages through multiple channels', 'Automate your onboarding and marketing', 'Detailed analytics and reporting for your transactional emails']
+  const scroller = scrollama();
+  // generic window resize listener event
+  function handleResize() {
+    // 1. update height of step elements
+    const stepH = Math.floor(window.innerHeight * 0.70);
+    for(let i=0;i<steps.length;i++){
+      steps[i].style.height = stepH + "px";
+    }
+    const figureHeight = window.innerHeight / 2;
+    const figureMarginTop = (window.innerHeight - figureHeight) / 2;
+    figure.style.height = figureHeight + "px"
+    // img.style.height = figureHeight + "px"
+    figure.style.top = figureMarginTop + "px"
+    // 3. tell scrollama to update new element dimensions
+    scroller.resize();
+  }
+  // scrollama event handlers
+  function handleStepEnter(response) {
+    img.src = '/images/' + src[response.index] + '.png'
+    img.alt = alt[response.index]
+  }
+  // function setupStickyfill() {
+  //   document.querySelectorAll(".sticky").each(function() {
+  //     Stickyfill.add(this);
+  //   });
+  // }
+  function init() {
+    // setupStickyfill();
+    handleResize();
+    scroller
+      .setup({
+        step: ".step",
+        offset: 0.3
+      })
+      .onStepEnter(handleStepEnter);
+    // setup resize event
+    window.addEventListener("resize", handleResize);
+  }
+  // kick things off
+  init();
+  </script>
