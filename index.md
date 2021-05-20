@@ -114,6 +114,42 @@ layout: landing
     </div>
   </div>
 
+  <div class="ph7-xl ph6-l ph5-m ph4 mt6">
+    <h3 class="mb3">from the <span class="green">blog</span></h3>
+    <div class="flex flex-wrap">
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <a href="https://engage.so/blog/introduction-to-personalised-customer-messaging/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/05/personalised-messaging.svg 300w,
+                    https://engage.so/blog/content/images/size/w600/2021/05/personalised-messaging.svg 600w,
+                    https://engage.so/blog/content/images/size/w1000/2021/05/personalised-messaging.svg 1000w,
+                    https://engage.so/blog/content/images/size/w2000/2021/05/personalised-messaging.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/05/personalised-messaging.svg" alt="Introduction to personalised customer messaging" loading="lazy"></a>
+        <a href="https://engage.so/blog/introduction-to-personalised-customer-messaging/" class="alt-2">
+          <h3 class="lh-copy mb2">Introduction to personalised customer messaging</h3>
+          <div class="lh-copy faint">Customer messaging is important to every business. But doing it in a way that builds customer trust and loyalty is hard. In this post, we explore one of the best ways to nail this – personalisation.</div>
+        </a>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <a href="https://engage.so/blog/amazon-ses-vs-mailgun-the-ultimate-guide/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/05/mg-ses.svg 300w,
+                    https://engage.so/blog/content/images/size/w600/2021/05/mg-ses.svg 600w,
+                    https://engage.so/blog/content/images/size/w1000/2021/05/mg-ses.svg 1000w,
+                    https://engage.so/blog/content/images/size/w2000/2021/05/mg-ses.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/05/mg-ses.svg" alt="Amazon SES vs Mailgun - the ultimate guide" loading="lazy"></a>
+        <a href="https://engage.so/blog/amazon-ses-vs-mailgun-the-ultimate-guide/" class="alt-2">
+          <h3 class="lh-copy mb2 fw6">Amazon SES vs Mailgun - the ultimate guide</h3>
+          <div class="lh-copy faint">Mailgun and Amazon SES are two big email service provider for transactional emails. The underlying service is the same. But what makes them different?</div>.
+        </a>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <a href="https://engage.so/blog/understanding-amazon-ses-configuration-sets-and-how-engage-uses-them/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/05/Cover-1.svg 300w,
+                    https://engage.so/blog/content/images/size/w600/2021/05/Cover-1.svg 600w,
+                    https://engage.so/blog/content/images/size/w1000/2021/05/Cover-1.svg 1000w,
+                    https://engage.so/blog/content/images/size/w2000/2021/05/Cover-1.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/05/Cover-1.svg" alt="Understanding Amazon SES Configuration Sets and how Engage uses them" loading="lazy"></a>
+        <a href="https://engage.so/blog/understanding-amazon-ses-configuration-sets-and-how-engage-uses-them/" class="alt-2">
+          <h3 class="lh-copy mb2 fw6">Understanding Amazon SES Configuration Sets</h3>
+          <div class="lh-copy faint">Configuration Sets are settings for emails you send using Amazon Simple Email Service (SES). TThis post explains how Engage uses them and how you can extend that use.</div>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <script src="/js/stickyfill.min.js"></script>
   <script src="/js/scrollama.min.js"></script>
   <script type="text/javascript">      // using d3 for convenience
