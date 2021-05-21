@@ -14,9 +14,6 @@ page: features
         </form>
       </div>
     </div>
-    <!-- <div class="pv5">
-      <img src="/images/hero-img@2-1.png" class="db" >
-    </div> -->
   </div>
 
   <div class="tc center mt5" style="max-width:500px">
@@ -29,32 +26,31 @@ page: features
 
   <div class="pt5 ph7-xl ph6-l ph5-m ph4 flex flex-wrap justify-between">
     <div class="w-50-l w-100 pr5-l mt4">
-      <img src="/images/trx-dash.png" class="bordered-image" style="max-width:500px" alt="See an overview of overall performance">
+      <img src="/images/trx-dash.png" class="bordered-image" alt="See an overview of overall performance">
       <h2 class="f3 lh-copy">See an overview of <span class="green">overall performance</span></h2>
       <div class="f4 lh-copy faint">See an overview of your transactional email performance, top clicks and top opens. Also get a weekly email summary of performance.</div>
     </div>
     <div class="w-50-l w-100 pl5-l mt4">
-      <img src="/images/trx-feed.png" class="bordered-image" style="max-width:500px" alt="Get real-time events feed">
+      <img src="/images/trx-feed.png" class="bordered-image" alt="Get real-time events feed">
       <h2 class="f3 lh-title">Get real-time events <span class="green">feed</span></h2>
       <div class="lh-copy f4 mv3 faint">See, in real-time, who opened and clicked on each transactional email sent from your app. Filter and get detailed reports on why each email bounced or failed to deliver – and which users it failed for. </div>
     </div>
   </div>
 
-  <div class="pt5 ph7-xl ph6-l ph5-m ph4 flex flex-wrap justify-between">
+  <div class="pt3 ph7-xl ph6-l ph5-m ph4 flex flex-wrap justify-between">
     <div class="w-50-l w-100 pr5-l mt4">
-      <img src="/images/trx-mail.png" class="bordered-image" style="max-width:500px" alt="See an overview of overall performance">
+      <img src="/images/trx-mail.png" class="bordered-image" alt="See an overview of overall performance">
       <h2 class="f3 lh-copy">View sent emails and <span class="green">interactions</span></h2>
       <div class="f4 lh-copy faint">See how users interact and see the content you send. Be 100% sure your email is delivering exactly the way it is designed.</div>
     </div>
     <div class="w-50-l w-100 pl5-l mt4">
-      <img src="/images/trx-template.png" class="bordered-image" style="max-width:500px" alt="Manage your templates">
+      <img src="/images/trx-template.png" class="bordered-image" alt="Manage your templates">
       <h2 class="f3 lh-title">Manage your <span class="green">templates</span></h2>
       <div class="lh-copy f4 mv3 faint">Create, edit and delete your email templates from a simple dashboard. Your template is automatically synced to your email service provider.</div>
     </div>
   </div>
 
   <div class="ph7-xl ph6-l ph5-m ph4 mt6">
-    <!-- <div class="f4 fw6 fade">There is more...</div> -->
     <div class="flex flex-wrap">
       <div class="w-25-l w-50-ns w-100 pr3-ns pv3">
         <h3 class="lh-copy mb2 fw6">Segment users</h3>
