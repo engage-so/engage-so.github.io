@@ -37,7 +37,7 @@ layout: landing
       <div class="step flex items-center" data-step="1">
         <div class="">
           <h2 class="f2 ma0 lh-title">Segment your customers by <span class="green">attributes</span> and <span class="green">actions</span></h2>
-          <div class="lh-copy f4 pv3 normal faint">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</div>
+          <div class="lh-copy f4 pv3 normal faint">Group your customers based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal).</div>
           <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
         </div>
       </div>
