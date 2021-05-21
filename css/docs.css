@@ -123,6 +123,13 @@ article.docs img {
   border: 1px solid #eee
 }
 
+.bordered-image {
+  display: block;
+  border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #eee
+}
+
 .trusted-brands img {
   max-height: 40px;
   display: inline-block;
