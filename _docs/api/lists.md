@@ -20,14 +20,14 @@ page: api-lists
 
 ```json
 {
-  "id": "60a7a839a9318c0eb717b0ab",
-  "title": "My Art Work",
-  "description": "New to the land of artworkings",
+  "id": "5fc6477241fcec31a9548e98",
+  "title": "Waitlist",
+  "description": "Awesome product waiting list",
   "subscriber_count": 0,
   "broadcast_count": 0,
   "double_optin": true,
-  "redirect_url": "https://bemijonathan.netlify.app",
-  "created_at": "2021-05-21T12:31:53.764Z"
+  "redirect_url": "http://www.shorturl.com/home",
+  "created_at": "2011-10-05T14:48:00.000Z"
 }
 ```
 
