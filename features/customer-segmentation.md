@@ -19,9 +19,9 @@ page: features
 
   <div class="pt5 ph7-xl ph6-l ph5-m ph4 flex flex-wrap justify-between">
     <div class="w-50-l w-100 pr5-l mt4">
-      <img src="/images/segment-api.png" class="bordered-image" alt="See an overview of overall performance">
-      <h2 class="f3 lh-copy">Bring in customer <span class="green">data</span></h2>
-      <div class="f4 lh-copy faint">Easily connect customer data through integrations, our <a href="/docs/sdks">SDKs</a> and the <a href="/docs/api">User API</a>.</div>
+      <img src="/images/segment-api.png" class="bordered-image" alt="Connect your favourite services">
+      <h2 class="f3 lh-copy">Connect your <span class="green">favourite</span> services</h2>
+      <div class="f4 lh-copy faint">Easily connect customer data through integrations with your favourite services, our <a href="/docs/sdks">SDKs</a> and the <a href="/docs/api">User API</a>.</div>
     </div>
     <div class="w-50-l w-100 pl5-l mt4">
       <img src="/images/segment-create.png" class="bordered-image" alt="Easily segment customers">
@@ -39,7 +39,7 @@ page: features
     <div class="w-50-l w-100 pl5-l mt4">
       <img src="/images/segment-automation.png" class="bordered-image" alt="Create message automations">
       <h2 class="f3 lh-copy">Create message <span class="green">automations</span></h2>
-      <div class="f4 lh-copy faint">Onboard, upsell and retain your customers with automatic messaging workflows.</div>
+      <div class="f4 lh-copy faint">Onboard, upsell and retain your customers with automated message workflows.</div>
     </div>
   </div>
 

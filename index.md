@@ -7,7 +7,7 @@ layout: landing
   <div class="ph7-xl ph6-l ph5-m ph4 pv4" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
     <div class="tc w-70-l w-100 pt2 center">
       <h1 class="f1 lh-title">Customer messaging for <span class="green">growth</span> and retention</h1>
-      <h3 class="lh-copy f4 normal faint">Send your customers messages based on their profile and what they do within your application. Create message automations and easily move your customers from acquisition to referral.</h3>
+      <h3 class="lh-copy f4 normal faint">Send personalised messages to customers based on profile attributes and actions. Create message automations for onboarding, retention and easily move customers from acquisition to referral.</h3>
       <div class="ma4 ph5-l">
         <form method="GET" action="https://app.engage.so/auth/signup">
           <input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding:15px"><button class="one-liner-el" type="submit" style="padding:15px">Signup — it's free</button>
@@ -32,41 +32,47 @@ layout: landing
     </div>
   </div>
 
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap relative">
+  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
     <div class="w-50-l w-100 pr6-l">
-      <div class="step flex items-center" data-step="1">
-        <div class="">
-          <h2 class="f2 ma0 lh-title">Segment your customers by <span class="green">attributes</span> and <span class="green">actions</span></h2>
-          <div class="lh-copy f4 pv3 normal faint">Group your customers based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal).</div>
-          <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
-        </div>
-      </div>
-      <div class="step flex items-center" data-step="2">
-        <div class="">
-          <h2 class="f2 ma0 lh-title">Send <span class="green">personalised</span> messages through multiple channels</h2>
-          <div class="lh-copy f4 pv3 normal faint">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</div>
-          <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
-        </div>
-      </div>
-      <div class="step flex items-center" data-step="3">
-        <div class="">
-          <h2 class="f2 ma0 lh-title">Automate your <span class="green">onboarding</span> and marketing</h2>
-          <div class="lh-copy f4 pv3 normal faint">Onboard, upsell and retain your customers with automatic messaging workflows.</div>
-          <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
-        </div>
-      </div>
-      <div class="step flex items-center" data-step="3">
-        <div class="">
-          <h2 class="f2 ma0 lh-title">Detailed analytics and reporting for your <span class="green">transactional</span> emails</h2>
-          <div class="lh-copy f4 pv3 normal faint">Connect your transactional email service provider and get detailed analytics and reporting of your transactional emails on a better dashboard.</div>
-          <div class="f4 lh-copy pv3"><a href="/features/transactional-email-analytics">Learn more &rarr;</a></div>
-        </div>
-      </div>
+      <h2 class="f2 ma0 lh-title">Segment your customers by <span class="green">attributes</span> and <span class="green">actions</span></h2>
+      <div class="lh-copy f4 pv3 normal faint">Group your customers based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal).</div>
+      <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
     </div>
-    <div class="w-50-l w-100 mt0-l feature-hero-wrp" style="position:sticky;border-radius:10px;background-color:#7f72ea">
-      <div class="">
-        <img src="/images/segmentation.png" alt="Messaging beyond emails" id="feature-hero" class="br2 db" style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
-      </div>
+    <div class="w-50-l w-100">
+      <img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image">
+    </div>
+  </div>
+
+  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
+    <div class="w-50-l w-100 pr6-l">
+      <h2 class="f2 ma0 lh-title">Send <span class="green">personalised</span> messages through multiple channels</h2>
+      <div class="lh-copy f4 pv3 normal faint">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</div>
+      <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
+    </div>
+    <div class="w-50-l w-100">
+      <img src="/images/broadcast.png" alt="Send personalised messages through multiple channels" class="br2 db bordered-image">
+    </div>
+  </div>
+
+  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
+    <div class="w-50-l w-100 pr6-l">
+      <h2 class="f2 ma0 lh-title">Automate your <span class="green">onboarding</span> and marketing</h2>
+      <div class="lh-copy f4 pv3 normal faint">Onboard, upsell and retain your customers with automatic messaging workflows.</div>
+      <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
+    </div>
+    <div class="w-50-l w-100">
+      <img src="/images/automations.png" alt="Automate your onboarding and marketing" class="br2 db bordered-image">
+    </div>
+  </div>
+
+  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
+    <div class="w-50-l w-100 pr6-l">
+      <h2 class="f2 ma0 lh-title">Detailed analytics and reporting for your <span class="green">transactional</span> emails</h2>
+      <div class="lh-copy f4 pv3 normal faint">Connect your transactional email service provider and get detailed analytics and reporting of your transactional emails on a better dashboard.</div>
+      <div class="f4 lh-copy pv3"><a href="/features/transactional-email-analytics">Learn more &rarr;</a></div>
+    </div>
+    <div class="w-50-l w-100">
+      <img src="/images/transactional.png" alt="Detailed analytics and reporting for your transactional emails" class="br2 db bordered-image">
     </div>
   </div>
 
@@ -94,11 +100,11 @@ layout: landing
       </div>
       <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
         <h3 class="lh-copy mb2 fw6">Bring your messaging infrastructure</h3>
-        <div class="lh-copy faint">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this at Engage.</div>
+        <div class="lh-copy faint">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this in Engage.</div>
       </div>
       <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
         <h3 class="lh-copy mb2 fw6">Transactional email analytics</h3>
-        <div class="lh-copy faint">Brought your transactional email infrastructure? Engage gives you detailed analytics and reporting of your transactional emails. We support top service providers like Amazon SES, Mailgun, Sparkpost and more</div>
+        <div class="lh-copy faint">Brought your transactional email infrastructure? Engage gives you detailed analytics and reporting of your transactional emails. We support top service providers like Amazon SES, Mailgun, Sparkpost and more.</div>
       </div>
       <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
         <h3 class="lh-copy mb2 fw6">Template management</h3>
@@ -149,53 +155,3 @@ layout: landing
       </div>
     </div>
   </div>
-
-  <script src="/js/stickyfill.min.js"></script>
-  <script src="/js/scrollama.min.js"></script>
-  <script type="text/javascript">      // using d3 for convenience
-  const figure = document.querySelector(".feature-hero-wrp");
-  const img = document.getElementById('feature-hero');
-  const steps = document.querySelectorAll(".step");
-  const src = ['segmentation', 'broadcast', 'automations', 'transactional']
-  const alt = ['Segment your customers by attributes and actions', 'Send personalised messages through multiple channels', 'Automate your onboarding and marketing', 'Detailed analytics and reporting for your transactional emails']
-  const scroller = scrollama();
-  // generic window resize listener event
-  function handleResize() {
-    // 1. update height of step elements
-    const stepH = Math.floor(window.innerHeight * 0.70);
-    for(let i=0;i<steps.length;i++){
-      steps[i].style.height = stepH + "px";
-    }
-    const figureHeight = window.innerHeight / 2;
-    const figureMarginTop = (window.innerHeight - figureHeight) / 2;
-    figure.style.height = figureHeight + "px"
-    // img.style.height = figureHeight + "px"
-    figure.style.top = figureMarginTop + "px"
-    // 3. tell scrollama to update new element dimensions
-    scroller.resize();
-  }
-  // scrollama event handlers
-  function handleStepEnter(response) {
-    img.src = '/images/' + src[response.index] + '.png'
-    img.alt = alt[response.index]
-  }
-  // function setupStickyfill() {
-  //   document.querySelectorAll(".sticky").each(function() {
-  //     Stickyfill.add(this);
-  //   });
-  // }
-  function init() {
-    // setupStickyfill();
-    handleResize();
-    scroller
-      .setup({
-        step: ".step",
-        offset: 0.3
-      })
-      .onStepEnter(handleStepEnter);
-    // setup resize event
-    window.addEventListener("resize", handleResize);
-  }
-  // kick things off
-  init();
-  </script>
