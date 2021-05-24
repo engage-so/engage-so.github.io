@@ -1,16 +1,18 @@
 ---
-title: 'Customer messaging for growth and retention – Engage'
-description: 'Send your customers messages based on their profile and what they do within your application. Create message automations and easily move your customers from acquisition to referral.'
+title: "Customer messaging for growth and retention – Engage"
+description: "Send your customers messages based on their profile and what they do within your application. Create message automations and easily move your customers from acquisition to referral."
 layout: landing
 ---
 
-  <div class="ph7-xl ph6-l ph5-m ph4 pv4" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
-    <div class="tc w-70-l w-100 pt2 center">
-      <h1 class="f1 lh-title">Customer messaging for <span class="green">growth</span> and retention</h1>
-      <h3 class="lh-copy f4 normal faint">Send personalised messages to customers based on profile attributes and actions. Create message automations for onboarding, retention and easily move customers from acquisition to referral.</h3>
-      <div class="ma4 ph5-l">
-        <form method="GET" action="https://app.engage.so/auth/signup">
-          <input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding:15px"><button class="one-liner-el" type="submit" style="padding:15px">Signup — it's free</button>
+  <div class="pt6 pt6-l pt-6-m  tc __messaging center" >
+    <div class="">
+      <h1 class="customer ">Customer messaging for growth and retention <span></span></h1>
+      <h3 class="send faint center ">Send customers’ messages based on
+profiling and activities within your application.</h3>
+      <div class="address" >
+        <form method="GET" action="https://app.engage.so/auth/signup" >
+          <input type="email" name="email" placeholder="Enter your work email" class="one-liner-el" >
+          <button class="one-liner-el" type="submit" >Try for free</button>
         </form>
       </div>
     </div>
@@ -19,20 +21,53 @@ layout: landing
     </div> -->
   </div>
 
-  <div class="mv5 ph7-xl ph6-l ph5-m ph4 tc">
-    <div class="f3 lh-title faint poppins">Trusted by </div>
-    <div class="t5 ph6-l ph5-m ph4 flex items-center justify-center pv3 flex-wrap trusted-brands">
-      <a href="http://reliancehmo.com" target="_blank" class="ma4"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
-      <a href="http://boon.credit" target="_blank" class="ma4"><img src="/images/brands/boon.svg" alt="Boon Credit"></a>
-      <a href="http://selar.co/" target="_blank" class="ma4"><img src="/images/brands/selar.png" alt="Selar"></a>
-      <a href="http://youverify.co/" target="_blank" class="ma4"><img src="/images/brands/youverify.png" alt="Youverify"></a>
-      <a href="http://techliv.dk" target="_blank" class="ma4"><img src="/images/brands/techliv.png" alt="Techliv"></a>
-      <a href="http://extragas.co.uk/" target="_blank" class="ma4"><img src="/images/brands/extragas.png" alt="ExtraGas"></a>
-      <a href="http://ridekura.com/" target="_blank" class="ma4"><img src="/images/brands/kura.svg" alt="Kura"></a>
+  <div class="tc pt4 pt4-l pt4-m"> 
+    <img src="/images/description.svg" alt="Engage Image"/>
+  </div>
+  <div class=" ph7-xl ph6-l ph5-m ph4 support">
+  <div class="task">
+  <div class="service mh2-l mh2-m">
+  <div class="flex items-center justify-between">
+  <div class="transact tc" style="background: #6C5CE7;">
+  <img src="/images/transact.svg" alt="Transactional email">
+  </div>
+  <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Transactional email analytics</p>
+  </div>
+  <p style="margin-top:7px; font-size:14px; line-height:22.4px; color:#001A41; letter-spacing: 0.01em; font-family:Inter; font-weight:500;" class="faint">Engage gives you detailed analytics and reporting of your transactional emails, supporting top service providers like Amazon SES, Mailgun, and more</p>
+  </div>
+  <div class="service  mh2-l mh2-m">
+  <div class="flex items-center justify-between">
+  <div class="transact tc" style="background: #6C5CE7;">
+  <img src="/images/transact.svg" alt="Transactional email">
+  </div>
+  <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Transactional email analytics</p>
+  </div>
+  <p style="margin-top:7px; font-size:14px; line-height:22.4px; color:#001A41; letter-spacing: 0.01em; font-family:Inter; font-weight:500; " class="faint">Engage gives you detailed analytics and reporting of your transactional emails, supporting top service providers like Amazon SES, Mailgun, and more</p>
+  </div>
+  <div class="service  mh2-l mh2-m">
+  <div class="flex items-center justify-between">
+  <div class="transact tc" style="background: #6C5CE7;">
+  <img src="/images/transact.svg" alt="Transactional email">
+  </div>
+  <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Transactional email analytics</p>
+  </div>
+  <p style="margin-top:7px; font-size:14px; line-height:22.4px; color:#001A41; letter-spacing: 0.01em; font-family:Inter; font-weight:500; " class="faint">Engage gives you detailed analytics and reporting of your transactional emails, supporting top service providers like Amazon SES, Mailgun, and more</p>
+  </div>
+  </div>
+    <div class=" faint poppins tc" style="margin-top:117px; font-size:18px; letter-spacing:0.01em; line-height:28.8px">Still in beta, already trusted by </div>
+    <div class=" __brands" style="margin-top:39.99px">
+      <a href="http://reliancehmo.com" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
+      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media"></a>
+      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel"></a>
+      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard"></a>
+      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard"></a>
+      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel"></a>
+       <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media"></a>
+        <a href="http://reliancehmo.com" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
     </div>
   </div>
 
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
+  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center ">
     <div class="w-50-l w-100 pr6-l">
       <h2 class="f2 ma0 lh-title">Segment your customers by <span class="green">attributes</span> and <span class="green">actions</span></h2>
       <div class="lh-copy f4 pv3 normal faint">Group your customers based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal).</div>

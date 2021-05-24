@@ -1,0 +1,20 @@
+I"9<h1 id="paystack">Paystack</h1>
+
+<p>Engage integrates with <a href="https://paystack.com/">Paystack</a> to sync your customer data and track customer payment events.</p>
+
+<p>To connect your Paystack account,</p>
+
+<ul>
+  <li>Visit the <a href="https://app.engage.so/settings/integrations">Integrations page</a> of your Engage dashboard and click on Paystack</li>
+  <li>Enter your Paystack live secret keys.</li>
+  <li>Login to your <a href="https://dashboard.paystack.com/#/login">Paystack dashboard</a></li>
+  <li>Navigate to the <strong>Settings</strong> page on your dashboard
+<img src="/assets/images/docs/ps-settings.png" alt="Paystack Settings" /></li>
+  <li>Confirm the <strong>Live Webhook URL</strong> field is empty. If it is, set the value to</li>
+  <li>If the field is not empty, your developer will need to update the existing webhook script to use the necessary events but also directly send the events from Paystack to https://api.engage.so/webhooks/paystack/</li>
+  <li>If you need more help, we will be glad to help with concierge integration. Please send a mail to <a href="mailto:hello@engage.so">hello@engage.so</a>
+<img src="/assets/images/docs/ps-live.png" alt="Settings" /></li>
+  <li>Once done, click the <strong>Save Changes</strong> button
+<img src="/assets/images/docs/ps-save.png" alt="Settings" /></li>
+</ul>
+:ET

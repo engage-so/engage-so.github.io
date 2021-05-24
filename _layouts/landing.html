@@ -38,15 +38,15 @@
 </head>
 <body>
   <header>
-    <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap">
-      <div class="flex flex-wrap w-100 justify-between items-center pv2">
-        <h1 class="lh-title logo pr4">
+    <div class="ph6-xl ph5-l ph5-m fixed w-100 ph4 items-center flex justify-between" style="z-index:50; background-color: white;">
+      <div class="flex justify-between items-center pv2">
+        <h1 class="logo pr4 ma-0">
           <a href="/"><img src="/images/engage.svg" style="width:120px;"></a>
         </h1>
-        <nav class="flex items-center">
+        <nav class="flex items-center __spec">
           <div class="mh3 relative pop-link">
             <a href="#" class="fw6 db{% if page.page == 'features' %} active{% endif %}">Features</a>
-            <div class="absolute">
+            <!-- <div class="absolute">
               <div class="pop pa4 mt4">
                 <a href="/features/customer-segmentation" class="db">
                   <div class="b">Customer segmentation</div>
@@ -65,12 +65,17 @@
                   <div class="lh-copy f6 faint">Get timely notification of failures and complaints and manage your templates without writing code.</div>
                 </a>
               </div>
-            </div>
+            </div> -->
           </div>
-          <a href="/pricing" class="fw6 db mh3{% if page.page == 'pricing' %} active{% endif %}">Pricing</a>
-          <a href="https://app.engage.so/auth/login" class="fw6 db mh3">Login</a>
-          <a href="https://app.engage.so/auth/signup" class="db ml3 button">Signup</a>
+          <a href="#" class="fw6 db mh3{% if page.page == 'api' %} active{% endif %}">Api Docs</a>
+          <a href="#" class="fw6 db mh3{% if page.page == 'blog' %} active{% endif %}">Our blog</a>
+         
         </nav>
+      </div>
+        <div class="flex-ns items-center dn __spec">
+          <a href="https://app.engage.so/auth/login" class="fw6 db mh3" style="font-size: 16px; font-family: Poppins; letter-spacing: 0.01em;">Login</a>
+          <a href="https://app.engage.so/auth/signup" class="db ml3 button fw6" style="border-radius: 7px; padding: 11px 32px; font-size: 16px; letter-spacing: 0.01em;">Signup - Its free</a>
+        </div>
 				<div class="hamburger-container">
 					<ul class="hamburger">
 						<li></li>
@@ -78,21 +83,21 @@
 						<li></li>
 					</ul>
 				</div>
-      </div>
+    
     </div>
   </header>
   <section class="dn mobile-menu">
     <div class="mt4 mb6 ph7-xl ph6-l ph5-m ph4 tc nav-mobile">
-      <h1 class="pb3">Menu</h1>
-      <a href="/" class="mv3 db f3 faint">Home</a>
-      <div class="mv3 f3">Features</div>
-      <a href="/features/customer-segmentation" class="db faint">Customer Segmentation</a>
+      <!-- <h1 class="pb3">Menu</h1>
+      <a href="/" class="mv3 db f3 faint">Home</a> -->
+      <div class="mv4" style="color:white; font-size: 14px; font-family: Poppins;">Features</div>
+      <!-- <a href="/features/customer-segmentation" class="db faint">Customer Segmentation</a>
       <a href="/features/multichannel-messaging" class="pv2 db faint">Multichannel Broadcasts and Automation</a>
       <a href="/features/bring-your-messaging-infra" class="pb2 faint db">Bring Your Own Messaging Infrastructure</a>
-      <a href="/features/transactional-email-analytics" class="db faint">Transactional Email Reporting and Management</a>
-      <a href="/pricing" class="mv3 db f3 faint">Pricing</a>
-      <a href="https://app.engage.so/auth/login" class="mv3 db f3 faint">Login</a>
-      <a href="https://app.engage.so/auth/signup" class="mv3 db f3 faint">Signup</a>
+      <a href="/features/transactional-email-analytics" class="db faint">Transactional Email Reporting and Management</a> -->
+      <a href="/pricing" class="mv3 db " style="color: white; font-size: 14px; font-family: Poppins;">Pricing</a>
+      <a href="https://app.engage.so/auth/login" class="mv4 db " style="color:white; font-size: 14px; font-family: Poppins;">Login</a>
+      <a href="https://app.engage.so/auth/signup" class="mv4 db " style="color:white; font-size: 14px; font-family: Poppins;">Signup</a>
     </div>
   </section>
 
@@ -190,11 +195,13 @@
     document.querySelector(".hamburger-container").addEventListener("click", function() {
       if (middleBar.classList.contains("rot-45deg")) {
         document.querySelector(".mobile-menu").classList.add('dn')
+        document.querySelector("body").style.overflow = "auto"
         topBar.classList.remove("rot45deg");
         middleBar.classList.remove("rot-45deg");
         bottomBar.classList.remove("hidden");
       } else {
         document.querySelector(".mobile-menu").classList.remove('dn')
+        document.querySelector("body").style.overflow = "hidden"
         bottomBar.classList.add("hidden");
         topBar.classList.add("rot45deg");
         middleBar.classList.add("rot-45deg");

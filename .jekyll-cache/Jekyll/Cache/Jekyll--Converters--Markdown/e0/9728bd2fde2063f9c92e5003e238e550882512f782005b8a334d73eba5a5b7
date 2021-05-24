@@ -1,0 +1,148 @@
+I"�5<h1 id="users">Users</h1>
+
+<h2 id="the-user-object">The User object</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6477241fcec31a9548e98"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a.jinadu@somecorp.email"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"uid_updateable"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akinyele"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jinadu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"number"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a.jinadu@somecorp.email"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-12T05:24:39.062+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id</code> - A unique internal identifier for the user object</li>
+  <li><code class="language-plaintext highlighter-rouge">uid</code> - The user’s unique identifier in your application. If an id wasn’t attached to the user data at creation (if the user was created through an integration for example), there will be an additional <code class="language-plaintext highlighter-rouge">uid_updateable</code> field with value <code class="language-plaintext highlighter-rouge">true</code>. This means you can make an update request to update the <code class="language-plaintext highlighter-rouge">uid</code>. Otherwise you cannot update the <code class="language-plaintext highlighter-rouge">uid</code></li>
+  <li><code class="language-plaintext highlighter-rouge">first_name</code> - The user’s first name if added</li>
+  <li><code class="language-plaintext highlighter-rouge">last_name</code> - The user’s last name if added</li>
+  <li><code class="language-plaintext highlighter-rouge">number</code> - The user’s number if added</li>
+  <li><code class="language-plaintext highlighter-rouge">email</code> - The user’s email</li>
+  <li><code class="language-plaintext highlighter-rouge">devices</code> - An array of object with the properties <code class="language-plaintext highlighter-rouge">token</code> and <code class="language-plaintext highlighter-rouge">platform</code> containing the user’s last 5 device tokens and platform (<code class="language-plaintext highlighter-rouge">android</code> or <code class="language-plaintext highlighter-rouge">ios</code>) if synced</li>
+  <li><code class="language-plaintext highlighter-rouge">created_at</code> - Date created if exists</li>
+  <li><code class="language-plaintext highlighter-rouge">meta</code> - Additional attributes attached to the user will be available as properties under meta</li>
+</ul>
+
+<h2 id="retrieve-a-user">Retrieve a User</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /users/{uid}
+</code></pre></div></div>
+
+<p>The method returns the user object.</p>
+
+<h2 id="create-a-user">Create a User</h2>
+
+<p>Adds a new user to your Engage account. Use this to sync user data with Engage when a user signs up on your application.</p>
+
+<p>Works with username authentication.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /users
+</code></pre></div></div>
+
+<p>Parameters:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id</code> - Required. An identifier for the user in your application. You can subsequently use this to update or retrieve the user. Can only contain alhabets and numbers.</li>
+  <li><code class="language-plaintext highlighter-rouge">lists</code> - Optional. An array of ids of lists you want to subscribe the user to. Opt-in confirmations are not sent for these even if enabled for the lists.</li>
+  <li><code class="language-plaintext highlighter-rouge">first_name</code> - Optional. The user’s first name</li>
+  <li><code class="language-plaintext highlighter-rouge">last_name</code> - Optional. The user’s last name</li>
+  <li><code class="language-plaintext highlighter-rouge">number</code> - Optional. The user’s phone number in international format</li>
+  <li><code class="language-plaintext highlighter-rouge">email</code> - Optional. The user’s email</li>
+  <li><code class="language-plaintext highlighter-rouge">created_at</code> - Optional. Date the user signed up on your application. Should be a valid date string.</li>
+  <li><code class="language-plaintext highlighter-rouge">meta</code> - Optional. An object that can contain additional user attributes. The values can be a string, number or boolean.</li>
+</ul>
+
+<p>Example request data:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"u144"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Akinyele"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Jinadu"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a.jinadu@somecorp.email"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pro"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"age"</span><span class="p">:</span><span class="w"> </span><span class="mi">34</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-12T05:24:39.062+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The method returns the user object. If there is an error with any of the parameters, it will return a 400 HTTP status code with details in an error object.</p>
+
+<h2 id="update-user">Update User</h2>
+
+<p>Update user data and attributes. Use this to update user data changes like change in plan, name, location, etc on Engage. If the user doesn’t exist, this method creates the user. If the user does not have an id attached before (i.e, if <code class="language-plaintext highlighter-rouge">uid_updateable</code> is true), the request <code class="language-plaintext highlighter-rouge">uid</code> is set as the new id.</p>
+
+<p>Works with username authentication if not updating the user’s email. Updating the user’s email requires full (key and secret) authentication.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /users/{uid}
+</code></pre></div></div>
+
+<p>Parameters can be any or more of the following:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">first_name</code> - The user’s first name</li>
+  <li><code class="language-plaintext highlighter-rouge">last_name</code> - The user’s last name</li>
+  <li><code class="language-plaintext highlighter-rouge">number</code> - The user’s phone number in international format</li>
+  <li><code class="language-plaintext highlighter-rouge">email</code> - The user’s email. Requires both username and password authentication</li>
+  <li><code class="language-plaintext highlighter-rouge">created_at</code> - Date the user signed up on your application. Should be a valid date string</li>
+  <li><code class="language-plaintext highlighter-rouge">meta</code> - An object containing additional user attributes to add or update. Should be string, number or boolean</li>
+</ul>
+
+<p>Example request data:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"plan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"coverage"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="w"> 
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2021-01-12T05:24:39.062+00:00"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The method returns the updated user object. If there is an error with any of the parameters, it will return a 400 HTTP status code with details in an error object.</p>
+
+<h2 id="add-user-events">Add User events</h2>
+
+<p>Add user events to Engage. Use this to add user actions and events on your application to Engage. You can later segment your users based on these actions or events.</p>
+
+<p>Works with username authentication.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /users/{uid}/events
+</code></pre></div></div>
+
+<p>Parameters:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">event</code> - Required. The event title</li>
+  <li><code class="language-plaintext highlighter-rouge">value</code> - Optional. The event value. Can be a string, number or boolean</li>
+  <li><code class="language-plaintext highlighter-rouge">properties</code> - Optional. An object containing additional event properties. Property values can only be string, number or boolean</li>
+  <li><code class="language-plaintext highlighter-rouge">timestamp</code> - Optional. Timestamp of the event. If none provided, the current time is used.</li>
+</ul>
+
+<p>Example request data:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Add to cart"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-05-30T09:30:10Z"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"properties"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"T123"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USD"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mf">12.99</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Another example:</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"event"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paid"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="mf">49.99</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Example response:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>If there is an error with any of the parameters, it will return a 400 HTTP status code with details in an error object.</p>
+:ET
