@@ -1,18 +1,12 @@
----
-title: "Customer messaging for growth and retention – Engage"
-description: "Send your customers messages based on their profile and what they do within your application. Create message automations and easily move your customers from acquisition to referral."
-layout: landing
----
-
-  <div class=" tc __messaging center" >
+I"�/<div class="pt6 pt6-l pt-6-m  tc __messaging center">
     <div class="">
       <h1 class="customer ">Customer messaging for growth and retention <span></span></h1>
       <h3 class="send faint center ">Send customers’ messages based on
 profiling and activities within your application.</h3>
-      <div class="address" >
-        <form method="GET" action="https://app.engage.so/auth/signup" >
-          <input type="email" name="email" placeholder="Enter your work email" class="one-liner-el" >
-          <button class="one-liner-el" type="submit" >Try for free</button>
+      <div class="address">
+        <form method="GET" action="https://app.engage.so/auth/signup">
+          <input type="email" name="email" placeholder="Enter your work email" class="one-liner-el" />
+          <button class="one-liner-el" type="submit">Try for free</button>
         </form>
       </div>
     </div>
@@ -21,15 +15,15 @@ profiling and activities within your application.</h3>
     </div> -->
   </div>
 
-  <div class="tc pt4 pt4-l pt4-m"> 
-    <img src="/images/description.svg" alt="Engage Image"/>
+<div class="tc pt4 pt4-l pt4-m"> 
+    <img src="/images/description.svg" alt="Engage Image" />
   </div>
-  <div class=" ph7-xl ph6-l ph5-m  support">
+<div class=" ph7-xl ph6-l ph5-m ph4 support">
     <div class="task">
       <div class="service mh2-l mh2-m">
         <div class="flex items-center ">
          <div class="transact tc" style="background: #6C5CE7;">
-            <img src="/images/transact.svg" alt="Transactional email">
+            <img src="/images/transact.svg" alt="Transactional email" />
           </div>
           <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Transactional email analytics</p>
         </div>
@@ -38,7 +32,7 @@ profiling and activities within your application.</h3>
     <div class="service  mh2-l mh2-m">
   <div class="flex items-center ">
   <div class="transact tc" style="background: #05C46B;">
-  <img src="/images/subscribe.svg" alt="Subscription lists">
+  <img src="/images/subscribe.svg" alt="Subscription lists" />
   </div>
   <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Subscription lists</p>
   </div>
@@ -47,7 +41,7 @@ profiling and activities within your application.</h3>
   <div class="service  mh2-l mh2-m">
   <div class="flex items-center ">
   <div class="transact tc" style="background: #1E90FF;">
-  <img src="/images/broadcasr.svg" alt="Broadcasts">
+  <img src="/images/broadcasr.svg" alt="Broadcasts" />
   </div>
   <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Broadcasts</p>
   </div>
@@ -56,14 +50,14 @@ profiling and activities within your application.</h3>
   </div>
     <div class=" faint poppins tc" style="margin-top:117px; font-size:18px; letter-spacing:0.01em; line-height:28.8px">Still in beta, already trusted by </div>
     <div class=" __brands" style="margin-top:39.99px">
-      <a href="http://reliancehmo.com" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
-      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media"></a>
-      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel"></a>
-      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard"></a>
-      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard"></a>
-      <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel"></a>
-       <a href="#" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media"></a>
-        <a href="http://reliancehmo.com" target="_blank"  class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
+      <a href="http://reliancehmo.com" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel" /></a>
+       <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media" /></a>
+        <a href="http://reliancehmo.com" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO" /></a>
     </div>
   </div>
 
@@ -81,28 +75,25 @@ profiling and activities within your application.</h3>
     <div class="w-50-l w-100 pr6-l">
     <div class="flex items-center">
     <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #6C5CE7;">
-    <img src="/images/customer.svg" style="margin:auto" alt="Customer Segmentation">
+    <img src="/images/customer.svg" style="margin:auto" alt="Customer Segmentation" />
     </div>
     <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">CUSTOMER SEGMENTATION</p>
     </div>
       <h2 class="segment">Segment your customers by attributes and actions</h2>
       <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</p>
-        <a href="#"
-               style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left"
-               class="flex justify-center items-center"
-              >
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
                 <span class="">
                   <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
                 </span>
                 <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
 <span class="">
-<img src="/images/lead.svg" style="margin-top:5px"  alt="" />
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
 </span>
 </a>
 
 </div>
 <div class="w-50-l w-100 segment_img">
-<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
 </div>
 
   </div>
@@ -111,29 +102,26 @@ profiling and activities within your application.</h3>
     <div class="w-50-l w-100 pr6-l">
     <div class="flex items-center">
     <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #05C46B;">
-    <img src="/images/channel.svg" style="margin:auto" alt="Multichannel messaging">
+    <img src="/images/channel.svg" style="margin:auto" alt="Multichannel messaging" />
     </div>
     <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">MULTICHANNEL MESSAGING</p>
     </div>
       <h2 class="segment">Send personalised messages through multiple channels
 </h2>
       <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</p>
-        <a href="#"
-               style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left"
-               class="flex justify-center items-center"
-              >
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
                 <span class="">
                   <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
                 </span>
                 <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
 <span class="">
-<img src="/images/lead.svg" style="margin-top:5px"  alt="" />
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
 </span>
 </a>
 
 </div>
 <div class="w-50-l w-100 segment_img">
-<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
 </div>
 
   </div>
@@ -142,28 +130,25 @@ profiling and activities within your application.</h3>
     <div class="w-50-l w-100 pr6-l">
     <div class="flex items-center">
     <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #1E90FF;">
-    <img src="/images/automations.svg" style="margin:auto" alt="Automations">
+    <img src="/images/automations.svg" style="margin:auto" alt="Automations" />
     </div>
     <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">Automations</p>
     </div>
       <h2 class="segment">Automate your onboarding and marketing</h2>
       <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Onboard, upsell and retain your customers with automatic messaging workflows.</p>
-        <a href="#"
-               style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left"
-               class="flex justify-center items-center"
-              >
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
                 <span class="">
                   <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
                 </span>
                 <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
 <span class="">
-<img src="/images/lead.svg" style="margin-top:5px"  alt="" />
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
 </span>
 </a>
 
 </div>
 <div class="w-50-l w-100 segment_img">
-<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
 </div>
 
   </div>
@@ -172,67 +157,40 @@ profiling and activities within your application.</h3>
     <div class="w-50-l w-100 pr6-l">
     <div class="flex items-center">
     <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #F2C94C;">
-    <img src="/images/analytics.svg" style="margin:auto" alt="analytics">
+    <img src="/images/analytics.svg" style="margin:auto" alt="analytics" />
     </div>
     <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">Transactional Analytics</p>
     </div>
       <h2 class="segment">Detailed analytics and reporting for your transactional emails</h2>
       <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Connect your transactional email service provider and get detailed analytics and reporting of your transactional emails on a better dashboard.</p>
-        <a href="#"
-               style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left"
-               class="flex justify-center items-center"
-              >
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
                 <span class="">
                   <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
                 </span>
                 <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
 <span class="">
-<img src="/images/lead.svg" style="margin-top:5px"  alt="" />
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
 </span>
 </a>
 
 </div>
 <div class="w-50-l w-100 segment_img">
-<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
 </div>
 
   </div>
 </div>
 
-<div class="justify-between items-center action center">
+<div class="flex flex-wrap justify-between items-center action center">
 <div>
-<h3  class="info">Need actionable information and tools to improve your business?</h3>
+<h3 style="margin:0; font-family: Poppins; font-weight: 600; font-size: 28px; line-height: 45px; letter-spacing: 0.01em;color: #001A41;">Need actionable information and tools to improve your business?</h3>
 <div class="flex items-center">
-<p class="try">Try <span style="color:#32BA85;">Engage</span> for free</p>
-</div>
-</div>
-
-<div class="reduce">
-<p >We're building a complete, multichannel customer messaging platform. Start using Engage to improve your customer growth and retention rate.</p>
-<a href="#" style="background: #0C56C2; border-radius: 5px; padding:11px 24px; font-family: Poppins; font-weight: 600; font-size: 16px; line-height: 26px; letter-spacing: 0.01em; color: #FFFFFF;">Get Started</a>
-</div>
+<p style="font-family: Poppins; font-weight: 600; font-size: 28px; line-height: 45px; letter-spacing: 0.01em; color: #74859C; margin:10px 0 0 0">Try <span style="color:#32BA85;">Engage</span> for free</p>
 </div>
 
-<div class="structure">
-<div class="bring">
-<div style="width:40%">
-<h5 style="margin:0; font-family: Poppins; font-weight: 600; font-size: 24px; line-height: 38px; letter-spacing: 0.01em;color: #001A41;">Bring-in your messaging infrastructure</h5>
-<p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height: 22px; letter-spacing: 0.01em; color: #74859C;">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this at Engage.</p>
-</div>
-<div style="padding-left:83px">
-<img src="/images/ses.svg" alt="Messaging Infrastructure"/>
-</div>
-</div>
-<div class="template">
-<div style="" class="management">
-<h5 style="">Template management</h5>
-<p >Manage your transactional email templates directly from the Engage dashboard.</p>
-<img src="/images/template.svg" alt="Template" style="margin-top:30px;">
-</div>
-<div class="favourite">
-<img src="/images/service.svg" alt="Services">
-<h5 >Connect your favourite services</h5>
-<p >From payment gateways to email service providers and data analytics tools, Engage supports multiple services you can connect to for customer data enrichment.</p>
 </div>
 <div>
+<p>We're building a complete, multichannel customer messaging platform. Start using Engage to improve your customer growth and retention rate.</p>
 </div>
+</div>
+:ET

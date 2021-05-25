@@ -1253,7 +1253,7 @@ ul.hamburger li:nth-child(3) {
 .task {
   width: 91%;
   display: flex;
-  flex-wrap: wrap;
+
   margin-right: auto;
   margin-left: auto;
   align-items: center;
@@ -1280,6 +1280,133 @@ ul.hamburger li:nth-child(3) {
   margin-right: auto;
   margin-left: auto;
 }
+.connect {
+  background: #343447;
+  padding: 63px 100px;
+}
+button {
+  cursor: pointer;
+}
+.grow {
+  width: 30%;
+}
+.segment {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 45px;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  margin: 8px 0 20px 0;
+}
+.action {
+  width: 75%;
+  padding: 75px 0 227px 0;
+  display: flex;
+}
+
+.info {
+  margin: 0;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 45px;
+  letter-spacing: 0.01em;
+  color: #001a41;
+}
+.try {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 45px;
+  letter-spacing: 0.01em;
+  color: #74859c;
+  margin: 10px 0 0 0;
+}
+.reduce p {
+  margin: 0 0 60px 0;
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #74859c;
+}
+.structure {
+  background: #edeff0;
+  position: relative;
+}
+.bring {
+  position: absolute;
+  display: flex;
+  padding-top: 33px;
+  padding-left: 41px;
+  width: 75%;
+  margin: auto;
+  background: #fbfafb;
+  border-radius: 20px;
+  left: 0;
+  right: 0;
+  top: -156px;
+}
+.template {
+  padding: 338px 0 82px 0;
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.management {
+  background: #fbfafb;
+  border-radius: 20px;
+  width: 62%;
+  padding: 30px 36px;
+}
+.management h5 {
+  margin: 0;
+  font-family: Poppins;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.01em;
+  color: #001a41;
+}
+.favourite {
+  background: #fbfafb;
+  border-radius: 20px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  width: 35%;
+  margin-left: 40px;
+}
+.favourite h5 {
+  margin: 56px 0 0 0;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 38px;
+  letter-spacing: 0.01em;
+  color: #001a41;
+  padding: 0 36px;
+}
+.favourite p {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #74859c;
+  padding: 0 36px;
+}
+.management p {
+  font-family: "Inter";
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.01em;
+  color: #74859c;
+  width: 67%;
+}
 @media screen and (max-width: 800px) {
   .customer {
     font-size: 20px;
@@ -1305,16 +1432,88 @@ ul.hamburger li:nth-child(3) {
   .service {
     margin-top: 2rem;
   }
+  .task {
+    flex-wrap: wrap;
+  }
+  .connect {
+    padding: 63px 20px;
+  }
+  .grow {
+    width: 100%;
+  }
+  .segment {
+    font-size: 24px;
+    line-height: 38px;
+  }
+  .segment_img {
+    margin-top: 32px;
+  }
+  .action {
+    display: block;
+    padding: 75px 25px;
+    width: 100%;
+  }
+  .reduce {
+    margin-top: 32px;
+  }
+  .info,
+  .try {
+    font-size: 23px;
+    line-height: 36px;
+  }
+  .reduce p {
+    margin: 0 0 30px 0;
+  }
+  .bring {
+    display: none;
+  }
+  .template {
+    padding: 30px;
+    width: 100%;
+    margin: auto;
+    display: block;
+  }
+  .management {
+    width: 100%;
+  }
+  .favourite {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 32px;
+  }
+  .favourite h5 {
+    margin: 0px 0 0 0;
+    font-size: 20px;
+    line-height: 30px;
+    padding: 0px 24px;
+  }
+  .favourite p {
+    font-family: "Inter";
+    padding: 0 24px;
+  }
+  .management h5 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .management p {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1023px) {
   .__spec {
     display: none;
   }
+  .task {
+    flex-wrap: wrap;
+  }
 }
 @media screen and (max-width: 1024px) {
   .service {
     margin-top: 2rem;
+  }
+  .task {
+    flex-wrap: wrap;
   }
 }
 @media screen and (max-width: 1100px) {
