@@ -159,7 +159,93 @@
       </div>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js" integrity="sha512-cdV6j5t5o24hkSciVrb8Ki6FveC2SgwGfLE31+ZQRHAeSRxYhAQskLkq3dLm8ZcWe1N3vBOEYmmbhzf7NTtFFQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js" integrity="sha512-Q+G390ZU2qKo+e4q+kVcJknwfGjKJOdyu5mVMcR95NqL6XaF4lY4nsSvIVB3NDP54ACsS9rqhE1DVqgpApl//Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script>
+    console.clear();
 
+gsap.defaults({overwrite: 'auto'});
+
+gsap.set(".segment_imgs > *", {xPercent: -50, yPercent: -50});
+
+// Set up our scroll trigger
+const ST = ScrollTrigger.create({
+  trigger: ".content-container",
+  start: "top top",
+  end: "bottom bottom",
+  onUpdate: getCurrentSection,
+  pin: ".segment_imgs"
+});
+
+const contentMarkers = gsap.utils.toArray(".contentMarker");
+
+// Set up our content behaviors
+contentMarkers.forEach(marker => {
+  marker.content = document.querySelector(`#${marker.dataset.markerContent}`);
+  
+  if(marker.content.tagName === "IMG") {
+    gsap.set(marker.content, {transformOrigin: "center"});
+    
+    marker.content.enter = function() {
+      gsap.fromTo(marker.content, {autoAlpha: 0, rotateY: -30}, {duration: 0.3, autoAlpha: 1, rotateY: 0});
+    }
+  } else if(marker.content.tagName === "BLOCKQUOTE") {
+    gsap.set(marker.content, {transformOrigin: "left center"});
+    
+    marker.content.enter = function() {
+      gsap.fromTo(marker.content, {autoAlpha: 0, rotateY: 50}, {duration: 0.3, autoAlpha: 1, rotateY: 0});
+    }
+  }
+  
+  marker.content.leave = function() {
+    gsap.to(marker.content, {duration: 0.1, autoAlpha: 0});
+  }
+  
+});
+
+// Handle the updated position
+let lastContent;
+function getCurrentSection() {
+  let newContent;
+  const currScroll = scrollY;
+  
+  // Find the current section
+  contentMarkers.forEach(marker => {
+    if(currScroll > marker.offsetTop) {
+      newContent = marker.content;
+    }
+  });
+  
+  // If the current section is different than that last, animate in
+  if(newContent
+  && (lastContent == null 
+     || !newContent.isSameNode(lastContent))) {
+    // Fade out last section
+    if(lastContent) {
+      lastContent.leave();
+    }
+    
+    // Animate in new section
+    newContent.enter();
+    
+    lastContent = newContent;
+  }
+  
+}
+
+const media = window.matchMedia("screen and (max-width: 600px)");
+ScrollTrigger.addEventListener("refreshInit", checkSTState);
+checkSTState();
+
+function checkSTState() {
+  if(media.matches) {
+    ST.disable();
+  } else {
+    ST.enable();
+  }
+}
+
+  </script> -->
   <script>
     const form = document.querySelector('.subscribe-form');
     form.addEventListener('submit', async function(e) {
@@ -208,7 +294,51 @@
       }
     });
   </script>
+<script>
+  let img1 = document.querySelector("#img1");
+  let img2 = document.querySelector("#img2");
+  let img3 = document.querySelector("#img3");
+  let img4 = document.querySelector("#img4");
+  // let channel = document.querySelector("#channel");
+  // let automate = document.querySelector("#automate");
+  // let analytics = document.querySelector("#analytics");
 
+  img2.style.display = 'none';
+  img3.style.display = 'none';
+  img4.style.display = 'none';
+  // channel.style.display = 'none';
+  // automate.style.display = 'none';
+  // analytics.style.display = 
+  (function () {
+    document.addEventListener("scroll", function(e){
+      console.log(window.pageYOffset, img1.offsetHeight)
+      if(window.pageYOffset >= 1846){
+        img2.style.display = 'block';
+        img2.classList.add("fade-in-bottom")
+      }
+      if(window.pageYOffset >= 2366){
+        img3.style.display = 'block';
+        img3.classList.add("fade-in-bottom")
+      }
+      if(window.pageYOffset >= 2854){
+        img4.style.display = 'block';
+        img4.classList.add("fade-in-bottom")
+      }
+    })
+  })()
+
+  // (function () {
+	// 			document.addEventListener("scroll", function (e) {
+	// 				console.log(window.pageYOffset, position.offsetHeight);
+	// 				if (window.pageYOffset >= 1760 && window.pageYOffset <= 3390) {
+	// 					console.log("I am in that position");
+	// 					position.classList.add("stick");
+	// 				} else {
+	// 					position.classList.remove("stick");
+	// 				}
+	// 			});
+	// 		})();
+</script>
   <script type="text/javascript">
   if (!window.location.href.includes('localhost')) {
     !function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});

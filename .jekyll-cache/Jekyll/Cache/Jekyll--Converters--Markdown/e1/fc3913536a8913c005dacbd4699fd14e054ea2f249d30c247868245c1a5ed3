@@ -1,0 +1,382 @@
+I"�n<div class=" tc __messaging center">
+    <div class="">
+      <h1 class="customer ">Customer messaging for growth and retention <span></span></h1>
+      <h3 class="send faint center ">Send customers’ messages based on
+profiling and activities within your application.</h3>
+      <div class="address">
+        <form method="GET" action="https://app.engage.so/auth/signup">
+          <input type="email" name="email" placeholder="Enter your work email" class="one-liner-el" />
+          <button class="one-liner-el" type="submit">Try for free</button>
+        </form>
+      </div>
+    </div>
+    <!-- <div class="pv5">
+      <img src="/images/hero-img@2-1.png" class="db" >
+    </div> -->
+  </div>
+
+<div class="tc pt4 pt4-l pt4-m"> 
+    <img src="/images/description.svg" alt="Engage Image" />
+  </div>
+<div class=" ph7-xl ph6-l ph5-m  support">
+    <div class="task">
+      <div class="service mh2-l mh2-m">
+        <div class="flex items-center ">
+         <div class="transact tc" style="background: #6C5CE7;">
+            <img src="/images/transact.svg" alt="Transactional email" />
+          </div>
+          <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Transactional email analytics</p>
+        </div>
+      <p style="margin-top:7px; font-size:14px; line-height:22.4px; color:#001A41; letter-spacing: 0.01em; font-family:Inter; font-weight:500;" class="faint">Engage gives you detailed analytics and reporting of your transactional emails, supporting top service providers like Amazon SES, Mailgun, and more</p>
+    </div>
+    <div class="service  mh2-l mh2-m">
+  <div class="flex items-center ">
+  <div class="transact tc" style="background: #05C46B;">
+  <img src="/images/subscribe.svg" alt="Subscription lists" />
+  </div>
+  <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Subscription lists</p>
+  </div>
+  <p style="margin-top:7px; font-size:14px; line-height:22.4px; color:#001A41; letter-spacing: 0.01em; font-family:Inter; font-weight:500; " class="faint">Lists are an easy way to create customer groups for engagement. Create lists for your online forms or newsletters.</p>
+  </div>
+  <div class="service  mh2-l mh2-m">
+  <div class="flex items-center ">
+  <div class="transact tc" style="background: #1E90FF;">
+  <img src="/images/broadcasr.svg" alt="Broadcasts" />
+  </div>
+  <p style="font-size:16px; line-height:25.6px; color:#001A41; letter-spacing: 0.01em; font-family:Poppins; font-weight:600;  margin:0 0px 0 10px">Broadcasts</p>
+  </div>
+  <p style="margin-top:7px; font-size:14px; line-height:22.4px; color:#001A41; letter-spacing: 0.01em; font-family:Inter; font-weight:500; " class="faint">Send email campaigns to customer segments and lists through multiple channels. View detailed analytics of customer engagement.</p>
+  </div>
+  </div>
+    <div class=" faint poppins tc" style="margin-top:117px; font-size:18px; letter-spacing:0.01em; line-height:28.8px">Still in beta, already trusted by </div>
+    <div class=" __brands" style="margin-top:39.99px">
+      <a href="http://reliancehmo.com" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/axa.svg" alt="axa-manzard" /></a>
+      <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/mail.svg" alt="Mail Intel" /></a>
+       <a href="#" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/beyond.svg" alt="Beyond Social Media" /></a>
+        <a href="http://reliancehmo.com" target="_blank" class="tc" style="max-width:160px"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO" /></a>
+    </div>
+  </div>
+
+<div class="connect">
+  <div class="">
+    <div style="background: #525267; border-radius:4px; width:79px; height:22px font-family:Inter; font-size:10px; line-height:16px; font-weight:500; letter-spacing:0.01em; margin:0 auto; color:white" class="tc">How it works
+    </div>
+    <h3 class="tc" style="color:white; font-size:36px; line-height:57.6px; letter-spacing:0.01em; font-family:Poppins; margin:10px 0">Connect. Engage. Grow.
+    </h3>
+    <p style="font-family:Inter; font-size:14px; line-height:22.4px; letter-spacing:0.01em; color: #B3C2D8; margin:0 auto" class="tc grow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+    </p>
+  </div>
+
+  <div class="flex flex-wrap mv6 items-center ">
+    <div class="w-50-l w-100 pr6-l">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #6C5CE7;">
+    <img src="/images/customer.svg" style="margin:auto" alt="Customer Segmentation" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">CUSTOMER SEGMENTATION</p>
+    </div>
+      <h2 class="segment">Segment your customers by attributes and actions</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+<div class="w-50-l w-100 segment_img">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
+</div>
+
+  </div>
+
+  <div class="flex flex-wrap mv6 items-center ">
+    <div class="w-50-l w-100 pr6-l">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #05C46B;">
+    <img src="/images/channel.svg" style="margin:auto" alt="Multichannel messaging" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">MULTICHANNEL MESSAGING</p>
+    </div>
+      <h2 class="segment">Send personalised messages through multiple channels
+</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+<div class="w-50-l w-100 segment_img">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
+</div>
+
+  </div>
+
+  <div class="flex flex-wrap mv6 items-center ">
+    <div class="w-50-l w-100 pr6-l">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #1E90FF;">
+    <img src="/images/automations.svg" style="margin:auto" alt="Automations" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">Automations</p>
+    </div>
+      <h2 class="segment">Automate your onboarding and marketing</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Onboard, upsell and retain your customers with automatic messaging workflows.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+<div class="w-50-l w-100 segment_img">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
+</div>
+
+  </div>
+
+  <div class="flex flex-wrap mv6 items-center ">
+    <div class="w-50-l w-100 pr6-l">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #F2C94C;">
+    <img src="/images/analytics.svg" style="margin:auto" alt="analytics" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">Transactional Analytics</p>
+    </div>
+      <h2 class="segment">Detailed analytics and reporting for your transactional emails</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Connect your transactional email service provider and get detailed analytics and reporting of your transactional emails on a better dashboard.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+<div class="w-50-l w-100 segment_img">
+<img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image" />
+</div>
+
+  </div>
+
+  <!-- hi -->
+<div class="content-container">
+ <div class="left-content">
+
+  <div class=" contentMarker" data-marker-content="img1">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #6C5CE7;">
+    <img src="/images/customer.svg" style="margin:auto" alt="Customer Segmentation" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">CUSTOMER SEGMENTATION</p>
+    </div>
+      <h2 class="segment">Segment your customers by attributes and actions</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+    
+<div class=" contentMarker" data-marker-content="img2">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #05C46B;">
+    <img src="/images/channel.svg" style="margin:auto" alt="Multichannel messaging" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">MULTICHANNEL MESSAGING</p>
+    </div>
+      <h2 class="segment">Send personalised messages through multiple channels
+</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+ <div class=" contentMarker" data-marker-content="text1">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #1E90FF;">
+    <img src="/images/automations.svg" style="margin:auto" alt="Automations" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">Automations</p>
+    </div>
+      <h2 class="segment">Automate your onboarding and marketing</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Onboard, upsell and retain your customers with automatic messaging workflows.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+
+  <div class=" contentMarker" data-marker-content="img3">
+    <div class="flex items-center">
+    <div class="flex justify-center" style="width:38px; height:38px; border-radius:7px; background: #F2C94C;">
+    <img src="/images/analytics.svg" style="margin:auto" alt="analytics" />
+    </div>
+    <p style="margin: 0 0 0 19px; font-family: Inter; font-weight: 600; font-size: 12px; line-height:19px; letter-spacing: 0.15em; color: #D9E3F0;">Transactional Analytics</p>
+    </div>
+      <h2 class="segment">Detailed analytics and reporting for your transactional emails</h2>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height:22px; letter-spacing:0.01em; color: #D9E3F0; margin:0 0 80px 0">Connect your transactional email service provider and get detailed analytics and reporting of your transactional emails on a better dashboard.</p>
+        <a href="#" style="background: #525267; border-radius: 7px; width:210px; height:42px; text-align:left" class="flex justify-center items-center">
+                <span class="">
+                  <img src="/images/hi.svg" class="" style="margin-top:3px" alt="" />
+                </span>
+                <span style="margin:0 43px 0 7px; font-family: Poppins; font-weight: 600; font-size: 14px; line-height: 22px;letter-spacing: 0.01em; color: #FFFFFF;">Learn more </span>
+<span class="">
+<img src="/images/lead.svg" style="margin-top:5px" alt="" />
+</span>
+</a>
+
+</div>
+
+  </div>
+   <div class="right-content">
+    <img id="img1" class="imageToShow" src="https://placekitten.com/300/700?image=1" alt="kitty" />
+    <img id="img2" class="imageToShow" src="https://placekitten.com/300/700?image=2" alt="kitty" />
+    <blockquote id="text1" class="textToShow" cite="https://www.youtube.com/watch?v=PKffm2uI4dk">
+      <p>Cat ipsum dolor sit amet, attack the child i show my fluffy belly but it's a trap!</p>
+      <footer>— Fluffy, the kitten <cite>Sad Cat Diary</cite></footer>
+    </blockquote>
+    <img id="img3" class="imageToShow" src="https://placekitten.com/300/700?image=3" alt="kitty" />
+  </div>
+
+  </div>
+</div>
+
+<div class="justify-between items-center action center">
+<div>
+<h3 class="info">Need actionable information and tools to improve your business?</h3>
+<div class="flex items-center">
+<p class="try">Try <span style="color:#32BA85;">Engage</span> for free</p>
+</div>
+</div>
+
+<div class="reduce">
+<p>We're building a complete, multichannel customer messaging platform. Start using Engage to improve your customer growth and retention rate.</p>
+<a href="#" style="background: #0C56C2; border-radius: 5px; padding:11px 24px; font-family: Poppins; font-weight: 600; font-size: 16px; line-height: 26px; letter-spacing: 0.01em; color: #FFFFFF;">Get Started</a>
+</div>
+</div>
+
+<div class="over_all">
+  <!-- <div class="bring">
+    <div style="width:40%">
+      <h5 style="margin:0; font-family: Poppins; font-weight: 600; font-size: 24px; line-height: 38px; letter-spacing: 0.01em;color: #001A41;">Bring-in your messaging infrastructure</h5>
+      <p style="font-family: Inter; font-weight: 500; font-size: 14px; line-height: 22px; letter-spacing: 0.01em; color: #74859C;">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this at Engage.</p>
+    </div>
+    <div style="padding-left:83px">
+      <img src="/images/ses.svg" alt="Messaging Infrastructure"/>
+    </div>
+  </div> -->
+  <!-- <div class="template">
+    <div style="" class="management">
+      <h5 style="">Template management</h5>
+      <p >Manage your transactional email templates directly from the Engage dashboard.</p>
+      <img src="/images/template.svg" alt="Template" style="margin-top:30px;">
+    </div>
+    <div class="favourite">
+      <img src="/images/service.svg" alt="Services">
+      <h5 >Connect your favourite services</h5>
+      <p >From payment gateways to email service providers and data analytics tools, Engage supports multiple services you can connect to for customer data enrichment.</p>
+    </div>
+  <div> -->
+</div>
+
+<div class="demarc">
+<div>hi</div>
+</div>
+
+<div class="content-container">
+  <div class="left-content">
+    <img id="img1" class="imageToShow" src="https://placekitten.com/300/700?image=1" alt="kitty" />
+    <img id="img2" class="imageToShow" src="https://placekitten.com/300/700?image=2" alt="kitty" />
+    <blockquote id="text1" class="textToShow" cite="https://www.youtube.com/watch?v=PKffm2uI4dk">
+      <p>Cat ipsum dolor sit amet, attack the child i show my fluffy belly but it's a trap!</p>
+      <footer>— Fluffy, the kitten <cite>Sad Cat Diary</cite></footer>
+    </blockquote>
+    <img id="img3" class="imageToShow" src="https://placekitten.com/300/700?image=3" alt="kitty" />
+  </div>
+  
+  <div class="right-content">
+    <p class="contentMarker" data-marker-content="img1">Cat ipsum dolor sit amet, attack the child i show my fluffy belly but it's a trap!</p>
+    
+    <p>if you pet it i will tear up your hand, but chase ball of string. Poop on couch hate dog, yet mouse and catch eat throw up catch eat throw up bad birds curl into a furry donut. Bite nose of your human you have cat to be kitten me right meow kitty poochy put toy mouse in food bowl run out of litter box at full speed , for stand with legs in litter box, but poop outside. Eat all the power cords. X poop in the plant pot. Pooping rainbow while flying in a toasted bread costume in space.</p>
+    
+    <p>Hiding behind the couch until lured out by a feathery toy instead of drinking water from the cat bowl, make sure to steal water from the toilet so hide at bottom of staircase to trip human stinky cat, or favor packaging over toy, sit on human they not getting up ever so x. Run outside as soon as door open caticus cuteicus 𝕄𝔼𝕆𝕎, and chase imaginary bugs, and scratch my tummy actually i hate you now fight me scratch leg; meow for can opener to feed me.</p>
+    
+    <p class="contentMarker" data-marker-content="img2">do not try to mix old food with new one to fool me! do i like standing on litter cuz i sits when i have spaces, my cat buddies have no litter i live in luxury cat life and throw down all the stuff in the kitchen. Find empty spot in cupboard and sleep all day i want to go outside let me go outside nevermind inside is better so i like cats because they are fat and fluffy scratch my tummy actually i hate you now fight me and lick the other cats thug cat.</p>
+    
+    <p>When owners are asleep, cry for no apparent reason love you, then bite you push your water glass on the floor or swipe at owner's legs and toy mouse squeak roll over. Cough furball into food bowl then scratch owner for a new one. Damn that dog cat walks in keyboard so hide at bottom of staircase to trip human flee in terror at cucumber discovered on floor.</p>
+      
+    <p>Meow and walk away meow for food, then when human fills food dish, take a few bites of food and continue meowing scream at teh bath and the door is opening! how exciting oh, it's you, meh so brown cats with pink ears hey! you there, with the hands but fight an alligator and win. Use lap as chair howl on top of tall thing be a nyan cat, feel great about it, be annoying 24/7 poop rainbows in litter box all day, chirp at birds leave fur on owners clothes, scratch at the door then walk away.</p>
+
+    <p>Catasstrophe i’m so hungry i’m so hungry but ew not for that so run in circles, or i like fish. Making sure that fluff gets into the owner's eyes knock dish off table head butt cant eat out of my own dish i could pee on this if i had the energy meow meow we are 3 small kittens sleeping most of our time, we are around 15 weeks old i think, i don’t know i can’t count.</p>
+
+    <p>Grass smells good the fat cat sat on the mat bat away with paws there's a forty year old lady there let us feast. Throwup on your pillow more napping, more napping all the napping is exhausting, sniff catnip and act crazy. Trip owner up in kitchen i want food. I bet my nine lives on you-oooo-ooo-hooo. Pee in human's bed until he cleans the litter box. Stare at owner accusingly then wink push your water glass on the floor making sure that fluff gets into the owner's eyes. Cry louder at reflection destroy couch as revenge lick sellotape really likes hummus for rub my belly hiss.</p>
+
+    <p class="contentMarker" data-marker-content="text1">Jump launch to pounce upon little yarn mouse, bare fangs at toy run hide in litter box until treats are fed chase laser or roll on the floor purring your whiskers off for pretend you want to go out but then don't play time. Munch, munch, chomp, chomp pooping rainbow while flying in a toasted bread costume in space you call this cat food sleep on my human's head but meow to be let in rub face on owner.</p>
+
+    <p>Eat half my food and ask for more hell is other people cough furball into food bowl then scratch owner for a new one, lick human with sandpaper tongue yet i'm bored inside, let me out i'm lonely outside, let me in i can't make up my mind whether to go in or out, guess i'll just stand partway in and partway out, contemplating the universe for half an hour how dare you nudge me with your foot?!?! leap into the air in greatest offense!</p>
+
+    <p>Run at 3am your pillow is now my pet bed but use lap as chair poop in a handbag look delicious and drink the soapy mopping up water then puke giant foamy fur-balls wake up human for food at 4am. Chase the pig around the house relentlessly pursues moth good morning sunshine cat gets stuck in tree firefighters try to get cat down firefighters get stuck in tree cat eats firefighters' slippers purr or scoot butt on the rug yet dead stare with ears cocked. Poop in litter box, scratch the walls i like fish stare at guinea pigs.</p>
+
+    <p>Cats secretly make all the worlds muffins sit on the laptop but toy mouse squeak roll over, or it's 3am, time to create some chaos or look at dog hiiiiiisssss.</p>
+
+    <p>Meow and walk away. Scratch the postman wake up lick paw wake up owner meow meow. Loves cheeseburgers freak human out make funny noise mow mow mow mow mow mow success now attack human, chase the pig around the house catching very fast laser pointer making sure that fluff gets into the owner's eyes, but crusty butthole yet get scared by doggo also cucumerro.</p>
+
+    <p>Gnaw the corn cob sniff other cat's butt and hang jaw half open thereafter toy mouse squeak roll over throw down all the stuff in the kitchen. Destroy couch lick butt.</p>
+
+    <p class="contentMarker" data-marker-content="img3">Pooping rainbow while flying in a toasted bread costume in space has closed eyes but still sees you hit you unexpectedly peer out window, chatter at birds, lure them to mouth so hiss and stare at nothing then run suddenly away so stare at wall turn and meow stare at wall some more meow again continue staring yet poop on grasses.</p>
+
+    <p>Kick up litter instantly break out into full speed gallop across the house for no reason so i bet my nine lives on you-oooo-ooo-hooo as lick i the shoes lay on arms while you're using the keyboard or my slave human didn't give me any food so i pooped on the floor.</p>
+
+    <p>Lick butt and make a weird face catch mouse and gave it as a present so i do no work yet get food, shelter, and lots of stuff just like man who lives with us ignore the squirrels, you'll never catch them anyway bite off human's toes but climb leg, lick the curtain just to be annoying.</p>
+
+    <p>Soft kitty warm kitty little ball of furr my water bowl is clean and freshly replenished, so i'll drink from the toilet, find something else more interesting, or cat jumps and falls onto the couch purrs and wakes up in a new dimension filled with kitty litter meow meow yummy there is a bunch of cats hanging around eating catnip , but cat mojo but man running from cops stops to pet cats, goes to jail so stand with legs in litter box, but poop outside.</p>
+
+    <p>Step on your keyboard while you're gaming and then turn in a circle behind the couch. Gate keepers of hell give attitude, for jump five feet high and sideways when a shadow moves. Bird bird bird bird bird bird human why take bird out i could have eaten that sit on human they not getting up ever.</p>
+
+    <p>I am the best open the door, let me out, let me out, let me-out, let me-aow, let meaow, meaow! put toy mouse in food bowl run out of litter box at full speed for if it fits, i sits but murr i hate humans they are so annoying for eat the fat cats food cat sit like bread. Trip owner up in kitchen i want food.</p>
+
+  </div>
+</div>
+:ET
