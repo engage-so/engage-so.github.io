@@ -1417,6 +1417,36 @@ button {
   display: none;
 }
 
+footer .pv1 > a, footer .small-caps  {
+  color: white !important;
+  
+}
+
+footer .faint{
+  color: white;
+  font-weight: 500 !important;
+}
+
+footer a {
+  font-weight: bold  !important;
+  color: white;
+}
+
+.__email_subscription_holder{
+  border: 2px solid #525267;
+  border-radius: 8px;
+  max-width: 350px;
+  padding: 2px;
+}
+
+footer input{
+  /* height: 58px; */
+  /* border: 2px solid #525267; */
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: transparent !important;
+}
+
 @media screen and (max-width: 800px) {
   .customer {
     font-size: 20px;
@@ -1576,3 +1606,4 @@ button {
     opacity: 1;
   }
 }
+

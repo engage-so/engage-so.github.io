@@ -103,36 +103,52 @@
 
   {{ content }}
 
-  <footer class="ph7-xl ph6-l ph5-m ph4 mt5">
-    <div class="flex flex-wrap justify-between pv5" style="border-top:1px solid #dee4ed;border-bottom:1px solid #dee4ed">
+  <footer class="ph7-xl ph6-l ph5-m ph4 mt5 white" style="background:#343447;">
+    <h1 class="tc pt5 ">
+      Ready to improve your customer messaging?
+    </h1>
+    <div class="tc pt3">
+      <button class="pa2 b" style="background-color: #0C56C2; width: 140px; height: 48px;">
+        Get started
+      </button>
+    </div>
+    <div class="flex flex-wrap justify-between pv5">
       <div class="w-40-l w-100 pr4-l mb4 mb0-l">
-        <h1 class="mt0 f3"><a href="/"><img src="/images/engage.svg" width="100"></a></h1>
-        <div class="lh-copy">Customer messaging for growth and retention.</div>
-        <form method="post" class="subscribe-form mt2 pt2"">
-          <div class="lh-copy pv2">Follow our updates.</div>
-          <div class="lh-copy pb2 dn info" style="color:#238032">Thanks for subscribing. Expect a subscription confirmation shortly. 🎉🎉</div>
+        <h1 class="mt0 f3"><a href="/"><img src="/images/glass-logo.svg" width="100"></a></h1>
+        
+        <div class="lh-copy white b">Engagement. Growth.</div>
+        <div class="lh-copy white b">Customer messaging for growth and retention.</div>
+        <form method="post" class="subscribe-form mt4 pt2 ">
+          
+          <div class="lh-copy pb2 dn info white" style="color:#238032">Thanks for subscribing. Expect a subscription confirmation shortly. 🎉🎉</div>
           <input type="text" name="name" class="dn">
-          <input type="email" name="email" placeholder="Your email" class="one-liner-el"><button class="" type="submit">Subscribe</button>
+          <div class="flex __email_subscription_holder">
+            <input type="email" name="email" placeholder="Enter your mail" class="bg-transparent" style="background: transparent;border: none;width: 100%;">
+            <button class="pa3 br3 flex-none " type="submit" style="background:#32BA85">Follow our updates</button>
+          </div>
+          
         </form>
       </div>
-      <div class="w-30-l w-third-ns ph2">
-        <div class="f4 small-caps faint">Guides</div>
-        <div class="pv1"><a href="/docs/guides/connecting-user-data">Connecting user data</a></div>
-        <div class="pv1"><a href="/docs/guides/segments">Segmenting users</a></div>
-        <div class="pv1"><a href="/docs/guides/automations">Creating automations</a></div>
-        <div class="mt3 f4 small-caps faint">Developers</div>
-        <div class="pv1"><a href="/docs/api">API Documentation</a></div>
-        <div class="pv1"><a href="/docs/sdks">SDKs</a></div>
+      <div class="w-30-l w-third-ns ph2 white">
+        <div class="f4 small-caps white ">Guides</div>
+        <div class="pv1 b white"><a href="/docs/guides/connecting-user-data">Connecting user data</a></div>
+        <div class="pv1 b white"><a href="/docs/guides/segments">Segmenting users</a></div>
+        <div class="pv1 b white"><a href="/docs/guides/automations">Creating automations</a></div>
+        <div class="mt3 f4 small-caps white">Developers</div>
+        <div class="pv1 b white"><a href="/docs/api">API Documentation</a></div>
+        <div class="pv1 b white"><a href="/docs/sdks">SDKs</a></div>
       </div>
       <div class="w-30-l w-third-ns ph2">
-        <div class="f4 small-caps faint">Use cases</div>
-        <div class="pv1"><a href="/analytics-and-reporting-for-amazon-ses">Transactional email analytics for Amazon SES</a></div>
-        <div class="pv1"><a href="/analytics-and-reporting-for-mailgun">Transactional email analytics for Mailgun</a></div>
-        <div class="mt3 f4 small-caps faint">Company</div>
-        <div class="pv1"><a href="mailto:hello@engage.so">Contact</a></div>
+         <div class="pv1"><a href="mailto:hello@engage.so">Contact</a></div>
         <div class="pv1"><a href="/blog">Blog</a></div>
         <div class="pv1"><a href="https://app.engage.so/auth/signup">Signup</a></div>
         <div class="pv1"><a href="https://app.engage.so/auth/login">Login</a></div>
+
+        <div class="f4 mt3 small-caps faint">Use cases</div>
+        <div class="pv1"><a href="/analytics-and-reporting-for-amazon-ses">Transactional email analytics for Amazon SES</a></div>
+        <div class="pv1"><a href="/analytics-and-reporting-for-mailgun">Transactional email analytics for Mailgun</a></div>
+        
+       
       </div>
     </div>
     <div class="flex flex-wrap justify-between pv3">
