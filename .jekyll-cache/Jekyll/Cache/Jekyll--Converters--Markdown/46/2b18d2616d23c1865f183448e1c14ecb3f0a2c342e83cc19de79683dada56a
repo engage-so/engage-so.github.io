@@ -1,0 +1,60 @@
+I"Z<h1 id="api-introduction">API Introduction</h1>
+
+<p>The Engage API lets you interact with data and resources through REST. The API accepts requests in JSON format, returns responses in JSON and uses standard HTTP for authentication, methods and response codes.</p>
+
+<h3 id="authentication">Authentication</h3>
+
+<p>Authentication is via <a href="https://en.wikipedia.org/wiki/Basic_access_authentication">HTTP Basic Authentication</a> using your API key as username and API secret as password. You can view and manage these keys in the <a href="https://app.engage.so/settings/account">settings page</a> of your account dashboard. On some endpoints, you can use just your API key (as username) and leave the secret empty. This makes it possible to call such endpoints from client-side applications. Endpoints that support this are marked with “works with username authentication”.</p>
+
+<h3 id="versioning">Versioning</h3>
+
+<p>The current API version is <code class="language-plaintext highlighter-rouge">v1</code>.</p>
+
+<h3 id="api-root">API Root</h3>
+
+<p><code class="language-plaintext highlighter-rouge">api.engage.so/v1</code></p>
+
+<h3 id="errors">Errors</h3>
+
+<p>Errors are returned with standard HTTP status codes. Error responses will come with additional body in the format:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="nl">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"More details about error"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="pagination">Pagination</h2>
+
+<p>The API uses cursor-based pagination. Responses for list requests will come with a <code class="language-plaintext highlighter-rouge">next_cursor</code> and/or <code class="language-plaintext highlighter-rouge">previous_cursor</code> parameter. If you need to get the next page of dataset, make a request with the <code class="language-plaintext highlighter-rouge">next_cursor</code> parameter. To get the previous page of dataset, make a request with the <code class="language-plaintext highlighter-rouge">previous_cursor</code> dataset.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">...</span><span class="p">],</span><span class="w">
+  </span><span class="nl">"next_cursor"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60583d4a60ad2a26042a9499"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.engage.so/v1/users?next_cursor=60583d4a60ad2a26042a9499
+</code></pre></div></div>
+
+<blockquote>
+  <p>You can only use one of <code class="language-plaintext highlighter-rouge">next_cursor</code> and <code class="language-plaintext highlighter-rouge">previous_cursor</code> in a request.</p>
+</blockquote>
+
+<p><em>An earlier version of the API lets you use the <code class="language-plaintext highlighter-rouge">id</code> field of the resource object to request the previous or next page of dataset by making a request with the parameters: <code class="language-plaintext highlighter-rouge">after_id</code> and <code class="language-plaintext highlighter-rouge">before_id</code> set to the id. This pagination style has now been deprecated and is not recommended.</em></p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60583d4a60ad2a26042a9499"</span><span class="w">
+    </span><span class="err">...</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="nl">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>api.engage.so/v1/users?after_id=60583d4a60ad2a26042a9499
+</code></pre></div></div>
+
+<h2 id="resources">Resources</h2>
+
+<ul>
+  <li><a href="/docs/api/users">Users</a></li>
+</ul>
+
+<p><em>More resources coming soon</em></p>
+:ET

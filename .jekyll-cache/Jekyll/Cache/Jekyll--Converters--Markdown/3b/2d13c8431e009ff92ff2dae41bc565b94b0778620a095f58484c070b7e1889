@@ -1,0 +1,185 @@
+I"@?<h1 id="lists">Lists</h1>
+
+<h2 id="the-lists-object">The Lists object</h2>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6477241fcec31a9548e98"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waitlist"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome product waiting list"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subscriber_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"broadcast_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"double_optin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.shorturl.com/home"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-05T14:48:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">id</code> - A unique internal identifier for the list object</li>
+  <li><code class="language-plaintext highlighter-rouge">title</code> - List title. 64 characters max</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code> - An arbitrary string attached to the object, maximum of 255 characters</li>
+  <li><code class="language-plaintext highlighter-rouge">subscriber_count</code> - Number of subscribers in this list. Includes pending confirmations.</li>
+  <li><code class="language-plaintext highlighter-rouge">broadcast_count</code> - Number of broadcasts that has been sent to this list</li>
+  <li><code class="language-plaintext highlighter-rouge">double_optin</code> - True, if to send a confirmation mail to subscribers for approval/permission</li>
+  <li><code class="language-plaintext highlighter-rouge">redirect_url</code> - URL to redirect users to after subscription. Does not apply to subscription via the API</li>
+  <li><code class="language-plaintext highlighter-rouge">created_at</code> - List creation date if exists</li>
+</ul>
+
+<h2 id="create-a-list">Create a list</h2>
+
+<p>Adds a new list to your Engage account</p>
+
+<p>Works with username &amp; password authentication.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /lists
+</code></pre></div></div>
+
+<p>Parameters:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">title</code> - Required. List title.</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code> - Optional. String attached to the object.</li>
+  <li><code class="language-plaintext highlighter-rouge">redirect_url</code> - Optional. URL to redirect users to after subscription.</li>
+  <li><code class="language-plaintext highlighter-rouge">double_optin</code> - Optional. Set True if you want subscribers to receive confirmation mail.</li>
+</ul>
+
+<p>Example response payload</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60036440419768607192801b"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly subscription"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome product waiting list"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subscriber_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"broadcast_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"double_optin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-05T14:48:00.000Z"</span><span class="w">        
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="get-all-list-data">Get all list data.</h2>
+
+<p>The method returns lists of objects on your Engage account which include <code class="language-plaintext highlighter-rouge">has_more</code>, it returns True if the current list has another page that can be fetched.</p>
+
+<p>Works with username authentication.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /lists
+</code></pre></div></div>
+
+<p>Parameters
+This endpoint supported the following queries</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">limit</code> - Optional. A limit on the number of objects to be returned, range between 1 and 100, default is 20.</li>
+  <li><code class="language-plaintext highlighter-rouge">after_id</code> - Optional. Unique object ID that defines your place in the list. For instance, if you make a list request and receive 20 objects, ending with ID <code class="language-plaintext highlighter-rouge">5fc6477241fcec31a9548e98</code>, your subsequent call can include <code class="language-plaintext highlighter-rouge">after_id=5fc6477241fcec31a9548e98</code> in order to fetch the next page of the list</li>
+  <li><code class="language-plaintext highlighter-rouge">before_id</code> - Optional. object ID that defines your place in the list. For instance, if you make a list request and receive 20 objects, starting with ID <code class="language-plaintext highlighter-rouge">5ffe9dd7d5498b0dd882a8f1</code>, your subsequent call can include <code class="language-plaintext highlighter-rouge">before_id=5ffe9dd7d5498b0dd882a8f1</code> in order to fetch the previous page of the list.</li>
+</ul>
+
+<p>Example response payload</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+ </span><span class="nl">"has_more"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+ </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5fc6477241fcec31a9548e98"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Waitlist"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"subscriber_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"broadcast_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"double_optin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-05T14:48:00.000Z"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="err">...</span><span class="p">}</span><span class="w">
+ </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="get-a-list-by-id">Get a list by id</h2>
+
+<p>Retrieves the details of a list. Supply the unique identifier of the list</p>
+
+<p>Works with username authentication.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /lists/{id}
+</code></pre></div></div>
+
+<p>Example response payload</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"60036440419768607192801b"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Monthly subscription"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Awesome product waiting list"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"subscriber_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"broadcast_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"double_optin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"redirect_url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2011-10-05T14:48:00.000Z"</span><span class="w">        
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="update-a-list">Update a list</h2>
+
+<p>If you need to update only some list details, like title, description, double_optin and redirect url, etc on Engage, you can do so using the list <code class="language-plaintext highlighter-rouge">id</code></p>
+
+<p>Works with username authentication.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /lists/{id}
+</code></pre></div></div>
+
+<p>Parameters can be any or more of the following:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">title</code> - The list title.</li>
+  <li><code class="language-plaintext highlighter-rouge">description</code> - The list description.</li>
+  <li><code class="language-plaintext highlighter-rouge">redirect_url</code> - valid URL to redirect users to after subscription.</li>
+  <li><code class="language-plaintext highlighter-rouge">double_optin</code> - Set to True if you want subscribers to receive confirmation mail.</li>
+</ul>
+
+<p>Example response payload
+Return updated list object.</p>
+
+<h2 id="archive-a-list">Archive a list</h2>
+
+<p>Archive list on Engage means new subscribers can’t be added. Existing subscribers are not affected</p>
+
+<p>Works with username and password authentication.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /lists/{id}
+</code></pre></div></div>
+
+<p>Example response payload</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="subscribe-to-a-list">Subscribe to a list</h2>
+
+<p>Creates a user and subscribes to a list. If user already exists (email), user will be added to list as well. If it is known that a user already exists and the user’s uid is known, the update subscriber status endpoint can be used instead.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /lists/{id}/subscribers
+</code></pre></div></div>
+<p>Parameters</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">first_name</code> - Optional. The user’s first name</li>
+  <li><code class="language-plaintext highlighter-rouge">last_name</code> - Optional. The user’s last name</li>
+  <li><code class="language-plaintext highlighter-rouge">email</code> - The user’s email. Requires both username and password authentication</li>
+  <li><code class="language-plaintext highlighter-rouge">number</code> - Optional. The user’s phone number in international format</li>
+  <li><code class="language-plaintext highlighter-rouge">created_at</code> - Optional. Creation date if exists</li>
+  <li><code class="language-plaintext highlighter-rouge">meta</code> - Optional. An object containing additional user attributes to add or update. Should be string, number or boolean.</li>
+</ul>
+
+<p>Sample response payload</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1456"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="update-subscriber-status">Update subscriber status</h2>
+<p>Setting this to true updates the subscriber’s subscription to true. False unsubscribes the user from the list. <code class="language-plaintext highlighter-rouge">subscribed</code> - true or false.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /lists/{id}/subscribers/{uid}
+</code></pre></div></div>
+
+<p>Example response payload</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nl">"subscribed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="remove-subscriber-from-a-list">Remove subscriber from a list</h2>
+<p>Remove subscribers from list.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /lists/:id/subscribers/{uid}
+</code></pre></div></div>
+
+<p>Example response payload</p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ok"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+:ET

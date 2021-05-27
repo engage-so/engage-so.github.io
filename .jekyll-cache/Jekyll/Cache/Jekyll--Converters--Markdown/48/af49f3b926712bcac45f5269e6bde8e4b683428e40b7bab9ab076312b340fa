@@ -1,0 +1,25 @@
+I"�<h1 id="personalization-tags">Personalization tags</h1>
+
+<p>Personailization tags lets you use texts in the form of <code class="language-plaintext highlighter-rouge">{{tag}}</code> to represent user attributes and some platform attributes in your broadcast content. When the broadcast is sent, the system replaces these tags with what they actually represent. If for example you create a broadcast with this content</p>
+
+<p><em>Hi {{first_name}}, welcome onboard!</em></p>
+
+<p>and you send it to a list with 2 users with the first names Jane and Doe, the broadcast will be sent as</p>
+
+<p><em>Hi Jane, welcome onboard!</em> to Jane; and <em>Hi Doe, welcome onboard!</em> to Doe.</p>
+
+<h3 id="the-tags">The tags</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">{{email}}</code> - User’s email.</li>
+  <li><code class="language-plaintext highlighter-rouge">{{first_name}}</code> - User’s first name, if added.</li>
+  <li><code class="language-plaintext highlighter-rouge">{{last_name}}</code> - User’s last name, if added.</li>
+  <li><code class="language-plaintext highlighter-rouge">{{number}}</code> - User’s phone number (international format), if added.</li>
+  <li><code class="language-plaintext highlighter-rouge">{{meta.attribute}}</code> - Any other user’s attribute where <code class="language-plaintext highlighter-rouge">attribute</code> is the name of the attribute. e.g <code class="language-plaintext highlighter-rouge">{{meta.amount_paid}}</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">{{unsubscribe_url}}</code> - Broadcast unsubscribe link. Only available if enabled for the broadcast.</li>
+</ul>
+
+<h3 id="advanced">Advanced</h3>
+
+<p>Engage’s broadcast system is built on <a href="https://shopify.github.io/liquid/">Shopify’s liquid</a>. This means you can do a lot more. You can create conditional blocks, work with loops, and manipulate tags with filters. <a href="https://shopify.github.io/liquid/">Learn more</a>.</p>
+:ET

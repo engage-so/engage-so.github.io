@@ -1,0 +1,45 @@
+I"¹<h1 id="team-member-roles">Team member roles</h1>
+
+<p>Engage supports adding team members to an account. Each member can be assigned any of the four available roles:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Admin</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Manager</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Developer</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Member</code></li>
+</ul>
+
+<p>These roles define what what they can do. There is a fifth <code class="language-plaintext highlighter-rouge">Owner</code> role that is automatically assigned to the account creator. This role grants all privilege to the account, including deletion. The role can be transfered by its owner to another member. However, only one member of a team can have the role at a given time. On transfer, the role of the member transferring will be changed to <code class="language-plaintext highlighter-rouge">admin</code>.</p>
+
+<h2 id="admin">Admin</h2>
+<ul>
+  <li>Cannot delete the account. (Only the account creator can delete an account).</li>
+  <li>Can do everything else</li>
+</ul>
+
+<h2 id="manager">Manager</h2>
+<ul>
+  <li>Cannot grant admin access to another team mate.</li>
+  <li>Cannot delete the account</li>
+  <li>Can do everything else</li>
+</ul>
+
+<h2 id="developer">Developer</h2>
+<ul>
+  <li>Has full access to templates</li>
+  <li>Has full access to transactional email analytics</li>
+  <li>Has full access to users</li>
+  <li>Has full access to lists</li>
+  <li>Can view broadcasts</li>
+  <li>Can view segments</li>
+  <li>Cannot invite, edit role or remove team members</li>
+  <li>Cannot create, update or send broadcast</li>
+  <li>Cannot create, update or delete segments</li>
+</ul>
+
+<h2 id="member">Member</h2>
+<ul>
+  <li>Cannot perform any create, update or delete actions. Can only view all modules on the dashboard.</li>
+  <li>Cannot view transactional email body</li>
+</ul>
+:ET

@@ -1,0 +1,20 @@
+I"ê<h1 id="templates">Templates</h1>
+
+<p>Templates allow you create a predefined content you can use for email later. It helps avoid having to always create the email body every time you want to send an email, especially emails that are sent frequently (transactional emails like notifications or password recovery for example). You create the template once, with variables that can be replaced and when you need to send the mail, you make an API call with the template name and parameters to replace the variables in your template.</p>
+
+<p>A template will look something like this:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hi {{name}},
+
+Click here to confirm your subscription {{link}}
+</code></pre></div></div>
+
+<p>To send the email, you only need to send the value for <code class="language-plaintext highlighter-rouge">{{name}}</code> and <code class="language-plaintext highlighter-rouge">{{link}}</code> instead of the full email body.</p>
+
+<p>Templates are supported by both <a href="https://documentation.mailgun.com/en/latest/user_manual.html#templates">Mailgun</a> and <a href="https://aws.amazon.com/blogs/messaging-and-targeting/introducing-email-templates-and-bulk-sending/">Amazon SES</a> and the way templates work in Engage is to connect directly to the relative service (depending on the one connected to your account) to manage your templates on the service. In other words, if you create a template on Engage, it is created on your Mailgun or Amazon SES account. To use the template, simply implement the API as applicable to the service you are using. Here is a reference to both:</p>
+
+<ul>
+  <li><a href="https://documentation.mailgun.com/en/latest/user_manual.html#templates">Mailgun: Send with templates</a></li>
+  <li><a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_SendTemplatedEmail.html">Amazon SES: SendTemplatedEmail</a></li>
+</ul>
+:ET

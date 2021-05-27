@@ -206,6 +206,24 @@ a:hover {
 .__footer {
   background: #dee5ef2e;
 }
+
+footer .small-caps {
+  color: white !important;
+}
+
+footer .faint{
+  color: white !important;
+}
+
+footer a, footer .small-caps  {
+  color: white !important;
+  font-weight: bold  !important;
+}
+
+footer .faint{
+  color: white;
+}
+
 .embla {
   position: relative;
   padding: 20px;
