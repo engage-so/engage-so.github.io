@@ -6,18 +6,28 @@ page: api-lists
 
 # Lists
 
+- [The list Object](#the-list-object)
+- [Create a List](#create-a-list)
+- [Get All Lists](#get-all-list-data)
+- [Update a List](#update-a-list)
+- [Archive a List](#archive-a-list)
+- [Subscribe to a List](#subscribe-to-a-list)
+- [Update subscriber Status](#update-subscriber-status)
+- [Unsubscribe from a list ](#unsubscribe-from-a-list)
+
+
 ## The Lists object
 
 ```json
 {
-    "id": "5fc6477241fcec31a9548e98",
-    "title": "Waitlist",
-    "description": "Awesome product waiting list",
-    "subscriber_count": 0,
-    "broadcast_count": 0,
-    "double_optin": true,
-    "redirect_url": "http://www.shorturl.com/home",
-    "created_at": "2011-10-05T14:48:00.000Z"
+  "id": "5fc6477241fcec31a9548e98",
+  "title": "Waitlist",
+  "description": "Awesome product waiting list",
+  "subscriber_count": 0,
+  "broadcast_count": 0,
+  "double_optin": true,
+  "redirect_url": "http://www.shorturl.com/home",
+  "created_at": "2011-10-05T14:48:00.000Z"
 }
 ```
 
@@ -35,27 +45,30 @@ page: api-lists
 Adds a new list to your Engage account
 
 Works with username & password authentication.
+
 ```
 POST /lists
 ```
 
 Parameters:
+
 - `title` - Required. List title.
 - `description` - Optional. String attached to the object.
 - `redirect_url` - Optional. URL to redirect users to after subscription.
 - `double_optin` - Optional. Set True if you want subscribers to receive confirmation mail.
 
 Example response payload
+
 ```json
 {
-    "id": "60036440419768607192801b",
-    "title": "Monthly subscription",
-    "description": "Awesome product waiting list",
-    "subscriber_count": 0,
-    "broadcast_count": 0,
-    "double_optin": false,
-    "redirect_url": null,
-    "created_at": "2011-10-05T14:48:00.000Z"        
+  "id": "60036440419768607192801b",
+  "title": "Monthly subscription",
+  "description": "Awesome product waiting list",
+  "subscriber_count": 0,
+  "broadcast_count": 0,
+  "double_optin": false,
+  "redirect_url": null,
+  "created_at": "2011-10-05T14:48:00.000Z"
 }
 ```
 
@@ -71,29 +84,31 @@ GET /lists
 Parameters
 This endpoint supported the following queries
 
-- `limit` - Optional. A limit on the number of objects to be returned, range between 1 and 100, default is 20.
-- `after_id` - Optional. Unique object ID that defines your place in the list. For instance, if you make a list request and receive 20 objects, ending with ID `5fc6477241fcec31a9548e98`, your subsequent call can include `after_id=5fc6477241fcec31a9548e98` in order to fetch the next page of the list
-- `before_id` - Optional. object ID that defines your place in the list. For instance, if you make a list request and receive 20 objects, starting with ID `5ffe9dd7d5498b0dd882a8f1`, your subsequent call can include `before_id=5ffe9dd7d5498b0dd882a8f1` in order to fetch the previous page of the list.
+- `limit `- Optional. Number of lists to return. Defaults to 10. Maximum of 30.
+- `next_cursor` - Optional. Pagination cursor for next dataset page.
+- `previous_cursor` - Optional. Pagination cursor for previous dataset page.
+
+NB: See [pagination](/docs/api/#pagination) for more.
 
 
 Example response payload
 ```json
 {
- "has_more": false,
  "data": [
-  {
-   "id": "5fc6477241fcec31a9548e98",
-   "title": "Waitlist",
-   "description": null,
-   "subscriber_count": 12,
-   "broadcast_count": 0,
-   "double_optin": true,
-   "redirect_url": null,
-   "created_at": "2011-10-05T14:48:00.000Z"
-  },
-  {...},
-  {...}
- ]
+    {
+    "id": "5fc6477241fcec31a9548e98",
+    "title": "Waitlist",
+    "description": null,
+    "subscriber_count": 12,
+    "broadcast_count": 0,
+    "double_optin": true,
+    "redirect_url": null,
+    "created_at": "2011-10-05T14:48:00.000Z"
+    },
+    {...},
+    {...}
+  ],
+  "next_cursor": "5fc6477241fcec31a9548e98"
 }
 ```
 
@@ -109,14 +124,14 @@ GET /lists/{id}
 Example response payload
 ```json
 {
-    "id": "60036440419768607192801b",
-    "title": "Monthly subscription",
-    "description": "Awesome product waiting list",
-    "subscriber_count": 0,
-    "broadcast_count": 0,
-    "double_optin": false,
-    "redirect_url": null,
-    "created_at": "2011-10-05T14:48:00.000Z"        
+  "id": "60036440419768607192801b",
+  "title": "Monthly subscription",
+  "description": "Awesome product waiting list",
+  "subscriber_count": 0,
+  "broadcast_count": 0,
+  "double_optin": false,
+  "redirect_url": null,
+  "created_at": "2011-10-05T14:48:00.000Z"
 }
 ```
 
@@ -138,19 +153,34 @@ Parameters can be any or more of the following:
 Example response payload
 Return updated list object.
 
+```json
+  {
+    "id": "60036440419768607192801b",
+    "title": "Monthly subscription",
+    "description": "Awesome product waiting list",
+    "subscriber_count": 0,
+    "broadcast_count": 0,
+    "double_optin": false,
+    "redirect_url": null,
+    "created_at": "2011-10-05T14:48:00.000Z"
+  }
+
+```
 
 ## Archive a list
 
 Archive list on Engage means new subscribers can’t be added. Existing subscribers are not affected
 
 Works with username and password authentication.
+
 ```
 DELETE /lists/{id}
 ```
 
 Example response payload
+
 ```json
-    { "status": "ok"}
+{ "status": "ok" }
 ```
 
 ## Subscribe to a list
@@ -160,7 +190,9 @@ Creates a user and subscribes to a list. If user already exists (email), user wi
 ```
 POST /lists/{id}/subscribers
 ```
+
 Parameters
+
 - `first_name` - Optional. The user's first name
 - `last_name` - Optional. The user's last name
 - `email` - The user's email. Requires both username and password authentication
@@ -169,23 +201,27 @@ Parameters
 - `meta` - Optional. An object containing additional user attributes to add or update. Should be string, number or boolean.
 
 Sample response payload
+
 ```json
-    { "uid": "1456" }
+{ "uid": "1456" }
 ```
 
-## Update subscriber status 
-Setting this to true updates the subscriber's subscription to true. False unsubscribes the user from the list. `subscribed` - true or false. 
+## Update subscriber status
+
+Setting this to true updates the subscriber's subscription to true. False unsubscribes the user from the list. `subscribed` - true or false.
 
 ```
 PUT /lists/{id}/subscribers/{uid}
 ```
 
 Example response payload
+
 ```json
-    { "subscribed": false }
+{ "subscribed": false }
 ```
 
-## Remove subscriber from a list
+## Unsubscribe from a list
+
 Remove subscribers from list.
 
 ```
@@ -193,6 +229,7 @@ DELETE /lists/:id/subscribers/{uid}
 ```
 
 Example response payload
+
 ```json
-    { "status": "ok" }
+{ "status": "ok" }
 ```
