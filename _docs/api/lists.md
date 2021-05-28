@@ -33,7 +33,7 @@ page: api-lists
 
 - `id` - A unique internal identifier for the list object
 - `title` - List title. 64 characters max
-- `description` - An arbitrary string attached to the object, maximum of 255 characters
+- `description` - The list description. Subscribers will see this. Maximum of 255 characters
 - `subscriber_count` - Number of subscribers in this list. Includes pending confirmations.
 - `broadcast_count` - Number of broadcasts that has been sent to this list
 - `double_optin` - True, if to send a confirmation mail to subscribers for approval/permission
