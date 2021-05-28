@@ -1625,6 +1625,14 @@ footer input {
 #screenThree {
   margin: auto;
 }
+.__footer{
+  background: #343447"
+}
+.__footer_start{
+  background-color: #0c56c2; 
+  width: 140px; 
+  height: 48px
+}
 @media screen and (max-width: 800px) {
   .customer {
     font-size: 20px;
