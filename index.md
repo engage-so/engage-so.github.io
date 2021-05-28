@@ -96,7 +96,7 @@ layout: landing
       </div>
       <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
         <h3 class="lh-copy mb2 fw6">Web and mobile push</h3>
-        <div class="lh-copy faint">Engagement with users do not have to be limited to email or SMS alone. Send broadcasts and automated messages through other channels like in-app push on web or mobile.</div>
+        <div class="lh-copy faint">Engagement with users does not have to be limited to email or SMS alone. Send broadcasts and automated messages through other channels like in-app push on web or mobile.</div>
       </div>
       <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
         <h3 class="lh-copy mb2 fw6">Bring your messaging infrastructure</h3>
