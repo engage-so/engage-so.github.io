@@ -18,7 +18,7 @@ page: pricing
           <h3 class="normal faint tc">$0/month</h3>
           <div class="lh-copy">For individuals and small teams trying things out.</div>
           <div class="lh-copy pt3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 1,000 <abbr aria-label="Number of unique users you send a message through broadcast or automation." data-microtip-size="medium" data-microtip-position="right" role="tooltip" class="fade">MTU</abbr></div>
-          <div class="lh-copy pv1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 5,000 events</div>
+          <div class="lh-copy pv1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 10,000 events</div>
           <div class="lh-copy pv1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 2 team members</div>
           <div class="pt4 w-100 tc"><a href="https://app.engage.so/auth/signup" class="db button w-80-ns w-100">Get Started</a></div>
         </div>
@@ -71,7 +71,7 @@ page: pricing
   </div>
   <div class="flex flex-wrap justify-between items-center pv3">
     <div class="w-40-ns tl-ns w-100 pv1 pl3">Data events/month</div>
-    <div class="w-20-ns w-third faint">5,000</div>
+    <div class="w-20-ns w-third faint">10,000</div>
     <div class="w-20-ns w-third faint lh-copy">100k <abbr aria-label="$3 per extra 10k above limit" data-microtip-size="medium" data-microtip-position="top" role="tooltip" class="fade">(up to 1m)</abbr></div>
     <div class="w-20-ns w-third faint lh-copy">1m <abbr aria-label="$3 per extra 10k above limit" data-microtip-size="medium" data-microtip-position="top" role="tooltip" class="fade">(up to 2m)</abbr></div>
   </div>

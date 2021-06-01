@@ -13,7 +13,7 @@ We recommend you read the [Connecting customer data](/docs/guides/connecting-use
 
 New to Engage? [Create an account](https://app.engage.so/auth/signup).
 
-## Installation
+## Installation and Setup
 
 ```
 // NPM
@@ -22,13 +22,17 @@ npm install —save @engage_so/js
 yarn add @engage_so/js
 ```
 
-Alternatively, you can use directly from the CDN
-
-```html
-<script src="//d2969mkc0xw38n.cloudfront.net/next/engage.min.js"></script>
+```js
+// commonjs/node-style require
+const Engage = require('@engage_so/js')
 ```
 
-If you are using the CDN version, then use the code below to ensure calls to the SDK before the script is completely loaded are handled.
+```js
+// ES module-style import
+import Engage from '@engage_so/js'
+```
+
+If you want to directly use the CDN version, copy and paste the code below before the closing `</body>` tag of your webpage instead:
 
 ```js
 (function(k) {
@@ -54,15 +58,6 @@ If you are using the CDN version, then use the code below to ensure calls to the
 
 ## Configuration
 
-```js
-// commonjs/node-style require
-const Engage = require('@engage_so/js')
-```
-
-```js
-// ES module-style import
-import Engage from '@engage_so/js'
-```
 
 Initializing the SDK with your just API key:
 ```js
