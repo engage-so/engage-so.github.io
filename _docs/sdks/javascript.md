@@ -35,25 +35,7 @@ import Engage from '@engage_so/js'
 If you want to directly use the CDN version, copy and paste the code below before the closing `</body>` tag of your webpage instead:
 
 ```js
-(function(k) {
-  if (window['Engage']) { return }
-  window[k] = window[k] || {};
-  window[k].queue = window[k].queue || [];
-  window['Engage'] = window['Engage'] || {};
-  function q(f) {
-    return function(){
-      window[k].queue.push([f].concat([].slice.call(arguments)));
-    }
-  }
-  var options = ['init', 'identify', 'addAttribute', 'track'];
-  for (var i = 0; i < options.length; i++) {
-    window['Engage'][options[i]] = q(options[i]);
-  }
-  var el = document.createElement('script');
-  el.src = '//d2969mkc0xw38n.cloudfront.net/next/engage.min.js';
-  el.async = true;
-  document.head.appendChild(el);
-})('engage');
+!function(n){if(!window.Engage){window[n]=window[n]||{},window[n].queue=window[n].queue||[],window.Engage=window.Engage||{};for(var e=["init","identify","addAttribute","track"],i=0;i<e.length;i++)window.Engage[e[i]]=w(e[i]);var d=document.createElement("script");d.src="//d2969mkc0xw38n.cloudfront.net/next/engage.min.js",d.async=!0,document.head.appendChild(d)}function w(e){return function(){window[n].queue.push([e].concat([].slice.call(arguments)))}}}("engage");
 ```
 
 ## Configuration
