@@ -2,8 +2,11 @@
 layout: docs
 title: API - Users
 page: api-users
+description: The User Resource allows you interact with your users on Engage.
 ---
 # Users
+
+The User Resource allows you interact with your users on Engage.
 
 - [The user object](#the-user-object)
 - [Create a User](#create-a-user)

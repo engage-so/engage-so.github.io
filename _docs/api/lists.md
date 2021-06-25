@@ -2,9 +2,12 @@
 layout: docs
 title: API - Lists
 page: api-lists
+description: The List Resource allows you interact with your user lists on Engage.
 ---
 
 # Lists
+
+The List Resource allows you interact with your user lists on Engage. You can [learn more about lists here](/docs/guides/lists).
 
 - [The list Object](#the-list-object)
 - [Create a List](#create-a-list)
@@ -14,7 +17,6 @@ page: api-lists
 - [Subscribe to a List](#subscribe-to-a-list)
 - [Update subscriber Status](#update-subscriber-status)
 - [Unsubscribe from a list ](#unsubscribe-from-a-list)
-
 
 ## The Lists object
 

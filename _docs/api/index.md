@@ -2,6 +2,7 @@
 layout: docs
 title: API
 page: api-intro
+description: The Engage API lets you interact with data and resources through REST. Learn more about the API format, authentication and resources.
 ---
 
 # API Introduction
@@ -64,5 +65,6 @@ api.engage.so/v1/users?after_id=60583d4a60ad2a26042a9499
 ## Resources
 
 - [Users](/docs/api/users)
+- [Lists](/docs/api/lists)
 
 *More resources coming soon*

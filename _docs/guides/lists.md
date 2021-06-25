@@ -2,6 +2,7 @@
 layout: docs
 page: lists
 title: Lists
+description: Lists are manually created user groups you can add users to or remove users from. You can use lists for newsletters and related campaigns.
 ---
 # Lists
 
@@ -9,4 +10,4 @@ Lists are manually created user groups you can add users to or remove users from
 
 Here are some use cases:
 - Newsletter subscription
-- Application invite (we currently use a list for Engage's private invite)
+- Application invite

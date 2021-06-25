@@ -2,6 +2,7 @@
 layout: docs
 page: automations
 title: Automations
+description: Automations allow you create workflows that send customers personalised messages based on certain triggers.
 ---
 
 # Automations

@@ -17,7 +17,7 @@ page: pricing
           <h2 class="f3 ma0 lh-copy tc">Free</h2>
           <h3 class="normal faint tc">$0/month</h3>
           <div class="lh-copy">For individuals and small teams trying things out.</div>
-          <div class="lh-copy pt3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 1,000 <abbr aria-label="Number of unique users you send a message through broadcast or automation." data-microtip-size="medium" data-microtip-position="right" role="tooltip" class="fade">MTU</abbr></div>
+          <div class="lh-copy pt3"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 1,000 <a aria-label="Number of unique users you send a broadcast or automation message." data-microtip-size="medium" data-microtip-position="right" role="tooltip" href="#mtu" class="fade">MTU</a></div>
           <div class="lh-copy pv1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 10,000 events</div>
           <div class="lh-copy pv1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-check"><polyline points="20 6 9 17 4 12"></polyline></svg> 2 team members</div>
           <div class="pt4 w-100 tc"><a href="https://app.engage.so/auth/signup" class="db button w-80-ns w-100">Get Started</a></div>
@@ -181,9 +181,9 @@ page: pricing
   <h3>FAQ</h3>
   <div class="flex flex-wrap">
     <div class="w-50-l pr3-l w-100">
-      <div class="pv2">
+      <div class="pv2" id="mtu">
         <div class="pv1 b lh-title">What is MTU and how do you calculate it?</div>
-        <div class="pv2 lh-copy faint">MTU (Monthly Tracked Users) is the number of unique users you send a message to in a month through broadcasts or automations, either from the dashboard or API. If a user receives more than one message in a month, the MTU is counted as one. Messages sent outside Engage, your transactional emails for example, do not count towards your MTU.</div>
+        <div class="pv2 lh-copy faint">MTU (Monthly Tracked Users) is the number of unique users you send a broadcast or automation message in a month, either from the dashboard or API. If a user receives more than one message in a month, the MTU is counted as one. Messages sent outside Engage, your transactional emails for example, do not count towards your MTU. <a href="/docs/mtu">Learn more</a>.</div>
       </div>
       <div class="pv2">
         <div class="pv1 b lh-title">What is a data event?</div>
