@@ -83,6 +83,7 @@ a.alt-2:hover {
 .sidebar {
   background-color: #f1faf6;
   height: 100%;
+  overflow-y: scroll;
   position: fixed
 }
 .faint {
