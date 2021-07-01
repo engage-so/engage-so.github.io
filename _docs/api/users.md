@@ -64,6 +64,8 @@ Parameters:
 - `lists` - Optional. An array of ids of lists you want to subscribe the user to. Opt-in confirmations are not sent for these even if enabled for the lists.
 - `first_name` - Optional. The user's first name
 - `last_name` - Optional. The user's last name
+- `device_token` - Optional. The user's device token
+- `device_platform` - Optional. The device platform. Supported values are `android` or `ios`
 - `number` - Optional. The user's phone number in international format
 - `email` - Optional. The user's email
 - `created_at` - Optional. Date the user signed up on your application. Should be a valid date string.
@@ -110,6 +112,8 @@ Parameters can be any or more of the following:
 - `last_name` - The user's last name
 - `number` - The user's phone number in international format
 - `email` - The user's email. Requires both username and password authentication
+- `device_token` - Optional. The user's device token
+- `device_platform` - Optional. The device platform. Supported values are `android` or `ios`
 - `created_at` - Date the user signed up on your application. Should be a valid date string
 - `meta` - An object containing additional user attributes to add or update. Should be string, number or boolean
 
