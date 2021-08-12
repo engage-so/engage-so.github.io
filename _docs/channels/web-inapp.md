@@ -39,13 +39,13 @@ If it is on a page where you already [track user attributes](https://engage.so/d
 
 **How this affect my pricing?**
 
-Each message you send to a unique user contributes to your MTU (monthly tracked users). [See how we calculate MTU](/docs/guides/mtu).
+Each message you send to a unique customer contributes to your MTU (monthly tracked users). [See how we calculate MTU](/docs/guides/mtu).
 
 **Can I use this on the free plan?**
 
 Absolutely. However, remember that the free plan is limited to only 1,000 MTU. Your in-app message will also have a "powered by Engage" footer.
 
-**When do users get the message?**
+**When do customers get the message?**
 
 If the recipient is online, the message immediately pops up at the bottom right corner of the page. If they are not online, they see it when next they are online. By online, we mean when on any of your webpage with the Engage SDK integrated.
 

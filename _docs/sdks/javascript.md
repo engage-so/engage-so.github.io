@@ -41,7 +41,7 @@ If you want to directly use the CDN version, copy and paste the code below befor
 ## Configuration
 
 
-Initializing the SDK with your just API key:
+Initializing the SDK with your public API key:
 ```js
 Engage.init('api_key')
 ```

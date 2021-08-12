@@ -124,6 +124,26 @@ layout: landing
     <h3 class="mb3">from the <span class="green">blog</span></h3>
     <div class="flex flex-wrap">
       <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <a href="https://engage.so/blog/engage-segment-integration/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/08/engage-segment.svg 300w,
+                    https://engage.so/blog/content/images/size/w600/2021/08/engage-segment.svg 600w,
+                    https://engage.so/blog/content/images/size/w1000/2021/08/engage-segment.svg 1000w,
+                    https://engage.so/blog/content/images/size/w2000/2021/08/engage-segment.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/08/engage-segment.svg" alt="Announcing Engage and Segment integration" loading="lazy"></a>
+        <a href="https://engage.so/blog/engage-segment-integration/" class="alt-2">
+          <h3 class="lh-copy mb2 fw6">Announcing Engage and Segment integration</h3>
+          <div class="lh-copy faint">We are excited to announce our integration with Segment, a leading Customer Data Platform. This integration makes it possible to sync customer data from Segment to Engage for personalised messaging.</div>.
+        </a>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
+        <a href="https://engage.so/blog/customer-retention/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/07/customer-retention.svg 300w,
+                    https://engage.so/blog/content/images/size/w600/2021/07/customer-retention.svg 600w,
+                    https://engage.so/blog/content/images/size/w1000/2021/07/customer-retention.svg 1000w,
+                    https://engage.so/blog/content/images/size/w2000/2021/07/customer-retention.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/07/customer-retention.svg" alt="5 Tips To Drive Customer Retention And Increase Lifetime Value" loading="lazy"></a>
+        <a href="https://engage.so/blog/customer-retention/" class="alt-2">
+          <h3 class="lh-copy mb2 fw6">5 Tips To Drive Customer Retention And Increase Lifetime Value</h3>
+          <div class="lh-copy faint">Customer retention does more than giving you repeat customers. It helps build ambassadors out of your customers. This messaging guide shows...</div>
+        </a>
+      </div>
+      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
         <a href="https://engage.so/blog/introduction-to-personalised-customer-messaging/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/05/personalised-messaging.svg 300w,
                     https://engage.so/blog/content/images/size/w600/2021/05/personalised-messaging.svg 600w,
                     https://engage.so/blog/content/images/size/w1000/2021/05/personalised-messaging.svg 1000w,
@@ -131,26 +151,6 @@ layout: landing
         <a href="https://engage.so/blog/introduction-to-personalised-customer-messaging/" class="alt-2">
           <h3 class="lh-copy mb2">Introduction to personalised customer messaging</h3>
           <div class="lh-copy faint">Customer messaging is important to every business. But doing it in a way that builds customer trust and loyalty is hard. In this post, we explore one of the best ways to nail this – personalisation.</div>
-        </a>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <a href="https://engage.so/blog/amazon-ses-vs-mailgun-the-ultimate-guide/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/05/mg-ses.svg 300w,
-                    https://engage.so/blog/content/images/size/w600/2021/05/mg-ses.svg 600w,
-                    https://engage.so/blog/content/images/size/w1000/2021/05/mg-ses.svg 1000w,
-                    https://engage.so/blog/content/images/size/w2000/2021/05/mg-ses.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/05/mg-ses.svg" alt="Amazon SES vs Mailgun - the ultimate guide" loading="lazy"></a>
-        <a href="https://engage.so/blog/amazon-ses-vs-mailgun-the-ultimate-guide/" class="alt-2">
-          <h3 class="lh-copy mb2 fw6">Amazon SES vs Mailgun - the ultimate guide</h3>
-          <div class="lh-copy faint">Mailgun and Amazon SES are two big email service provider for transactional emails. The underlying service is the same. But what makes them different?</div>.
-        </a>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <a href="https://engage.so/blog/understanding-amazon-ses-configuration-sets-and-how-engage-uses-them/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/05/Cover-1.svg 300w,
-                    https://engage.so/blog/content/images/size/w600/2021/05/Cover-1.svg 600w,
-                    https://engage.so/blog/content/images/size/w1000/2021/05/Cover-1.svg 1000w,
-                    https://engage.so/blog/content/images/size/w2000/2021/05/Cover-1.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/05/Cover-1.svg" alt="Understanding Amazon SES Configuration Sets and how Engage uses them" loading="lazy"></a>
-        <a href="https://engage.so/blog/understanding-amazon-ses-configuration-sets-and-how-engage-uses-them/" class="alt-2">
-          <h3 class="lh-copy mb2 fw6">Understanding Amazon SES Configuration Sets</h3>
-          <div class="lh-copy faint">Configuration Sets are settings for emails you send using Amazon Simple Email Service (SES). TThis post explains how Engage uses them and how you can extend that use.</div>
         </a>
       </div>
     </div>
