@@ -14,6 +14,7 @@ The User Resource allows you interact with your users on Engage.
 - [Update User attributes](#update-user-attributes)
 - [Add User events](#add-user-events)
 - [List Users](#list-users)
+- [Delete User](#delete-user)
 
 ## The User object
 
@@ -209,3 +210,17 @@ Example response:
   "next_cursor": "5fc6477241fcec31a9548e98"
 ```
 Remember, you can only use one of `next_cursor` and `previous_cursor`. See [pagination](/docs/api/#pagination) for more.
+
+## Delete User
+
+```
+DELETE /users/{uid}
+```
+This deletes all the user data.
+
+Example response:
+```json
+{
+  "status": "ok"
+}
+```
