@@ -10,7 +10,7 @@ Engage integrates with [Segment](https://segment.com/) as a destination for your
 
 ## Setup
 
-The Segment integration is avaialable to every account on Engage. Login to your Engage dashboard, visit Settings -> Integrations and click on the connect button for Segment. This will redirect you to Segment for authorization and to select your preferred workspace and source for the connection.
+The Segment integration is available to every account on Engage. Login to your Engage dashboard, visit Settings -> Integrations and click on the connect button for Segment. This will redirect you to Segment for authorization and to select your preferred workspace and source for the connection.
 
 ![Connect Segment](/assets/images/docs/segment-connect.png)
 
@@ -30,7 +30,7 @@ You can directly add customers from Segment to a specific [list](https://engage.
 
 ![Update list ID](/assets/images/docs/segment-advanced.png)
 
-If you reset your public API key on Engage, update the new public key here as well. If not, yout Segment connection will stop working as the integration uses the API key to send data to your Engage account.
+If you reset your public API key on Engage, update the new public key here as well. If not, your Segment connection will stop working as the integration uses the API key to send data to your Engage account.
 
 ## Supported Segment calls
 
