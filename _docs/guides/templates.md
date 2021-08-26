@@ -10,11 +10,9 @@ Templates allow you create a predefined content you can use for email later. It 
 
 A template will look something like this:
 
-```text
-Hi {%raw%}{{name}}{%endraw%},
-
-Click here to confirm your subscription {%raw%}{{link}}{%endraw%}
-```
+> Hi {%raw%}{{name}}{%endraw%},
+>
+> Click here to confirm your subscription {%raw%}{{link}}{%endraw%}
 
 To send the email, you only need to send the value for `{%raw%}{{name}}{%endraw%}` and `{%raw%}{{link}}{%endraw%}` instead of the full email body. 
 
