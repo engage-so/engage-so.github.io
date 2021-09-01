@@ -183,7 +183,7 @@ page: pricing
     <div class="w-50-l pr3-l w-100">
       <div class="pv2" id="mtu">
         <div class="pv1 b lh-title">What is MTU and how do you calculate it?</div>
-        <div class="pv2 lh-copy faint">MTU (Monthly Tracked Users) is the number of unique users you send a broadcast or automation message in a month, either from the dashboard or API. If a user receives more than one message in a month, the MTU is counted as one. Messages sent outside Engage, your transactional emails for example, do not count towards your MTU. <a href="/docs/mtu">Learn more</a>.</div>
+        <div class="pv2 lh-copy faint">MTU (Monthly Tracked Users) is the number of unique users you send a broadcast or automation message in a month, either from the dashboard or API. If a user receives more than one message in a month, the MTU is counted as one. Messages sent outside Engage, your transactional emails for example, do not count towards your MTU. <a href="/docs/guides/mtu">Learn more</a>.</div>
       </div>
       <div class="pv2">
         <div class="pv1 b lh-title">What is a data event?</div>

@@ -64,7 +64,7 @@ Engage identifies your application with the `key` parameter. This is enough to i
 
 ## Identifying users
 
-Before you can track user events, actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. ([See connecting user data](/docs/connecting-user-data) for more). You only need to do this once; at user signup for example.
+Before you can track user events, actions or user properties, Engage needs to know some basic information about the user–a unique id, email, name (optional) and when the user signed up on your application. ([See connecting user data](/docs/guides/connecting-user-data) for more). You only need to do this once; at user signup for example.
 
 ```js
 Engage.identify({
