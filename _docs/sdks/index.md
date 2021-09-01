@@ -1,6 +1,7 @@
 ---
 layout: docs
 page: sdks
+title: SDKs
 ---
 # SDKs
 

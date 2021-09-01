@@ -1,7 +1,7 @@
 ---
 layout: docs
 page: mtu
-title: MTU
+title: MTU (Monthly Tracked Users)
 description: MTU (Monthly Tracked Users) is the number of unique customers you send a broadcast or automation message within your billing period.
 ---
 
