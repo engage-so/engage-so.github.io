@@ -28,14 +28,14 @@
   <div class="flex f5">
     <div class="w-20 pa4 sidebar fixed">
       <div class="mb4">
-        <a href="/docs"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
+        <a href="/docs/"><img src="/images/engage-docs-logo.png" style="width:100%;max-width:150px"></a>
       </div>
 
       <!-- <div class="mv4">
         <input type="search" placeholder="Search..." class="w-100">
       </div> -->
       <ul class="nav">
-        <li><a href="/docs"{% if page.page == 'intro' %} class="active"{% endif %}>Introduction</a></li>
+        <li><a href="/docs/"{% if page.page == 'intro' %} class="active"{% endif %}>Introduction</a></li>
       </ul>
 
       <h3 class="mb1 small-caps faint">Platform guide</h3>
@@ -62,15 +62,15 @@
         <li><a href="/docs/integrations/stripe"{% if page.page == 'stripe' %} class="active"{% endif %}>Stripe</a></li>
         <li><a href="/docs/integrations/segment"{% if page.page == 'segment' %} class="active"{% endif %}>Segment</a></li>
         <li>
-          <a href="/docs/api">API</a>
+          <a href="/docs/api/">API</a>
           <ul class="nav ml3">
-            <li><a href="/docs/api"{% if page.page == 'api-intro' %} class="active"{% endif %}>Introduction</a></li>
+            <li><a href="/docs/api/"{% if page.page == 'api-intro' %} class="active"{% endif %}>Introduction</a></li>
             <li><a href="/docs/api/users"{% if page.page == 'api-users' %} class="active"{% endif %}>Users</a></li>
             <li><a href="/docs/api/lists"{% if page.page == 'api-lists' %} class="active"{% endif %}>Lists</a></li>
           </ul>
         </li>
         <li>
-          <a href="/docs/sdks">SDKs</a>
+          <a href="/docs/sdks/">SDKs</a>
           <ul class="nav ml3">
             <li><a href="/docs/sdks/javascript"{% if page.page == 'sdk-js' %} class="active"{% endif %}>JavaScript</a></li>
             <li><a href="/docs/sdks/php"{% if page.page == 'sdk-php' %} class="active"{% endif %}>PHP</a></li>

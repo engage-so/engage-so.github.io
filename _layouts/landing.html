@@ -9,6 +9,7 @@
   <meta name="description" content="{{page.description}}">
   <meta name="slack-app-id" content="A6566DWTS">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://engage.so{{ page.url | replace:'index.html','' }}" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -40,9 +41,9 @@
   <header>
     <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap">
       <div class="flex flex-wrap w-100 justify-between items-center pv2">
-        <h1 class="lh-title logo pr4">
+        <div class="lh-title logo pr4">
           <a href="/"><img src="/images/engage.svg" style="width:120px;"></a>
-        </h1>
+        </div>
         <nav class="flex items-center">
           <div class="mh3 relative pop-link">
             <a href="#" class="fw6 db{% if page.page == 'features' %} active{% endif %}">Features</a>
@@ -83,7 +84,7 @@
   </header>
   <section class="dn mobile-menu">
     <div class="mt4 mb6 ph7-xl ph6-l ph5-m ph4 tc nav-mobile">
-      <h1 class="pb3">Menu</h1>
+      <div class="pb3 f1">Menu</div>
       <a href="/" class="mv3 db f3 faint">Home</a>
       <div class="mv3 f3">Features</div>
       <a href="/features/customer-segmentation" class="db faint">Customer Segmentation</a>
@@ -116,8 +117,8 @@
         <div class="pv1"><a href="/docs/guides/segments">Segmenting users</a></div>
         <div class="pv1"><a href="/docs/guides/automations">Creating automations</a></div>
         <div class="mt3 f4 small-caps faint">Developers</div>
-        <div class="pv1"><a href="/docs/api">API Documentation</a></div>
-        <div class="pv1"><a href="/docs/sdks">SDKs</a></div>
+        <div class="pv1"><a href="/docs/api/">API Documentation</a></div>
+        <div class="pv1"><a href="/docs/sdks/">SDKs</a></div>
       </div>
       <div class="w-30-l w-third-ns ph2">
         <div class="f4 small-caps faint">Use cases</div>

@@ -21,7 +21,7 @@ page: features
     <div class="w-50-l w-100 pr5-l mt4">
       <img src="/images/segment-api.png" class="bordered-image" alt="Connect your favourite services">
       <h2 class="f3 lh-copy">Connect your <span class="green">favourite</span> services</h2>
-      <div class="f4 lh-copy faint">Easily connect customer data through integrations with your favourite services, our <a href="/docs/sdks">SDKs</a> and the <a href="/docs/api">User API</a>.</div>
+      <div class="f4 lh-copy faint">Easily connect customer data through integrations with your favourite services, our <a href="/docs/sdks/">SDKs</a> and the <a href="/docs/api/">User API</a>.</div>
     </div>
     <div class="w-50-l w-100 pl5-l mt4">
       <img src="/images/segment-create.png" class="bordered-image" alt="Easily segment customers">
