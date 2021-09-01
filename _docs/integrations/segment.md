@@ -2,6 +2,7 @@
 layout: docs
 page: segment
 title: Segment Integration
+description: Connect Engage as an event destination to your Segment.com account to create customer groups for targeted campaigns and message automation with event data.
 ---
 
 # Segment

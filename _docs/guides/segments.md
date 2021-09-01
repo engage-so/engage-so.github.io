@@ -2,6 +2,7 @@
 layout: docs
 page: segments
 title: Customer Segments
+description: A segment is a group of your customers that share similar characteristics. Learn how to create customer segments, send targeted campaigns and create message automation with Segments.
 ---
 
 # Customer Segments

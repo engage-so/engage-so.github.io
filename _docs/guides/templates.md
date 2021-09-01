@@ -2,6 +2,7 @@
 layout: docs
 page: templates
 title: Transactional email templates management
+description: Engage helps you manage your transactional email templates so that you can make changes to emails you send without making changes to your code.
 ---
 
 # Transactional email templates management

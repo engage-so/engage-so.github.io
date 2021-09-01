@@ -2,6 +2,7 @@
 layout: docs
 page: member-roles
 title: Team member roles
+description: Engage supports different team member roles to manage access and privileges.
 ---
 # Team member roles
 

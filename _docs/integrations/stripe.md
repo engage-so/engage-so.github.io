@@ -2,6 +2,7 @@
 layout: docs
 page: stripe
 title: Stripe Integration
+description: Connect your Stripe.com account to Engage for your messaging campaigns and automation based on your customers' billing events.
 ---
 
 # Stripe

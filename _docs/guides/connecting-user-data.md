@@ -2,6 +2,7 @@
 layout: docs
 page: bringing-users
 title: Connecting customer data
+description: Connect your customer data to create customer segments based on the data, send targeted broadcasts and create message automation.
 ---
 
 # Connecting customer data

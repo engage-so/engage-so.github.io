@@ -2,6 +2,7 @@
 layout: docs
 page: sdks
 title: SDKs
+description: SDKs provide an easier way to interact with the Engage API.
 ---
 # SDKs
 

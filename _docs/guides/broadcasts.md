@@ -2,6 +2,7 @@
 layout: docs
 page: broadcasts
 title: Sending broadcasts
+description: Send targeted message campaigns to your customer groups through email, SMS, push notifications on mobile and web-in messaging on web.
 ---
 
 # Sending broadcasts

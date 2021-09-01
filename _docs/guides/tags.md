@@ -2,6 +2,7 @@
 layout: docs
 page: tags
 title: Personalisation tags
+description: Personalisation tags allow you customise your messages with customer or event data. Learn how to use them in your broadcasts and automation messages. 
 ---
 
 # Personalisation tags
