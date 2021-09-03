@@ -84,7 +84,6 @@ a.alt-2:hover {
   background-color: #f1faf6;
   height: 100%;
   overflow-y: scroll;
-  position: fixed
 }
 .faint {
   color: #74849c !important;
@@ -108,10 +107,6 @@ a.alt-2:hover {
 .sidebar .nav .active {
   font-weight: 600;
   color: #001a40
-}
-
-.mainbar {
-  margin-left: 20%
 }
 
 video {
@@ -993,6 +988,11 @@ footer a:hover .feather {
     border-radius: 3px;
     margin-top: 3px;
     width: 100%;
+  }
+}
+@media screen and (min-width:60em){
+  .mainbar {
+    margin-left: 20%
   }
 }
 
