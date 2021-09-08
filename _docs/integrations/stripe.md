@@ -35,7 +35,7 @@ This is triggered when a customer’s trial period for a subscription will end. 
 ## Data we collect
 We collect different data for the supported events so you can use them to create customer segments and use them as [personalisation tags](/docs/guides/tags) within your automation messages. 
 
-Important note: For easier use, the amount data is converted from the smallest unit sent by Stripe to a hundredth. For example, Stripe sends 100p for a dollar payment but we convert it to 1. Engage’s personalisation tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can multiply by 100 to convert back, e.g {%raw%}`{{ event.amount | times: 100 }}`{%endraw%}
+Important note: For easier use, the amount data is converted from the smallest unit sent by Stripe to a hundredth. For example, Stripe sends 100p for a dollar payment but we convert it to 1. Engage’s personalisation tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can divide by 100 to convert back, e.g {%raw%}`{{ event.amount | divided_by: 100 }}`{%endraw%}
 
 ### Event data
 
