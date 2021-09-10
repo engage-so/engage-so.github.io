@@ -8,7 +8,7 @@ page: features
   <div class="ph7-xl ph6-l ph5-m ph4 mt4 flex flex-wrap overflow-hidden">
     <div class="w-50-l w-100 pt5">
       <h1 class="f2 lh-title">Bring your own <span class="green">messaging</span> infrastructure</h1>
-      <h3 class="lh-copy f4 normal faint">Connect messaging services you already use and use that to power your messaging on Engage.</h3>
+      <h2 class="inter lh-copy f4 normal faint">Connect messaging services you already use and use that to power your messaging on Engage.</h2>
       <div class="mv4">
         <form method="GET"><input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding-top:12px;padding-bottom:12px;width:50%"><button class="one-liner-el" type="submit">Signup — it's free</button></form>
       </div>

@@ -15,7 +15,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/tachyons.css">
-  <link rel="stylesheet" href="/css/docs.css?200521">
+  <link rel="stylesheet" href="/css/docs.css?100921">
   <link rel="stylesheet" href="/css/microtip.min.css"/>
   <script type="application/ld+json">
   {
@@ -68,6 +68,7 @@
               </div>
             </div>
           </div>
+          <a href="/doc/" class="mh3 fw6 db">Docs</a>
           <a href="/pricing" class="fw6 db mh3{% if page.page == 'pricing' %} active{% endif %}">Pricing</a>
           <a href="https://app.engage.so/auth/login" class="fw6 db mh3">Login</a>
           <a href="https://app.engage.so/auth/signup" class="db ml3 button">Signup</a>
@@ -86,6 +87,7 @@
     <div class="mt4 mb6 ph7-xl ph6-l ph5-m ph4 tc nav-mobile">
       <div class="pb3 f1">Menu</div>
       <a href="/" class="mv3 db f3 faint">Home</a>
+      <a href="/docs/" class="mv3 db f3 faint">Docs</a>
       <div class="mv3 f3">Features</div>
       <a href="/features/customer-segmentation" class="db faint">Customer Segmentation</a>
       <a href="/features/multichannel-messaging" class="pv2 db faint">Multichannel Broadcasts and Automation</a>
@@ -102,7 +104,7 @@
   <footer class="ph7-xl ph6-l ph5-m ph4 mt5">
     <div class="flex flex-wrap justify-between pv5" style="border-top:1px solid #dee4ed;border-bottom:1px solid #dee4ed">
       <div class="w-40-l w-100 pr4-l mb4 mb0-l">
-        <h1 class="mt0 f3"><a href="/"><img src="/images/engage.svg" width="100"></a></h1>
+        <div class="mt0 f3"><a href="/"><img src="/images/engage.svg" width="100"></a></div>
         <div class="lh-copy">Customer messaging for growth and retention.</div>
         <form method="post" class="subscribe-form mt2 pt2"">
           <div class="lh-copy pv2">Follow our updates.</div>
@@ -112,9 +114,16 @@
         </form>
       </div>
       <div class="w-30-l w-third-ns ph2">
-        <div class="f4 small-caps faint">Guides</div>
-        <div class="pv1"><a href="/docs/guides/connecting-user-data">Connecting user data</a></div>
-        <div class="pv1"><a href="/docs/guides/segments">Segmenting users</a></div>
+        <div class="f4 small-caps faint">Integrations</div>
+        <div class="pv1"><a href="/docs/integrations/stripe">Stripe</a></div>
+        <div class="pv1"><a href="/docs/integrations/segment">Segment</a></div>
+        <div class="pv1"><a href="/docs/integrations/s3">Amazon S3</a></div>
+        <div class="pv1"><a href="/analytics-and-reporting-for-amazon-ses">Mailgun</a></div>
+        <div class="pv1"><a href="/analytics-and-reporting-for-mailgun">Amazon SES</a></div>
+        <div class="mt3 f4 small-caps faint">Guides</div>
+        <div class="pv1"><a href="/docs/">Documentation</a></div>
+        <div class="pv1"><a href="/docs/guides/connecting-user-data">Connecting customer data</a></div>
+        <div class="pv1"><a href="/docs/guides/segments">Segmenting customer</a></div>
         <div class="pv1"><a href="/docs/guides/automations">Creating automations</a></div>
         <div class="mt3 f4 small-caps faint">Developers</div>
         <div class="pv1"><a href="/docs/api/">API Documentation</a></div>

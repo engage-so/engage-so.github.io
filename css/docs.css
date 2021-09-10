@@ -20,6 +20,9 @@ nav a:hover {
 .logo img.small {
   width: 30px
 }
+.inter {
+  font-family: 'Inter', sans-serif;
+}
 .poppins {
   font-family: 'Poppins', sans-serif;
 }

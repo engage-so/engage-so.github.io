@@ -8,7 +8,7 @@ page: features
   <div class="ph7-xl ph6-l ph5-m ph4 pv4" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
     <div class="tc w-70-l w-100 pt2 center">
       <h1 class="f2 lh-title">Customer <span class="green">Segmentation</span></h1>
-      <h3 class="lh-copy f4 normal faint">Create customer groups based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal). Get analytics insights and easily message your segments.</h3>
+      <h2 class="lh-copy inter f4 normal faint">Create customer groups based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal). Get analytics insights and easily message your segments.</h2>
       <div class="ma4 ph5-l">
         <form method="GET" action="https://app.engage.so/auth/signup">
           <input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding:15px"><button class="one-liner-el" type="submit" style="padding:15px">Signup — it's free</button>
