@@ -13,13 +13,15 @@ The Engage API lets you interact with data and resources through REST. The API a
 
 Authentication is via [HTTP Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) using your API key as username and API secret as password. You can view and manage these keys in the [settings page](https://app.engage.so/settings/account) of your account dashboard. On some endpoints, you can use just your API key (as username) and leave the secret empty. This makes it possible to call such endpoints from client-side applications. Endpoints that support this are marked with "works with username authentication".
 
+### API Root
+
+`https://api.engage.so/v1`
+
+> Note that requests have to be HTTPS or it won't work.
+
 ### Versioning
 
 The current API version is `v1`.
-
-### API Root
-
-`api.engage.so/v1`
 
 ### Errors
 
