@@ -1,13 +1,13 @@
 ---
 title: 'Customer messaging for growth and retention – Engage'
-description: 'Send your customers messages based on their profile and what they do within your application. Create message automations and easily move your customers from acquisition to referral.'
+description: 'All you need to deliver personalised customer messaging and marketing automation through email, SMS and in-app messaging.'
 layout: landing
 ---
 
   <div class="ph7-xl ph6-l ph5-m ph4 pv4" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
     <div class="tc w-70-l w-100 pt2 center">
       <h1 class="f1 lh-title">Customer messaging for <span class="green">growth</span> and retention</h1>
-      <h2 class="lh-copy inter f4 normal faint">Send personalised messages to customers based on profile attributes and actions. Create message automations for onboarding, retention and easily move customers from acquisition to referral.</h2>
+      <h2 class="lh-copy inter f4 normal faint">All you need to deliver personalised customer messaging and marketing automation through email, SMS and in-app messaging.</h2>
       <div class="ma4 ph5-l">
         <form method="GET" action="https://app.engage.so/auth/signup">
           <input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding:15px"><button class="one-liner-el" type="submit" style="padding:15px">Signup — it's free</button>

@@ -12,11 +12,11 @@ Engage connects to your [Stripe account](https://stripe.com) to let you create c
 Visit the settings page of your Engage dashboard and click on the integrations tab. Scroll down to the Payment category and click the Stripe connect button. You will be redirected to Stripe to authorise your preferred account with Engage. Engage only gets read permission to receive the supported event and nothing more.
 
 ## Events we support
-We currently support 9 [Stripe events](https://stripe.com/docs/api/events/types). They are:
-- **Customer created** (customer.created)   
+We currently support 10 [Stripe events](https://stripe.com/docs/api/events/types). They are:
+- **Customer created** (`customer.created`)   
 This is triggered when a new customer is created on Stripe. This mostly happens when a customer attempts payment by adding a payment source like a card.
 - **Invoice upcoming** (`invoice.upcoming`)   
-Stripe triggers invoice upcoming events before a subscription is charged and renewed. (You can customise when on your Stripe dashboard). You can use this to send reminders of an upcoming charge for example.
+Stripe triggers invoice upcoming events before a subscription is charged and renewed. (You can customise when on your Stripe dashboard). You can use this to automate reminders of an upcoming charge for example.
 - **Invoice payment successful** (`invoice.payment_succeeded`)   
 This is triggered when an invoice payment is successful for subscriptions. We only support this event for subscriptions. Use this for successful subscription payments.
 - **Invoice payment failed** (`invoice.payment_failed`)   
@@ -26,11 +26,13 @@ This is triggered when a one time charge is fails. Stripe triggers this event fo
 - **Charge successful** (`charge.succeeded`)   
 This is triggered when a one time charge is successful. Stripe triggers this for successful subscription payments too but we ignore this if it’s for a subscription. Use this for successful one-time charge payments.
 - **New customer subscription** (`customer.subscription.created`)   
-This is triggered when a customer subscribes to a new subscription. You can use this to send “Thank you” notifications for example
+This is triggered when a customer subscribes to a new subscription. You can use this to automate “Thank you” notifications for example
 - **Subscription deleted** (`customer.subscription.deleted`)   
 This is triggered when a customer’s subscription is canceled. 
 - **Trial will end** (`customer.subscription.created`)   
 This is triggered when a customer’s trial period for a subscription will end. You can use this to send reminders for cancelation. It is a good practice to remind customers that their trial will expire and they will be billed.
+- **Card will expire** (`customer.source.expiring`)   
+This is triggered when a customer card will expire at the end of month. We only support this for card expiry and not other customer payment methods. Use this to send reminders to customers to update their billing details.
 
 ## Data we collect
 We collect different data for the supported events so you can use them to create customer segments and use them as [personalisation tags](/docs/guides/tags) within your automation messages. 
@@ -61,6 +63,10 @@ Important note: For easier use, the amount data is converted from the smallest u
 - `subscription_items` - An array of subscription items. Each item will have, `name` (name of plan or price), `quantity`, `amount` and `currency`.
 - `currency` - Currency ISO (all caps). Available in all charge and invoice events
 - `status` - Payment or subscription status of the event. For one time charge events, possible values are succeeded, pending, or failed. For subscription, possible values are active, past_due, unpaid, canceled, incomplete, incomplete_expired, or trialing. For invoice payments, possible values are draft, open, paid, uncollectible, or void
+- `brand` - Card brand, e.g Visa. Available in Card will expire event.
+- `exp_month` - Card expiry month. Available in Card will expire event.
+- `exp_year` - Card expiry year. Available in Card will expire event.
+- `last4` - Last 4 digits of card. Available in Card will expire event.
 
 ### Attribute Data
 
