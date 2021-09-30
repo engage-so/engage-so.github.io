@@ -25,7 +25,7 @@ layout: landing
     <div class="w-50-l w-100 pl5-l mt4">
       <img src="/images/stripe-segment.png" class="bordered-image" alt="Create customer segments by spend, plan and more">
       <h2 class="f3 lh-copy">Create customer segments by spend, plan and more</h2>
-      <div class="f4 lh-copy faint">Automatically group your by billing events. Create customer groups based on plan, amount spent, and more</div>
+      <div class="f4 lh-copy faint">Automatically group your customers by billing events. Create customer groups based on plan, amount spent, and more</div>
     </div>
   </div>
 
