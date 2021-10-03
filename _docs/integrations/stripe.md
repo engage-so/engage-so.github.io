@@ -12,7 +12,7 @@ Engage connects to your [Stripe account](https://stripe.com) to let you create c
 Visit the settings page of your Engage dashboard and click on the integrations tab. Scroll down to the Payment category and click the Stripe connect button. You will be redirected to Stripe to authorise your preferred account with Engage. Engage only gets read permission to receive the supported event and nothing more.
 
 ## Events we support
-We currently support 10 [Stripe events](https://stripe.com/docs/api/events/types). They are:
+We currently support 11 [Stripe events](https://stripe.com/docs/api/events/types). They are:
 - **Customer created** (`customer.created`)   
 This is triggered when a new customer is created on Stripe. This mostly happens when a customer attempts payment by adding a payment source like a card.
 - **Invoice upcoming** (`invoice.upcoming`)   
@@ -33,6 +33,8 @@ This is triggered when a customer’s subscription is canceled.
 This is triggered when a customer’s trial period for a subscription will end. You can use this to send reminders for cancelation. It is a good practice to remind customers that their trial will expire and they will be billed.
 - **Card will expire** (`customer.source.expiring`)   
 This is triggered when a customer card will expire at the end of month. We only support this for card expiry and not other customer payment methods. Use this to send reminders to customers to update their billing details.
+- **Checkout session expired** (`checkout.session.expired`)   
+This is triggered when a customer leaves a checkout page and the session expires. This is popularly called **Abandoned Cart** in e-commerce. Use this to send reminders to customers about their pending order. [Learn more](https://stripe.com/docs/payments/checkout/abandoned-carts).
 
 ## Data we collect
 We collect different data for the supported events so you can use them to create customer segments and use them as [personalisation tags](/docs/guides/tags) within your automation messages. 
@@ -46,8 +48,8 @@ Important note: For easier use, the amount data is converted from the smallest u
 - `invoice_url` - A URL to view (and pay) for invoice if finalised. Available in invoice payment events.
 - `invoice_pdf` - A link to download PDF of the invoice if finalised. Available in invoice payment events.
 - `invoice_lines` - An array of invoice lines. Each item will have, `description` , `quantity`, `amount` and `currency`. Available in invoice payment events.
-- `total` - Total amount on invoice, including tax. Available in invoice payment events.
-- `subtotal` - Total amount on invoice before tax is applied. Available in invoice payment events.
+- `total` - Total amount on invoice, including tax. Available in invoice payment and checkout session expired events.
+- `subtotal` - Total amount on invoice before tax is applied. Available in invoice payment and checkout session expired events.
 - `amount_paid` - Amount paid on the invoice. Available in invoice payment events. 
 - `amount_due` - Amount due to be paid on invoice. Note that this may be less than `total` as there may be credit on the customer profile. 
 - `amount` - Payment amount for one-time payments. Available in charge events. 
@@ -67,6 +69,7 @@ Important note: For easier use, the amount data is converted from the smallest u
 - `exp_month` - Card expiry month. Available in Card will expire event.
 - `exp_year` - Card expiry year. Available in Card will expire event.
 - `last4` - Last 4 digits of card. Available in Card will expire event.
+- `checkout_url` - Link to complete a checkout process. Available in checkout session expired event.
 
 ### Attribute Data
 

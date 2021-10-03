@@ -7,7 +7,7 @@ layout: landing
   <div class="ph7-xl ph6-l ph5-m ph4 pv4" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
     <div class="tc w-70-l w-100 pt2 center">
       <h1 class="f2 lh-title">Engage + <span class="green">Stripe</span></h1>
-      <h2 class="lh-copy inter f4 normal faint">Automate your billing notifications and reminders with Engage's Stripe integration. Automatically send payment receipts, card expiry reminders and more.</h2>
+      <h2 class="lh-copy inter f4 normal faint">Automate your billing notifications and reminders with Engage's Stripe integration. Automatically send payment receipts, remind customers of card expiry, recover abandoned carts and more.</h2>
       <div class="ma4 ph5-l">
         <form method="GET" action="https://app.engage.so/auth/signup">
           <input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding:15px"><button class="one-liner-el" type="submit" style="padding:15px">Signup — it's free</button>
