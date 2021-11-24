@@ -16,7 +16,7 @@ The List Resource allows you interact with your user lists on Engage. You can [l
 - [Archive a List](#archive-a-list)
 - [Subscribe to a List](#subscribe-to-a-list)
 - [Update subscriber Status](#update-subscriber-status)
-- [Unsubscribe from a list ](#unsubscribe-from-a-list)
+- [Remove subscriber from list.](#remove-subscriber-from-list)
 
 ## The Lists object
 
@@ -76,9 +76,10 @@ Example response payload
 
 ## Get all list data.
 
-The method returns lists of objects on your Engage account which include `has_more`, it returns True if the current list has another page that can be fetched. 
+The method returns lists of objects on your Engage account which include `has_more`, it returns True if the current list has another page that can be fetched.
 
 Works with username authentication.
+
 ```
 GET /lists
 ```
@@ -92,8 +93,8 @@ This endpoint supported the following queries
 
 NB: See [pagination](/docs/api/#pagination) for more.
 
-
 Example response payload
+
 ```json
 {
  "data": [
@@ -119,11 +120,13 @@ Example response payload
 Retrieves the details of a list. Supply the unique identifier of the list
 
 Works with username authentication.
+
 ```
 GET /lists/{id}
 ```
 
 Example response payload
+
 ```json
 {
   "id": "60036440419768607192801b",
@@ -142,11 +145,13 @@ Example response payload
 If you need to update only some list details, like title, description, double_optin and redirect url, etc on Engage, you can do so using the list `id`
 
 Works with username authentication.
+
 ```
 PUT /lists/{id}
 ```
 
 Parameters can be any or more of the following:
+
 - `title` - The list title.
 - `description` - The list description.
 - `redirect_url` - valid URL to redirect users to after subscription.
@@ -156,17 +161,16 @@ Example response payload
 Return updated list object.
 
 ```json
-  {
-    "id": "60036440419768607192801b",
-    "title": "Monthly subscription",
-    "description": "Awesome product waiting list",
-    "subscriber_count": 0,
-    "broadcast_count": 0,
-    "double_optin": false,
-    "redirect_url": null,
-    "created_at": "2011-10-05T14:48:00.000Z"
-  }
-
+{
+  "id": "60036440419768607192801b",
+  "title": "Monthly subscription",
+  "description": "Awesome product waiting list",
+  "subscriber_count": 0,
+  "broadcast_count": 0,
+  "double_optin": false,
+  "redirect_url": null,
+  "created_at": "2011-10-05T14:48:00.000Z"
+}
 ```
 
 ## Archive a list
@@ -222,9 +226,9 @@ Example response payload
 { "subscribed": false }
 ```
 
-## Unsubscribe from a list
+## Remove subscriber from list.
 
-Remove subscribers from list.
+Remove subscriber from list
 
 ```
 DELETE /lists/:id/subscribers/{uid}
