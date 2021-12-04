@@ -36,7 +36,7 @@ layout: landing
     <div class="w-50-l w-100 pr6-l">
       <h2 class="f2 ma0 lh-title">Segment your customers by <span class="green">attributes</span> and <span class="green">actions</span></h2>
       <div class="lh-copy f4 pv3 normal faint">Group your customers based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal).</div>
-      <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
+      <div class="f4 lh-copy pv3"><a href="/features/customer-segmentation">Learn more &rarr;</a></div>
     </div>
     <div class="w-50-l w-100">
       <img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image">

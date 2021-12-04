@@ -37,13 +37,13 @@ This is triggered when a customer card will expire at the end of month. We only 
 This is triggered when a customer leaves a checkout page and the session expires. This is popularly called **Abandoned Cart** in e-commerce. Use this to send reminders to customers about their pending order. [Learn more](https://stripe.com/docs/payments/checkout/abandoned-carts).
 
 ## Data we collect
-We collect different data for the supported events so you can use them to create customer segments and use them as [personalisation tags](/docs/guides/tags) within your automation messages. 
+We collect different data for the supported events so you can use them to create customer segments and use them as [personalization tags](/docs/guides/tags) within your automation messages. 
 
-Important note: For easier use, the amount data is converted from the smallest unit sent by Stripe to a hundredth. For example, Stripe sends 100p for a dollar payment but we convert it to 1. Engage’s personalisation tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can divide by 100 to convert back, e.g {%raw%}`{{ event.amount | divided_by: 100 }}`{%endraw%}
+Important note: For easier use, the amount data is converted from the smallest unit sent by Stripe to a hundredth. For example, Stripe sends 100p for a dollar payment but we convert it to 1. Engage’s personalization tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can multiply by 100 to convert back, e.g {%raw%}`{{ event.amount | times: 100 }}`{%endraw%}
 
 ### Event data
 
-> Note: To use as personalisation tags, prefix with `event.` e.g `event.amount`.
+> Note: To use as personalization tags, prefix with `event.` e.g `event.amount`.
 
 - `invoice_url` - A URL to view (and pay) for invoice if finalised. Available in invoice payment events.
 - `invoice_pdf` - A link to download PDF of the invoice if finalised. Available in invoice payment events.
@@ -74,7 +74,7 @@ Important note: For easier use, the amount data is converted from the smallest u
 ### Attribute Data
 
 We collect the standard attributes first_name, last_name, email and number. The other attributes are prefixed with stripe_ so that it’s clear they are from Stripe. 
-Note: To use as personalisation tags, prefix with `meta.` e.g `meta.stripe_address_country`.
+Note: To use as personalization tags, prefix with `meta.` e.g `meta.stripe_address_country`.
 
 - `stripe_delinquent` 
 - `stripe_address_city`
@@ -84,10 +84,10 @@ Note: To use as personalisation tags, prefix with `meta.` e.g `meta.stripe_addre
 - `stripe_address_state`
 - `stripe_address_postal_code`
 
-## Using event data for personalisation tags
-If an automation trigger is “Event is triggered” and the event type is a Stripe event, you can use any of the Stripe event data as personalisation tag within messages in the automation. To do this, prefix with "`event.`". 
+## Using event data for personalization tags
+If an automation trigger is “Event is triggered” and the event type is a Stripe event, you can use any of the Stripe event data as personalization tag within messages in the automation. To do this, prefix with "`event.`". 
 
-Remember, Engage’s personalisation tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can use this to format your tags. 
+Remember, Engage’s personalization tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can use this to format your tags. 
 
 Here is an example:
 
