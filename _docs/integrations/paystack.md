@@ -86,7 +86,7 @@ Have questions? Reply this email.
 
 ## Connecting through Zapier
 
-Besides using the Live webhook URL, you can also connect your Paystack to Engage through Zapier. Our Zapier integration is currently invite-only. You can request an invite by [clicking on the Zapier integration](https://zapier.com/developer/public-invite/126257/77e2d8fc01f13e16bc19b9ade8917470/) link in the integrations page on your Engage dashboard.
+Besides using the Live webhook URL, you can also connect your Paystack to Engage through Zapier. See the [Engage integration page](https://zapier.com/apps/engage/integrations) on Zapier for some templates you can use.
 
 To help Engage identify new customers in your Paystack account, we recommend you start by connecting the **New Customer** Paystack event on Zapier to Engage. Here is how:
 
@@ -98,9 +98,8 @@ To help Engage identify new customers in your Paystack account, we recommend you
 ![Select Engage as Action application](/assets/images/docs/zapier-engage.png)
 - Under **Action Event**, select **Update or Create a New Customer**.
 ![Update or Create a New Customer](/assets/images/docs/zapier-new-customer-2.png)
-- Once you click **Continue**, you will be prompted to connect your Engage account (if not done already) by entering a username and password.
-- Get your public and private API keys from your Engage dashboard (Settings -> Account -> Your API key).
-- Enter your Public key as the username and the Private key as the password.
+- Once you click **Continue**, you will be prompted to connect your Engage account (if not done already) by entering your public and private keys.
+- Get your public and private API keys from your Engage dashboard (Settings -> Account -> Your API key) and enter them.
 - Next, **Set up action**.
 - Map the fields to the right Paystack value. Ensure that the **User ID** is mapped to the Paystack customer's ID.
 ![Map the fields](/assets/images/docs/zapier-customer-parameters.png)

@@ -7,11 +7,17 @@ description: Connect thousands of events to Engage through Zapier.
 
 # Zapier
 
-Engage's Zapier integration lets you send customer data and events from thousands of applications to Engage.
+Engage's Zapier integration lets you send customer data and events from 3,000+ applications to Engage.
 
 ## How to connect
 
-The Zapier integration is currently invite-only. You can request an invite by [clicking on the Zapier integration](https://zapier.com/developer/public-invite/126257/77e2d8fc01f13e16bc19b9ade8917470/) link in the integrations page on your Engage dashboard.
+- Log in to your [Zapier account](https://zapier.com/sign-up) or create a new account.
+- Click on the "Create Zap" button.
+- In the "Trigger" section, search for the application you want to connect to Engage.
+- Once the trigger application is setup, continue to the "Action" stage.
+- Search for Engage.
+
+Need inspiration? See everything that's possible with [Engage and Zapier](https://zapier.com/apps/engage/integrations).
 
 ## Send customer data to Engage
 
@@ -24,9 +30,8 @@ To send customer attribute data from your choice application to Engage, follow t
 ![Select Engage as Action application](/assets/images/docs/zapier-engage.png)
 - Under **Action Event**, select **Update or Create a New Customer**.
 ![Update or Create a New Customer](/assets/images/docs/zapier-new-customer-2.png)
-- Once you click **Continue**, you will be prompted to connect your Engage account (if not done already) by entering a username and password.
-- Get your public and private API keys from your Engage dashboard (Settings -> Account -> Your API key).
-- Enter your Public key as the username and the Private key as the password.
+- Once you click **Continue**, you will be prompted to connect your Engage account (if not done already) by entering your public and private keys.
+- Get your public and private API keys from your Engage dashboard (Settings -> Account -> Your API key) and enter them.
 - Next, **Set up action**.
 - Map the fields. Ensure that the **User ID** field is mapped to trigger application's user ID value. This ensures that subsequent events can be rightly mapped to the user.
 ![Map the fields](/assets/images/docs/zapier-customer-parameters.png)
@@ -43,9 +48,8 @@ To send customer events from your choice application to Engage, follow the follo
 - Select the event that has the event data you want to send to Engage.
 - Search and select **Engage** as the Action application.
 - Under **Action Event**, select **Add Event**.
-- Once you click **Continue**, you will be prompted to connect your Engage account (if not done already) by entering a username and password.
-- Get your public and private API keys from your Engage dashboard (Settings -> Account -> Your API key).
-- Enter your Public key as the username and the Private key as the password.
+- Once you click **Continue**, you will be prompted to connect your Engage account (if not done already) by entering your public and private keys.
+- Get your public and private API keys from your Engage dashboard (Settings -> Account -> Your API key) and enter them.
 - Next, **Set up action**.
 - Map the **User ID** field to the trigger application's user ID value. This is important as it helps Engage map the event to the right user. 
 ![Map User ID to the Paystack Customer ID](/assets/images/docs/zapier-setup-action.png)
