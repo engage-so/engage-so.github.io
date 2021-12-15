@@ -39,7 +39,7 @@ This is triggered when a customer leaves a checkout page and the session expires
 ## Data we collect
 We collect different data for the supported events so you can use them to create customer segments and use them as [personalization tags](/docs/guides/tags) within your automation messages. 
 
-Important note: For easier use, the amount data is converted from the smallest unit sent by Stripe to a hundredth. For example, Stripe sends 100p for a dollar payment but we convert it to 1. Engage’s personalization tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can multiply by 100 to convert back, e.g {%raw%}`{{ event.amount | times: 100 }}`{%endraw%}
+Important note: For easier use, the amount data is converted from the minor unit sent by Stripe to the monetary unit. For example, Stripe sends 100 (Cent) for a dollar payment but we convert it to 1 (Dollar). Engage’s personalization tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can multiply by 100 to convert back, e.g {%raw%}`{{ event.amount | times: 100 }}`{%endraw%}
 
 ### Event data
 

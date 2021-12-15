@@ -64,7 +64,7 @@ We collect the standard attributes `first_name`, `last_name`, `email` and `numbe
   - `amount` - The unit amount of the product
 
 
-> Important note: For easier use, `amount` and `fees` are converted from the smallest unit sent by Paystack to a hundredth. For example, if Paystack sends 10000 (kobo) for a Naira payment, we convert it to 100. Engage’s personalization tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can multiply by 100 to convert back, e.g {%raw%}`{{ event.amount | times: 100 }}`{%endraw%}
+> Important note: For easier use, `amount` and `fees` are converted from the minor unit sent by Paystack to the monetary unit. For example, if Paystack sends 10000 (Kobo) for a Naira payment, we convert it to 100 (Naira). Engage’s personalization tag engine is built on [Liquid template language](https://shopify.github.io/liquid/), so you can multiply by 100 to convert back, e.g {%raw%}`{{ event.amount | times: 100 }}`{%endraw%}
 
 ## Using event data for personalization tags
 If an automation trigger is **Event is triggered** and the event type is a **Paystack event**, you can use any of the Paystack event data above as a personalization tag within messages in the automation. To do this, prefix with `event.`.
@@ -123,6 +123,6 @@ To send a Paystack event to Engage through Zapier:
 - If however, you are interested in other properties of the events, you can use the **Property** fields for this. You can enter the name and value of up to 5 properties.
 ![Add additional properties](/assets/images/docs/zapier-ppties.png)
 
-Important note: The events you send through Zapier will not be available in **Paystack events** when selecting condition filter category in Segments or Automations. They will be available under **Events**. Only events tracked using the **Live Webhook URL** option will be available in **Paystack events**.
+Important note: The events you send through Zapier will not be available in **Paystack events** when selecting condition filter category in Segments or Automations. They will be available under **Events**. Only events tracked using the **Live Webhook URL** option will be available in **Paystack events**. Also note that **amount** values through the Zapier integration will be in minor unit (Kobo or Cent) and not converted to the monetary unit (Naira or Dollar) like with the native Paystack integration.
 
 ![Zapier events will be available through "Events" and not "Paystack Events"](/assets/images/docs/zapier-condition-filters.png)
