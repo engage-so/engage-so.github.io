@@ -94,7 +94,7 @@ If you need to update any of the properties, you can call `identify` with the pr
 You can add attributes to users for segmentation. Allowed values for user attributes are boolean, numbers or strings. The first argument of the method is the user's id. In the examples below, we are assuming the user's id is `u144`.
 
 ```js
-Engage.addAttributes('u144', {
+Engage.addAttribute('u144', {
  plan: 'pro',
  promotion: true
 })
@@ -103,7 +103,7 @@ Engage.addAttributes('u144', {
 If an attribute changes at a later date, you can use the same method to update the new value.
 
 ```js
-Engage.addAttributes('u144', {
+Engage.addAttribute('u144', {
  plan: 'premium'
 })
 ```
