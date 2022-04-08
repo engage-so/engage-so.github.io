@@ -11,32 +11,36 @@ Customer data forms the basis of everything you will be doing on Engage. Once yo
 
 - [Segment customers](/docs/guides/segments) based on that data
 - [Send manual broadcasts](/docs/guides/broadcasts) to customer segments
-- [Send automated messages](/docs/guides/automations) based on different data driven triggers
+- [Send automated messages](/docs/guides/automations) based on different data-driven triggers
 
 This guide explains how this works and ways to connect your customer data.
 
 ## Types of customer data
 
-With Engage, you can track two types of customer data—**attributes** and **events**. Attributes are generally distinctive user properties like gender, location or even plan name. Events are actions users perform within your application like clicking a button, visiting a page or placing an order. This seems quite straightforward but because Engage allows you track anything as an attribute and anything as an event, the difference can quickly get blurry. 
+With Engage, you can track two types of customer data—**attributes** and **events**.
+
+Attributes are generally distinctive user properties like gender, location or plan name.
+
+Events are actions users perform within your application like clicking a button, visiting a page or placing an order. This seems quite straightforward but because Engage allows you track anything as an attribute and anything as an event, the difference can quickly get blurry. 
 
 As an example, when a user upgrades their plan, you can either track the new plan's name as an attribute or the upgrade action with plan details as an event. Either works depending on how you want to later use that information. If you need to later segment your customers by when they upgrade or how many upgrades they have done, then tracking as an event is the better option. If you only need to know the customer's current plan at any time, then tracking as an attribute it is.
 
-Generally, if you do not need to track changes to the data and you want the data visible in the customer's page on your Engage dashboard, then track as an attribute. When you track an attribute, the value overwrites the previous value if one exists. In order words, only the latest value is stored. If you want to track changes to the data over time, then track as an event. Engage stores each event data with date so you can do things like segment user data by that event and date or number of occurrence.
+Generally, if you are not interested in the date the data changed or previous value of the data, track as an attribute. When you track an attribute, the value overwrites the previous value if one exists. In order words, only the latest value is stored. If you want to track changes to the data over time, then track as an event. Engage stores each event data with date so you can do things like segment user data by that event and date or number of occurrence.
 
-For communication and identification, we use some attributes as provided by you. Internally, we call these **standard attributes**. They are:
+We have a select list of attributes we use for customer identification and messaging. Internally, we call these **standard attributes**. They are:
 
-- `first_name` - The user's first name. We use this primarily for identification
-- `last_name` - The user's last name. We use this primarily for identification
-- `number` - The user's phone number in international format (numbers only). When you initiate a send-sms event through broadcast or automation, this is the property we send it to.
-- `email` - The user's email. When you initiate a send-email event either through broadcast or automation, this is the property we send it to.
+- `first_name` - The user's first name. We use this primarily for identification.
+- `last_name` - The user's last name. We use this primarily for identification.
+- `number` - The user's phone number in international format (numbers only). When you initiate a send-sms action through broadcast or automation, this is the property we deliver the message to.
+- `email` - The user's email. When you initiate a send-email action either through broadcast or automation, this is the property we deliver the message to.
 - `device_token` - A unique identification number linked to the user's device. When you initiate a send-push notification event either through broadcast or automation, this is the property we send it to. Engage tracks up to 5 device tokens and platform for each customer.
 - `device_platform` - The mobile device platform the device token is gotten from. Value is either `ios` or `android`
 
-## Knowing what data to bring in
+## Knowing what data to track
 
-You only need to connect important data needed for communication or data analysis to Engage. Let's take an hypothetical internet service provider (let's call it MInt) and look at how this will be done, starting with attributes.
+You only need to connect important data needed for communication or data analysis to Engage. Let's take a hypothetical internet service provider (let's call it <strong>MInt</strong>) and look at how this will be done, starting with attributes.
 
-The first step is to start by creating a list of user attributes you collect for your customers. It might also help to also note where the attribute is collected. For MInt, this will be:
+The first step is to start by creating a list of user attributes you collect for your customers. It might also help to note where the attribute is collected. For MInt, this will be:
 
 - Name - onboarding
 - Email - onboarding
@@ -45,7 +49,7 @@ The first step is to start by creating a list of user attributes you collect for
 - Current usage for the month - at regular intervals, hourly maybe
 - Signup date - onboarding
 
-Next, review your list and strike out attributes that you will not need for customer messaging. The attributes list for MInt looks good so far, so no need to strike anything out. The name will be useful for identifying the customer. Email is where messages will be sent. The plan name is good for targeting customers in particular plans–we may need to give them additional features and tell them about it. Same for address. If there is a downtime in an area, we can send a broadcast to notify people in that location. We may not need usage for communication but we can create a segment for users above a particular threshold for data analysis. We can even use create an automation to automatically send a notification of high usage when they enter the segment. We can also create an automation to automatically check in and ask if everything is good if after a week, usage is below a threshold.
+Next, review your list and strike out attributes that you will not need for customer messaging. The attributes list for MInt looks good so far, so no need to strike anything out. The name will be useful for identifying the customer. <strong>Email</strong> is where messages will be sent. <strong>Plan</strong> is good for targeting customers in particular plans–we may need to give them additional features and tell them about it. Same for <strong>Address</strong>. If there is a downtime in an area, we can send a broadcast to notify people in that location. We may not need <strong>Current usage for the month</strong> for communication but we can create a segment for users above a particular threshold for data analysis. We can even create an automation to automatically send a notification of high usage when they enter the segment. We can also create an automation to automatically check in and ask if everything is good if after a week, <strong>Current usage for the month</strong> is below a threshold.
 
 For event tracking, we will follow the same steps. Once we have our event list, we can narrow down to the important customer actions/events:
 
