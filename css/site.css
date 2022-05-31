@@ -113,9 +113,6 @@ nav svg.chevron {
   color: #4d5e7a
 }
 
-.trusted-brands img {
-  max-height: 30px
-}
 .alt-bg {
   background-color: #f3f4f6;
 }
@@ -338,6 +335,11 @@ button-alt:focus {
 }
 
 
+@media screen and (min-width: 600px) {
+  .trusted-brands img {
+    max-height: 30px
+  }
+}
 @media screen and (min-width: 960px) {
   .hamburger-container {
     display: none;

@@ -21,16 +21,16 @@ layout: main
 
   <section class="trusted-brands ph7-xl ph6-l ph5-m ph4 pv4">
     <div class="flex flex-wrap items-center">
-      <div class="pa4 w-20 tc"><img src="/images/brands/reliance.svg" alt="RelianceHMO" title="RelianceHMO"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/indiecampers.png" alt="Indie Campers" title="Indie Campers"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/vcplatform.png" alt="VC Platform" title="VC Platform"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/beyond.svg" alt="Beyond social media" title="Beyond social media"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/crop2cash.png" alt="Crop2Cash" width="100" title="Crop2Cash"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/ticketgateway.png" alt="Ticket Gateway" title="Ticket Gateway"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/accrue.png" alt="Accrue" title="Accrue"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/boon.png" alt="Boon" title="Boon"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/extra-gas.png" alt="Extragas" title="Extragas"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/casava.png" alt="Casava" title="Casava"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/reliance.svg" alt="RelianceHMO" title="RelianceHMO"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/indiecampers.png" alt="Indie Campers" title="Indie Campers"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/vcplatform.png" alt="VC Platform" title="VC Platform"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/beyond.svg" alt="Beyond social media" title="Beyond social media"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/crop2cash.png" alt="Crop2Cash" width="100" title="Crop2Cash"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/ticketgateway.png" alt="Ticket Gateway" title="Ticket Gateway"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/accrue.png" alt="Accrue" title="Accrue"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/boon.png" alt="Boon" title="Boon"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/extra-gas.png" alt="Extragas" title="Extragas"></div>
+      <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/casava.png" alt="Casava" title="Casava"></div>
     </div>
   </section>
 
