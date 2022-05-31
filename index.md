@@ -29,7 +29,7 @@ layout: main
       <div class="pa4 w-20 tc"><img src="/images/brands/ticketgateway.png" alt="Ticket Gateway" title="Ticket Gateway"></div>
       <div class="pa4 w-20 tc"><img src="/images/brands/accrue.png" alt="Accrue" title="Accrue"></div>
       <div class="pa4 w-20 tc"><img src="/images/brands/boon.png" alt="Boon" title="Boon"></div>
-      <div class="pa4 w-20 tc"><img src="/images/brands/extragas.png" alt="Extragas" title="Extragas"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/extra-gas.png" alt="Extragas" title="Extragas"></div>
       <div class="pa4 w-20 tc"><img src="/images/brands/casava.png" alt="Casava" title="Casava"></div>
     </div>
   </section>
