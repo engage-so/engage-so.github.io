@@ -1,13 +1,13 @@
 ---
-title: 'Customer messaging for growth and retention – Engage'
+title: 'Send emails, SMS and in-app messages that convert – Engage'
 description: 'All you need to deliver personalised customer messaging and marketing automation through email, SMS and in-app messaging.'
-layout: landing
+layout: main
 ---
 
-  <div class="ph7-xl ph6-l ph5-m ph4 pv4" style="background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(239,249,245,1) 100%);">
-    <div class="tc w-70-l w-100 pt2 center">
-      <h1 class="f1 lh-title">Customer messaging for <span class="green">growth</span> and retention</h1>
-      <h2 class="lh-copy inter f4 normal faint">All you need to deliver personalised customer messaging and marketing automation through email, SMS and in-app messaging.</h2>
+  <section class="ph7-xl ph6-l ph5-m ph4 pv4">
+    <div class="tc w-60-l w-90 pt2 center tc">
+      <h1 class="f1 lh-title">Send emails, SMS and in-app messages that convert</h1>
+      <h2 class="lh-copy f4 normal">Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages.</h2>
       <div class="ma4 ph5-l">
         <form method="GET" action="https://app.engage.so/auth/signup">
           <input type="email" name="email" placeholder="Enter your business email" class="one-liner-el" style="padding:15px"><button class="one-liner-el" type="submit" style="padding:15px">Signup — it's free</button>
@@ -17,141 +17,109 @@ layout: landing
     <!-- <div class="pv5">
       <img src="/images/hero-img@2-1.png" class="db" >
     </div> -->
-  </div>
+  </section>
 
-  <div class="mv5 ph7-xl ph6-l ph5-m ph4 tc">
-    <div class="f3 lh-title faint poppins">Trusted by </div>
-    <div class="t5 ph6-l ph5-m ph4 flex items-center justify-center pv3 flex-wrap trusted-brands">
-      <a href="http://reliancehmo.com" target="_blank" class="ma4"><img src="/images/brands/reliancehmo.svg" alt="RelianceHMO"></a>
-      <a href="http://boon.credit" target="_blank" class="ma4"><img src="/images/brands/boon.svg" alt="Boon Credit"></a>
-      <a href="http://selar.co/" target="_blank" class="ma4"><img src="/images/brands/selar.png" alt="Selar"></a>
-      <a href="http://youverify.co/" target="_blank" class="ma4"><img src="/images/brands/youverify.png" alt="Youverify"></a>
-      <a href="http://techliv.dk" target="_blank" class="ma4"><img src="/images/brands/techliv.png" alt="Techliv"></a>
-      <a href="http://extragas.co.uk/" target="_blank" class="ma4"><img src="/images/brands/extragas.png" alt="ExtraGas"></a>
-      <a href="http://ridekura.com/" target="_blank" class="ma4"><img src="/images/brands/kura.svg" alt="Kura"></a>
+  <section class="trusted-brands ph7-xl ph6-l ph5-m ph4 pv4">
+    <div class="flex flex-wrap items-center">
+      <div class="pa4 w-20 tc"><img src="/images/brands/reliance.svg" alt="RelianceHMO" title="RelianceHMO"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/indiecampers.png" alt="Indie Campers" title="Indie Campers"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/vcplatform.png" alt="VC Platform" title="VC Platform"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/beyond.svg" alt="Beyond social media" title="Beyond social media"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/crop2cash.png" alt="Crop2Cash" width="100" title="Crop2Cash"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/ticketgateway.png" alt="Ticket Gateway" title="Ticket Gateway"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/accrue.png" alt="Accrue" title="Accrue"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/boon.png" alt="Boon" title="Boon"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/extragas.png" alt="Extragas" title="Extragas"></div>
+      <div class="pa4 w-20 tc"><img src="/images/brands/casava.png" alt="Casava" title="Casava"></div>
     </div>
-  </div>
+  </section>
 
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
-    <div class="w-50-l w-100 pr6-l">
-      <h2 class="f2 ma0 lh-title">Segment your customers by <span class="green">attributes</span> and <span class="green">actions</span></h2>
-      <div class="lh-copy f4 pv3 normal faint">Group your customers based on their data–attributes (e.g. gender, location or plan name), custom actions (e.g liked item, used card, upgraded account) and integration data (e.g clicked link, upcoming renewal).</div>
-      <div class="f4 lh-copy pv3"><a href="/features/customer-segmentation">Learn more &rarr;</a></div>
+  <section class="ph7-xl ph6-l ph5-m ph4 pv5">
+    <div class=" flex flex-wrap items-center justify-between">
+      <div class="w-100 w-40-l pr5-l">
+        <h3 class="lh-title caps ma0">Automation</h3>
+        <h3 class="lh-title f3">Keep onboarding, conversion and retention messages on autopilot</h3>
+        <div class="lh-copy f4">Create email sequences, drip campaigns and workflows to automatically engage customers based on set triggers. They stay running till you stop them.</div>
+        <div class="mt4"><a href="/features/automation" class="button button-alt">Learn more &rarr;</a></div>
+      </div>
+      <div class="w-100 w-60-l pt0-l pt4">
+        <div><img src="/images/automation.png" alt="Automations" title="Example automation with Engage"></div>
+      </div>
     </div>
-    <div class="w-50-l w-100">
-      <img src="/images/segmentation.png" alt="Segment your customers by attributes and actions" class="br2 db bordered-image">
+  </section>
+  <section class="ph7-xl ph6-l ph5-m ph4 pv5">
+    <div class=" flex flex-wrap items-center justify-between">
+      <div class="w-100 w-40-l pr5-l">
+        <h3 class="lh-title caps ma0">Customer Segmentation</h3>
+        <h3 class="lh-title f3">Group your customers based on data</h3>
+        <div class="lh-copy f4">Create customer groups based on customer attributes and events like gender, location, last login and app activity. Send targeted messages through emails, SMS and in-app messages, and see how customers convert.</div>
+        <div class="mt4"><a href="/features/customer-segmentation" class="button button-alt">Learn more &rarr;</a></div>
+      </div>
+      <div class="w-100 w-60-l pt0-l pt4">
+        <div><img src="/images/segment.png" alt="Customer Segmentation" title="Customer segmentation with Engage"></div>
+      </div>
     </div>
-  </div>
+  </section>
+  <section class="ph7-xl ph6-l ph5-m ph4 pv5">
+    <div class=" flex flex-wrap items-center justify-between">
+      <div class="w-100 w-40-l pr5-l">
+        <h3 class="lh-title caps ma0">Broadcasts</h3>
+        <h3 class="lh-title f3">Reach customers through the right channel</h3>
+        <div class="lh-copy f4">Engage supports email, SMS and push notifications to enable you deliver the right message in the right way.</div>
+        <div class="mt4"><a href="/features/broadcasts" class="button button-alt">Learn more &rarr;</a></div>
+      </div>
+      <div class="w-100 w-60-l pt0-l pt4">
+        <div><img src="/images/broadcast.png" alt="Customer Segmentation" title="Customer segmentation with Engage"></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
-    <div class="w-50-l w-100 pr6-l">
-      <h2 class="f2 ma0 lh-title">Send <span class="green">personalised</span> messages through multiple channels</h2>
-      <div class="lh-copy f4 pv3 normal faint">Send message broadcasts through email and other channels like SMS, push notifications and in-app messages. All from your Engage dashboard.</div>
-      <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
-    </div>
-    <div class="w-50-l w-100">
-      <img src="/images/broadcast.png" alt="Send personalised messages through multiple channels" class="br2 db bordered-image">
-    </div>
-  </div>
-
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
-    <div class="w-50-l w-100 pr6-l">
-      <h2 class="f2 ma0 lh-title">Automate your <span class="green">onboarding</span> and marketing</h2>
-      <div class="lh-copy f4 pv3 normal faint">Onboard, upsell and retain your customers with automatic messaging workflows.</div>
-      <div class="f4 lh-copy pv3"><a href="/features/multichannel-messaging">Learn more &rarr;</a></div>
-    </div>
-    <div class="w-50-l w-100">
-      <img src="/images/automations.png" alt="Automate your onboarding and marketing" class="br2 db bordered-image">
-    </div>
-  </div>
-
-  <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap mv6 items-center">
-    <div class="w-50-l w-100 pr6-l">
-      <h2 class="f2 ma0 lh-title">Detailed analytics and reporting for your <span class="green">transactional</span> emails</h2>
-      <div class="lh-copy f4 pv3 normal faint">Connect your transactional email service provider and get detailed analytics and reporting of your transactional emails on a better dashboard.</div>
-      <div class="f4 lh-copy pv3"><a href="/features/transactional-email-analytics">Learn more &rarr;</a></div>
-    </div>
-    <div class="w-50-l w-100">
-      <img src="/images/transactional.png" alt="Detailed analytics and reporting for your transactional emails" class="br2 db bordered-image">
-    </div>
-  </div>
-
-  <div class="ph7-xl ph6-l ph5-m ph4 mt6">
+  <section class="ph7-xl ph6-l ph5-m ph4 pv5">
     <div class="flex flex-wrap">
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2">Connect your favourite services</h3>
-        <div class="lh-copy faint">From payment gateways to email service providers and data analytics tools, Engage supports multiple services you can connect to for customer data enrichment.</div>
+      <div class="w-third-l w-50-m w-100 pa2 pa3-l">
+        <h3 class="lh-title caps ma0">Subscription lists</h3>
+        <div class="lh-copy pv2">Lists are an easy way to create customer groups for engagement. Create lists for your online forms or newsletters.</div>
       </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2 fw6">Subscription lists</h3>
-        <div class="lh-copy faint">Lists are an easy way to create customer groups for engagement. Create lists for your online forms or newsletters.</div>
+      <div class="w-third-l w-50-m w-100 pa2 pa3-l">
+        <h3 class="lh-title caps ma0">Connect your favourite services</h3>
+        <div class="lh-copy pv2">From payment gateways to data analytics tools, Engage supports multiple services like Segment and Zapier you can connect to for customer data enrichment.</div>
       </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2 fw6">Broadcasts</h3>
-        <div class="lh-copy faint">Send email campaigns to customer segments and lists through multiple channels. View detailed analytics of customer engagement.</div>
+      <div class="w-third-l w-50-m w-100 pa2 pa3-l">
+        <h3 class="lh-title caps ma0">Bring your messaging infrastructure</h3>
+        <div class="lh-copy pv2">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this in Engage.</div>
       </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2 fw6">Automations</h3>
-        <div class="lh-copy faint">Message automations are a great way to onboard, retain and upsell your customers. Create dynamic workflows based on customer attributes, actions or non-actions.</div>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2 fw6">Web and mobile push</h3>
-        <div class="lh-copy faint">Engagement with users does not have to be limited to email or SMS alone. Send broadcasts and automated messages through other channels like in-app push on web or mobile.</div>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2 fw6">Bring your messaging infrastructure</h3>
-        <div class="lh-copy faint">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this in Engage.</div>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2 fw6">Transactional email analytics</h3>
-        <div class="lh-copy faint">Brought your transactional email infrastructure? Engage gives you detailed analytics and reporting of your transactional emails. We support top service providers like Amazon SES, Mailgun, Sparkpost and more.</div>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <h3 class="lh-copy mb2 fw6">Template management</h3>
-        <div class="lh-copy faint">Manage your transactional email templates directly from the Engage dashboard.</div>
+      <div class="w-third-l w-50-m w-100 pa2 pa3-l">
+        <h3 class="lh-title caps ma0">Transactional email analytics</h3>
+        <div class="lh-copy pv2">Connected your transactional email provider? Engage gives you detailed analytics and reporting of your transactional emails. We support top service providers like Amazon SES, Mailgun and more.</div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="mv5 ph7-xl ph6-l ph5-m ph4 mv4">
-    <div class="w-80 center tc">
-      <h2 class="f2 lh-copy">Ready to improve your customer messaging?</h2>
-      <a href="https://app.engage.so/auth/signup" class="button db w-100 w-auto-ns mr5" style="padding-bottom:20px;padding-top:20px">Signup for free</a>
+  <section class="ph7-xl ph6-l ph5-m ph4 pv5">
+    <div class="flex flex-wrap items-end alt-bg-2 br4">
+      <div class="pa5 w-50-l w-100-m">
+        <h3 class="lh-title f3 ma0 pb3">Data and Integration</h3>
+        <div class="lh-copy">Sync customer data and events with our integrations, simple API and SDKs</div>
+        <div class="mt4">
+          <h3 class="lh-title caps ma0">Connect your favourite tools</h3>
+          <div class="lh-copy pv2">Bring in customer data from your favourite services like Segment, Stripe, Paystack, AWS, Zapier and more.</div>
+          <div class="pv2"><a href="/integrations" class="button button-gray">See all integrations &rarr;</a></div>
+        </div>
+        <div class="mt4">
+          <h3 class="lh-title caps ma0">Simple API and SDKs</h3>
+          <div class="lh-copy pv2">Engage provides a simple user API to track customer attributes and events. We also have SDKs to make your integration easier.</div>
+          <div class="pv2"><a href="/docs/api" class="button button-gray" target="_blank">Explore the API &rarr;</a></div>
+        </div>
+      </div>
+      <div class="w-50-l w-100-m">
+        <img src="/images/integrations.svg" class="w-100 db">
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="ph7-xl ph6-l ph5-m ph4 mt6">
-    <h3 class="mb3">from the <span class="green">blog</span></h3>
-    <div class="flex flex-wrap">
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <a href="https://engage.so/blog/engage-segment-integration/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/08/engage-segment.svg 300w,
-                    https://engage.so/blog/content/images/size/w600/2021/08/engage-segment.svg 600w,
-                    https://engage.so/blog/content/images/size/w1000/2021/08/engage-segment.svg 1000w,
-                    https://engage.so/blog/content/images/size/w2000/2021/08/engage-segment.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/08/engage-segment.svg" alt="Announcing Engage and Segment integration" loading="lazy"></a>
-        <a href="https://engage.so/blog/engage-segment-integration/" class="alt-2">
-          <h3 class="lh-copy mb2 fw6">Announcing Engage and Segment integration</h3>
-          <div class="lh-copy faint">We are excited to announce our integration with Segment, a leading Customer Data Platform. This integration makes it possible to sync customer data from Segment to Engage for personalised messaging.</div>.
-        </a>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <a href="https://engage.so/blog/customer-retention/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/07/customer-retention.svg 300w,
-                    https://engage.so/blog/content/images/size/w600/2021/07/customer-retention.svg 600w,
-                    https://engage.so/blog/content/images/size/w1000/2021/07/customer-retention.svg 1000w,
-                    https://engage.so/blog/content/images/size/w2000/2021/07/customer-retention.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/07/customer-retention.svg" alt="5 Tips To Drive Customer Retention And Increase Lifetime Value" loading="lazy"></a>
-        <a href="https://engage.so/blog/customer-retention/" class="alt-2">
-          <h3 class="lh-copy mb2 fw6">5 Tips To Drive Customer Retention And Increase Lifetime Value</h3>
-          <div class="lh-copy faint">Customer retention does more than giving you repeat customers. It helps build ambassadors out of your customers. This messaging guide shows...</div>
-        </a>
-      </div>
-      <div class="w-third-l w-50-ns w-100 pr4-ns pv4">
-        <a href="https://engage.so/blog/introduction-to-personalised-customer-messaging/"><img class="post-card-image" srcset="https://engage.so/blog/content/images/size/w300/2021/05/personalised-messaging.svg 300w,
-                    https://engage.so/blog/content/images/size/w600/2021/05/personalised-messaging.svg 600w,
-                    https://engage.so/blog/content/images/size/w1000/2021/05/personalised-messaging.svg 1000w,
-                    https://engage.so/blog/content/images/size/w2000/2021/05/personalised-messaging.svg 2000w" sizes="(max-width: 1000px) 400px, 800px" src="https://engage.so/blog/content/images/size/w600/2021/05/personalised-messaging.svg" alt="Introduction to personalised customer messaging" loading="lazy"></a>
-        <a href="https://engage.so/blog/introduction-to-personalised-customer-messaging/" class="alt-2">
-          <h3 class="lh-copy mb2">Introduction to personalised customer messaging</h3>
-          <div class="lh-copy faint">Customer messaging is important to every business. But doing it in a way that builds customer trust and loyalty is hard. In this post, we explore one of the best ways to nail this – personalisation.</div>
-        </a>
-      </div>
+  <section class="ph7-xl ph6-l ph5-m ph4 pv5 tc">
+    <div class="center w-50-l w-100">
+      <div class="lh-title f2 clashgrotesk pb3">Ready to improve your customer messaging?</div>
+      <div class="mt3"><a href="https://app.engage.so/auth/signup" class="button">Sign up now</a></div>
     </div>
-  </div>
+  </section>

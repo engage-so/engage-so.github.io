@@ -33,17 +33,15 @@ Engage.identify({
 })
 ```
 
-If it is on a page where you already [track user attributes](https://engage.so/docs/sdks/javascript#tracking-user-attributes) and [events](https://engage.so/docs/sdks/javascript#tracking-user-events-and-actions) with `Engage.track`, that's also totally fine. In-app messaging works as long as there is one of `Engage.identify` or `Engage.track` (or both) on the page.
-
 ## FAQ
 
-**How this affect my pricing?**
+**How does this affect my pricing?**
 
-Each message you send to a unique customer contributes to your MTU (monthly tracked users). [See how we calculate MTU](/docs/guides/mtu).
+Each message you send to a unique customer contributes to your monthly active customers.
 
 **Can I use this on the free plan?**
 
-Absolutely. However, remember that the free plan is limited to only 1,000 MTU. Your in-app message will also have a "powered by Engage" footer.
+Absolutely. However, remember that the free plan is limited to only 1,000 active customers. Your in-app message will also have a "powered by Engage" footer.
 
 **When do customers get the message?**
 

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>{{page.title}}</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{page.description}}">
+  <meta name="slack-app-id" content="A6566DWTS">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="canonical" href="https://engage.so{{ page.url | replace:'index.html','' | replace: '.html', '' }}" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="stylesheet" href="/css/tachyons.css">
+  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="/css/microtip.min.css"/>
+  <script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Engage",
+    "url": "https://engage.so",
+    "logo": "https://engage.so/images/engage-logo-wtext.png",
+    "sameAs": [
+      "http://twitter.com/engage_so"
+    ]
+  }
+  </script>
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_Yny3sy3Fo2u4hcFF80Mw92jaIXHzlLQHvgP6fEC03Hy', {api_host:'https://app.posthog.com'})
+  </script>
+</head>
+<body>
+  <header>
+    <div class="ph7-xl ph6-l ph5-m ph4 flex flex-wrap pv3">
+      <div class="flex flex-wrap w-100 justify-between items-center pv2">
+        <div class="lh-title logo pr4 pb2">
+          <a href="/"><img src="/images/engage.svg" style="width:120px;"></a>
+        </div>
+        <nav class="flex items-center">
+          <div class="mh3 relative pop-link">
+            <a href="#" class="nowrap db{% if page.page == 'features' %} active{% endif %}">Features <svg xmlns="http://www.w3.org/2000/svg" class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <div class="absolute">
+              <div class="pop pa4 mt3">
+                <div class="flex justify-between">
+                  <div class="w-50-l w-100 pr3-l">
+                    <div class="flex justify-between">
+                      <div style="width:16px" class="mt3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                      <a href="/features/customer-segmentation" class="pa3 db">
+                        <div class="f5">Customer segmentation</div>
+                        <div class="lh-copy f6 faint">Group your customers based on their data.</div>
+                      </a>
+                    </div>
+                    <div class="flex justify-between">
+                      <div style="width:16px" class="mt3">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-send"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+                      <a href="/features/broadcasts" class="pa3 db">
+                        <div class="f5">Multichannel Broadcasts</div>
+                        <div class="lh-copy f6 faint">Send targeted campaigns through multiple channels.</div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="w-50-l w-100 pl3-l">
+                    <div class="flex justify-between">
+                      <div style="width:16px" class="mt3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg></div>
+                      <a href="/features/automation" class="pa3 db">
+                        <div class="f5">Automation</div>
+                        <div class="lh-copy f6 faint">Keep onboarding, conversion and retention messages on autopilot.</div>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mh3 relative pop-link">
+            <a href="#" class="nowrap db{% if page.page == 'usecase' %} active{% endif %}">Use cases <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="chevron" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <div class="absolute">
+              <div class="pop pa4 mt3">
+                <div class="flex flex-wrap justify-between">
+                  <a href="/use-cases/onboarding" class="w-50-l w-100 pa3 db">
+                    <div class="f5">Onboarding</div>
+                    <div class="lh-copy f6 faint">Guide customers on next steps with message automation.</div>
+                  </a>
+                  <a href="/use-cases/retention" class="w-50-l w-100 pa3 db">
+                    <div class="f5">Retention</div>
+                    <div class="lh-copy f6 faint">Identify active and inactive customers with segmentation and incentivize.</div>
+                  </a>
+                  <a href="/use-cases/stripe-payment-notifications" class="w-50-l w-100 pa3 db">
+                    <div class="f5">Billing notifications and reminders</div>
+                    <div class="lh-copy f6 faint">Automatically send failure notifications, payment receipts and more.</div>
+                  </a>
+                  <a href="/use-cases/transactional-email-analytics" class="w-50-l w-100 pa3 db">
+                    <div class="f5">Transactional email analytics</div>
+                    <div class="lh-copy f6 faint">See what email was opened, clicked, failed and more.</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mh3 relative pop-link">
+            <a href="#" class="db nowrap">Resources <svg xmlns="http://www.w3.org/2000/svg" class="chevron" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <div class="absolute" style="width:300px;left:-100px">
+              <div class="pop pa4 mt3">
+                <a href="/docs" target="_blank" class="pa2 db">
+                  <div class="f5">Documentation</div>
+                </a>
+                <a href="/docs/api/" target="_blank" class="pa2 db">
+                  <div class="f5">API</div>
+                </a>
+                <a href="/docs/sdks/" target="_blank" class="pa2 db">
+                  <div class="f5">SDKs</div>
+                </a>
+                <a href="/blog" target="_blank" class="pa2 db">
+                  <div class="f5">Blog</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <a href="/integrations" class="db mh3{% if page.page == 'integrations' %} active{% endif %}">Integrations</a>
+          <a href="/pricing" class="db mh3{% if page.page == 'pricing' %} active{% endif %}">Pricing</a>
+          <a href="https://app.engage.so/auth/login" class="db mh3">Login</a>
+          <a href="https://app.engage.so/auth/signup" class="db ml3 button">Signup</a>
+        </nav>
+				<div class="hamburger-container">
+					<ul class="hamburger">
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+      </div>
+    </div>
+  </header>
+  <section class="dn mobile-menu">
+    <div class="ph7-xl ph6-l ph5-m ph4">
+      <div class="nav-mobile pa4-m pa3">
+        <div class="pb3 lh-title clashgrotesk">Menu</div>
+        <a href="/" class="f4 pv1 db faint">Home</a>
+        <div class="lh-title mt1 caps">Features</div>
+        <div class="mb1 pl2">
+          <a href="/features/customer-segmentation" class="f4 pv1 db faint">Customer Segmentation</a>
+          <a href="/features/broadcasts" class="f4 pv1 db faint">Broadcasts</a>
+          <a href="/features/automation" class="f4 pv1 db faint">Automation</a>
+        </div>
+        <div class="mt1 lh-title caps">Use Cases</div>
+        <div class="mb1 pl2">
+          <a href="/use-cases/onboarding" class="f4 pv1 db faint">Onboarding</a>
+          <a href="/use-cases/retention" class="f4 pv1 db faint">Retention</a>
+          <a href="/use-cases/stripe-payment-notifications" class="f4 pv1 db faint">Billing notifications</a>
+          <a href="/use-cases/transactional-email-analytics" class="f4 pv1 db faint">Transactional email analytics</a>
+        </div>
+        <a href="/integrations" class="f4 pv1 db faint">Integrations</a>
+        <a href="/pricing" class="f4 pv1 db faint">Pricing</a>
+        <a href="https://app.engage.so/auth/login" class="f4 pv1 db faint">Login</a>
+        <a href="https://app.engage.so/auth/signup" class="f4 pv1 db faint">Signup</a>
+      </div>
+    </div>
+  </section>
+
+  {{ content }}
+
+  <footer class="ph7-xl ph6-l ph5-m ph4 mt5">
+    <div class="flex flex-wrap justify-between pv5" style="border-bottom:1px solid #dee4ed">
+      <div class="w-third-l w-50 pa2">
+        <h4 class="f4 caps ma0">Guides</h4>
+        <div class="lh-copy pv1"><a href="/docs/">Documentation</a></div>
+        <div class="lh-copy pv1"><a href="/docs/guides/connecting-user-data">Connecting customer data</a></div>
+        <div class="lh-copy pv1"><a href="/docs/guides/segments">Segmenting customer</a></div>
+        <div class="lh-copy pv1"><a href="/docs/guides/automations">Creating automations</a></div>
+        <h4 class="f4 caps mb0">Developers</h4>
+        <div class="lh-copy pv1"><a href="/docs/api/">API Documentation</a></div>
+        <div class="lh-copy pv1"><a href="/docs/sdks/">SDKs</a></div>
+      </div>
+      <div class="w-third-l w-50 pa2">
+        <h4 class="f4 caps ma0">Features</h4>
+        <div class="lh-copy pv1"><a href="/features/customer-segmentation">Customer segmentation</a></div>
+        <div class="lh-copy pv1"><a href="/features/broadcasts">Broadcast</a></div>
+        <div class="lh-copy pv1"><a href="/features/automation">Automation</a></div>
+        <h4 class="f4 caps mb0">Integrations</h4>
+        <div class="lh-copy pv1"><a href="/docs/integrations/stripe">Stripe</a></div>
+        <div class="lh-copy pv1"><a href="/docs/integrations/segment">Segment</a></div>
+        <div class="lh-copy pv1"><a href="/docs/integrations/zapier">Zapier</a></div>
+        <div class="lh-copy pv1"><a href="/docs/integrations/paystack">Paystack</a></div>
+        <div class="lh-copy pv1"><a href="/use-cases/analytics-and-reporting-for-amazon-ses">Amazon SES</a></div>
+        <div class="lh-copy pv1"><a href="/use-cases/analytics-and-reporting-for-mailgun">Mailgun</a></div>
+        <div class="lh-copy pv1"><a href="/docs/integrations/s3">Amazon S3</a></div>
+      </div>
+      <div class="w-third-l w-50 pa2">
+        <h4 class="f4 caps ma0">Use cases</h4>
+        <div class="lh-copy pv1"><a href="/use-cases/onboarding">Onboarding</a></div>
+        <div class="lh-copy pv1"><a href="/use-cases/retention">Retention</a></div>
+        <div class="lh-copy pv1"><a href="/use-cases/stripe-payment-notifications">Automate Stripe billing notifications and reminders</a></div>
+        <div class="lh-copy pv1"><a href="/use-cases/transactional-email-analytics">Transactional email analytics</a></div>
+        <h4 class="f4 caps mb0">Company</h4>
+        <div class="lh-copy pv1"><a href="mailto:hello@engage.so">Contact</a></div>
+        <div class="lh-copy pv1"><a href="/blog">Blog</a></div>
+        <div class="lh-copy pv1"><a href="https://app.engage.so/auth/signup">Signup</a></div>
+        <div class="lh-copy pv1"><a href="https://app.engage.so/auth/login">Login</a></div>
+
+        <h4 class="f4 caps mb0">Projects</h4>
+        <div class="lh-copy pv1"><a href="https://martomation.com">Martomation</a></div>
+      </div>
+    </div>
+    <div class="flex flex-wrap justify-between pv3">
+      <div class="lh-copy pv2 w-auto-ns w-100">
+        Engage Messaging Inc &copy; <div class="dib-l pv3 pv0-l"><a href="/cookie" class="ml4-l">Cookie</a> <a href="/privacy" class="ml4">Privacy</a></div>
+      </div>
+      <div class="pv2 w-auto-ns w-100">
+        <a href="https://twitter.com/engage_so" class="mr3"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M27.7034 7.07308C26.7491 7.4952 25.7371 7.77242 24.7009 7.89558C25.793 7.24237 26.6105 6.21435 27.0009 5.00308C25.9759 5.61308 24.8521 6.04058 23.6809 6.27183C22.8941 5.43006 21.8513 4.87179 20.7146 4.68381C19.5778 4.49584 18.4108 4.6887 17.3949 5.2324C16.3791 5.7761 15.5713 6.64019 15.0973 7.69032C14.6232 8.74046 14.5093 9.91781 14.7734 11.0393C12.6947 10.9352 10.6613 10.395 8.80497 9.45391C6.94866 8.51284 5.31102 7.19189 3.99836 5.57683C3.53372 6.3749 3.28955 7.28212 3.29086 8.20558C3.29086 10.0181 4.21336 11.6193 5.61586 12.5568C4.78587 12.5307 3.97415 12.3066 3.24836 11.9031V11.9681C3.24861 13.1752 3.66632 14.3451 4.43067 15.2794C5.19502 16.2137 6.25896 16.8549 7.44211 17.0943C6.67163 17.3031 5.86374 17.3339 5.07961 17.1843C5.41319 18.2234 6.06337 19.1321 6.9391 19.7832C7.81483 20.4344 8.87227 20.7953 9.96336 20.8156C8.87896 21.6672 7.63733 22.2968 6.30946 22.6683C4.98159 23.0398 3.59352 23.1459 2.22461 22.9806C4.61423 24.5174 7.39598 25.3332 10.2371 25.3306C19.8534 25.3306 25.1121 17.3643 25.1121 10.4556C25.1121 10.2306 25.1059 10.0031 25.0959 9.78058C26.1194 9.04079 27.0029 8.12436 27.7046 7.07433L27.7034 7.07308Z" fill="#74859C"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/engage_messaging/" class="mr3"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#74859d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a href="https://www.linkedin.com/company/engage-messaging" class="mr3"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.67578 6.25272C8.67545 6.91576 8.41174 7.55151 7.94267 8.02012C7.47359 8.48872 6.83757 8.7518 6.17453 8.75147C5.51149 8.75113 4.87574 8.48742 4.40713 8.01835C3.93852 7.54927 3.67545 6.91326 3.67578 6.25022C3.67611 5.58717 3.93982 4.95142 4.4089 4.48281C4.87797 4.01421 5.51399 3.75113 6.17703 3.75147C6.84007 3.7518 7.47583 4.01551 7.94443 4.48458C8.41304 4.95366 8.67611 5.58967 8.67578 6.25272ZM8.75078 10.6027H3.75078V26.2527H8.75078V10.6027ZM16.6508 10.6027H11.6758V26.2527H16.6008V18.0402C16.6008 13.4652 22.5633 13.0402 22.5633 18.0402V26.2527H27.5008V16.3402C27.5008 8.62772 18.6758 8.91522 16.6008 12.7027L16.6508 10.6027Z" fill="#74859C"/>
+          </svg>
+          </a>
+        <a href="https://github.com/engage-so" class="mr3"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 2.50293C8.09375 2.50293 2.5 8.09668 2.5 15.0029C2.49858 17.627 3.32352 20.1849 4.85777 22.3138C6.39202 24.4426 8.55768 26.0343 11.0475 26.8629C11.6725 26.9717 11.9063 26.5967 11.9063 26.2679C11.9063 25.9717 11.89 24.9879 11.89 23.9404C8.75 24.5192 7.9375 23.1754 7.6875 22.4717C7.54625 22.1117 6.9375 21.0029 6.40625 20.7054C5.96875 20.4717 5.34375 19.8929 6.39 19.8779C7.375 19.8617 8.0775 20.7842 8.3125 21.1592C9.4375 23.0492 11.235 22.5179 11.9525 22.1904C12.0625 21.3779 12.39 20.8317 12.75 20.5192C9.96875 20.2067 7.0625 19.1279 7.0625 14.3467C7.0625 12.9867 7.54625 11.8629 8.34375 10.9867C8.21875 10.6742 7.78125 9.39293 8.46875 7.67418C8.46875 7.67418 9.515 7.34668 11.9063 8.95668C12.9238 8.67426 13.9752 8.53211 15.0313 8.53418C16.0938 8.53418 17.1563 8.67418 18.1563 8.95543C20.5463 7.33043 21.5938 7.67543 21.5938 7.67543C22.2813 9.39418 21.8438 10.6754 21.7188 10.9879C22.515 11.8629 23 12.9717 23 14.3467C23 19.1442 20.0788 20.2067 17.2975 20.5192C17.75 20.9092 18.1413 21.6592 18.1413 22.8317C18.1413 24.5029 18.125 25.8467 18.125 26.2692C18.125 26.5967 18.36 26.9867 18.985 26.8617C21.4663 26.0239 23.6224 24.4292 25.1499 22.3019C26.6774 20.1746 27.4993 17.6218 27.5 15.0029C27.5 8.09668 21.9063 2.50293 15 2.50293Z" fill="#74859C"/>
+          </svg>
+          </a>
+        <a href="https://join.slack.com/t/engage-support/shared_invite/zt-sisgl8tg-AyR~AP8yWmH1FGBiKr~INg"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.15969 18.1454C8.15738 18.7967 7.89755 19.4206 7.43691 19.881C6.97627 20.3414 6.35221 20.6009 5.70094 20.6029C5.04944 20.6009 4.4252 20.3412 3.96452 19.8806C3.50385 19.4199 3.24417 18.7956 3.24219 18.1441C3.24219 16.7904 4.34719 15.6841 5.70094 15.6841H8.16094V18.1441L8.15969 18.1454ZM9.39969 18.1454C9.39969 16.7916 10.5047 15.6854 11.8584 15.6854C13.2122 15.6854 14.3184 16.7916 14.3184 18.1454V24.3041C14.3165 24.9558 14.0566 25.5803 13.5957 26.041C13.1347 26.5017 12.5101 26.7612 11.8584 26.7629C11.2069 26.7609 10.5827 26.5012 10.122 26.0406C9.66135 25.5799 9.40167 24.9556 9.39969 24.3041V18.1454ZM11.8584 8.16164C11.2072 8.15933 10.5832 7.89951 10.1228 7.43886C9.66242 6.97822 9.40291 6.35417 9.40094 5.70289C9.40094 4.34914 10.5059 3.24414 11.8597 3.24414C13.2134 3.24414 14.3197 4.34914 14.3197 5.70289V8.16289H11.8584V8.16164ZM11.8584 9.40164C13.2122 9.40164 14.3184 10.5066 14.3184 11.8604C14.3168 12.5123 14.0571 13.1371 13.5961 13.5981C13.1351 14.059 12.5104 14.3187 11.8584 14.3204H5.70094C5.04923 14.3184 4.4248 14.0586 3.96408 13.5976C3.50337 13.1367 3.24384 12.5121 3.24219 11.8604C3.24219 10.5066 4.34719 9.40164 5.70094 9.40164H11.8597H11.8584ZM21.8422 11.8604C21.8422 10.5066 22.9484 9.40164 24.3022 9.40164C25.6559 9.40164 26.7609 10.5066 26.7609 11.8604C26.7593 12.5121 26.4998 13.1367 26.039 13.5976C25.5783 14.0586 24.9539 14.3184 24.3022 14.3204H21.8422V11.8604ZM20.6022 11.8604C20.6005 12.5121 20.341 13.1367 19.8803 13.5976C19.4196 14.0586 18.7951 14.3184 18.1434 14.3204C17.4915 14.3187 16.8668 14.059 16.4058 13.5981C15.9448 13.1371 15.6851 12.5123 15.6834 11.8604V5.70289C15.6834 4.34914 16.7897 3.24414 18.1434 3.24414C19.4972 3.24414 20.6022 4.34914 20.6022 5.70289V11.8616V11.8604ZM18.1434 21.8441C19.4972 21.8441 20.6022 22.9504 20.6022 24.3041C20.6002 24.9556 20.3405 25.5799 19.8799 26.0406C19.4192 26.5012 18.7949 26.7609 18.1434 26.7629C17.4917 26.7612 16.8672 26.5017 16.4062 26.041C15.9453 25.5803 15.6854 24.9558 15.6834 24.3041V21.8441H18.1434ZM18.1434 20.6041C17.4917 20.6025 16.8672 20.343 16.4062 19.8822C15.9453 19.4215 15.6854 18.7971 15.6834 18.1454C15.6834 16.7916 16.7897 15.6854 18.1434 15.6854H24.3022C25.6559 15.6854 26.7609 16.7916 26.7609 18.1454C26.759 18.7969 26.4993 19.4211 26.0386 19.8818C25.5779 20.3425 24.9537 20.6022 24.3022 20.6041H18.1434Z" fill="#74859C"/>
+          </svg>
+          </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    var topBar = document.querySelector(".hamburger li:nth-child(1)"),
+      middleBar = document.querySelector(".hamburger li:nth-child(2)"),
+      bottomBar = document.querySelector(".hamburger li:nth-child(3)");
+    document.querySelector(".hamburger-container").addEventListener("click", function() {
+      if (middleBar.classList.contains("rot-45deg")) {
+        document.querySelector(".mobile-menu").classList.add('dn')
+        topBar.classList.remove("rot45deg");
+        middleBar.classList.remove("rot-45deg");
+        bottomBar.classList.remove("hidden");
+      } else {
+        document.querySelector(".mobile-menu").classList.remove('dn')
+        bottomBar.classList.add("hidden");
+        topBar.classList.add("rot45deg");
+        middleBar.classList.add("rot-45deg");
+      }
+    });
+  </script>
+
+  <script type="text/javascript">
+  if (!window.location.href.includes('localhost')) {
+    !function(e,t,n){function a(){var e=t.getElementsByTagName("script")[0],n=t.createElement("script");n.type="text/javascript",n.async=!0,n.src="https://beacon-v2.helpscout.net",e.parentNode.insertBefore(n,e)}if(e.Beacon=n=function(t,n,a){e.Beacon.readyQueue.push({method:t,options:n,data:a})},n.readyQueue=[],"complete"===t.readyState)return a();e.attachEvent?e.attachEvent("onload",a):e.addEventListener("load",a,!1)}(window,document,window.Beacon||function(){});
+    window.Beacon('init', '2be1206c-abb9-4012-8aff-227037abb66b')
+  }
+  </script>
+  
+
+</body>
+</html>
