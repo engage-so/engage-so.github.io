@@ -1,6 +1,6 @@
 ---
-title: 'Send emails, SMS and in-app messages that convert – Engage'
-description: 'All you need to deliver personalised customer messaging and marketing automation through email, SMS and in-app messaging.'
+title: "Send emails, SMS and in-app messages that convert – Engage"
+description: "All you need to deliver personalised customer messaging and marketing automation through email, SMS and in-app messaging."
 layout: main
 ---
 
@@ -20,6 +20,7 @@ layout: main
   </section>
 
   <section class="trusted-brands ph7-xl ph6-l ph5-m ph4 pv4">
+    <h3 class="lh-title f3 tc">Trusted by the world's most innovative companies</h3>
     <div class="flex flex-wrap items-center">
       <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/reliance.svg" alt="RelianceHMO" title="RelianceHMO"></div>
       <div class="pa4 w-20-l w-third-m w-50 tc"><img src="/images/brands/indiecampers.png" alt="Indie Campers" title="Indie Campers"></div>
@@ -120,6 +121,6 @@ layout: main
   <section class="ph7-xl ph6-l ph5-m ph4 pv5 tc">
     <div class="center w-50-l w-100">
       <div class="lh-title f2 clashgrotesk pb3">Ready to improve your customer messaging?</div>
-      <div class="mt3"><a href="https://app.engage.so/auth/signup" class="button">Sign up now</a></div>
+      <div class="mt3"><a href="https://app.engage.so/auth/signup" class="button">Get Started For Free</a></div>
     </div>
   </section>
