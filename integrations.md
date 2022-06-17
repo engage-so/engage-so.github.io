@@ -39,6 +39,16 @@ page: integrations
         <h3 class="lh-title ma0">Stripe</h3>
         <div class="lh-copy pv2">Get customer billing, invoice and subscription events synced to Engage.</div>
       </a>
+      <a href="https://posthog.com/apps/engage-connector" target="_blank" class="card db pa4">
+        <div class="pb3"><img src="/images/integrations/posthog.svg" alt="PostHog" title="PostHog" height="30"></div>
+        <h3 class="lh-title ma0">PostHog</h3>
+        <div class="lh-copy pv2">Send customer data and events from PostHog to Engage.</div>
+      </a>
+      <a href="https://app.engage.so/settings/integrations" target="_blank" class="card db pa4">
+        <div class="pb3"><img src="/images/integrations/thinkific.svg" alt="Thinkific" title="Thinkific" height="30"></div>
+        <h3 class="lh-title ma0">Thinkific</h3>
+        <div class="lh-copy pv2">Send student data and events from Thinkific to Engage.</div>
+      </a>
       <a href="https://paystack.com/integrations?id=engage" target="_blank" class="card db pa4">
         <div class="pb3"><img src="/images/integrations/paystack.svg" alt="Paystack logo" title="Paystack" height="30"></div>
         <h3 class="lh-title ma0">Paystack</h3>
