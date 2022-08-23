@@ -15,12 +15,22 @@ Visit the **Settings** page of your Engage dashboard and click on the **Integrat
 We currently support 16 [Stripe events](https://stripe.com/docs/api/events/types). They are:
 - **Customer created** (`customer.created`)   
 This is triggered when a new customer is created on Stripe. This mostly happens when a customer attempts payment by adding a payment source like a card.
+- **Invoice created** (`invoice.created`)   
+Stripe triggers invoice created when a new invoice is created. You can use this to trigger an automation that sends invoice payment reminders over a period of weeks.
 - **Invoice upcoming** (`invoice.upcoming`)   
 Stripe triggers invoice upcoming events before a subscription is charged and renewed. (You can customise when on your Stripe dashboard). You can use this to automate reminders of an upcoming invoice charge for example.
 - **Invoice payment successful** (`invoice.payment_succeeded`)   
-This is triggered when an invoice payment is successful for subscriptions.
+This is triggered when an invoice is paid.
+- **Invoice paid** (`invoice.paid`)   
+This is triggered when an invoice is paid. The difference between this event and **Invoice payment successful** is that this is additionally triggered when the invoice is marked as paid on the Stripe dashboard. Both events are therefore sometimes triggered for the same invoice.
 - **Invoice payment failed** (`invoice.payment_failed`)   
-This is trigged when an invoice fails.
+This is trigged when an invoice payment fails.
+- **Invoice deleted** (`invoice.deleted`)   
+This is trigged when an invoice is deleted.
+- **Invoice voided** (`invoice.voided`)   
+This is trigged when an invoice is marked as void on the Stripe dashboard.
+- **Invoice marked uncollectible** (`invoice.marked_uncollectible`)   
+This is trigged when an invoice is marked as uncollectible on the Stripe dashboard.
 - **Charge failed** (`charge.failed`)   
 This is triggered when a charge fails.
 - **Charge successful** (`charge.succeeded`)   
@@ -45,26 +55,25 @@ Important note: For easier use, the amount data is converted from the minor unit
 
 > Note: To use as personalization tags, prefix with `event.` e.g `event.amount`.
 
-- `invoice_url` - A URL to view (and pay) for invoice if finalised. Available in invoice payment events.
-- `invoice_pdf` - A link to download PDF of the invoice if finalised. Available in invoice payment events.
-- `invoice_lines` - An array of invoice lines. Each item will have, `description` , `quantity`, `amount` and `currency`. Available in invoice payment events.
-- `total` - Total amount on invoice, including tax. Available in invoice payment and checkout session expired events.
-- `subtotal` - Total amount on invoice before tax is applied. Available in invoice payment and checkout session expired events.
-- `amount_paid` - Amount paid on the invoice. Available in invoice payment events. 
-- `amount_due` - Amount due to be paid on invoice. Note that this may be less than `total` as there may be credit on the customer profile. 
-- `amount` - Payment amount for one-time payments. Available in charge events. 
-- `receipt_number` - The receipt number for a payment (one-time payments). Available in successful charge events. 
-- `receipt_url` - A URL to view the payment receipt (one-time payments).. Available in successful charge events. 
-- `description` - Description of the payment. Available in payment events (one time charge and invoice). 
-- `failure_code` - Charge failure code (hyperlink). Available in failed charge events. 
-- `failure_message` - This explains why the payment failed. Available in failed charge events. 
-- `trial_end` - Date trial ends
-- `trial_start` - Date trial starts
+- `invoice_url` - A URL to view (and pay) for invoice if finalised. Available in the invoice events: Invoice created, Invoice upcoming, Invoice paid, Invoice payment successful, Invoice payment failed, Invoice voided, Invoice marked uncollectible.
+- `invoice_pdf` - A link to download PDF of the invoice if finalised. Available in the invoice events: Invoice created, Invoice upcoming, Invoice paid, Invoice payment successful, Invoice payment failed, Invoice voided, Invoice marked uncollectible.
+- `invoice_lines` - An array of invoice lines. Each item will have, `description` , `quantity`, `amount` and `currency`. Available in the invoice events: Invoice created, Invoice upcoming, Invoice paid, Invoice deleted, Invoice payment successful, Invoice payment failed, Invoice voided, Invoice marked uncollectible.
+- `total` - Total amount on invoice, including tax. Available in all invoice payment and checkout session expired events.
+- `subtotal` - Total amount on invoice before tax is applied. Available in all invoice payment and checkout session expired events.
+- `amount_paid` - Amount paid on the invoice. Available in all invoice payment events. 
+- `amount_due` - Amount due to be paid on invoice. Note that this may be less than `total` as there may be credit on the customer profile. Available in all invoice payment events. 
+- `amount` - Payment amount. Available in the charge events: Charge successful and Charge failed. 
+- `receipt_number` - The receipt number for a payment. Available in Chage successful, Invoice paid and Invoice successfully paid events. 
+- `receipt_url` - A URL to view the payment receipt. Available in Chage successful, Invoice paid and Invoice successfully paid events. 
+- `description` - Description of a failed charge. Available in failed charge events. 
+- `code` - Code for a failure charge. Available in failed charge event. 
+- `trial_end` - Date trial ends. Available in trial-will-end event.
+- `trial_start` - Date trial starts. Available in trial-will-end event.
 - `subscription_start` - Date the current subscription starts or the usage period for invoice starts. Available for customer subscription events and invoice payment events.
 - `subscription_end` - Date the current subscription ends or the usage period for invoice ends. Available for customer subscription events and invoice payment events.
 - `subscription_items` - An array of subscription items. Each item will have, `name` (name of plan or price), `quantity`, `amount` and `currency`.
 - `currency` - Currency ISO (all caps). Available in all charge and invoice events
-- `status` - Payment or subscription status of the event. For one time charge events, possible values are succeeded, pending, or failed. For subscription, possible values are active, past_due, unpaid, canceled, incomplete, incomplete_expired, or trialing. For invoice payments, possible values are draft, open, paid, uncollectible, or void
+- `status` - Payment or subscription status of the event. For charge events, possible values are `succeeded`, `pending`, or `failed`. For subscription, possible values are `active`, `past_due`, `unpaid`, `canceled`, `incomplete`, `incomplete_expired`, or `trialing`. For invoice payments, possible values are `draft`, `open`, `paid`, `uncollectible`, or `void`
 - `brand` - Card brand, e.g Visa. Available in Card will expire event.
 - `exp_month` - Card expiry month. Available in Card will expire event.
 - `exp_year` - Card expiry year. Available in Card will expire event.
