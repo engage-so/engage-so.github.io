@@ -55,6 +55,7 @@ Important note: For easier use, the amount data is converted from the minor unit
 
 > Note: To use as personalization tags, prefix with `event.` e.g `event.amount`.
 
+- `id` - The ID of the event. The ID is the unique identifier for the event.
 - `invoice_url` - A URL to view (and pay) for invoice if finalised. Available in the invoice events: Invoice created, Invoice upcoming, Invoice paid, Invoice payment successful, Invoice payment failed, Invoice voided, Invoice marked uncollectible.
 - `invoice_pdf` - A link to download PDF of the invoice if finalised. Available in the invoice events: Invoice created, Invoice upcoming, Invoice paid, Invoice payment successful, Invoice payment failed, Invoice voided, Invoice marked uncollectible.
 - `invoice_lines` - An array of invoice lines. Each item will have, `description` , `quantity`, `amount` and `currency`. Available in the invoice events: Invoice created, Invoice upcoming, Invoice paid, Invoice deleted, Invoice payment successful, Invoice payment failed, Invoice voided, Invoice marked uncollectible.
