@@ -700,6 +700,10 @@ figcaption {
   text-align: center;
 }
 
+.heading-large.is-text-center.is-padding {
+  padding: 0px 80px;
+}
+
 .heading-large.is-text-color-white {
   color: #fff;
 }
@@ -3895,6 +3899,11 @@ figcaption {
     font-weight: 500;
   }
 
+  .heading-large.is-text-center.is-padding {
+    padding-right: 120px;
+    padding-left: 120px;
+  }
+
   .heading-xlarge {
     -webkit-box-flex: 0;
     -webkit-flex: 0 auto;
@@ -4046,6 +4055,11 @@ figcaption {
 
   .margin-xlarge {
     margin: 3rem;
+  }
+
+  .heading-large.is-text-center.is-padding {
+    padding-right: 0px;
+    padding-left: 0px;
   }
 
   .show-tablet {
