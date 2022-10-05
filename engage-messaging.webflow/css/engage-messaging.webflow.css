@@ -1200,7 +1200,7 @@ figcaption {
 }
 
 .text-size-medium.is-text-color-white.is-no-wrap {
-  font-size: 1rem;
+  font-size: 0.875rem;
   white-space: nowrap;
 }
 

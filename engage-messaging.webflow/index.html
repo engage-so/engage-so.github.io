@@ -1,774 +1,1791 @@
-<!DOCTYPE html><!--  Last Published: Tue Sep 27 2022 10:17:26 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="6332c9c02bf13f55316b62c3" data-wf-site="62b4c8558fac365a2aa71ef1">
-<head>
-  <meta charset="utf-8">
-  <title>Send emails, SMS and in-app messages that convert – Engage</title>
-  <meta content="Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages." name="description">
-  <meta content="Send emails, SMS and in-app messages that convert – Engage" property="og:title">
-  <meta content="Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages." property="og:description">
-  <meta content="https://uploads-ssl.webflow.com/62b4c8558fac365a2aa71ef1/62e146c3130a3a5b6dcdad1e_open-graph-img.png" property="og:image">
-  <meta content="Send emails, SMS and in-app messages that convert – Engage" property="twitter:title">
-  <meta content="Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages." property="twitter:description">
-  <meta content="https://uploads-ssl.webflow.com/62b4c8558fac365a2aa71ef1/62e146c3130a3a5b6dcdad1e_open-graph-img.png" property="twitter:image">
-  <meta property="og:type" content="website">
-  <meta content="summary_large_image" name="twitter:card">
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <link href="css/normalize.css" rel="stylesheet" type="text/css">
-  <link href="css/webflow.css" rel="stylesheet" type="text/css">
-  <link href="css/engage-messaging.webflow.css" rel="stylesheet" type="text/css">
-  <style>@media (min-width:992px) {html.w-mod-js:not(.w-mod-ix) [data-w-id="33784969-daf2-52b5-0870-099a1faf71d8"] {-webkit-transform:translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);}}</style>
-  <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
-  <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
-  <link href="images/favicon.svg" rel="shortcut icon" type="image/x-icon">
-  <link href="images/webclip.svg" rel="apple-touch-icon">
-  <link href="https://engage.so//" rel="canonical">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!--  Please keep this css code to improve the font quality -->
-  <style>
-  * {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.button-link-wrapper,
-.text-link-wrapper {
-  width: max-content; 
- }
- .button-stroke.is-max-width-custom-medium {
- left: -4.4%;
- }
-.button-stroke.is-max-width-custom-large {
- left: -3.5%;
- }
-.button-stroke.is-max-width-custom-large.is-reposition-header {
-left: -3.5%;
-}
-</style>
-</head>
-<body>
-  <div class="page-wrapper">
-    <div class="global-styles w-embed">
-      <style>
-/* Snippet gets rid of top margin on first element in any rich text*/
-.w-richtext>:first-child {
-	margin-top: 0;
-}
-/* Snippet gets rid of bottom margin on last element in any rich text*/
-.w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
-	margin-bottom: 0;
-}
-/* Snippet prevents all click and hover interaction with an element */
-.clickable-off {
-	pointer-events: none;
-}
-/* Snippet enables all click and hover interaction with an element */
-.clickable-on{
-  pointer-events: auto;
-}
-/* Snippet enables you to add class of div-square which creates and maintains a 1:1 dimension of a div.*/
-.div-square::after {
-	content: "";
-	display: block;
-	padding-bottom: 100%;
-}
-/*Hide focus outline for main content element*/
-main:focus-visible {
-	outline: -webkit-focus-ring-color auto 0px;
-}
-/* Make sure containers never lose their center alignment*/
-.container-medium, .container-small, .container-large {
-	margin-right: auto !important;
-	margin-left: auto !important;
-}
-/*Reset buttons, and links styles*/
-a {
-	color: inherit;
-	text-decoration: inherit;
-	font-size: inherit;
-}
-/*Apply "..." after 3 lines of text */
-.text-style-3lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-}
-/*Apply "..." after 2 lines of text */
-.text-style-2lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-}
-.w-dropdown-list {
-   background: white;
-  }
-.body-overflow {
-   overflow-x: hidden;
-}
-@media all and (min-width:991px) and (max-width:1308px) {
-  .features-vertical_content
-  {
-    width: 48%;
-	}
-  .features_content-left,
-  .features_image-wrapper {
-  	width: 50%;
-  }
-  .home-testimonial-card-group,
-  .home-testimonial-customer
-  {
-    margin-left: -1.25rem;
-   }
-	.cta > .container-large {
-  	width: 90%
-  }
-  .button-link-wrapper.is-margin-left-custom-none,
-  .divider
-  {
-   width:95%
-  }
-  .member-image {
-  	object-fit: cover;
-  }
-}
-@media (min-width:991px) {
-	h2 {
-   font-size: 3.5rem !important;
-   font-family: Clashgrotesk !important;
-	}
-}
-@media all and (min-width:1200px) and (max-width:1399px) {
-	.page-feature-navigation {
-  	margin-left: 1rem
-  }
-}
-@media all and (min-width:1400px) and (max-width:1512px) {
-	.page-feature-navigation {
-  	margin-left: 2rem
-  }
-}
-@media all and (min-width:1700px) and (max-width:1919px) {
-	.page-feature-navigation {
-  	margin-left: 10.5rem
-  }
-}
-</style>
-    </div>
-    <div data-animation="default" class="nav_component w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" data-w-id="05d09ee1-cd19-cf9b-0801-964b5b8a517c" role="banner" data-no-scroll="1" data-duration="400" data-doc-height="1">
-      <div class="page-padding">
-        <nav class="nav_container">
-          <a href="index.html" aria-current="page" class="nav_logo-link w-inline-block w--current"><img src="images/Engage-logo.svg" loading="lazy" alt="engage logo" class="nav_logo"></a>
-          <nav role="navigation" class="nav_center-wrapper w-nav-menu">
-            <div data-hover="true" data-delay="0" data-w-id="bdd6bc0d-21f2-8a32-3f40-16410fc2260f" class="nav_link-wrapper w-dropdown">
-              <nav class="dropdown-toggle w-dropdown-toggle">
-                <div class="dropdown-toggle_icon w-icon-dropdown-toggle"></div>
-                <div>Features</div>
-              </nav>
-              <nav class="dropdown-list w-dropdown-list">
-                <div class="dropdown_list-menu">
-                  <div class="page-padding">
-                    <div class="container-large">
-                      <div class="menu-item_wrapper">
-                        <a data-w-id="b8934b04-cff6-6b68-3d15-672bad5467b5" href="features/customer-segmentation.html" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Customer segmentation</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Group your customers based on their data.</p>
-                        </a>
-                        <a data-w-id="b8934b04-cff6-6b68-3d15-672bad5467bc" href="features/automation.html" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Automation</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Keep onboarding, conversion and retention messages on autopilot.</p>
-                        </a>
-                        <a data-w-id="b8934b04-cff6-6b68-3d15-672bad5467c3" href="features/broadcasts.html" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Multichannel broadcasts</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Send targeted campaigns through multiple channels</p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-            </div>
-            <div data-hover="true" data-delay="0" data-w-id="33e8afdb-cd8f-1525-0c77-65c3229f6ef8" class="nav_link-wrapper w-dropdown">
-              <nav class="dropdown-toggle w-dropdown-toggle">
-                <div class="dropdown-toggle_icon w-icon-dropdown-toggle"></div>
-                <div>Use cases</div>
-              </nav>
-              <nav class="dropdown-list w-dropdown-list">
-                <div class="dropdown_list-menu">
-                  <div class="page-padding">
-                    <div class="container-large">
-                      <div class="menu-item_wrapper is-additional-column">
-                        <a data-w-id="77ff558c-e335-0dee-944d-cd83213d54ac" href="use-cases/onboarding.html" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Onboarding</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Guide customers on next steps with message automation.</p>
-                        </a>
-                        <a data-w-id="77ff558c-e335-0dee-944d-cd83213d54b3" href="use-cases/retention.html" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Retention</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Identify active and inactive customers with segmentation and incentivize.</p>
-                        </a>
-                        <a data-w-id="77ff558c-e335-0dee-944d-cd83213d54ba" href="use-cases/billing.html" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Billing notifications and reminders</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Automatically send failure notifications, payment receipts and more.</p>
-                        </a>
-                        <a data-w-id="d227ab1d-ca4e-b9da-6ba6-7a690ea10aa4" href="use-cases/analytics.html" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Transactional email analytics</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">See what email was opened, clicked, failed and more.</p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-            </div>
-            <div data-hover="true" data-delay="0" data-w-id="a219801d-4607-76d7-3a9c-7f425e56b456" class="nav_link-wrapper w-dropdown">
-              <nav class="dropdown-toggle w-dropdown-toggle">
-                <div class="dropdown-toggle_icon w-icon-dropdown-toggle"></div>
-                <div>Resources</div>
-              </nav>
-              <nav class="dropdown-list w-dropdown-list">
-                <div class="dropdown_list-menu">
-                  <div class="page-padding">
-                    <div class="container-large">
-                      <div class="menu-item_wrapper is-additional-column">
-                        <a data-w-id="56f55da8-d115-fe95-893a-3881573dc95e" href="https://engage.so/docs/" target="_blank" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Documentation</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Explore our robust knowledge base on using Engage.</p>
-                        </a>
-                        <a data-w-id="56f55da8-d115-fe95-893a-3881573dc965" href="https://engage.so/docs/api/" target="_blank" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">API</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">View how Engage interacts with data and requests.</p>
-                        </a>
-                        <a data-w-id="56f55da8-d115-fe95-893a-3881573dc96c" href="https://engage.so/docs/sdks/" target="_blank" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">SDKs</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">Get quick information on how to interact with Engage API.</p>
-                        </a>
-                        <a data-w-id="c3a18321-f7ae-d5ad-4f64-e1225f6825ad" href="https://engage.so/blog/" target="_blank" class="menu-item w-inline-block">
-                          <div class="menu-item_title-wrapper">
-                            <h4 class="menu-item_title">Blog</h4><img src="images/menu-item-icon.svg" loading="lazy" width="16" alt="arrow icon" class="menu-item_icon">
-                          </div>
-                          <p class="paragraph-body is-max-width-large">See relevant information to help level-up your messaging.</p>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </nav>
-            </div>
-            <nav class="nav_link-wrapper underline">
-              <a href="integrations.html" class="nav_link">Integrations</a>
-              <div class="nav_link-underline"></div>
-            </nav>
-            <nav class="nav_link-wrapper underline">
-              <a href="pricing.html" class="nav_link">Pricing</a>
-              <div class="nav_link-underline"></div>
-            </nav>
-          </nav>
-          <div class="nav_right-wrapper">
-            <div class="nav_link-wrapper underline is-margin-right-custom-medium">
-              <a href="https://app.engage.so/auth/login" class="nav_link custom-text-weight-bold">Login</a>
-              <div class="nav_link-underline"></div>
-            </div>
-            <div data-w-id="308a20e9-1057-a21a-5498-61a6293ca667" class="button-link-wrapper is-margin-none">
-              <a href="https://app.engage.so/auth/signup" class="button w-inline-block">
-                <div class="button-link-text">Sign up free</div>
-              </a>
-              <div class="button-stroke"></div>
-            </div>
-          </div>
-          <div class="nav_menu-button w-nav-button">
-            <div data-is-ix2-target="1" class="menu-hamburger" data-w-id="b8c96be8-5401-d580-1b76-b7649b9f4221" data-animation-type="lottie" data-src="documents/hamburger-menu-animation.json" data-loop="0" data-direction="1" data-autoplay="0" data-renderer="svg" data-default-duration="1.5" data-duration="0" data-ix2-initial-state="0"></div>
-          </div>
-        </nav>
+<!DOCTYPE html>
+<!--  Last Published: Wed Oct 05 2022 06:08:58 GMT+0000 (Coordinated Universal Time)  -->
+<html
+  data-wf-page="6332c9c02bf13f55316b62c3"
+  data-wf-site="62b4c8558fac365a2aa71ef1"
+>
+  <head>
+    <meta charset="utf-8" />
+    <title>Send emails, SMS and in-app messages that convert – Engage</title>
+    <meta
+      content="Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages."
+      name="description"
+    />
+    <meta
+      content="Send emails, SMS and in-app messages that convert – Engage"
+      property="og:title"
+    />
+    <meta
+      content="Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages."
+      property="og:description"
+    />
+    <meta
+      content="https://uploads-ssl.webflow.com/62b4c8558fac365a2aa71ef1/62e146c3130a3a5b6dcdad1e_open-graph-img.png"
+      property="og:image"
+    />
+    <meta
+      content="Send emails, SMS and in-app messages that convert – Engage"
+      property="twitter:title"
+    />
+    <meta
+      content="Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages."
+      property="twitter:description"
+    />
+    <meta
+      content="https://uploads-ssl.webflow.com/62b4c8558fac365a2aa71ef1/62e146c3130a3a5b6dcdad1e_open-graph-img.png"
+      property="twitter:image"
+    />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+    <link href="css/webflow.css" rel="stylesheet" type="text/css" />
+    <link
+      href="css/engage-messaging.webflow.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      @media (min-width: 992px) {
+        html.w-mod-js:not(.w-mod-ix)
+          [data-w-id="33784969-daf2-52b5-0870-099a1faf71d8"] {
+          -webkit-transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1)
+            rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+          -moz-transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0)
+            rotateY(0) rotateZ(0) skew(0, 0);
+          -ms-transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0)
+            rotateY(0) rotateZ(0) skew(0, 0);
+          transform: translate3d(0px, 0px, 0) scale3d(1, 1, 1) rotateX(0)
+            rotateY(0) rotateZ(0) skew(0, 0);
+        }
+      }
+    </style>
+    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        (n.className += t + "js"),
+          ("ontouchstart" in o ||
+            (o.DocumentTouch && c instanceof DocumentTouch)) &&
+            (n.className += t + "touch");
+      })(window, document);
+    </script>
+    <link href="images/favicon.svg" rel="shortcut icon" type="image/x-icon" />
+    <link href="images/webclip.svg" rel="apple-touch-icon" />
+    <link href="https://engage.so//" rel="canonical" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  Please keep this css code to improve the font quality -->
+    <style>
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      .button-link-wrapper,
+      .text-link-wrapper {
+        width: max-content;
+      }
+      .button-stroke.is-max-width-custom-medium {
+        left: -4.4%;
+      }
+      .button-stroke.is-max-width-custom-large {
+        left: -3.5%;
+      }
+      .button-stroke.is-max-width-custom-large.is-reposition-header {
+        left: -3.5%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="global-styles w-embed">
+        <style>
+          /* Snippet gets rid of top margin on first element in any rich text*/
+          .w-richtext > :first-child {
+            margin-top: 0;
+          }
+          /* Snippet gets rid of bottom margin on last element in any rich text*/
+          .w-richtext > :last-child,
+          .w-richtext ol li:last-child,
+          .w-richtext ul li:last-child {
+            margin-bottom: 0;
+          }
+          /* Snippet prevents all click and hover interaction with an element */
+          .clickable-off {
+            pointer-events: none;
+          }
+          /* Snippet enables all click and hover interaction with an element */
+          .clickable-on {
+            pointer-events: auto;
+          }
+          /* Snippet enables you to add class of div-square which creates and maintains a 1:1 dimension of a div.*/
+          .div-square::after {
+            content: "";
+            display: block;
+            padding-bottom: 100%;
+          }
+          /*Hide focus outline for main content element*/
+          main:focus-visible {
+            outline: -webkit-focus-ring-color auto 0px;
+          }
+          /* Make sure containers never lose their center alignment*/
+          .container-medium,
+          .container-small,
+          .container-large {
+            margin-right: auto !important;
+            margin-left: auto !important;
+          }
+          /*Reset buttons, and links styles*/
+          a {
+            color: inherit;
+            text-decoration: inherit;
+            font-size: inherit;
+          }
+          /*Apply "..." after 3 lines of text */
+          .text-style-3lines {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+          }
+          /*Apply "..." after 2 lines of text */
+          .text-style-2lines {
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+          }
+          .w-dropdown-list {
+            background: white;
+          }
+          .body-overflow {
+            overflow-x: hidden;
+          }
+          @media all and (min-width: 991px) and (max-width: 1308px) {
+            .features-vertical_content {
+              width: 48%;
+            }
+            .features_content-left,
+            .features_image-wrapper {
+              width: 50%;
+            }
+            .home-testimonial-card-group,
+            .home-testimonial-customer {
+              margin-left: -1.25rem;
+            }
+            .cta > .container-large {
+              width: 90%;
+            }
+            .button-link-wrapper.is-margin-left-custom-none,
+            .divider {
+              width: 95%;
+            }
+            .member-image {
+              object-fit: cover;
+            }
+          }
+          @media (min-width: 991px) {
+            h2 {
+              font-size: 3.5rem !important;
+              font-family: Clashgrotesk !important;
+            }
+          }
+          @media all and (min-width: 1200px) and (max-width: 1399px) {
+            .page-feature-navigation {
+              margin-left: 1rem;
+            }
+          }
+          @media all and (min-width: 1400px) and (max-width: 1512px) {
+            .page-feature-navigation {
+              margin-left: 2rem;
+            }
+          }
+          @media all and (min-width: 1700px) and (max-width: 1919px) {
+            .page-feature-navigation {
+              margin-left: 10.5rem;
+            }
+          }
+        </style>
       </div>
-    </div>
-    <main class="main-wrapper">
-      <header class="section-home-header">
+      <div
+        data-animation="default"
+        class="nav_component w-nav"
+        data-easing2="ease"
+        data-easing="ease"
+        data-collapse="medium"
+        data-w-id="05d09ee1-cd19-cf9b-0801-964b5b8a517c"
+        role="banner"
+        data-no-scroll="1"
+        data-duration="400"
+        data-doc-height="1"
+      >
         <div class="page-padding">
-          <div class="container-large">
-            <div class="margin-top margin-xxlarge">
-              <div class="home-header">
-                <div class="home-header_content-wrapper">
-                  <div class="home-header_layout">
-                    <h1 class="heading-xlarge">Send<br></h1>
-                    <div id="w-node-_77902fef-1f4b-fbaf-5978-a104dfe77ea3-316b62c3" class="home-header_word-rotate">
-                      <div data-w-id="4ea7dccd-8df3-a30b-c762-357bfeaf990d" style="-webkit-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="word-rotate_wrapper">
-                        <h1 class="heading-xlarge is-bg-green">email<br></h1>
-                        <h1 class="heading-xlarge is-bg-green">SMS<br></h1>
-                        <h1 class="heading-xlarge is-bg-green">In-app<br></h1>
-                        <h1 class="heading-xlarge is-bg-green">email<br></h1>
-                      </div>
-                      <div data-w-id="5b497a19-7082-2457-f230-51a090773302" style="-webkit-transform:translate3d(null, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(null, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(null, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(null, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="word-rotate_wrapper-small-screen">
-                        <h1 class="heading-xlarge is-bg-green">email<br></h1>
-                        <h1 class="heading-xlarge is-bg-green">SMS<br></h1>
-                        <h1 class="heading-xlarge is-bg-green">In-app<br></h1>
-                        <h1 class="heading-xlarge is-bg-green">email<br></h1>
-                      </div>
-                    </div>
-                    <h1 id="w-node-_74613063-df62-b3d1-22c2-b96f79de303c-316b62c3" class="heading-xlarge">messages that<br>convert</h1>
-                  </div>
-                  <p class="paragraph-body">Engage provides you the best marketing automation tools to deliver personalized campaigns and automate your customer onboarding, conversion and retention messages.</p>
-                  <div class="form-block-group w-form">
-                    <form id="email-form" name="email-form" data-name="Email Form" method="get">
-                      <div class="form-block"><input type="email" class="form-inputfield w-input" maxlength="256" name="Email" data-name="Email" placeholder="you@email.com" id="Email">
-                        <div data-w-id="33784969-daf2-52b5-0870-099a1faf71d7" class="button-link-wrapper is-margin-left-custom-small is-margin-top-custom-small">
-                          <a data-w-id="33784969-daf2-52b5-0870-099a1faf71d8" href="https://app.engage.so/auth/signup" class="button w-inline-block">
-                            <div class="button-link-text">Sign up free</div>
+          <nav class="nav_container">
+            <a
+              href="index.html"
+              aria-current="page"
+              class="nav_logo-link w-inline-block w--current"
+              ><img
+                src="images/Engage-logo.svg"
+                loading="lazy"
+                alt="engage logo"
+                class="nav_logo"
+            /></a>
+            <nav role="navigation" class="nav_center-wrapper w-nav-menu">
+              <div
+                data-hover="true"
+                data-delay="0"
+                data-w-id="bdd6bc0d-21f2-8a32-3f40-16410fc2260f"
+                class="nav_link-wrapper w-dropdown"
+              >
+                <nav class="dropdown-toggle w-dropdown-toggle">
+                  <div
+                    class="dropdown-toggle_icon w-icon-dropdown-toggle"
+                  ></div>
+                  <div>Features</div>
+                </nav>
+                <nav class="dropdown-list w-dropdown-list">
+                  <div class="dropdown_list-menu">
+                    <div class="page-padding">
+                      <div class="container-large">
+                        <div class="menu-item_wrapper">
+                          <a
+                            data-w-id="b8934b04-cff6-6b68-3d15-672bad5467b5"
+                            href="features/customer-segmentation.html"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">
+                                Customer segmentation
+                              </h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Group your customers based on their data.
+                            </p>
                           </a>
-                          <div class="button-stroke is-reposition-mobile"></div>
-                        </div>
-                      </div>
-                    </form>
-                    <div class="w-form-done">
-                      <div>Thank you! Your submission has been received!</div>
-                    </div>
-                    <div class="w-form-fail">
-                      <div>Oops! Something went wrong while submitting the form.</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="home-header_image-wrapper"><img src="images/home-header_image.svg" loading="lazy" width="608" alt="header image showing key features of Engage" class="home-header_image"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-      <section class="section-home-clients">
-        <div class="page-padding">
-          <div class="container-large">
-            <div class="margin-top margin-xxlarge">
-              <div class="home-clients">
-                <div class="text-align-center">
-                  <h4>Trusted by the world&#x27;s most innovative companies</h4>
-                </div>
-                <div class="home-clients-row">
-                  <div id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879182-316b62c3" class="home-client_image-wrapper"><img src="images/indie-campers.svg" loading="lazy" width="88" alt="indie campers logo" class="indie-campers"></div>
-                  <div id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879184-316b62c3" class="home-client_image-wrapper"><img src="images/beyond-social-media.svg" loading="lazy" width="91" alt="beyond social media logo" class="beyond-sm"></div>
-                  <div class="home-client_image-wrapper"><img src="images/crop2cash.svg" loading="lazy" width="162" alt="crop 2 cash logo" class="crop2cash"></div>
-                  <div class="home-client_image-wrapper"><img src="images/boon.svg" loading="lazy" width="83" alt="boon logo" class="boon"></div>
-                  <div class="home-client_image-wrapper"><img src="images/casava.png" loading="lazy" width="140" alt="casava insurance logo" class="crop2cash"></div>
-                  <div class="home-client_image-wrapper"><img src="images/vcplatform.png" loading="lazy" width="129" alt="vc platform logo" class="reliance"></div>
-                  <div class="home-client_image-wrapper"><img src="images/ticketgateway.png" loading="lazy" width="151" alt="ticket gateway logo" class="boon"></div>
-                  <div class="home-client_image-wrapper"><img src="images/accrue.svg" loading="lazy" width="134" alt="accrue logo" class="accrue"></div>
-                  <div class="home-client_image-wrapper"><img src="images/eden.svg" loading="lazy" width="57" alt="eden logo" class="eden"></div>
-                  <div class="home-client_image-wrapper"><img src="images/reliance-hmo-large.svg" loading="lazy" width="145" alt="reliance hmo logo" class="reliance"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-features">
-        <div class="page-padding">
-          <div class="container-large">
-            <div class="margin-top margin-custom-roomy">
-              <div class="section-header">
-                <div class="text-style-subheading">THE RIGHT FIT FOR YOU</div>
-                <h2>Send messages to targeted audience<br></h2>
-                <p class="paragraph-body">Send targeted messages with our easy to use features.</p>
-              </div>
-              <div class="features-horizontal_component is-margin-custom-xlarge">
-                <div class="features_content-left">
-                  <div class="text-icon-wrapper"><img src="images/Automation-icon.svg" loading="lazy" alt="automation-icon" class="icon">
-                    <div class="text-style-icon">Automations</div>
-                  </div>
-                  <h3>Keep your onboarding, conversion and retention messages on autopilot</h3>
-                  <p class="paragraph-body">Create email sequences, drip campaigns and workflows to automatically engage customers based on set triggers. They stay running till you stop them.</p>
-                  <div data-w-id="527bd773-24cc-e8f9-09eb-ea566e07d26a" class="button-link-wrapper is-margin-left-custom-small">
-                    <a href="features/automation.html" class="button is-margin-top-custom-xxlarge is-max-width-custom-medium w-inline-block">
-                      <div class="button-link-text">Learn more</div>
-                    </a>
-                    <div class="button-stroke is-max-width-custom-medium"></div>
-                  </div>
-                </div>
-                <div class="features_image-wrapper"><img src="images/feature_image.svg" loading="lazy" width="606" alt="automation feature image" class="features_image"></div>
-              </div>
-              <div class="margin-top margin-large">
-                <div class="features-vertical_component">
-                  <div class="features-vertical_content">
-                    <div class="features-vertical_text-content">
-                      <div class="max-width-medium">
-                        <div class="text-icon-wrapper"><img src="images/customer-segmentation-white-icon.svg" loading="lazy" alt="customer segmentation icon" class="icon">
-                          <div class="text-style-icon is-white">Customer Segmentation</div>
-                        </div>
-                        <h3 class="heading-medium is-text-color-white">Group your customers based on data</h3>
-                        <p class="paragraph-body is-text-color-white">Create customer groups based on customer attributes and events like gender, location, last login and app activity. Send targeted messages through emails, SMS and in-app messages, and see how customers convert.</p>
-                      </div>
-                      <div data-w-id="d8202993-8adc-7448-d543-5f0806627209" class="button-link-wrapper is-margin-left-custom-small">
-                        <a href="features/customer-segmentation.html" class="button is-margin-top-custom-medium is-max-width-custom-medium w-inline-block">
-                          <div class="button-link-text">Learn more</div>
-                        </a>
-                        <div class="button-stroke is-max-width-custom-medium"></div>
-                      </div>
-                    </div><img src="images/features-customer-segmentation.svg" loading="lazy" width="607" alt="customer segmentation image" class="feature-vertical_image">
-                  </div>
-                  <div class="features-vertical_content is-bg-darkblue is-margin-top-custom-large">
-                    <div class="features-vertical_text-content">
-                      <div class="max-width-medium">
-                        <div class="text-icon-wrapper"><img src="images/broadcast-white-icon.svg" loading="lazy" alt="broadcast icon" class="icon">
-                          <div class="text-style-icon is-white">broadcasts</div>
-                        </div>
-                        <h3 class="heading-medium is-text-color-white">Reach customers through the right channel</h3>
-                        <p class="paragraph-body is-text-color-white">Engage supports email, SMS and push notifications to enable you deliver the right message in the right way.</p>
-                      </div>
-                      <div data-w-id="c572d5a1-2cc7-c209-b784-b8faf4dbe366" class="button-link-wrapper is-margin-left-custom-small">
-                        <a href="features/broadcasts.html" class="button is-margin-top-custom-medium is-max-width-custom-medium w-inline-block">
-                          <div class="button-link-text">Learn more</div>
-                        </a>
-                        <div class="button-stroke is-max-width-custom-medium"></div>
-                      </div>
-                    </div><img src="images/features-broadcast.svg" loading="lazy" width="607" alt="broadcast feature image" class="feature-vertical_image">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-more-features">
-        <div class="page-padding">
-          <div class="container-large">
-            <div class="more-features_component large">
-              <h2 class="heading-large is-text-center">Build fans with Engage</h2>
-              <div class="more-features_wrapper w-row">
-                <div class="more-feature_item is-margin-bottom-medium w-col w-col-3 w-col-medium-6">
-                  <div class="text-icon-wrapper"><img src="images/Lists-icon.svg" loading="lazy" alt="lists icon" class="icon"></div>
-                  <h4>Subscription lists</h4>
-                  <p class="paragraph-body">Lists are an easy way to create customer groups for engagement. Create lists for your online forms or newsletters.</p>
-                </div>
-                <div class="more-feature_item is-margin-bottom-medium w-col w-col-3 w-col-medium-6">
-                  <div class="text-icon-wrapper"><img src="images/Integration-icon.svg" loading="lazy" alt="integration icon" class="icon"></div>
-                  <h4>Connect your favourite services</h4>
-                  <p class="paragraph-body">From payment gateways to data analytics tools, Engage supports multiple services like Segment and Zapier you can connect to for customer data enrichment.</p>
-                </div>
-                <div class="more-feature_item is-margin-bottom-medium w-col w-col-3 w-col-medium-6">
-                  <div class="text-icon-wrapper"><img src="images/Add-mail-icon.svg" loading="lazy" alt="add mail icon" class="icon"></div>
-                  <h4>Bring your messaging infrastructure</h4>
-                  <p class="paragraph-body">Already use Amazon SES, Mailgun or Twilio for messaging? Connect your existing messaging infrastructure and continue to use this in Engage.</p>
-                </div>
-                <div class="more-feature_item w-col w-col-3 w-col-medium-6">
-                  <div class="text-icon-wrapper"><img src="images/Email-Analytic-icon.svg" loading="lazy" alt="email analytics icon" class="icon"></div>
-                  <h4>Transactional email analytics</h4>
-                  <p class="paragraph-body">Connected your transactional email provider? Engage gives you detailed analytics and reporting of your transactional emails. We support top service providers like Amazon SES, Mailgun and more.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-home-testimonial">
-        <div class="page-padding">
-          <div class="container-large">
-            <div class="margin-top margin-custom-roomy">
-              <div class="home-testimonial">
-                <div id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879201-316b62c3" class="home-testimonial_content-wrapper">
-                  <h1 class="heading-large is-text-color-white">You’re in great company</h1>
-                  <p class="paragraph-body is-text-color-white">We’re trusted by industry leading companies looking to further improve their customer relationship. Join these companies as they share their reports so far.</p>
-                </div>
-                <div id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879206-316b62c3" data-w-id="6ce715fa-b7ac-9143-14df-cffa7d879206" class="home-testimonial-column-wrapper">
-                  <div class="home-testimonial-card-group is-margin-top-tablet-view">
-                    <div class="home-testimonial-card-item">
-                      <div class="testimonial-card"><img src="images/reliance-sm-icon.svg" loading="lazy" alt="reliance hmo logo" class="testimonial-card-img">
-                        <h1 class="heading-xxlarge white">15 mins</h1>
-                        <p class="text-size-medium is-text-color-white is-no-wrap">Reduce each customer ticket</p>
-                      </div>
-                    </div>
-                    <div class="home-testimonial-card-item is-margin-top-custom-small">
-                      <div class="testimonial-card"><img src="images/booon-sm-icon.svg" loading="lazy" alt="boon logo" class="image-4">
-                        <h1 class="heading-xxlarge white">-20%</h1>
-                        <p class="text-size-medium is-text-color-white is-no-wrap">Customer Churn Rate</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879216-316b62c3" class="home-testimonial-customer">
-                    <p class="text-size-large is-text-color-white">“We considered moving to a new platform to have better tracking but integrating with Engage was super simple and gave us all we needed, without having to go through a costly and risky migration.”</p>
-                    <div class="block-text-img mt-56"><img src="images/testimonial-customer-img.svg" loading="lazy" alt="testimonial customer image">
-                      <div class="customer-text ml-8">
-                        <p class="text-size-large is-text-color-white is-font-family-grotesk">Simone Basso</p>
-                        <div class="customer-text-wrapper">
-                          <p class="text-size-medium is-text-color-white">CTO &amp; Product Officer, </p>
-                          <p class="text-size-medium is-text-color-white text-weight-semibold is-custom-margin-left"> Indie Campers</p>
+                          <a
+                            data-w-id="b8934b04-cff6-6b68-3d15-672bad5467bc"
+                            href="features/automation.html"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">Automation</h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Keep onboarding, conversion and retention messages
+                              on autopilot.
+                            </p>
+                          </a>
+                          <a
+                            data-w-id="b8934b04-cff6-6b68-3d15-672bad5467c3"
+                            href="features/broadcasts.html"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">
+                                Multichannel broadcasts
+                              </h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Send targeted campaigns through multiple channels
+                            </p>
+                          </a>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="home-testimonial-card-group is-margin-top-small">
-                    <div class="home-testimonial-card-item">
-                      <div class="testimonial-card"><img src="images/reliance-sm-icon.svg" loading="lazy" alt="reliance hmo" class="testimonial-card-img">
-                        <h1 class="heading-xxlarge white">15 mins</h1>
-                        <p class="text-size-medium is-text-color-white is-no-wrap">Reduce each customer ticket</p>
+                </nav>
+              </div>
+              <div
+                data-hover="true"
+                data-delay="0"
+                data-w-id="33e8afdb-cd8f-1525-0c77-65c3229f6ef8"
+                class="nav_link-wrapper w-dropdown"
+              >
+                <nav class="dropdown-toggle w-dropdown-toggle">
+                  <div
+                    class="dropdown-toggle_icon w-icon-dropdown-toggle"
+                  ></div>
+                  <div>Use cases</div>
+                </nav>
+                <nav class="dropdown-list w-dropdown-list">
+                  <div class="dropdown_list-menu">
+                    <div class="page-padding">
+                      <div class="container-large">
+                        <div class="menu-item_wrapper is-additional-column">
+                          <a
+                            data-w-id="77ff558c-e335-0dee-944d-cd83213d54ac"
+                            href="use-cases/onboarding.html"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">Onboarding</h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Guide customers on next steps with message
+                              automation.
+                            </p>
+                          </a>
+                          <a
+                            data-w-id="77ff558c-e335-0dee-944d-cd83213d54b3"
+                            href="use-cases/retention.html"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">Retention</h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Identify active and inactive customers with
+                              segmentation and incentivize.
+                            </p>
+                          </a>
+                          <a
+                            data-w-id="77ff558c-e335-0dee-944d-cd83213d54ba"
+                            href="use-cases/stripe-payment-notifications.html"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">
+                                Billing notifications and reminders
+                              </h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Automatically send failure notifications, payment
+                              receipts and more.
+                            </p>
+                          </a>
+                          <a
+                            data-w-id="d227ab1d-ca4e-b9da-6ba6-7a690ea10aa4"
+                            href="use-cases/transactional-email-analytics.html"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">
+                                Transactional email analytics
+                              </h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              See what email was opened, clicked, failed and
+                              more.
+                            </p>
+                          </a>
+                        </div>
                       </div>
                     </div>
-                    <div class="home-testimonial-card-item is-margin-top-custom-small">
-                      <div class="testimonial-card"><img src="images/booon-sm-icon.svg" loading="lazy" alt="boon logo" class="image-4">
-                        <h1 class="heading-xxlarge white">-20%</h1>
-                        <p class="text-size-medium is-text-color-white is-no-wrap">Customer Churn Rate</p>
+                  </div>
+                </nav>
+              </div>
+              <div
+                data-hover="true"
+                data-delay="0"
+                data-w-id="a219801d-4607-76d7-3a9c-7f425e56b456"
+                class="nav_link-wrapper w-dropdown"
+              >
+                <nav class="dropdown-toggle w-dropdown-toggle">
+                  <div
+                    class="dropdown-toggle_icon w-icon-dropdown-toggle"
+                  ></div>
+                  <div>Resources</div>
+                </nav>
+                <nav class="dropdown-list w-dropdown-list">
+                  <div class="dropdown_list-menu">
+                    <div class="page-padding">
+                      <div class="container-large">
+                        <div class="menu-item_wrapper is-additional-column">
+                          <a
+                            data-w-id="56f55da8-d115-fe95-893a-3881573dc95e"
+                            href="https://engage.so/docs/"
+                            target="_blank"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">Documentation</h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Explore our robust knowledge base on using Engage.
+                            </p>
+                          </a>
+                          <a
+                            data-w-id="56f55da8-d115-fe95-893a-3881573dc965"
+                            href="https://engage.so/docs/api/"
+                            target="_blank"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">API</h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              View how Engage interacts with data and requests.
+                            </p>
+                          </a>
+                          <a
+                            data-w-id="56f55da8-d115-fe95-893a-3881573dc96c"
+                            href="https://engage.so/docs/sdks/"
+                            target="_blank"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">SDKs</h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              Get quick information on how to interact with
+                              Engage API.
+                            </p>
+                          </a>
+                          <a
+                            data-w-id="c3a18321-f7ae-d5ad-4f64-e1225f6825ad"
+                            href="https://engage.so/blog/"
+                            target="_blank"
+                            class="menu-item w-inline-block"
+                          >
+                            <div class="menu-item_title-wrapper">
+                              <h4 class="menu-item_title">Blog</h4>
+                              <img
+                                src="images/menu-item-icon.svg"
+                                loading="lazy"
+                                width="16"
+                                alt="arrow icon"
+                                class="menu-item_icon"
+                              />
+                            </div>
+                            <p class="paragraph-body is-max-width-large">
+                              See relevant information to help level-up your
+                              messaging.
+                            </p>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </nav>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section-features">
-        <div class="page-padding">
-          <div class="container-large">
-            <div class="margin-top margin-custom-roomy">
-              <div class="section-header">
-                <div class="text-style-subheading is-bg-darker-blue">seamless from the get go</div>
-                <h2>Easily bring in your data and integrate<br></h2>
-                <p class="paragraph-body">Sync customer data and events with our integrations, simple API and SDKs</p>
+              <nav class="nav_link-wrapper underline">
+                <a href="integrations.html" class="nav_link">Integrations</a>
+                <div class="nav_link-underline"></div>
+              </nav>
+              <nav class="nav_link-wrapper underline">
+                <a href="pricing.html" class="nav_link">Pricing</a>
+                <div class="nav_link-underline"></div>
+              </nav>
+            </nav>
+            <div class="nav_right-wrapper">
+              <div
+                class="nav_link-wrapper underline is-margin-right-custom-medium"
+              >
+                <a
+                  href="https://app.engage.so/auth/login"
+                  class="nav_link custom-text-weight-bold"
+                  >Login</a
+                >
+                <div class="nav_link-underline"></div>
               </div>
-              <div class="margin-top margin-huge">
-                <div class="features-vertical_component">
-                  <div class="features-vertical_content is-bg-white is-padding-bottom-custom-medium">
-                    <div class="features-vertical_text-content">
-                      <div class="max-width-medium">
-                        <div class="text-icon-wrapper"><img src="images/integration-black-icon.svg" loading="lazy" alt="integration icon" class="icon">
-                          <div class="text-style-icon">Integrations</div>
-                        </div>
-                        <h3 class="heading-medium">Connect your favorite tools</h3>
-                        <p class="paragraph-body">Bring in customer data from your favourite services like Segment, Stripe, Paystack, AWS, Zapier and more.</p>
-                      </div>
-                      <div data-w-id="8ed23a53-d6aa-54d1-05ab-6c88e35dcca7" class="button-link-wrapper is-margin-left-custom-small">
-                        <a href="integrations.html" class="button is-margin-top-custom-large is-max-width-custom-large w-inline-block">
-                          <div class="button-link-text">See all integrations</div>
-                        </a>
-                        <div class="button-stroke is-max-width-custom-large"></div>
-                      </div>
-                    </div><img src="images/feature-integration.svg" loading="lazy" width="607" alt="integration feature image" class="feature-vertical_image">
-                  </div>
-                  <div class="features-vertical_content is-bg-yellow is-margin-top-custom-large">
-                    <div class="features-vertical_text-content">
-                      <div class="max-width-medium">
-                        <div class="text-icon-wrapper"><img src="images/developer-black-icon.svg" loading="lazy" alt="developer icon" class="icon">
-                          <div class="text-style-icon is-deep-black">DEVELOPER</div>
-                        </div>
-                        <h3 class="heading-medium">Reach customers through the right channel</h3>
-                        <p class="paragraph-body is-deep-black">Engage provides a simple user API to track customer attributes and events. We also have SDKs to make your integration easier.</p>
-                      </div>
-                      <div data-w-id="dafbf662-f554-1ba1-066d-220536afc48c" class="button-link-wrapper is-margin-left-custom-small">
-                        <a href="https://engage.so/docs/api/" target="_blank" class="button is-margin-top-custom-large is-max-width-custom-large w-inline-block">
-                          <div class="button-link-text">Explore our API</div>
-                        </a>
-                        <div class="button-stroke is-max-width-custom-large"></div>
-                      </div>
-                    </div><img src="images/feature-developer.svg" loading="lazy" width="607" alt="developer feature image" class="feature-vertical_image">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    <footer class="footer-group">
-      <div class="cta">
-        <div class="container-large">
-          <div class="cta-bg">
-            <div class="padding-top padding-huge">
-              <h1 class="heading-xlarge is-text-color-white max-width-large is-margin-auto heading-custom-medium">Ready to improve your customer messaging?</h1>
-            </div>
-            <div class="button-flex">
-              <div data-w-id="d0392c5b-1fdc-b6c4-652f-15d65aa59a27" class="button-link-wrapper is-margin-left-custom-small">
-                <a href="https://app.engage.so/auth/signup" class="button is-margin-top-custom-xxlarge w-inline-block">
-                  <div class="button-link-text">Get started for free</div>
+              <div
+                data-w-id="308a20e9-1057-a21a-5498-61a6293ca667"
+                class="button-link-wrapper is-margin-none"
+              >
+                <a
+                  href="https://app.engage.so/auth/signup"
+                  class="button w-inline-block"
+                >
+                  <div class="button-link-text">Sign up free</div>
                 </a>
-                <div class="button-stroke is-max-width-custom-large is-reposition-footer"></div>
+                <div class="button-stroke"></div>
               </div>
             </div>
-            <div class="cta-text">
-              <p class="paragraph-body is-text-color-white">No credit card required</p>
-            </div><img src="images/Pattern-5-large.svg" loading="lazy" alt="" class="pattern">
-          </div>
+            <div class="nav_menu-button w-nav-button">
+              <div
+                data-is-ix2-target="1"
+                class="menu-hamburger"
+                data-w-id="b8c96be8-5401-d580-1b76-b7649b9f4221"
+                data-animation-type="lottie"
+                data-src="documents/hamburger-menu-animation.json"
+                data-loop="0"
+                data-direction="1"
+                data-autoplay="0"
+                data-renderer="svg"
+                data-default-duration="1.5"
+                data-duration="0"
+                data-ix2-initial-state="0"
+              ></div>
+            </div>
+          </nav>
         </div>
       </div>
-      <footer class="footer mt-280">
-        <div class="page-padding">
-          <div class="container-large">
-            <div class="footer-wrapper">
-              <div class="footer-images"><img src="https://uploads-ssl.webflow.com/62b4c3658d288d4efaebc45a/62b4c5db910aad4f208dada9_engage-logo-white.svg" loading="lazy" alt="">
-                <p class="paragraph-body is-text-color-white is-margin-top-custom-medium">Convert customers into fans</p>
-                <div class="margin-top margin-xxlarge">
-                  <div class="footer-icons">
-                    <a href="https://www.instagram.com/engage_messaging/" class="footer-icon w-inline-block"><img src="images/instagram-fill.svg" loading="lazy" alt="Instagram icon links to engage Instagram" class="icon-item-1"></a>
-                    <a href="https://twitter.com/engage_so" class="footer-icon w-inline-block"><img src="images/twitter-fill.svg" loading="lazy" alt="twitter icon links to engage twitter" class="icon-item-2"></a>
-                    <a href="https://www.linkedin.com/company/engage-messaging/" class="footer-icon w-inline-block"><img src="images/linkedin-box-fill.svg" loading="lazy" alt="LinkedIn icon links to engage LinkedIn " class="icon-item-3"></a>
+      <main class="main-wrapper">
+        <header class="section-home-header">
+          <div class="page-padding">
+            <div class="container-large">
+              <div class="margin-top margin-xxlarge">
+                <div class="home-header">
+                  <div class="home-header_content-wrapper">
+                    <div class="home-header_layout">
+                      <h1 class="heading-xlarge">Send<br /></h1>
+                      <div
+                        id="w-node-_77902fef-1f4b-fbaf-5978-a104dfe77ea3-316b62c3"
+                        class="home-header_word-rotate"
+                      >
+                        <div
+                          data-w-id="4ea7dccd-8df3-a30b-c762-357bfeaf990d"
+                          style="
+                            -webkit-transform: translate3d(0, 0px, 0)
+                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                              skew(0, 0);
+                            -moz-transform: translate3d(0, 0px, 0)
+                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                              skew(0, 0);
+                            -ms-transform: translate3d(0, 0px, 0)
+                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                              skew(0, 0);
+                            transform: translate3d(0, 0px, 0) scale3d(1, 1, 1)
+                              rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+                          "
+                          class="word-rotate_wrapper"
+                        >
+                          <h1 class="heading-xlarge is-bg-green">
+                            email<br />
+                          </h1>
+                          <h1 class="heading-xlarge is-bg-green">SMS<br /></h1>
+                          <h1 class="heading-xlarge is-bg-green">
+                            In-app<br />
+                          </h1>
+                          <h1 class="heading-xlarge is-bg-green">
+                            email<br />
+                          </h1>
+                        </div>
+                        <div
+                          data-w-id="5b497a19-7082-2457-f230-51a090773302"
+                          style="
+                            -webkit-transform: translate3d(null, 0px, 0)
+                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                              skew(0, 0);
+                            -moz-transform: translate3d(null, 0px, 0)
+                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                              skew(0, 0);
+                            -ms-transform: translate3d(null, 0px, 0)
+                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                              skew(0, 0);
+                            transform: translate3d(null, 0px, 0)
+                              scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0)
+                              skew(0, 0);
+                          "
+                          class="word-rotate_wrapper-small-screen"
+                        >
+                          <h1 class="heading-xlarge is-bg-green">
+                            email<br />
+                          </h1>
+                          <h1 class="heading-xlarge is-bg-green">SMS<br /></h1>
+                          <h1 class="heading-xlarge is-bg-green">
+                            In-app<br />
+                          </h1>
+                          <h1 class="heading-xlarge is-bg-green">
+                            email<br />
+                          </h1>
+                        </div>
+                      </div>
+                      <h1
+                        id="w-node-_74613063-df62-b3d1-22c2-b96f79de303c-316b62c3"
+                        class="heading-xlarge"
+                      >
+                        messages that<br />convert
+                      </h1>
+                    </div>
+                    <p class="paragraph-body">
+                      Engage provides you the best marketing automation tools to
+                      deliver personalized campaigns and automate your customer
+                      onboarding, conversion and retention messages.
+                    </p>
+                    <div class="form-block-group w-form">
+                      <form
+                        id="email-form"
+                        name="email-form"
+                        data-name="Email Form"
+                        method="get"
+                      >
+                        <div class="form-block">
+                          <input
+                            type="email"
+                            class="form-inputfield w-input"
+                            maxlength="256"
+                            name="Email"
+                            data-name="Email"
+                            placeholder="you@email.com"
+                            id="Email"
+                          />
+                          <div
+                            data-w-id="33784969-daf2-52b5-0870-099a1faf71d7"
+                            class="button-link-wrapper is-margin-left-custom-small is-margin-top-custom-small"
+                          >
+                            <a
+                              data-w-id="33784969-daf2-52b5-0870-099a1faf71d8"
+                              href="https://app.engage.so/auth/signup"
+                              class="button w-inline-block"
+                            >
+                              <div class="button-link-text">Sign up free</div>
+                            </a>
+                            <div
+                              class="button-stroke is-reposition-mobile"
+                            ></div>
+                          </div>
+                        </div>
+                      </form>
+                      <div class="w-form-done">
+                        <div>Thank you! Your submission has been received!</div>
+                      </div>
+                      <div class="w-form-fail">
+                        <div>
+                          Oops! Something went wrong while submitting the form.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="home-header_image-wrapper">
+                    <img
+                      src="images/home-header_image.svg"
+                      loading="lazy"
+                      width="608"
+                      alt="header image showing key features of Engage"
+                      class="home-header_image"
+                    />
                   </div>
                 </div>
               </div>
-              <nav class="footer-item-group">
-                <div class="footer-item">
-                  <h4 class="heading-small is-text-color-white is-font-weight-medium">Guides</h4>
-                  <nav class="footer-item-list">
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a2c" href="https://engage.so/docs/" target="_blank" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-none">Documentation</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a2f" href="https://engage.so/docs/guides/connecting-user-data" target="_blank" class="footer-link is-link-full-width w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Connecting Customer Data</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a32" href="https://engage.so/docs/guides/segments" target="_blank" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Segmenting Customer</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a35" href="https://engage.so/docs/guides/automations" target="_blank" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Creating Automations</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                  </nav>
-                </div>
-                <div class="footer-item is-margin-top-custom-xlarge">
-                  <h4 class="heading-small is-text-color-white is-font-weight-medium">Developers</h4>
-                  <nav class="footer-item-list">
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a3c" href="https://engage.so/docs/api/" target="_blank" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-none">API Documentation</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a3f" href="integrations.html" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Integrations</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a42" href="https://engage.so/docs/sdks/" target="_blank" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">SDKs</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                  </nav>
-                </div>
-              </nav>
-              <nav class="footer-item-group">
-                <div class="footer-item">
-                  <h4 class="heading-small is-text-color-white is-font-weight-medium">Features</h4>
-                  <div class="footer-item-list">
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a4a" href="features/customer-segmentation.html" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-none">Customer Segmentation</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a4d" href="features/broadcasts.html" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Broadcasts</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a50" href="features/automation.html" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Automation</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
+            </div>
+          </div>
+        </header>
+        <section class="section-home-clients">
+          <div class="page-padding">
+            <div class="container-large">
+              <div class="margin-top margin-xxlarge">
+                <div class="home-clients">
+                  <div class="text-align-center">
+                    <h4>
+                      Trusted by the world&#x27;s most innovative companies
+                    </h4>
+                  </div>
+                  <div class="home-clients-row">
+                    <div
+                      id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879182-316b62c3"
+                      class="home-client_image-wrapper"
+                    >
+                      <img
+                        src="images/indie-campers.svg"
+                        loading="lazy"
+                        width="88"
+                        alt="indie campers logo"
+                        class="indie-campers"
+                      />
+                    </div>
+                    <div
+                      id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879184-316b62c3"
+                      class="home-client_image-wrapper"
+                    >
+                      <img
+                        src="images/beyond-social-media.svg"
+                        loading="lazy"
+                        width="91"
+                        alt="beyond social media logo"
+                        class="beyond-sm"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/crop2cash.svg"
+                        loading="lazy"
+                        width="162"
+                        alt="crop 2 cash logo"
+                        class="crop2cash"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/boon.svg"
+                        loading="lazy"
+                        width="83"
+                        alt="boon logo"
+                        class="boon"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/casava.png"
+                        loading="lazy"
+                        width="140"
+                        alt="casava insurance logo"
+                        class="crop2cash"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/vcplatform.png"
+                        loading="lazy"
+                        width="129"
+                        alt="vc platform logo"
+                        class="reliance"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/ticketgateway.png"
+                        loading="lazy"
+                        width="151"
+                        alt="ticket gateway logo"
+                        class="boon"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/accrue.svg"
+                        loading="lazy"
+                        width="134"
+                        alt="accrue logo"
+                        class="accrue"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/eden.svg"
+                        loading="lazy"
+                        width="57"
+                        alt="eden logo"
+                        class="eden"
+                      />
+                    </div>
+                    <div class="home-client_image-wrapper">
+                      <img
+                        src="images/reliance-hmo-large.svg"
+                        loading="lazy"
+                        width="145"
+                        alt="reliance hmo logo"
+                        class="reliance"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div class="footer-item is-margin-top-custom-xlarge">
-                  <div class="footer-item-image">
-                    <h4 class="heading-small is-text-color-white is-font-weight-medium">Projects</h4><img src="images/sparkles.gif" loading="lazy" alt="" class="sparkles">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-features">
+          <div class="page-padding">
+            <div class="container-large">
+              <div class="margin-top margin-custom-roomy">
+                <div class="section-header">
+                  <div class="text-style-subheading">THE RIGHT FIT FOR YOU</div>
+                  <h2>Send messages to targeted audience<br /></h2>
+                  <p class="paragraph-body">
+                    Send targeted messages with our easy to use features.
+                  </p>
+                </div>
+                <div
+                  class="features-horizontal_component is-margin-custom-xlarge"
+                >
+                  <div class="features_content-left">
+                    <div class="text-icon-wrapper">
+                      <img
+                        src="images/Automation-icon.svg"
+                        loading="lazy"
+                        alt="automation-icon"
+                        class="icon"
+                      />
+                      <div class="text-style-icon">Automations</div>
+                    </div>
+                    <h3>
+                      Keep your onboarding, conversion and retention messages on
+                      autopilot
+                    </h3>
+                    <p class="paragraph-body">
+                      Create email sequences, drip campaigns and workflows to
+                      automatically engage customers based on set triggers. They
+                      stay running till you stop them.
+                    </p>
+                    <div
+                      data-w-id="527bd773-24cc-e8f9-09eb-ea566e07d26a"
+                      class="button-link-wrapper is-margin-left-custom-small"
+                    >
+                      <a
+                        href="features/automation.html"
+                        class="button is-margin-top-custom-xxlarge is-max-width-custom-medium w-inline-block"
+                      >
+                        <div class="button-link-text">Learn more</div>
+                      </a>
+                      <div
+                        class="button-stroke is-max-width-custom-medium"
+                      ></div>
+                    </div>
                   </div>
-                  <div class="footer-item-list">
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a59" href="https://www.martomation.com/" target="_blank" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-none">Martomation</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
+                  <div class="features_image-wrapper">
+                    <img
+                      src="images/feature_image.svg"
+                      loading="lazy"
+                      width="606"
+                      alt="automation feature image"
+                      class="features_image"
+                    />
                   </div>
                 </div>
-              </nav>
-              <nav id="w-node-ef13fec3-0529-77bf-eb95-280cd2431a5c-d2431a0c" class="footer-item">
-                <h4 class="heading-small is-text-color-white is-font-weight-medium">Use Cases</h4>
-                <div class="footer-item-list">
-                  <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a60" href="use-cases/onboarding.html" class="footer-link w-inline-block">
-                    <p class="paragraph-body is-text-color-white is-margin-none">Onboarding</p>
-                    <div class="footer_link-bottom_border"></div>
-                  </a>
-                  <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a63" href="use-cases/retention.html" class="footer-link w-inline-block">
-                    <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Retention</p>
-                    <div class="footer_link-bottom_border"></div>
-                  </a>
-                  <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a66" href="use-cases/billing.html" class="footer-link is-link-full-width w-inline-block">
-                    <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Automate Stripe Billing Notifications and Reminders</p>
-                    <div class="footer_link-bottom_border"></div>
-                  </a>
-                  <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a69" href="use-cases/analytics.html" class="footer-link is-link-full-width w-inline-block">
-                    <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Transaction Email Analytics</p>
-                    <div class="footer_link-bottom_border"></div>
-                  </a>
+                <div class="margin-top margin-large">
+                  <div class="features-vertical_component">
+                    <div class="features-vertical_content">
+                      <div class="features-vertical_text-content">
+                        <div class="max-width-medium">
+                          <div class="text-icon-wrapper">
+                            <img
+                              src="images/customer-segmentation-white-icon.svg"
+                              loading="lazy"
+                              alt="customer segmentation icon"
+                              class="icon"
+                            />
+                            <div class="text-style-icon is-white">
+                              Customer Segmentation
+                            </div>
+                          </div>
+                          <h3 class="heading-medium is-text-color-white">
+                            Group your customers based on data
+                          </h3>
+                          <p class="paragraph-body is-text-color-white">
+                            Create customer groups based on customer attributes
+                            and events like gender, location, last login and app
+                            activity. Send targeted messages through emails, SMS
+                            and in-app messages, and see how customers convert.
+                          </p>
+                        </div>
+                        <div
+                          data-w-id="d8202993-8adc-7448-d543-5f0806627209"
+                          class="button-link-wrapper is-margin-left-custom-small"
+                        >
+                          <a
+                            href="features/customer-segmentation.html"
+                            class="button is-margin-top-custom-medium is-max-width-custom-medium w-inline-block"
+                          >
+                            <div class="button-link-text">Learn more</div>
+                          </a>
+                          <div
+                            class="button-stroke is-max-width-custom-medium"
+                          ></div>
+                        </div>
+                      </div>
+                      <img
+                        src="images/features-customer-segmentation.svg"
+                        loading="lazy"
+                        width="607"
+                        alt="customer segmentation image"
+                        class="feature-vertical_image"
+                      />
+                    </div>
+                    <div
+                      class="features-vertical_content is-bg-darkblue is-margin-top-custom-large"
+                    >
+                      <div class="features-vertical_text-content">
+                        <div class="max-width-medium">
+                          <div class="text-icon-wrapper">
+                            <img
+                              src="images/broadcast-white-icon.svg"
+                              loading="lazy"
+                              alt="broadcast icon"
+                              class="icon"
+                            />
+                            <div class="text-style-icon is-white">
+                              broadcasts
+                            </div>
+                          </div>
+                          <h3 class="heading-medium is-text-color-white">
+                            Reach customers through the right channel
+                          </h3>
+                          <p class="paragraph-body is-text-color-white">
+                            Engage supports email, SMS and push notifications to
+                            enable you deliver the right message in the right
+                            way.
+                          </p>
+                        </div>
+                        <div
+                          data-w-id="c572d5a1-2cc7-c209-b784-b8faf4dbe366"
+                          class="button-link-wrapper is-margin-left-custom-small"
+                        >
+                          <a
+                            href="features/broadcasts.html"
+                            class="button is-margin-top-custom-medium is-max-width-custom-medium w-inline-block"
+                          >
+                            <div class="button-link-text">Learn more</div>
+                          </a>
+                          <div
+                            class="button-stroke is-max-width-custom-medium"
+                          ></div>
+                        </div>
+                      </div>
+                      <img
+                        src="images/features-broadcast.svg"
+                        loading="lazy"
+                        width="607"
+                        alt="broadcast feature image"
+                        class="feature-vertical_image"
+                      />
+                    </div>
+                  </div>
                 </div>
-              </nav>
-              <div class="footer-item-group">
-                <nav id="w-node-ef13fec3-0529-77bf-eb95-280cd2431a6c-d2431a0c" class="footer-item">
-                  <h4 class="heading-small is-text-color-white is-font-weight-medium">Company</h4>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-more-features">
+          <div class="page-padding">
+            <div class="container-large">
+              <div class="more-features_component large">
+                <h2 class="heading-large is-text-center">
+                  Build fans with Engage
+                </h2>
+                <div class="more-features_wrapper w-row">
+                  <div
+                    class="more-feature_item is-margin-bottom-medium w-col w-col-3 w-col-medium-6"
+                  >
+                    <div class="text-icon-wrapper">
+                      <img
+                        src="images/Lists-icon.svg"
+                        loading="lazy"
+                        alt="lists icon"
+                        class="icon"
+                      />
+                    </div>
+                    <h4>Subscription lists</h4>
+                    <p class="paragraph-body">
+                      Lists are an easy way to create customer groups for
+                      engagement. Create lists for your online forms or
+                      newsletters.
+                    </p>
+                  </div>
+                  <div
+                    class="more-feature_item is-margin-bottom-medium w-col w-col-3 w-col-medium-6"
+                  >
+                    <div class="text-icon-wrapper">
+                      <img
+                        src="images/Integration-icon.svg"
+                        loading="lazy"
+                        alt="integration icon"
+                        class="icon"
+                      />
+                    </div>
+                    <h4>Connect your favourite services</h4>
+                    <p class="paragraph-body">
+                      From payment gateways to data analytics tools, Engage
+                      supports multiple services like Segment and Zapier you can
+                      connect to for customer data enrichment.
+                    </p>
+                  </div>
+                  <div
+                    class="more-feature_item is-margin-bottom-medium w-col w-col-3 w-col-medium-6"
+                  >
+                    <div class="text-icon-wrapper">
+                      <img
+                        src="images/Add-mail-icon.svg"
+                        loading="lazy"
+                        alt="add mail icon"
+                        class="icon"
+                      />
+                    </div>
+                    <h4>Bring your messaging infrastructure</h4>
+                    <p class="paragraph-body">
+                      Already use Amazon SES, Mailgun or Twilio for messaging?
+                      Connect your existing messaging infrastructure and
+                      continue to use this in Engage.
+                    </p>
+                  </div>
+                  <div class="more-feature_item w-col w-col-3 w-col-medium-6">
+                    <div class="text-icon-wrapper">
+                      <img
+                        src="images/Email-Analytic-icon.svg"
+                        loading="lazy"
+                        alt="email analytics icon"
+                        class="icon"
+                      />
+                    </div>
+                    <h4>Transactional email analytics</h4>
+                    <p class="paragraph-body">
+                      Connected your transactional email provider? Engage gives
+                      you detailed analytics and reporting of your transactional
+                      emails. We support top service providers like Amazon SES,
+                      Mailgun and more.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-home-testimonial">
+          <div class="page-padding">
+            <div class="container-large">
+              <div class="margin-top margin-custom-roomy">
+                <div class="home-testimonial">
+                  <div
+                    id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879201-316b62c3"
+                    class="home-testimonial_content-wrapper"
+                  >
+                    <h1 class="heading-large is-text-color-white">
+                      You’re in great company
+                    </h1>
+                    <p class="paragraph-body is-text-color-white">
+                      We’re trusted by industry leading companies looking to
+                      further improve their customer relationship. Join these
+                      companies as they share their reports so far.
+                    </p>
+                  </div>
+                  <div
+                    id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879206-316b62c3"
+                    data-w-id="6ce715fa-b7ac-9143-14df-cffa7d879206"
+                    class="home-testimonial-column-wrapper"
+                  >
+                    <div
+                      class="home-testimonial-card-group is-margin-top-tablet-view"
+                    >
+                      <div class="home-testimonial-card-item">
+                        <div class="testimonial-card">
+                          <img
+                            src="images/reliance-sm-icon.svg"
+                            loading="lazy"
+                            alt="reliance hmo logo"
+                            class="testimonial-card-img"
+                          />
+                          <h1 class="heading-xxlarge white">15mins</h1>
+                          <p
+                            class="text-size-medium is-text-color-white is-no-wrap"
+                          >
+                            Reduce on each customer ticket
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="home-testimonial-card-item is-margin-top-custom-small"
+                      >
+                        <div class="testimonial-card">
+                          <img
+                            src="images/boon-white.svg"
+                            loading="lazy"
+                            alt="boon logo"
+                            class="image-4"
+                          />
+                          <h1 class="heading-xxlarge white">-20%</h1>
+                          <p
+                            class="text-size-medium is-text-color-white is-no-wrap"
+                          >
+                            Customer Churn Rate
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      id="w-node-_6ce715fa-b7ac-9143-14df-cffa7d879216-316b62c3"
+                      class="home-testimonial-customer"
+                    >
+                      <p class="text-size-large is-text-color-white">
+                        “We considered moving to a new platform to have better
+                        tracking but integrating with Engage was super simple
+                        and gave us all we needed, without having to go through
+                        a costly and risky migration.”
+                      </p>
+                      <div class="block-text-img mt-56">
+                        <img
+                          src="images/testimonial-customer-img.svg"
+                          loading="lazy"
+                          alt="testimonial customer image"
+                        />
+                        <div class="customer-text ml-8">
+                          <p
+                            class="text-size-large is-text-color-white is-font-family-grotesk"
+                          >
+                            Simone Basso
+                          </p>
+                          <div class="customer-text-wrapper">
+                            <p class="text-size-medium is-text-color-white">
+                              CTO &amp; Product Officer,
+                            </p>
+                            <p
+                              class="text-size-medium is-text-color-white text-weight-semibold is-custom-margin-left"
+                            >
+                              Indie Campers
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="home-testimonial-card-group is-margin-top-small"
+                    >
+                      <div class="home-testimonial-card-item">
+                        <div class="testimonial-card">
+                          <img
+                            src="images/reliance-sm-icon.svg"
+                            loading="lazy"
+                            alt="reliance hmo"
+                            class="testimonial-card-img"
+                          />
+                          <h1 class="heading-xxlarge white">15mins</h1>
+                          <p
+                            class="text-size-medium is-text-color-white is-no-wrap"
+                          >
+                            Reduce on each customer ticket
+                          </p>
+                        </div>
+                      </div>
+                      <div
+                        class="home-testimonial-card-item is-margin-top-custom-small"
+                      >
+                        <div class="testimonial-card">
+                          <img
+                            src="images/boon-white.svg"
+                            loading="lazy"
+                            alt="boon logo"
+                            class="image-4"
+                          />
+                          <h1 class="heading-xxlarge white">-20%</h1>
+                          <p
+                            class="text-size-medium is-text-color-white is-no-wrap"
+                          >
+                            Customer Churn Rate
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-features">
+          <div class="page-padding">
+            <div class="container-large">
+              <div class="margin-top margin-custom-roomy">
+                <div class="section-header">
+                  <div class="text-style-subheading is-bg-darker-blue">
+                    seamless from the get go
+                  </div>
+                  <h2>Easily bring in your data and integrate<br /></h2>
+                  <p class="paragraph-body">
+                    Sync customer data and events with our integrations, simple
+                    API and SDKs
+                  </p>
+                </div>
+                <div class="margin-top margin-huge">
+                  <div class="features-vertical_component">
+                    <div
+                      class="features-vertical_content is-bg-white is-padding-bottom-custom-medium"
+                    >
+                      <div class="features-vertical_text-content">
+                        <div class="max-width-medium">
+                          <div class="text-icon-wrapper">
+                            <img
+                              src="images/integration-black-icon.svg"
+                              loading="lazy"
+                              alt="integration icon"
+                              class="icon"
+                            />
+                            <div class="text-style-icon">Integrations</div>
+                          </div>
+                          <h3 class="heading-medium">
+                            Connect your favorite tools
+                          </h3>
+                          <p class="paragraph-body">
+                            Bring in customer data from your favourite services
+                            like Segment, Stripe, Paystack, AWS, Zapier and
+                            more.
+                          </p>
+                        </div>
+                        <div
+                          data-w-id="8ed23a53-d6aa-54d1-05ab-6c88e35dcca7"
+                          class="button-link-wrapper is-margin-left-custom-small"
+                        >
+                          <a
+                            href="integrations.html"
+                            class="button is-margin-top-custom-large is-max-width-custom-large w-inline-block"
+                          >
+                            <div class="button-link-text">
+                              See all integrations
+                            </div>
+                          </a>
+                          <div
+                            class="button-stroke is-max-width-custom-large"
+                          ></div>
+                        </div>
+                      </div>
+                      <img
+                        src="images/feature-integration.svg"
+                        loading="lazy"
+                        width="607"
+                        alt="integration feature image"
+                        class="feature-vertical_image"
+                      />
+                    </div>
+                    <div
+                      class="features-vertical_content is-bg-yellow is-margin-top-custom-large"
+                    >
+                      <div class="features-vertical_text-content">
+                        <div class="max-width-medium">
+                          <div class="text-icon-wrapper">
+                            <img
+                              src="images/developer-black-icon.svg"
+                              loading="lazy"
+                              alt="developer icon"
+                              class="icon"
+                            />
+                            <div class="text-style-icon is-deep-black">
+                              DEVELOPER
+                            </div>
+                          </div>
+                          <h3 class="heading-medium">
+                            Reach customers through the right channel
+                          </h3>
+                          <p class="paragraph-body is-deep-black">
+                            Engage provides a simple user API to track customer
+                            attributes and events. We also have SDKs to make
+                            your integration easier.
+                          </p>
+                        </div>
+                        <div
+                          data-w-id="dafbf662-f554-1ba1-066d-220536afc48c"
+                          class="button-link-wrapper is-margin-left-custom-small"
+                        >
+                          <a
+                            href="https://engage.so/docs/api/"
+                            target="_blank"
+                            class="button is-margin-top-custom-large is-max-width-custom-large w-inline-block"
+                          >
+                            <div class="button-link-text">Explore our API</div>
+                          </a>
+                          <div
+                            class="button-stroke is-max-width-custom-large"
+                          ></div>
+                        </div>
+                      </div>
+                      <img
+                        src="images/feature-developer.svg"
+                        loading="lazy"
+                        width="607"
+                        alt="developer feature image"
+                        class="feature-vertical_image"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer-group">
+        <div class="cta">
+          <div class="container-large">
+            <div class="cta-bg">
+              <div class="padding-top padding-huge">
+                <h1
+                  class="heading-xlarge is-text-color-white max-width-large is-margin-auto heading-custom-medium"
+                >
+                  Ready to improve your customer messaging?
+                </h1>
+              </div>
+              <div class="button-flex">
+                <div
+                  data-w-id="d0392c5b-1fdc-b6c4-652f-15d65aa59a27"
+                  class="button-link-wrapper is-margin-left-custom-small"
+                >
+                  <a
+                    href="https://app.engage.so/auth/signup"
+                    class="button is-margin-top-custom-xxlarge w-inline-block"
+                  >
+                    <div class="button-link-text">Get started for free</div>
+                  </a>
+                  <div
+                    class="button-stroke is-max-width-custom-large is-reposition-footer"
+                  ></div>
+                </div>
+              </div>
+              <div class="cta-text">
+                <p class="paragraph-body is-text-color-white">
+                  No credit card required
+                </p>
+              </div>
+              <img
+                src="images/Pattern-5-large.svg"
+                loading="lazy"
+                alt=""
+                class="pattern"
+              />
+            </div>
+          </div>
+        </div>
+        <footer class="footer mt-280">
+          <div class="page-padding">
+            <div class="container-large">
+              <div class="footer-wrapper">
+                <div class="footer-images">
+                  <img
+                    src="https://uploads-ssl.webflow.com/62b4c3658d288d4efaebc45a/62b4c5db910aad4f208dada9_engage-logo-white.svg"
+                    loading="lazy"
+                    alt=""
+                  />
+                  <p
+                    class="paragraph-body is-text-color-white is-margin-top-custom-medium"
+                  >
+                    Convert customers into fans
+                  </p>
+                  <div class="margin-top margin-xxlarge">
+                    <div class="footer-icons">
+                      <a
+                        href="https://www.instagram.com/engage_messaging/"
+                        class="footer-icon w-inline-block"
+                        ><img
+                          src="images/instagram-fill.svg"
+                          loading="lazy"
+                          alt="Instagram icon links to engage Instagram"
+                          class="icon-item-1"
+                      /></a>
+                      <a
+                        href="https://twitter.com/engage_so"
+                        class="footer-icon w-inline-block"
+                        ><img
+                          src="images/twitter-fill.svg"
+                          loading="lazy"
+                          alt="twitter icon links to engage twitter"
+                          class="icon-item-2"
+                      /></a>
+                      <a
+                        href="https://www.linkedin.com/company/engage-messaging/"
+                        class="footer-icon w-inline-block"
+                        ><img
+                          src="images/linkedin-box-fill.svg"
+                          loading="lazy"
+                          alt="LinkedIn icon links to engage LinkedIn "
+                          class="icon-item-3"
+                      /></a>
+                    </div>
+                  </div>
+                </div>
+                <nav class="footer-item-group">
+                  <div class="footer-item">
+                    <h4
+                      class="heading-small is-text-color-white is-font-weight-medium"
+                    >
+                      Guides
+                    </h4>
+                    <nav class="footer-item-list">
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a2c"
+                        href="https://engage.so/docs/"
+                        target="_blank"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-none"
+                        >
+                          Documentation
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a2f"
+                        href="https://engage.so/docs/guides/connecting-user-data"
+                        target="_blank"
+                        class="footer-link is-link-full-width w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          Connecting Customer Data
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a32"
+                        href="https://engage.so/docs/guides/segments"
+                        target="_blank"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          Segmenting Customer
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a35"
+                        href="https://engage.so/docs/guides/automations"
+                        target="_blank"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          Creating Automations
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                    </nav>
+                  </div>
+                  <div class="footer-item is-margin-top-custom-xlarge">
+                    <h4
+                      class="heading-small is-text-color-white is-font-weight-medium"
+                    >
+                      Developers
+                    </h4>
+                    <nav class="footer-item-list">
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a3c"
+                        href="https://engage.so/docs/api/"
+                        target="_blank"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-none"
+                        >
+                          API Documentation
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a3f"
+                        href="integrations.html"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          Integrations
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a42"
+                        href="https://engage.so/docs/sdks/"
+                        target="_blank"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          SDKs
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                    </nav>
+                  </div>
+                </nav>
+                <nav class="footer-item-group">
+                  <div class="footer-item">
+                    <h4
+                      class="heading-small is-text-color-white is-font-weight-medium"
+                    >
+                      Features
+                    </h4>
+                    <div class="footer-item-list">
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a4a"
+                        href="features/customer-segmentation.html"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-none"
+                        >
+                          Customer Segmentation
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a4d"
+                        href="features/broadcasts.html"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          Broadcasts
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a50"
+                        href="features/automation.html"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          Automation
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="footer-item is-margin-top-custom-xlarge">
+                    <div class="footer-item-image">
+                      <h4
+                        class="heading-small is-text-color-white is-font-weight-medium"
+                      >
+                        Projects
+                      </h4>
+                      <img
+                        src="images/sparkles.gif"
+                        loading="lazy"
+                        alt=""
+                        class="sparkles"
+                      />
+                    </div>
+                    <div class="footer-item-list">
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a59"
+                        href="https://www.martomation.com/"
+                        target="_blank"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-none"
+                        >
+                          Martomation
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                    </div>
+                  </div>
+                </nav>
+                <nav
+                  id="w-node-ef13fec3-0529-77bf-eb95-280cd2431a5c-d2431a0c"
+                  class="footer-item"
+                >
+                  <h4
+                    class="heading-small is-text-color-white is-font-weight-medium"
+                  >
+                    Use Cases
+                  </h4>
                   <div class="footer-item-list">
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a70" href="about.html" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-none">About Us</p>
+                    <a
+                      data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a60"
+                      href="use-cases/onboarding.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <p
+                        class="paragraph-body is-text-color-white is-margin-none"
+                      >
+                        Onboarding
+                      </p>
                       <div class="footer_link-bottom_border"></div>
                     </a>
-                    <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a73" href="https://engage.so/blog/" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-top-custom-xsmall">Blog</p>
+                    <a
+                      data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a63"
+                      href="use-cases/retention.html"
+                      class="footer-link w-inline-block"
+                    >
+                      <p
+                        class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                      >
+                        Retention
+                      </p>
+                      <div class="footer_link-bottom_border"></div>
+                    </a>
+                    <a
+                      data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a66"
+                      href="use-cases/stripe-payment-notifications.html"
+                      class="footer-link is-link-full-width w-inline-block"
+                    >
+                      <p
+                        class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                      >
+                        Automate Stripe Billing Notifications and Reminders
+                      </p>
+                      <div class="footer_link-bottom_border"></div>
+                    </a>
+                    <a
+                      data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a69"
+                      href="use-cases/transactional-email-analytics.html"
+                      class="footer-link is-link-full-width w-inline-block"
+                    >
+                      <p
+                        class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                      >
+                        Transaction Email Analytics
+                      </p>
                       <div class="footer_link-bottom_border"></div>
                     </a>
                   </div>
                 </nav>
-                <div class="footer-item is-margin-top-custom-xlarge">
-                  <h4 class="heading-small is-text-color-white is-font-weight-medium">Contact</h4>
-                  <div class="footer-item-list">
-                    <a data-w-id="ded98aa0-cd19-ea7e-bfa1-b2d255e26e20" href="mailto:hello@engage.so" class="footer-link w-inline-block">
-                      <p class="paragraph-body is-text-color-white is-margin-none">hello@engage.so</p>
-                      <div class="footer_link-bottom_border"></div>
-                    </a>
+                <div class="footer-item-group">
+                  <nav
+                    id="w-node-ef13fec3-0529-77bf-eb95-280cd2431a6c-d2431a0c"
+                    class="footer-item"
+                  >
+                    <h4
+                      class="heading-small is-text-color-white is-font-weight-medium"
+                    >
+                      Company
+                    </h4>
+                    <div class="footer-item-list">
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a70"
+                        href="about.html"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-none"
+                        >
+                          About Us
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                      <a
+                        data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a73"
+                        href="https://engage.so/blog/"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-top-custom-xsmall"
+                        >
+                          Blog
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                    </div>
+                  </nav>
+                  <div class="footer-item is-margin-top-custom-xlarge">
+                    <h4
+                      class="heading-small is-text-color-white is-font-weight-medium"
+                    >
+                      Contact
+                    </h4>
+                    <div class="footer-item-list">
+                      <a
+                        data-w-id="ded98aa0-cd19-ea7e-bfa1-b2d255e26e20"
+                        href="mailto:hello@engage.so"
+                        class="footer-link w-inline-block"
+                      >
+                        <p
+                          class="paragraph-body is-text-color-white is-margin-none"
+                        >
+                          hello@engage.so
+                        </p>
+                        <div class="footer_link-bottom_border"></div>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="copyright-privacy-terms-group">
-              <div class="copyright-privacy-terms mr-24">
-                <p class="text-size-tiny">Copyright © Engage 2022</p>
-              </div>
-              <div class="copyright-privacy-terms w-clearfix">
-                <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a81" href="cookie-policy.html" class="footer-link text-right w-inline-block">
-                  <p class="text-size-tiny">Cookie</p>
-                  <div class="footer_link-bottom_border"></div>
-                </a>
-                <a data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a84" href="privacy-policy.html" class="footer-link text-right border-1 w-inline-block">
-                  <p class="text-size-tiny margin-right margin-xsmall">Privacy Policy</p>
-                  <div class="footer_link-bottom_border"></div>
-                </a>
+              <div class="copyright-privacy-terms-group">
+                <div class="copyright-privacy-terms mr-24">
+                  <p class="text-size-tiny">Copyright © Engage 2022</p>
+                </div>
+                <div class="copyright-privacy-terms w-clearfix">
+                  <a
+                    data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a81"
+                    href="cookie-policy.html"
+                    class="footer-link text-right w-inline-block"
+                  >
+                    <p class="text-size-tiny">Cookie</p>
+                    <div class="footer_link-bottom_border"></div>
+                  </a>
+                  <a
+                    data-w-id="ef13fec3-0529-77bf-eb95-280cd2431a84"
+                    href="privacy-policy.html"
+                    class="footer-link text-right border-1 w-inline-block"
+                  >
+                    <p class="text-size-tiny margin-right margin-xsmall">
+                      Privacy Policy
+                    </p>
+                    <div class="footer_link-bottom_border"></div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+        </footer>
+        <div class="w-embed">
+          <style>
+            .footer-link {
+              width: max-content;
+            }
+          </style>
         </div>
       </footer>
-      <div class="w-embed">
-        <style>
-.footer-link {
-width:max-content;
-}
-</style>
-      </div>
-    </footer>
-  </div>
-  <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b4c8558fac365a2aa71ef1" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-  <script src="js/webflow.js" type="text/javascript"></script>
-  <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
-  <script>
-window.onpageshow = function(event) {
-    if (event.persisted) {
-        window.location.reload() 
-    }
-};
-</script>
-</body>
+    </div>
+    <script
+      src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=62b4c8558fac365a2aa71ef1"
+      type="text/javascript"
+      integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/webflow.js" type="text/javascript"></script>
+    <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+    <script>
+      window.onpageshow = function (event) {
+        if (event.persisted) {
+          window.location.reload();
+        }
+      };
+    </script>
+  </body>
 </html>
