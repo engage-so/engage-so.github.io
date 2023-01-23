@@ -3588,6 +3588,7 @@ figcaption {
 
 .menu-item_title {
   color: #121212;
+  width: 95%;
 }
 
 .menu-item_title-wrapper {
@@ -4662,6 +4663,9 @@ figcaption {
 
   .menu-item_title-wrapper {
     padding-bottom: 0rem;
+  }
+  .menu-item_title{
+    width: 100%;
   }
 
   .placeholder-navbar {
