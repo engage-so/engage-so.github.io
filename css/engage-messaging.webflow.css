@@ -1670,6 +1670,27 @@ figcaption {
   padding-left: 3rem;
 }
 
+/* .features_content-left.is-margin-negative.is-padding-bottom{
+  padding-bottom: 3rem;
+} */
+
+.features_content-list{
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 16px;
+}
+
+.features_content-list-item {
+  display: flex;
+  align-items: start;
+  column-gap: 16px;
+}
+
+.features_content-icon {
+  margin-top: 4px;
+}
+
 .features_content-left.is-padding-right {
   padding-right: 3rem;
   padding-left: 0rem;
@@ -2453,6 +2474,10 @@ figcaption {
   text-align: center;
 }
 
+.section-header.affiliate-page-header-width {
+  width: 40.875rem;
+  
+}
 .section-header.is-text-align-left {
   position: static;
   -webkit-align-self: auto;
@@ -2502,6 +2527,10 @@ figcaption {
 .section-header.is-text-align-center.is-position-relative {
   position: relative;
   z-index: 1000;
+}
+
+.section-header-wrapper {
+  margin-top: 5rem;
 }
 
 .section-home-clients {
@@ -3936,6 +3965,8 @@ figcaption {
     flex-wrap: nowrap;
   }
 
+
+
   .home-header {
     -webkit-flex-wrap: nowrap;
     -ms-flex-wrap: nowrap;
@@ -4021,6 +4052,24 @@ figcaption {
   .page-feature-navigation {
     top: 25vh;
     margin-left: 14rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+
+  .features-horizontal_component.affiliate-page-height,
+  .features-horizontal_component.is-reverse.affiliate-page-height
+   {
+    max-height: 559px;
+  }
+  .text-link-wrapper.affiliate-page-margin-top-small{
+    margin-top: 3rem;
+  }
+  .section-header-wrapper {
+    margin-top: 9rem;
+  }
+  .header-nowrap {
+    white-space: nowrap;
   }
 }
 
@@ -5599,7 +5648,9 @@ figcaption {
   .section-header {
     width: 17.8rem;
   }
-
+  .section-header.affiliate-page-header-width {
+    width: 17.8rem;
+  }
   .section-header.is-text-align-left {
     margin-right: 0px;
     margin-left: 0px;
