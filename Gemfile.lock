@@ -60,11 +60,11 @@ GEM
     tzinfo-data (1.2022.6)
       tzinfo (>= 1.0.0)
     unicode-display_width (1.8.0)
-    webrick (1.7.0)
+    webrick (1.8.1)
 
 PLATFORMS
   arm64-darwin-21
-  x64-mingw-ucrt
+  x64-unknown
   x64-unknown
   x86_64-linux
 
@@ -72,7 +72,7 @@ DEPENDENCIES
   jekyll (~> 4.2)
   tzinfo (~> 2.0, >= 2.0.5)
   tzinfo-data (~> 1.2022, >= 1.2022.6)
-  webrick (~> 1.7)
+  webrick (~> 1.8)
 
 BUNDLED WITH
    2.3.12
