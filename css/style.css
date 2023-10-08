@@ -160,7 +160,7 @@ section .wrp {
 }
 
 @media screen and (min-width: 30em) {
-  .grid.grid-two-ns {
+  .grid.grid-two-l {
     grid-template-columns: repeat(2, 1fr);
   }
 }
