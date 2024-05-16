@@ -74,7 +74,7 @@ $color-text-purple: #3721d9;
 body {
   font-family: 'Inter';
   color: $color-bg-black-body;
-  background-color: $color-bg-base;
+  // background-color: $color-bg-base;
   line-height: 1.3;
 }
 
@@ -86,10 +86,10 @@ h1, .clashgrotesk {
 }
 
 header {
-  max-width: 700px;
+  max-width: 800px;
 
   h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 }
 .hero {
@@ -102,6 +102,35 @@ header {
     margin-bottom: -100px;
   }
 }
+a.hover-shrink {
+  .shrink-el {
+    transition: transform 350ms;
+  } 
+  &:hover {
+    .shrink-el {
+      transform: scale(0.8)
+    } 
+  }
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  border-radius: 8px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .screenshots {
   display: block;
   border-radius: 10px;
@@ -120,6 +149,10 @@ header {
 section .wrp {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+.w-800 {
+  max-width: 800px;
 }
 
 .grid {
@@ -445,7 +478,7 @@ button,
   transition: background-color 0.5s ease 0s;
   display: inline-block;
   background-color: #121212;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid #121212;
   padding: 8px 12px;
   color: #FFF;
@@ -457,7 +490,7 @@ button,
   }
 
   &.big {
-    padding: 15px;
+    padding: 15px 20px;
   }
 
   &.alt {
@@ -470,6 +503,24 @@ button,
     }
   }
 }
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+}
+.modal-body {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100%;
+}
+
 
 footer {
   background-color: #121212;
