@@ -40,6 +40,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 /*
 Colors
 */
@@ -92,7 +93,6 @@ a.hover-shrink:hover .shrink-el {
   overflow: hidden;
   max-width: 100%;
 }
-
 .embed-container iframe,
 .embed-container object,
 .embed-container embed {
@@ -468,7 +468,6 @@ button.alt:hover,
   left: 0;
   background-color: rgba(0, 0, 0, 0.25);
 }
-
 .modal-body {
   position: fixed;
   top: 0;
